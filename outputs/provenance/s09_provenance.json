@@ -1,68 +1,68 @@
 {
  "config_sha256": "93ff1fdc862b57ac427eb77f9ec1d1229a3c7ed34efc9e528133469c3f87a915",
- "finished_utc": "2026-09-04T18:52:12Z",
+ "finished_utc": "2026-09-04T19:36:19Z",
  "inputs": [
   {
    "bytes": 2361,
    "path": "outputs/provenance/s01_extract.json",
    "role": "stage record",
-   "sha256": "b8066778b4a2c64f39fcb6b025ed95dc6177f8014e8288b642bef42f487a7ebd"
+   "sha256": "5e9c0fae468205893f12c1971cae12c8f79ea1c57f9221cfbce7c826526e2aa3"
   },
   {
    "bytes": 15070,
    "path": "outputs/provenance/s02_fetch.json",
    "role": "stage record",
-   "sha256": "883b5cd46e921695dcec868b5cf423a657fceb14b7e6956f5b6232243f3dce45"
+   "sha256": "f51ad981436a514eb3229a2bc3a02844a48134a66ced034c83141ddda7a7c361"
   },
   {
    "bytes": 2016,
    "path": "outputs/provenance/s03_locate.json",
    "role": "stage record",
-   "sha256": "88e651352cc906c9ca3ff5189cebf71650cbccf7d91d6f02ed80e60427425e4a"
+   "sha256": "1679267a71f2b89f449afc5d8d1d465f1de95e0042ba48e27b60fc6fbc241f68"
   },
   {
    "bytes": 5056,
    "path": "outputs/provenance/s04_units.json",
    "role": "stage record",
-   "sha256": "6406f0205d5a398665f246923c1f495ee5baca24b7e56c4552cdfb66456529e6"
+   "sha256": "890e221b80e0726efa10c695f2c42e2eabe7e6e3bd7e8fbb62dfa799d9d6c286"
   },
   {
    "bytes": 6418,
    "path": "outputs/provenance/s05_blocks.json",
    "role": "stage record",
-   "sha256": "7087af3967c77fff1c52fa57b2214dc7cec116fd5655bd9d07d466961cb63d44"
+   "sha256": "364a55039dd6cc58cea877b72dbd42465a6aa16b5cf858e270cde6b476242170"
   },
   {
    "bytes": 3677,
    "path": "outputs/provenance/s06_census.json",
    "role": "stage record",
-   "sha256": "97a283c1f2749cf4cdef206e72b1c469a2aa7296cbee094f2794b154f39f6d6b"
+   "sha256": "dd3b72b05b7ffac5576d375fd6457577c4ab40ab7063bdb8c5a19be4d14ba277"
   },
   {
    "bytes": 7773,
    "path": "outputs/provenance/s07_analyze.json",
    "role": "stage record",
-   "sha256": "55c8f136f4a7078c233dd6b91f4433414f260ed47ae25a6beefabd4b84740d22"
+   "sha256": "da2ad4d78214ceaa21fd80794f066629e09144392b65bb7f320ab1209ea88ddf"
   },
   {
    "bytes": 1233,
    "path": "outputs/provenance/s08_map.json",
    "role": "stage record",
-   "sha256": "fabc971a8fe01c5fa38dcdb5b4a1284023f1f7343464eb496a0ec029bf405423"
+   "sha256": "29f165e806e1571bf3fe5461846ea51e0166ddf7814f362a08b39010b9c667a0"
   }
  ],
  "notes": [
   "start s09_provenance.py (sha256 3c277ddac4f9)",
-  "input  outputs/provenance/s01_extract.json (stage record) sha256=b8066778b4a2 bytes=2361",
-  "input  outputs/provenance/s02_fetch.json (stage record) sha256=883b5cd46e92 bytes=15070",
-  "input  outputs/provenance/s03_locate.json (stage record) sha256=88e651352cc9 bytes=2016",
-  "input  outputs/provenance/s04_units.json (stage record) sha256=6406f0205d5a bytes=5056",
-  "input  outputs/provenance/s05_blocks.json (stage record) sha256=7087af3967c7 bytes=6418",
-  "input  outputs/provenance/s06_census.json (stage record) sha256=97a283c1f274 bytes=3677",
-  "input  outputs/provenance/s07_analyze.json (stage record) sha256=55c8f136f4a7 bytes=7773",
-  "input  outputs/provenance/s08_map.json (stage record) sha256=fabc971a8fe0 bytes=1233",
+  "input  outputs/provenance/s01_extract.json (stage record) sha256=5e9c0fae4682 bytes=2361",
+  "input  outputs/provenance/s02_fetch.json (stage record) sha256=f51ad981436a bytes=15070",
+  "input  outputs/provenance/s03_locate.json (stage record) sha256=1679267a71f2 bytes=2016",
+  "input  outputs/provenance/s04_units.json (stage record) sha256=890e221b80e0 bytes=5056",
+  "input  outputs/provenance/s05_blocks.json (stage record) sha256=364a55039dd6 bytes=6418",
+  "input  outputs/provenance/s06_census.json (stage record) sha256=dd3b72b05b7f bytes=3677",
+  "input  outputs/provenance/s07_analyze.json (stage record) sha256=da2ad4d78214 bytes=7773",
+  "input  outputs/provenance/s08_map.json (stage record) sha256=29f165e806e1 bytes=1233",
   "verification passed: 58 produced files checked",
-  "output PROVENANCE.md (human-readable provenance report) sha256=616bf87813fd rows=None"
+  "output PROVENANCE.md (human-readable provenance report) sha256=8da4fe417d67 rows=None"
  ],
  "ok": true,
  "outputs": [
@@ -71,7 +71,7 @@
    "path": "PROVENANCE.md",
    "role": "human-readable provenance report",
    "rows": null,
-   "sha256": "616bf87813fdaa3a0fe19fec416b78cc5ef8e4cf463c2956029c41c830a46aff"
+   "sha256": "8da4fe417d67e8e5123443a3b04055b59b4fc811ac48451d81a22f87871b1507"
   }
  ],
  "params": {},
@@ -81,5 +81,5 @@
  "script_sha256": "3c277ddac4f978d1135470a61df7e357447478711a638f9b54fd53dff41dc6e8",
  "seconds": 0.0,
  "stage": "s09_provenance",
- "started_utc": "2026-09-04T18:52:12Z"
+ "started_utc": "2026-09-04T19:36:19Z"
 }

@@ -9,7 +9,7 @@
 [s01_extract] output data/interim/s01_parcels.csv (all Oak Park parcels, one row per PIN) sha256=2de4e10e6e82 rows=18733
 [s01_extract] address points with city like Oak Park and coordinates: 12158
 [s01_extract] output data/interim/s01_address_points.csv (Oak Park address points (address, lat, lon)) sha256=7331558c1065 rows=12158
-[s01_extract] end (1.0s) -> outputs/provenance/s01_extract.json
+[s01_extract] end (2.7s) -> outputs/provenance/s01_extract.json
 [s02_fetch] start s02_fetch.py (sha256 4a0d8e7a63cd)
 [s02_fetch] input  data/interim/s01_parcels.csv (parcel list (for supplemental PIN fetch)) sha256=2de4e10e6e82 bytes=1973880
 [s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/arcgis_parcels_oak_park.geojson
@@ -55,7 +55,7 @@
 [s02_fetch] output data/raw/pl/ilgeo2020.pl (member of il2020.pl.zip) sha256=0629a31079ac rows=None
 [s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/censusreporter_acs_bg.json
 [s02_fetch] output data/raw/censusreporter_acs_bg.json (ACS 5-year block-group tables via Census Reporter) sha256=da35edfce163 rows=53
-[s02_fetch] end (1.3s) -> outputs/provenance/s02_fetch.json
+[s02_fetch] end (2.1s) -> outputs/provenance/s02_fetch.json
 [s03_locate] start s03_locate.py (sha256 eca8561d8898)
 [s03_locate] input  data/interim/s01_parcels.csv (parcels) sha256=2de4e10e6e82 bytes=1973880
 [s03_locate] input  data/interim/s01_address_points.csv (address points) sha256=7331558c1065 bytes=698307
@@ -183,14 +183,14 @@
 [s08_map] output outputs/map.html (interactive block-type map) sha256=671e89a8ad3e rows=None
 [s08_map] end (0.0s) -> outputs/provenance/s08_map.json
 [s09_provenance] start s09_provenance.py (sha256 3c277ddac4f9)
-[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=b8066778b4a2 bytes=2361
-[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=883b5cd46e92 bytes=15070
-[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=88e651352cc9 bytes=2016
-[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=6406f0205d5a bytes=5056
-[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=7087af3967c7 bytes=6418
-[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=97a283c1f274 bytes=3677
-[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=55c8f136f4a7 bytes=7773
-[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=fabc971a8fe0 bytes=1233
+[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=5e9c0fae4682 bytes=2361
+[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=f51ad981436a bytes=15070
+[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=1679267a71f2 bytes=2016
+[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=890e221b80e0 bytes=5056
+[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=364a55039dd6 bytes=6418
+[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=dd3b72b05b7f bytes=3677
+[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=da2ad4d78214 bytes=7773
+[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=29f165e806e1 bytes=1233
 [s09_provenance] verification passed: 58 produced files checked
-[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=616bf87813fd rows=None
+[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=8da4fe417d67 rows=None
 [s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json

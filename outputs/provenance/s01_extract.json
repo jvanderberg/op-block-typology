@@ -1,6 +1,6 @@
 {
  "config_sha256": "93ff1fdc862b57ac427eb77f9ec1d1229a3c7ed34efc9e528133469c3f87a915",
- "finished_utc": "2026-09-04T18:52:03Z",
+ "finished_utc": "2026-09-04T19:36:10Z",
  "inputs": [
   {
    "bytes": 6592802816,
@@ -50,7 +50,7 @@
  "python": "3.14.7",
  "script": "s01_extract.py",
  "script_sha256": "cc9ab761eef126e1642a4b87368e4ebd4d38e612fe0154cf60b8b52b4808bc73",
- "seconds": 1.0,
+ "seconds": 2.7,
  "stage": "s01_extract",
- "started_utc": "2026-09-04T18:52:02Z"
+ "started_utc": "2026-09-04T19:36:07Z"
 }

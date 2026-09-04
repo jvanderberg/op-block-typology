@@ -51,7 +51,7 @@ outputs are unchanged on disk; every file in outputs/ was produced by a stage.
 
 ## s01_extract
 
-Script `s01_extract.py` (sha256 cc9ab761eef126e1), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T18:52:02Z, 1.0 s.
+Script `s01_extract.py` (sha256 cc9ab761eef126e1), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T19:36:07Z, 2.7 s.
 
 Parameters: `db_path=/Users/joshv/git/tax_appeal_app/data/properties.db`, `township_code=27`, `year=2026`
 
@@ -75,7 +75,7 @@ address points with city like Oak Park and coordinates: 12158
 
 ## s02_fetch
 
-Script `s02_fetch.py` (sha256 4a0d8e7a63cdd049), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T18:52:03Z, 1.3 s.
+Script `s02_fetch.py` (sha256 4a0d8e7a63cdd049), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T19:36:10Z, 2.1 s.
 
 Inputs:
 
@@ -134,7 +134,7 @@ exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/censusrep
 
 ## s03_locate
 
-Script `s03_locate.py` (sha256 eca8561d88983940), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T18:52:05Z, 0.4 s.
+Script `s03_locate.py` (sha256 eca8561d88983940), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T19:36:12Z, 0.4 s.
 
 Inputs:
 
@@ -156,7 +156,7 @@ unlocated by class: 299=38, 315=3, 391=2, 517=2, EX=1, 592=1, 212=1
 
 ## s04_units
 
-Script `s04_units.py` (sha256 2a038b445d195c7b), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T18:52:05Z, 0.4 s.
+Script `s04_units.py` (sha256 2a038b445d195c7b), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T19:36:13Z, 0.4 s.
 
 Parameters: `CONDO_CLASSES=['299']`, `LARGE_MF_CLASSES=['313', '314', '315', '318', '390', '391', '397', '213']`, `LARGE_MF_MIN_UNITS=7`, `SF_ATTACHED_CLASSES=['210', '295']`, `SF_DETACHED_CLASSES=['202', '203', '204', '205', '206', '207', '208', '209', '234', '278', '218']`, `SMALL_MF_CLASSES=['211', '212']`, `SMALL_MF_DEFAULT_UNITS=2`, `SMALL_MF_MAX_UNITS=6`
 
@@ -192,7 +192,7 @@ buildings: 13601 (with housing: 11909)
 
 ## s05_blocks
 
-Script `s05_blocks.py` (sha256 b8ef0360686b37f3), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T18:52:06Z, 1.4 s.
+Script `s05_blocks.py` (sha256 b8ef0360686b37f3), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T19:36:13Z, 1.4 s.
 
 Parameters: `CENSUS_GAP_MIN_SHARE=0.3`, `CENSUS_GAP_MIN_UNITS=7`, `DOMINANT_SHARE=0.5`, `PLACE_GEOID=1754885`, `SF_ONLY_MIN_SHARE=0.95`, `SF_ONLY_SENSITIVITY=[1.0, 0.9]`
 
@@ -239,7 +239,7 @@ block groups: 53; category: single_family=3, small_mf_2_6=0, large_mf_7plus=20, 
 
 ## s06_census
 
-Script `s06_census.py` (sha256 c3452e67a0a1b17c), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T18:52:08Z, 2.7 s.
+Script `s06_census.py` (sha256 c3452e67a0a1b17c), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T19:36:15Z, 2.7 s.
 
 Inputs:
 
@@ -269,7 +269,7 @@ ACS block groups: 53; population estimate 53292
 
 ## s07_analyze
 
-Script `s07_analyze.py` (sha256 6749f439cbb87c4a), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T18:52:11Z, 0.3 s.
+Script `s07_analyze.py` (sha256 6749f439cbb87c4a), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T19:36:18Z, 0.3 s.
 
 Parameters: `GQ_MAX_SHARE=0.25`, `SF_ONLY_MIN_SHARE=0.95`, `SF_ONLY_SENSITIVITY=[1.0, 0.9]`
 
@@ -309,7 +309,7 @@ headline (2020, all blocks): Single-family only: white 68.7%, black 10.4%, hispa
 
 ## s08_map
 
-Script `s08_map.py` (sha256 ea9cfe61704ba89b), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T18:52:11Z, 0.0 s.
+Script `s08_map.py` (sha256 ea9cfe61704ba89b), config.py 93ff1fdc862b57ac, python 3.14.7, started 2026-09-04T19:36:18Z, 0.0 s.
 
 Inputs:
 
