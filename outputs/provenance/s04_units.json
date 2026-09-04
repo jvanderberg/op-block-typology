@@ -1,0 +1,111 @@
+{
+ "config_sha256": "93ff1fdc862b57ac427eb77f9ec1d1229a3c7ed34efc9e528133469c3f87a915",
+ "finished_utc": "2026-09-04T18:52:06Z",
+ "inputs": [
+  {
+   "bytes": 3391438,
+   "path": "data/interim/s03_parcels_located.csv",
+   "role": "located parcels",
+   "sha256": "263e53ce49265f36eb95c1164ce6afe915e00944de4340d5f3847fef6c9804f6"
+  },
+  {
+   "bytes": 410641,
+   "path": "data/raw/socrata_csik-bsws_oak_park.json",
+   "role": "Commercial Valuation Data (unit counts)",
+   "sha256": "9da68c86b26f3bbb624de45cb04f56d6aeb7af09466a2d28e3108c17796f7edb"
+  }
+ ],
+ "notes": [
+  "start s04_units.py (sha256 2a038b445d19)",
+  "param SF_DETACHED_CLASSES=('202', '203', '204', '205', '206', '207', '208', '209', '234', '278', '218')",
+  "param SF_ATTACHED_CLASSES=('210', '295')",
+  "param SMALL_MF_CLASSES=('211', '212')",
+  "param CONDO_CLASSES=('299',)",
+  "param LARGE_MF_CLASSES=('313', '314', '315', '318', '390', '391', '397', '213')",
+  "param SMALL_MF_DEFAULT_UNITS=2",
+  "param SMALL_MF_MAX_UNITS=6",
+  "param LARGE_MF_MIN_UNITS=7",
+  "input  data/interim/s03_parcels_located.csv (located parcels) sha256=263e53ce4926 bytes=3391438",
+  "input  data/raw/socrata_csik-bsws_oak_park.json (Commercial Valuation Data (unit counts)) sha256=9da68c86b26f bytes=410641",
+  "commval: 229 apartment rows with tot_units",
+  "commval keypin 16074000250000 (715 S BLVD OAK PARK) has no PIN in the 2026 parcel list; skipped",
+  "commval: 229 properties, 40 span several PINs, 288 PINs received an allocation",
+  "commval override: PIN 16071080380000 (1035 SUPERIOR ST REAR) is class 301 in 2026 assessed values but an apartment property with 0.0 units in the 2023 Commercial Valuation data; counted as large_mf (was none with 0 units)",
+  "commval override: PIN 16071200650000 (1005 LAKE ST) is class 517 in 2026 assessed values but an apartment property with 267.0 units in the 2023 Commercial Valuation data; counted as large_mf (was none with 0 units)",
+  "commval override: PIN 16071210460000 (150 FOREST AVE) is class EX in 2026 assessed values but an apartment property with 277.0 units in the 2023 Commercial Valuation data; counted as large_mf (was none with 0 units)",
+  "commval override: PIN 16081050230000 (728 AUSTIN AVE 2) is class 212 in 2026 assessed values but an apartment property with 8.0 units in the 2023 Commercial Valuation data; counted as large_mf (was small_mf with 4 units)",
+  "commval overrides applied: 4",
+  "large_mf AV-per-unit calibration: overall median 8,508; by class 212=19,478 (n=1), 301=8,969 (n=1), 313=8,991 (n=2), 314=8,145 (n=35), 315=7,873 (n=157), 318=8,718 (n=41), 390=8,572 (n=13), 391=16,023 (n=24), 397=27,153 (n=12), 517=26,409 (n=1)",
+  "large_mf: 336 PINs, 287 with commval units, 48 estimated from AV (sum est. units 1909)",
+  "unit_type: condo: 5356 PINs / 5356 units, exempt_res: 5 PINs / 8 units, large_mf: 336 PINs / 9331 units, none: 1692 PINs / 0 units, sf_attached: 667 PINs / 667 units, sf_detached: 9649 PINs / 9649 units, small_mf: 1028 PINs / 2665 units",
+  "bucket: large_mf: 5435 PINs / 14430 units, none: 1692 PINs / 0 units, sf: 10320 PINs / 10320 units, small_mf: 1286 PINs / 2926 units",
+  "units_source: char_apts: 1019 PINs / 2647 units, class_rule: 17364 PINs / 15672 units, commval_2023: 284 PINs / 6870 units, commval_2023_override: 4 PINs / 552 units, default_missing_char_apts: 9 PINs / 18 units, estimate_av/all: 4 PINs / 715 units, estimate_av/class: 44 PINs / 1194 units, exempt_char_apts: 1 PINs / 4 units, exempt_single_family: 4 PINs / 4 units",
+  "TOTAL housing units on parcels: 27676",
+  "output data/interim/s04_parcel_units.csv (parcels with unit counts, type, bucket and source) sha256=63c38375a8cf rows=18733",
+  "buildings: 13601 (with housing: 11909)",
+  "output data/interim/s04_buildings.csv (one row per building) sha256=c922748e3b8b rows=13601"
+ ],
+ "ok": true,
+ "outputs": [
+  {
+   "bytes": 4290246,
+   "path": "data/interim/s04_parcel_units.csv",
+   "role": "parcels with unit counts, type, bucket and source",
+   "rows": 18733,
+   "sha256": "63c38375a8cfdcd8b64ab4024bfcb1540ddf67dddc40d9d0c549b780329fc685"
+  },
+  {
+   "bytes": 1279768,
+   "path": "data/interim/s04_buildings.csv",
+   "role": "one row per building",
+   "rows": 13601,
+   "sha256": "c922748e3b8b28dd1dae3bf6ac06e930bd23c19be7ee74ddf117cbe01ab4daf0"
+  }
+ ],
+ "params": {
+  "CONDO_CLASSES": [
+   "299"
+  ],
+  "LARGE_MF_CLASSES": [
+   "313",
+   "314",
+   "315",
+   "318",
+   "390",
+   "391",
+   "397",
+   "213"
+  ],
+  "LARGE_MF_MIN_UNITS": 7,
+  "SF_ATTACHED_CLASSES": [
+   "210",
+   "295"
+  ],
+  "SF_DETACHED_CLASSES": [
+   "202",
+   "203",
+   "204",
+   "205",
+   "206",
+   "207",
+   "208",
+   "209",
+   "234",
+   "278",
+   "218"
+  ],
+  "SMALL_MF_CLASSES": [
+   "211",
+   "212"
+  ],
+  "SMALL_MF_DEFAULT_UNITS": 2,
+  "SMALL_MF_MAX_UNITS": 6
+ },
+ "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
+ "python": "3.14.7",
+ "script": "s04_units.py",
+ "script_sha256": "2a038b445d195c7b55393828333e7a429e7530a8239a2a7860890831a847233c",
+ "seconds": 0.4,
+ "stage": "s04_units",
+ "started_utc": "2026-09-04T18:52:05Z"
+}

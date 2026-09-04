@@ -1,0 +1,336 @@
+{
+ "config_sha256": "93ff1fdc862b57ac427eb77f9ec1d1229a3c7ed34efc9e528133469c3f87a915",
+ "finished_utc": "2026-09-04T18:52:05Z",
+ "inputs": [
+  {
+   "bytes": 1973880,
+   "path": "data/interim/s01_parcels.csv",
+   "role": "parcel list (for supplemental PIN fetch)",
+   "sha256": "2de4e10e6e829e8d2e5a4a93d4041525c7eb125d3fbea51f06a213c34d506a00"
+  }
+ ],
+ "notes": [
+  "start s02_fetch.py (sha256 4a0d8e7a63cd)",
+  "input  data/interim/s01_parcels.csv (parcel list (for supplemental PIN fetch)) sha256=2de4e10e6e82 bytes=1973880",
+  "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/arcgis_parcels_oak_park.geojson",
+  "output data/raw/arcgis_parcels_oak_park.geojson (Cook County parcel polygons (ArcGIS snapshot)) sha256=bf25146aa0fa rows=13849",
+  "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/socrata_csik-bsws_oak_park.json",
+  "output data/raw/socrata_csik-bsws_oak_park.json (Assessor Commercial Valuation Data, Oak Park rows) sha256=9da68c86b26f rows=618",
+  "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/tl_2020_17_tabblock20.zip",
+  "output data/raw/tl_2020_17_tabblock20.zip (TIGER/Line 2020 tl_2020_17_tabblock20.zip) sha256=6d6b91c73cd8 rows=None",
+  "unzipped tl_2020_17_tabblock20.zip -> /Users/joshv/git/op-block-typology/data/raw/blocks: ['tl_2020_17_tabblock20.cpg', 'tl_2020_17_tabblock20.dbf', 'tl_2020_17_tabblock20.prj', 'tl_2020_17_tabblock20.shp', 'tl_2020_17_tabblock20.shp.ea.iso.xml', 'tl_2020_17_tabblock20.shp.iso.xml', 'tl_2020_17_tabblock20.shx']",
+  "output data/raw/blocks/tl_2020_17_tabblock20.cpg (member of tl_2020_17_tabblock20.zip) sha256=3ad3031f5503 rows=None",
+  "output data/raw/blocks/tl_2020_17_tabblock20.dbf (member of tl_2020_17_tabblock20.zip) sha256=790a8b712b1f rows=None",
+  "output data/raw/blocks/tl_2020_17_tabblock20.prj (member of tl_2020_17_tabblock20.zip) sha256=0b9041e921d9 rows=None",
+  "output data/raw/blocks/tl_2020_17_tabblock20.shp (member of tl_2020_17_tabblock20.zip) sha256=99dabb89da61 rows=None",
+  "output data/raw/blocks/tl_2020_17_tabblock20.shp.ea.iso.xml (member of tl_2020_17_tabblock20.zip) sha256=bfec33140cc7 rows=None",
+  "output data/raw/blocks/tl_2020_17_tabblock20.shp.iso.xml (member of tl_2020_17_tabblock20.zip) sha256=1c76bdece4cd rows=None",
+  "output data/raw/blocks/tl_2020_17_tabblock20.shx (member of tl_2020_17_tabblock20.zip) sha256=e914a1e4e727 rows=None",
+  "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/tl_2020_17_bg.zip",
+  "output data/raw/tl_2020_17_bg.zip (TIGER/Line 2020 tl_2020_17_bg.zip) sha256=e056695f5b8c rows=None",
+  "unzipped tl_2020_17_bg.zip -> /Users/joshv/git/op-block-typology/data/raw/bg: ['tl_2020_17_bg.cpg', 'tl_2020_17_bg.dbf', 'tl_2020_17_bg.prj', 'tl_2020_17_bg.shp', 'tl_2020_17_bg.shp.ea.iso.xml', 'tl_2020_17_bg.shp.iso.xml', 'tl_2020_17_bg.shx']",
+  "output data/raw/bg/tl_2020_17_bg.cpg (member of tl_2020_17_bg.zip) sha256=3ad3031f5503 rows=None",
+  "output data/raw/bg/tl_2020_17_bg.dbf (member of tl_2020_17_bg.zip) sha256=383bed586944 rows=None",
+  "output data/raw/bg/tl_2020_17_bg.prj (member of tl_2020_17_bg.zip) sha256=0b9041e921d9 rows=None",
+  "output data/raw/bg/tl_2020_17_bg.shp (member of tl_2020_17_bg.zip) sha256=de6454462514 rows=None",
+  "output data/raw/bg/tl_2020_17_bg.shp.ea.iso.xml (member of tl_2020_17_bg.zip) sha256=19cc2863eafe rows=None",
+  "output data/raw/bg/tl_2020_17_bg.shp.iso.xml (member of tl_2020_17_bg.zip) sha256=afe23cbd92c2 rows=None",
+  "output data/raw/bg/tl_2020_17_bg.shx (member of tl_2020_17_bg.zip) sha256=058e9013e178 rows=None",
+  "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/tl_2020_17_place.zip",
+  "output data/raw/tl_2020_17_place.zip (TIGER/Line 2020 tl_2020_17_place.zip) sha256=2ebeb9eeb180 rows=None",
+  "unzipped tl_2020_17_place.zip -> /Users/joshv/git/op-block-typology/data/raw/place: ['tl_2020_17_place.cpg', 'tl_2020_17_place.dbf', 'tl_2020_17_place.prj', 'tl_2020_17_place.shp', 'tl_2020_17_place.shp.ea.iso.xml', 'tl_2020_17_place.shp.iso.xml', 'tl_2020_17_place.shx']",
+  "output data/raw/place/tl_2020_17_place.cpg (member of tl_2020_17_place.zip) sha256=3ad3031f5503 rows=None",
+  "output data/raw/place/tl_2020_17_place.dbf (member of tl_2020_17_place.zip) sha256=0e1f037c9ad0 rows=None",
+  "output data/raw/place/tl_2020_17_place.prj (member of tl_2020_17_place.zip) sha256=0b9041e921d9 rows=None",
+  "output data/raw/place/tl_2020_17_place.shp (member of tl_2020_17_place.zip) sha256=f18a8f5c7d03 rows=None",
+  "output data/raw/place/tl_2020_17_place.shp.ea.iso.xml (member of tl_2020_17_place.zip) sha256=f97d1eebb2ae rows=None",
+  "output data/raw/place/tl_2020_17_place.shp.iso.xml (member of tl_2020_17_place.zip) sha256=d8c2717ec903 rows=None",
+  "output data/raw/place/tl_2020_17_place.shx (member of tl_2020_17_place.zip) sha256=c387b4e37ddf rows=None",
+  "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/il2020.pl.zip",
+  "output data/raw/il2020.pl.zip (2020 P.L. 94-171 summary file, Illinois) sha256=e73f82d6aea0 rows=None",
+  "unzipped il2020.pl.zip -> /Users/joshv/git/op-block-typology/data/raw/pl: ['il000012020.pl', 'il000022020.pl', 'il000032020.pl', 'ilgeo2020.pl']",
+  "output data/raw/pl/il000012020.pl (member of il2020.pl.zip) sha256=c3b6d40015d9 rows=None",
+  "output data/raw/pl/il000022020.pl (member of il2020.pl.zip) sha256=925f667072cb rows=None",
+  "output data/raw/pl/il000032020.pl (member of il2020.pl.zip) sha256=5c2f61cc356b rows=None",
+  "output data/raw/pl/ilgeo2020.pl (member of il2020.pl.zip) sha256=0629a31079ac rows=None",
+  "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/censusreporter_acs_bg.json",
+  "output data/raw/censusreporter_acs_bg.json (ACS 5-year block-group tables via Census Reporter) sha256=da35edfce163 rows=53"
+ ],
+ "ok": true,
+ "outputs": [
+  {
+   "bytes": 7852019,
+   "path": "data/raw/arcgis_parcels_oak_park.geojson",
+   "role": "Cook County parcel polygons (ArcGIS snapshot)",
+   "rows": 13849,
+   "sha256": "bf25146aa0fa91c08be4026545dbb393b0cd4f4fa511363cdcafe9ae2b545900",
+   "url": "https://gis.cookcountyil.gov/hosting/rest/services/Hosted/Parcel_2022/FeatureServer/0/query"
+  },
+  {
+   "bytes": 410641,
+   "path": "data/raw/socrata_csik-bsws_oak_park.json",
+   "role": "Assessor Commercial Valuation Data, Oak Park rows",
+   "rows": 618,
+   "sha256": "9da68c86b26f3bbb624de45cb04f56d6aeb7af09466a2d28e3108c17796f7edb",
+   "url": "https://datacatalog.cookcountyil.gov/resource/csik-bsws.json"
+  },
+  {
+   "bytes": 306602097,
+   "path": "data/raw/tl_2020_17_tabblock20.zip",
+   "role": "TIGER/Line 2020 tl_2020_17_tabblock20.zip",
+   "rows": null,
+   "sha256": "6d6b91c73cd89295e11aefc492ffec8e9dac7456a5023b85fe9953fa33c0b243",
+   "url": "https://www2.census.gov/geo/tiger/TIGER2020/TABBLOCK20/tl_2020_17_tabblock20.zip"
+  },
+  {
+   "bytes": 5,
+   "from_zip": "tl_2020_17_tabblock20.zip",
+   "path": "data/raw/blocks/tl_2020_17_tabblock20.cpg",
+   "role": "member of tl_2020_17_tabblock20.zip",
+   "rows": null,
+   "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+  },
+  {
+   "bytes": 50687564,
+   "from_zip": "tl_2020_17_tabblock20.zip",
+   "path": "data/raw/blocks/tl_2020_17_tabblock20.dbf",
+   "role": "member of tl_2020_17_tabblock20.zip",
+   "rows": null,
+   "sha256": "790a8b712b1f194fb62c0a4cc135444061e88bbbe4086bfca30b0420465a3e00"
+  },
+  {
+   "bytes": 165,
+   "from_zip": "tl_2020_17_tabblock20.zip",
+   "path": "data/raw/blocks/tl_2020_17_tabblock20.prj",
+   "role": "member of tl_2020_17_tabblock20.zip",
+   "rows": null,
+   "sha256": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd"
+  },
+  {
+   "bytes": 252883164,
+   "from_zip": "tl_2020_17_tabblock20.zip",
+   "path": "data/raw/blocks/tl_2020_17_tabblock20.shp",
+   "role": "member of tl_2020_17_tabblock20.zip",
+   "rows": null,
+   "sha256": "99dabb89da617902b01a97ae0d9a7b1a4173af6fefc501c879b000e1a74e2397"
+  },
+  {
+   "bytes": 29043,
+   "from_zip": "tl_2020_17_tabblock20.zip",
+   "path": "data/raw/blocks/tl_2020_17_tabblock20.shp.ea.iso.xml",
+   "role": "member of tl_2020_17_tabblock20.zip",
+   "rows": null,
+   "sha256": "bfec33140cc7684b1385347718c27347f615d446ae774ab89ef16e900b413d40"
+  },
+  {
+   "bytes": 41290,
+   "from_zip": "tl_2020_17_tabblock20.zip",
+   "path": "data/raw/blocks/tl_2020_17_tabblock20.shp.iso.xml",
+   "role": "member of tl_2020_17_tabblock20.zip",
+   "rows": null,
+   "sha256": "1c76bdece4cd866ea154a6fa34af775c7f7afb7fbf43353b5d6122dc6b09c2e2"
+  },
+  {
+   "bytes": 2959924,
+   "from_zip": "tl_2020_17_tabblock20.zip",
+   "path": "data/raw/blocks/tl_2020_17_tabblock20.shx",
+   "role": "member of tl_2020_17_tabblock20.zip",
+   "rows": null,
+   "sha256": "e914a1e4e72743c0bbb291110595eec0f4a2c7c0dcf5bf1c2bb4092e8d4fcde9"
+  },
+  {
+   "bytes": 17857392,
+   "path": "data/raw/tl_2020_17_bg.zip",
+   "role": "TIGER/Line 2020 tl_2020_17_bg.zip",
+   "rows": null,
+   "sha256": "e056695f5b8c7b6c4978b355e6ed6870aebb9eb55f2ff14973d65a354d14c88d",
+   "url": "https://www2.census.gov/geo/tiger/TIGER2020/BG/tl_2020_17_bg.zip"
+  },
+  {
+   "bytes": 5,
+   "from_zip": "tl_2020_17_bg.zip",
+   "path": "data/raw/bg/tl_2020_17_bg.cpg",
+   "role": "member of tl_2020_17_bg.zip",
+   "rows": null,
+   "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+  },
+  {
+   "bytes": 940728,
+   "from_zip": "tl_2020_17_bg.zip",
+   "path": "data/raw/bg/tl_2020_17_bg.dbf",
+   "role": "member of tl_2020_17_bg.zip",
+   "rows": null,
+   "sha256": "383bed5869442911c6361d0cf2b5d50ae2b414c7d62d9d62e6e5016c92590d09"
+  },
+  {
+   "bytes": 165,
+   "from_zip": "tl_2020_17_bg.zip",
+   "path": "data/raw/bg/tl_2020_17_bg.prj",
+   "role": "member of tl_2020_17_bg.zip",
+   "rows": null,
+   "sha256": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd"
+  },
+  {
+   "bytes": 30797392,
+   "from_zip": "tl_2020_17_bg.zip",
+   "path": "data/raw/bg/tl_2020_17_bg.shp",
+   "role": "member of tl_2020_17_bg.zip",
+   "rows": null,
+   "sha256": "de64544625146313d73bec993b46656736c56179e514b3c3968ea27dacc514e2"
+  },
+  {
+   "bytes": 21464,
+   "from_zip": "tl_2020_17_bg.zip",
+   "path": "data/raw/bg/tl_2020_17_bg.shp.ea.iso.xml",
+   "role": "member of tl_2020_17_bg.zip",
+   "rows": null,
+   "sha256": "19cc2863eafe55858df7d8081ec1f12c663c064f54ecd9f97b73d9f8364b3567"
+  },
+  {
+   "bytes": 38183,
+   "from_zip": "tl_2020_17_bg.zip",
+   "path": "data/raw/bg/tl_2020_17_bg.shp.iso.xml",
+   "role": "member of tl_2020_17_bg.zip",
+   "rows": null,
+   "sha256": "afe23cbd92c265016fe08ac7c77e59d724ff4c907c819a3421c9ab77ae233420"
+  },
+  {
+   "bytes": 79284,
+   "from_zip": "tl_2020_17_bg.zip",
+   "path": "data/raw/bg/tl_2020_17_bg.shx",
+   "role": "member of tl_2020_17_bg.zip",
+   "rows": null,
+   "sha256": "058e9013e178acfaad18cbdbb37cdf892ecb514f34595529b70f0fce02633d64"
+  },
+  {
+   "bytes": 5887654,
+   "path": "data/raw/tl_2020_17_place.zip",
+   "role": "TIGER/Line 2020 tl_2020_17_place.zip",
+   "rows": null,
+   "sha256": "2ebeb9eeb1800bd72dcd70c2f90a4b5af0114b0b250dbb96e429ff0108456db6",
+   "url": "https://www2.census.gov/geo/tiger/TIGER2020/PLACE/tl_2020_17_place.zip"
+  },
+  {
+   "bytes": 5,
+   "from_zip": "tl_2020_17_place.zip",
+   "path": "data/raw/place/tl_2020_17_place.cpg",
+   "role": "member of tl_2020_17_place.zip",
+   "rows": null,
+   "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+  },
+  {
+   "bytes": 419822,
+   "from_zip": "tl_2020_17_place.zip",
+   "path": "data/raw/place/tl_2020_17_place.dbf",
+   "role": "member of tl_2020_17_place.zip",
+   "rows": null,
+   "sha256": "0e1f037c9ad084dd24add05f75e7f3baec213b8d63bc80c565a43a916033d2e6"
+  },
+  {
+   "bytes": 165,
+   "from_zip": "tl_2020_17_place.zip",
+   "path": "data/raw/place/tl_2020_17_place.prj",
+   "role": "member of tl_2020_17_place.zip",
+   "rows": null,
+   "sha256": "0b9041e921d9ebb43247d314608fe9e38a0b008ee793067fc1806199ea1fb9dd"
+  },
+  {
+   "bytes": 9608328,
+   "from_zip": "tl_2020_17_place.zip",
+   "path": "data/raw/place/tl_2020_17_place.shp",
+   "role": "member of tl_2020_17_place.zip",
+   "rows": null,
+   "sha256": "f18a8f5c7d03f2a915fd8699a20a00fba861d0608f2e156bcd05852a6928a61d"
+  },
+  {
+   "bytes": 46867,
+   "from_zip": "tl_2020_17_place.zip",
+   "path": "data/raw/place/tl_2020_17_place.shp.ea.iso.xml",
+   "role": "member of tl_2020_17_place.zip",
+   "rows": null,
+   "sha256": "f97d1eebb2aeeb4d5b9b810122876b7f24e85af33373c9035b79309b7f7f5dfb"
+  },
+  {
+   "bytes": 39195,
+   "from_zip": "tl_2020_17_place.zip",
+   "path": "data/raw/place/tl_2020_17_place.shp.iso.xml",
+   "role": "member of tl_2020_17_place.zip",
+   "rows": null,
+   "sha256": "d8c2717ec90304907d3e1ccb8ba5ffd64adffd03a8dc695329916f1cd1a36e53"
+  },
+  {
+   "bytes": 11828,
+   "from_zip": "tl_2020_17_place.zip",
+   "path": "data/raw/place/tl_2020_17_place.shx",
+   "role": "member of tl_2020_17_place.zip",
+   "rows": null,
+   "sha256": "c387b4e37ddfc1afe3566fb306956955f632f6c8768368f25b5d764305a824f5"
+  },
+  {
+   "bytes": 64763317,
+   "path": "data/raw/il2020.pl.zip",
+   "role": "2020 P.L. 94-171 summary file, Illinois",
+   "rows": null,
+   "sha256": "e73f82d6aea0b9b372e9f8572c6edbedfa72ae9fc2039da84faf0cdf0c478a32",
+   "url": "https://www2.census.gov/programs-surveys/decennial/2020/data/01-Redistricting_File--PL_94-171/Illinois/il2020.pl.zip"
+  },
+  {
+   "bytes": 199590170,
+   "from_zip": "il2020.pl.zip",
+   "path": "data/raw/pl/il000012020.pl",
+   "role": "member of il2020.pl.zip",
+   "rows": null,
+   "sha256": "c3b6d40015d9429ea833deb4cd2b738f80aed61844746c4ce3405e0b2943e36d"
+  },
+  {
+   "bytes": 203562829,
+   "from_zip": "il2020.pl.zip",
+   "path": "data/raw/pl/il000022020.pl",
+   "role": "member of il2020.pl.zip",
+   "rows": null,
+   "sha256": "925f667072cb44b7403ea46c6bfecb631c28ad30f55ca22554e6a3373999b86b"
+  },
+  {
+   "bytes": 26641561,
+   "from_zip": "il2020.pl.zip",
+   "path": "data/raw/pl/il000032020.pl",
+   "role": "member of il2020.pl.zip",
+   "rows": null,
+   "sha256": "5c2f61cc356b75f73567b33332feee1ed9ec18a5ee542f75d6625056785deac6"
+  },
+  {
+   "bytes": 229047517,
+   "from_zip": "il2020.pl.zip",
+   "path": "data/raw/pl/ilgeo2020.pl",
+   "role": "member of il2020.pl.zip",
+   "rows": null,
+   "sha256": "0629a31079acb6ea9fe477278e49277a0332597b88475489fddf9ef3b0032cce"
+  },
+  {
+   "bytes": 57659,
+   "geo_ids": "150|16000US1754885",
+   "path": "data/raw/censusreporter_acs_bg.json",
+   "release": {
+    "id": "acs2024_5yr",
+    "name": "ACS 2024 5-year",
+    "years": "2020-2024"
+   },
+   "role": "ACS 5-year block-group tables via Census Reporter",
+   "rows": 53,
+   "sha256": "da35edfce163c4b67116ca24861919629b243b545018d516ca2dab128bea5750",
+   "tables": [
+    "B03002",
+    "B01003"
+   ],
+   "url": "https://api.censusreporter.org/1.0/data/show/latest"
+  }
+ ],
+ "params": {},
+ "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
+ "python": "3.14.7",
+ "script": "s02_fetch.py",
+ "script_sha256": "4a0d8e7a63cdd049dbb7ea0144bc0116b84dc65909450fe9943956a326457f75",
+ "seconds": 1.3,
+ "stage": "s02_fetch",
+ "started_utc": "2026-09-04T18:52:03Z"
+}

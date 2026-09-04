@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+# Large upstream downloads are not committed; their URLs and sha256 hashes are
+# recorded in outputs/provenance/*.json and can be re-fetched by s02_fetch.py.
+data/raw/tl_2020_17_tabblock20.zip
+data/raw/tl_2020_17_bg.zip
+data/raw/tl_2020_17_place.zip
+data/raw/il2020.pl.zip
+data/raw/blocks/
+data/raw/bg/
+data/raw/place/
+data/raw/pl/

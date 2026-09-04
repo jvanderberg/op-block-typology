@@ -1,0 +1,129 @@
+{
+ "config_sha256": "93ff1fdc862b57ac427eb77f9ec1d1229a3c7ed34efc9e528133469c3f87a915",
+ "finished_utc": "2026-09-04T18:52:08Z",
+ "inputs": [
+  {
+   "bytes": 4290246,
+   "path": "data/interim/s04_parcel_units.csv",
+   "role": "parcel units",
+   "sha256": "63c38375a8cfdcd8b64ab4024bfcb1540ddf67dddc40d9d0c549b780329fc685"
+  },
+  {
+   "bytes": 9608328,
+   "path": "data/raw/place/tl_2020_17_place.shp",
+   "role": "TIGER/Line 2020 shapefile",
+   "sha256": "f18a8f5c7d03f2a915fd8699a20a00fba861d0608f2e156bcd05852a6928a61d"
+  },
+  {
+   "bytes": 419822,
+   "path": "data/raw/place/tl_2020_17_place.dbf",
+   "role": "TIGER/Line 2020 attribute table",
+   "sha256": "0e1f037c9ad084dd24add05f75e7f3baec213b8d63bc80c565a43a916033d2e6"
+  },
+  {
+   "bytes": 252883164,
+   "path": "data/raw/blocks/tl_2020_17_tabblock20.shp",
+   "role": "TIGER/Line 2020 shapefile",
+   "sha256": "99dabb89da617902b01a97ae0d9a7b1a4173af6fefc501c879b000e1a74e2397"
+  },
+  {
+   "bytes": 50687564,
+   "path": "data/raw/blocks/tl_2020_17_tabblock20.dbf",
+   "role": "TIGER/Line 2020 attribute table",
+   "sha256": "790a8b712b1f194fb62c0a4cc135444061e88bbbe4086bfca30b0420465a3e00"
+  },
+  {
+   "bytes": 30797392,
+   "path": "data/raw/bg/tl_2020_17_bg.shp",
+   "role": "TIGER/Line 2020 shapefile",
+   "sha256": "de64544625146313d73bec993b46656736c56179e514b3c3968ea27dacc514e2"
+  },
+  {
+   "bytes": 940728,
+   "path": "data/raw/bg/tl_2020_17_bg.dbf",
+   "role": "TIGER/Line 2020 attribute table",
+   "sha256": "383bed5869442911c6361d0cf2b5d50ae2b414c7d62d9d62e6e5016c92590d09"
+  }
+ ],
+ "notes": [
+  "start s05_blocks.py (sha256 b8ef0360686b)",
+  "param SF_ONLY_MIN_SHARE=0.95",
+  "param DOMINANT_SHARE=0.5",
+  "param SF_ONLY_SENSITIVITY=(1.0, 0.9)",
+  "param CENSUS_GAP_MIN_UNITS=7",
+  "param CENSUS_GAP_MIN_SHARE=0.3",
+  "param PLACE_GEOID='1754885'",
+  "input  data/interim/s04_parcel_units.csv (parcel units) sha256=63c38375a8cf bytes=4290246",
+  "input  data/raw/place/tl_2020_17_place.shp (TIGER/Line 2020 shapefile) sha256=f18a8f5c7d03 bytes=9608328",
+  "input  data/raw/place/tl_2020_17_place.dbf (TIGER/Line 2020 attribute table) sha256=0e1f037c9ad0 bytes=419822",
+  "input  data/raw/blocks/tl_2020_17_tabblock20.shp (TIGER/Line 2020 shapefile) sha256=99dabb89da61 bytes=252883164",
+  "input  data/raw/blocks/tl_2020_17_tabblock20.dbf (TIGER/Line 2020 attribute table) sha256=790a8b712b1f bytes=50687564",
+  "input  data/raw/bg/tl_2020_17_bg.shp (TIGER/Line 2020 shapefile) sha256=de6454462514 bytes=30797392",
+  "input  data/raw/bg/tl_2020_17_bg.dbf (TIGER/Line 2020 attribute table) sha256=383bed586944 bytes=940728",
+  "place 1754885 Oak Park village: area 0.001320 sq deg",
+  "blocks intersecting place bbox/mask: 1187; inside: 1058",
+  "inside blocks: POP20 sum 54583, HOUSING20 sum 25953, tracts ['812100', '812200', '812301', '812302', '812400', '812500', '812600', '812700', '812801', '812802', '812900', '813000', '813100', '813200']",
+  "parcels: 18733; located: 18685; unlocated (excluded): 48 carrying 190 units",
+  "parcels in no block: 0 (0 units); in a block outside the place: 0 (0 units)",
+  "parcels assigned to Oak Park blocks: 18685 with 27486 units",
+  "blocks with no parcels: 36 (HOUSING20 in them: 43)",
+  "unit reconciliation: parcels 27486 vs census HOUSING20 25953 (ratio 1.059); blocks flagged census_gap: 9 carrying 625 unaccounted units",
+  "largest census gaps (block, HOUSING20, parcel units, category): 170318128011004 327 129 large_mf_7plus; 170318123012003 253 59 large_mf_7plus; 170318126001000 248 140 large_mf_7plus; 170318128021001 42 0 no_housing; 170318127001016 105 78 large_mf_7plus; 170318126004000 86 59 large_mf_7plus; 170318126002008 106 82 large_mf_7plus; 170318132002008 85 62 large_mf_7plus; 170318128011002 62 42 large_mf_7plus; 170318129004024 78 59 large_mf_7plus; 170318128011000 80 63 large_mf_7plus; 170318125004006 70 54 large_mf_7plus",
+  "blocks whose category changes when estimated large-MF units are set to the minimum (7): 2",
+  "category: single_family=462, small_mf_2_6=67, large_mf_7plus=213, mixed=218, no_housing=98",
+  "category_estmin: single_family=462, small_mf_2_6=68, large_mf_7plus=211, mixed=219, no_housing=98",
+  "category_sf100: single_family=460, small_mf_2_6=67, large_mf_7plus=213, mixed=220, no_housing=98",
+  "category_sf90: single_family=476, small_mf_2_6=67, large_mf_7plus=213, mixed=204, no_housing=98",
+  "  single_family: 462 blocks, 5973 units, HOUSING20 6018, POP20 18464",
+  "  small_mf_2_6: 67 blocks, 1254 units, HOUSING20 1207, POP20 2784",
+  "  large_mf_7plus: 213 blocks, 15881 units, HOUSING20 14183, POP20 21440",
+  "  mixed: 218 blocks, 4378 units, HOUSING20 4489, POP20 11797",
+  "  no_housing: 98 blocks, 0 units, HOUSING20 56, POP20 98",
+  "output data/interim/s05_blocks.csv (one row per Oak Park block with unit mix and category) sha256=8d252e3d8aa2 rows=1058",
+  "output data/interim/s05_blocks.geojson (block polygons with category (for the map)) sha256=52826097e462 rows=1058",
+  "block groups: 53; category: single_family=3, small_mf_2_6=0, large_mf_7plus=20, mixed=30, no_housing=0",
+  "output data/interim/s05_blockgroups.csv (one row per Oak Park block group with unit mix and category) sha256=e04a7928491d rows=53"
+ ],
+ "ok": true,
+ "outputs": [
+  {
+   "bytes": 192216,
+   "path": "data/interim/s05_blocks.csv",
+   "role": "one row per Oak Park block with unit mix and category",
+   "rows": 1058,
+   "sha256": "8d252e3d8aa2b36047e104ec2e89199f887edd7e2e950a3239879e1ac43c3aab"
+  },
+  {
+   "bytes": 1132389,
+   "path": "data/interim/s05_blocks.geojson",
+   "role": "block polygons with category (for the map)",
+   "rows": 1058,
+   "sha256": "52826097e46274927199473b4a95e2735e6dce5fa3b3399ebd63521f2b60999c"
+  },
+  {
+   "bytes": 7620,
+   "path": "data/interim/s05_blockgroups.csv",
+   "role": "one row per Oak Park block group with unit mix and category",
+   "rows": 53,
+   "sha256": "e04a7928491dc2a230c57c4002d1541e1f9383b41df73f70184dceb2e0ba2880"
+  }
+ ],
+ "params": {
+  "CENSUS_GAP_MIN_SHARE": 0.3,
+  "CENSUS_GAP_MIN_UNITS": 7,
+  "DOMINANT_SHARE": 0.5,
+  "PLACE_GEOID": "1754885",
+  "SF_ONLY_MIN_SHARE": 0.95,
+  "SF_ONLY_SENSITIVITY": [
+   1.0,
+   0.9
+  ]
+ },
+ "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
+ "python": "3.14.7",
+ "script": "s05_blocks.py",
+ "script_sha256": "b8ef0360686b37f365a4d5a8eec342246505b156e412133a45d01a29c3cc5c2d",
+ "seconds": 1.4,
+ "stage": "s05_blocks",
+ "started_utc": "2026-09-04T18:52:06Z"
+}

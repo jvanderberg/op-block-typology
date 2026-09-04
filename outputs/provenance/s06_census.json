@@ -1,0 +1,85 @@
+{
+ "config_sha256": "93ff1fdc862b57ac427eb77f9ec1d1229a3c7ed34efc9e528133469c3f87a915",
+ "finished_utc": "2026-09-04T18:52:10Z",
+ "inputs": [
+  {
+   "bytes": 192216,
+   "path": "data/interim/s05_blocks.csv",
+   "role": "Oak Park block list with TIGER POP20/HOUSING20",
+   "sha256": "8d252e3d8aa2b36047e104ec2e89199f887edd7e2e950a3239879e1ac43c3aab"
+  },
+  {
+   "bytes": 229047517,
+   "path": "data/raw/pl/ilgeo2020.pl",
+   "role": "2020 P.L. 94-171 Illinois",
+   "sha256": "0629a31079acb6ea9fe477278e49277a0332597b88475489fddf9ef3b0032cce"
+  },
+  {
+   "bytes": 199590170,
+   "path": "data/raw/pl/il000012020.pl",
+   "role": "2020 P.L. 94-171 Illinois",
+   "sha256": "c3b6d40015d9429ea833deb4cd2b738f80aed61844746c4ce3405e0b2943e36d"
+  },
+  {
+   "bytes": 203562829,
+   "path": "data/raw/pl/il000022020.pl",
+   "role": "2020 P.L. 94-171 Illinois",
+   "sha256": "925f667072cb44b7403ea46c6bfecb631c28ad30f55ca22554e6a3373999b86b"
+  },
+  {
+   "bytes": 26641561,
+   "path": "data/raw/pl/il000032020.pl",
+   "role": "2020 P.L. 94-171 Illinois",
+   "sha256": "5c2f61cc356b75f73567b33332feee1ed9ec18a5ee542f75d6625056785deac6"
+  },
+  {
+   "bytes": 57659,
+   "path": "data/raw/censusreporter_acs_bg.json",
+   "role": "ACS block-group tables (Census Reporter snapshot)",
+   "sha256": "da35edfce163c4b67116ca24861919629b243b545018d516ca2dab128bea5750"
+  }
+ ],
+ "notes": [
+  "start s06_census.py (sha256 c3452e67a0a1)",
+  "input  data/interim/s05_blocks.csv (Oak Park block list with TIGER POP20/HOUSING20) sha256=8d252e3d8aa2 bytes=192216",
+  "input  data/raw/pl/ilgeo2020.pl (2020 P.L. 94-171 Illinois) sha256=0629a31079ac bytes=229047517",
+  "input  data/raw/pl/il000012020.pl (2020 P.L. 94-171 Illinois) sha256=c3b6d40015d9 bytes=199590170",
+  "input  data/raw/pl/il000022020.pl (2020 P.L. 94-171 Illinois) sha256=925f667072cb bytes=203562829",
+  "input  data/raw/pl/il000032020.pl (2020 P.L. 94-171 Illinois) sha256=5c2f61cc356b bytes=26641561",
+  "geo header: matched 1058 of 1058 wanted blocks; state LOGRECNO 0000001",
+  "layout check: state P2_001 = 12812508 = published Illinois 2020 population",
+  "cross-check vs TIGER attributes: POP20 mismatches 0, HOUSING20 mismatches 0",
+  "Oak Park 2020: population 54583, housing units 25953 (23915 occupied), group quarters population 277 in 17 blocks",
+  "village race shares 2020: nh_white 60.2%, nh_black 18.7%, hispanic 9.3%, nh_asian 5.4%, nh_two_plus 5.8%",
+  "output data/interim/s06_blocks_census2020.csv (2020 Census P2/H1/P5 per Oak Park block) sha256=a92687777f72 rows=1058",
+  "input  data/raw/censusreporter_acs_bg.json (ACS block-group tables (Census Reporter snapshot)) sha256=da35edfce163 bytes=57659",
+  "ACS release: acs2024_5yr (ACS 2024 5-year, 2020-2024)",
+  "ACS block groups: 53; population estimate 53292",
+  "output data/interim/s06_blockgroups_acs.csv (ACS B03002 per Oak Park block group, with MOE) sha256=192c3f39dccf rows=53"
+ ],
+ "ok": true,
+ "outputs": [
+  {
+   "bytes": 53062,
+   "path": "data/interim/s06_blocks_census2020.csv",
+   "role": "2020 Census P2/H1/P5 per Oak Park block",
+   "rows": 1058,
+   "sha256": "a92687777f7286a3b881aef763da550ecc8002ac9494f41134d52b4d56a5d2a5"
+  },
+  {
+   "bytes": 6503,
+   "path": "data/interim/s06_blockgroups_acs.csv",
+   "role": "ACS B03002 per Oak Park block group, with MOE",
+   "rows": 53,
+   "sha256": "192c3f39dccf6f938668f19635a54649c78ff3423822d2509060c3cadbe2b103"
+  }
+ ],
+ "params": {},
+ "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
+ "python": "3.14.7",
+ "script": "s06_census.py",
+ "script_sha256": "c3452e67a0a1b17ccfd9787f573dd543e7f28fb8b384b15442201f076689b823",
+ "seconds": 2.7,
+ "stage": "s06_census",
+ "started_utc": "2026-09-04T18:52:08Z"
+}

@@ -1,0 +1,52 @@
+{
+ "config_sha256": "93ff1fdc862b57ac427eb77f9ec1d1229a3c7ed34efc9e528133469c3f87a915",
+ "finished_utc": "2026-09-04T18:52:05Z",
+ "inputs": [
+  {
+   "bytes": 1973880,
+   "path": "data/interim/s01_parcels.csv",
+   "role": "parcels",
+   "sha256": "2de4e10e6e829e8d2e5a4a93d4041525c7eb125d3fbea51f06a213c34d506a00"
+  },
+  {
+   "bytes": 698307,
+   "path": "data/interim/s01_address_points.csv",
+   "role": "address points",
+   "sha256": "7331558c10653cfba1924b04aa9b18a066d3c999e89d20e8c81485747dd7c3b8"
+  },
+  {
+   "bytes": 7852019,
+   "path": "data/raw/arcgis_parcels_oak_park.geojson",
+   "role": "parcel polygons",
+   "sha256": "bf25146aa0fa91c08be4026545dbb393b0cd4f4fa511363cdcafe9ae2b545900"
+  }
+ ],
+ "notes": [
+  "start s03_locate.py (sha256 eca8561d8898)",
+  "input  data/interim/s01_parcels.csv (parcels) sha256=2de4e10e6e82 bytes=1973880",
+  "input  data/interim/s01_address_points.csv (address points) sha256=7331558c1065 bytes=698307",
+  "input  data/raw/arcgis_parcels_oak_park.geojson (parcel polygons) sha256=bf25146aa0fa bytes=7852019",
+  "polygons: 13849 features, 0 without usable geometry, 13610 distinct 14-digit names, 13610 distinct pin10",
+  "coordinate source counts: arcgis_pin14=13333, arcgis_pin10=5348, unlocated=48, address_match=4",
+  "unlocated by class: 299=38, 315=3, 391=2, 517=2, EX=1, 592=1, 212=1",
+  "output data/interim/s03_parcels_located.csv (parcels with point location and locating rule) sha256=263e53ce4926 rows=18733"
+ ],
+ "ok": true,
+ "outputs": [
+  {
+   "bytes": 3391438,
+   "path": "data/interim/s03_parcels_located.csv",
+   "role": "parcels with point location and locating rule",
+   "rows": 18733,
+   "sha256": "263e53ce49265f36eb95c1164ce6afe915e00944de4340d5f3847fef6c9804f6"
+  }
+ ],
+ "params": {},
+ "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
+ "python": "3.14.7",
+ "script": "s03_locate.py",
+ "script_sha256": "eca8561d88983940cb22a56be99623ebca2c7596c0b6e128a541501ebcbdcb25",
+ "seconds": 0.4,
+ "stage": "s03_locate",
+ "started_utc": "2026-09-04T18:52:05Z"
+}

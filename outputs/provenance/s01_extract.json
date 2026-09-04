@@ -1,0 +1,56 @@
+{
+ "config_sha256": "93ff1fdc862b57ac427eb77f9ec1d1229a3c7ed34efc9e528133469c3f87a915",
+ "finished_utc": "2026-09-04T18:52:03Z",
+ "inputs": [
+  {
+   "bytes": 6592802816,
+   "mtime": 1780510165,
+   "path": "/Users/joshv/git/tax_appeal_app/data/properties.db",
+   "role": "source database (Cook County Assessor mirror)",
+   "sha256_first_bytes": 67108864,
+   "sha256_partial": "0a07b93a462b08ddd047c24c658f9517ffc188e5df8fb51511ffa63d81aff4e8"
+  }
+ ],
+ "notes": [
+  "start s01_extract.py (sha256 cc9ab761eef1)",
+  "param db_path='/Users/joshv/git/tax_appeal_app/data/properties.db'",
+  "param year=2026",
+  "param township_code='27'",
+  "input  /Users/joshv/git/tax_appeal_app/data/properties.db (source database (Cook County Assessor mirror)) sha256=0a07b93a462b bytes=6592802816",
+  "assessed_values rows for township 27, year 2026: 18733",
+  "extracted 18733 parcels; 11886 have an address point; 11353 have a characteristics record",
+  "class counts: 299=5356, 205=3878, 206=2375, 203=2045, 211=895, 204=769, EX=586, 295=472, 202=384, 517=231, 241=221, 210=195, 315=162, 590=140, 212=134, 278=94, 201=86, 592=75, 318=65, 100=56, 209=56, 597=50, 290=47, 599=38, 314=36",
+  "output data/interim/s01_parcels.csv (all Oak Park parcels, one row per PIN) sha256=2de4e10e6e82 rows=18733",
+  "address points with city like Oak Park and coordinates: 12158",
+  "output data/interim/s01_address_points.csv (Oak Park address points (address, lat, lon)) sha256=7331558c1065 rows=12158"
+ ],
+ "ok": true,
+ "outputs": [
+  {
+   "bytes": 1973880,
+   "path": "data/interim/s01_parcels.csv",
+   "role": "all Oak Park parcels, one row per PIN",
+   "rows": 18733,
+   "sha256": "2de4e10e6e829e8d2e5a4a93d4041525c7eb125d3fbea51f06a213c34d506a00"
+  },
+  {
+   "bytes": 698307,
+   "path": "data/interim/s01_address_points.csv",
+   "role": "Oak Park address points (address, lat, lon)",
+   "rows": 12158,
+   "sha256": "7331558c10653cfba1924b04aa9b18a066d3c999e89d20e8c81485747dd7c3b8"
+  }
+ ],
+ "params": {
+  "db_path": "/Users/joshv/git/tax_appeal_app/data/properties.db",
+  "township_code": "27",
+  "year": 2026
+ },
+ "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
+ "python": "3.14.7",
+ "script": "s01_extract.py",
+ "script_sha256": "cc9ab761eef126e1642a4b87368e4ebd4d38e612fe0154cf60b8b52b4808bc73",
+ "seconds": 1.0,
+ "stage": "s01_extract",
+ "started_utc": "2026-09-04T18:52:02Z"
+}

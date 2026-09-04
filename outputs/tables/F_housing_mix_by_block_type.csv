@@ -1,0 +1,6 @@
+category,n_blocks,units_parcels,units_sf,units_small_mf,units_large_mf,units_estimated,hu_census_2020,bldgs_sf,bldgs_small_mf,bldgs_large_mf,census_gap_blocks,pct_units_sf,pct_units_small_mf,pct_units_large_mf
+single_family,462,5973.0,5971.0,2.0,0.0,0.0,6018,5971.0,1.0,1.0,0,100.0,0.0,0.0
+small_mf_2_6,67,1254.0,247.0,855.0,152.0,7.0,1207,247.0,302.0,15.0,1,19.7,68.2,12.1
+large_mf_7plus,213,15881.0,1038.0,1139.0,13704.0,1753.0,14183,1038.0,393.0,459.0,5,6.5,7.2,86.3
+mixed,218,4378.0,3064.0,927.0,387.0,0.0,4489,3064.0,387.0,27.0,2,70.0,21.2,8.8
+no_housing,98,0.0,0.0,0.0,0.0,0.0,56,0.0,0.0,0.0,1,0.0,0.0,0.0

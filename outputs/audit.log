@@ -1,0 +1,196 @@
+[s01_extract] start s01_extract.py (sha256 cc9ab761eef1)
+[s01_extract] param db_path='/Users/joshv/git/tax_appeal_app/data/properties.db'
+[s01_extract] param year=2026
+[s01_extract] param township_code='27'
+[s01_extract] input  /Users/joshv/git/tax_appeal_app/data/properties.db (source database (Cook County Assessor mirror)) sha256=0a07b93a462b bytes=6592802816
+[s01_extract] assessed_values rows for township 27, year 2026: 18733
+[s01_extract] extracted 18733 parcels; 11886 have an address point; 11353 have a characteristics record
+[s01_extract] class counts: 299=5356, 205=3878, 206=2375, 203=2045, 211=895, 204=769, EX=586, 295=472, 202=384, 517=231, 241=221, 210=195, 315=162, 590=140, 212=134, 278=94, 201=86, 592=75, 318=65, 100=56, 209=56, 597=50, 290=47, 599=38, 314=36
+[s01_extract] output data/interim/s01_parcels.csv (all Oak Park parcels, one row per PIN) sha256=2de4e10e6e82 rows=18733
+[s01_extract] address points with city like Oak Park and coordinates: 12158
+[s01_extract] output data/interim/s01_address_points.csv (Oak Park address points (address, lat, lon)) sha256=7331558c1065 rows=12158
+[s01_extract] end (1.0s) -> outputs/provenance/s01_extract.json
+[s02_fetch] start s02_fetch.py (sha256 4a0d8e7a63cd)
+[s02_fetch] input  data/interim/s01_parcels.csv (parcel list (for supplemental PIN fetch)) sha256=2de4e10e6e82 bytes=1973880
+[s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/arcgis_parcels_oak_park.geojson
+[s02_fetch] output data/raw/arcgis_parcels_oak_park.geojson (Cook County parcel polygons (ArcGIS snapshot)) sha256=bf25146aa0fa rows=13849
+[s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/socrata_csik-bsws_oak_park.json
+[s02_fetch] output data/raw/socrata_csik-bsws_oak_park.json (Assessor Commercial Valuation Data, Oak Park rows) sha256=9da68c86b26f rows=618
+[s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/tl_2020_17_tabblock20.zip
+[s02_fetch] output data/raw/tl_2020_17_tabblock20.zip (TIGER/Line 2020 tl_2020_17_tabblock20.zip) sha256=6d6b91c73cd8 rows=None
+[s02_fetch] unzipped tl_2020_17_tabblock20.zip -> /Users/joshv/git/op-block-typology/data/raw/blocks: ['tl_2020_17_tabblock20.cpg', 'tl_2020_17_tabblock20.dbf', 'tl_2020_17_tabblock20.prj', 'tl_2020_17_tabblock20.shp', 'tl_2020_17_tabblock20.shp.ea.iso.xml', 'tl_2020_17_tabblock20.shp.iso.xml', 'tl_2020_17_tabblock20.shx']
+[s02_fetch] output data/raw/blocks/tl_2020_17_tabblock20.cpg (member of tl_2020_17_tabblock20.zip) sha256=3ad3031f5503 rows=None
+[s02_fetch] output data/raw/blocks/tl_2020_17_tabblock20.dbf (member of tl_2020_17_tabblock20.zip) sha256=790a8b712b1f rows=None
+[s02_fetch] output data/raw/blocks/tl_2020_17_tabblock20.prj (member of tl_2020_17_tabblock20.zip) sha256=0b9041e921d9 rows=None
+[s02_fetch] output data/raw/blocks/tl_2020_17_tabblock20.shp (member of tl_2020_17_tabblock20.zip) sha256=99dabb89da61 rows=None
+[s02_fetch] output data/raw/blocks/tl_2020_17_tabblock20.shp.ea.iso.xml (member of tl_2020_17_tabblock20.zip) sha256=bfec33140cc7 rows=None
+[s02_fetch] output data/raw/blocks/tl_2020_17_tabblock20.shp.iso.xml (member of tl_2020_17_tabblock20.zip) sha256=1c76bdece4cd rows=None
+[s02_fetch] output data/raw/blocks/tl_2020_17_tabblock20.shx (member of tl_2020_17_tabblock20.zip) sha256=e914a1e4e727 rows=None
+[s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/tl_2020_17_bg.zip
+[s02_fetch] output data/raw/tl_2020_17_bg.zip (TIGER/Line 2020 tl_2020_17_bg.zip) sha256=e056695f5b8c rows=None
+[s02_fetch] unzipped tl_2020_17_bg.zip -> /Users/joshv/git/op-block-typology/data/raw/bg: ['tl_2020_17_bg.cpg', 'tl_2020_17_bg.dbf', 'tl_2020_17_bg.prj', 'tl_2020_17_bg.shp', 'tl_2020_17_bg.shp.ea.iso.xml', 'tl_2020_17_bg.shp.iso.xml', 'tl_2020_17_bg.shx']
+[s02_fetch] output data/raw/bg/tl_2020_17_bg.cpg (member of tl_2020_17_bg.zip) sha256=3ad3031f5503 rows=None
+[s02_fetch] output data/raw/bg/tl_2020_17_bg.dbf (member of tl_2020_17_bg.zip) sha256=383bed586944 rows=None
+[s02_fetch] output data/raw/bg/tl_2020_17_bg.prj (member of tl_2020_17_bg.zip) sha256=0b9041e921d9 rows=None
+[s02_fetch] output data/raw/bg/tl_2020_17_bg.shp (member of tl_2020_17_bg.zip) sha256=de6454462514 rows=None
+[s02_fetch] output data/raw/bg/tl_2020_17_bg.shp.ea.iso.xml (member of tl_2020_17_bg.zip) sha256=19cc2863eafe rows=None
+[s02_fetch] output data/raw/bg/tl_2020_17_bg.shp.iso.xml (member of tl_2020_17_bg.zip) sha256=afe23cbd92c2 rows=None
+[s02_fetch] output data/raw/bg/tl_2020_17_bg.shx (member of tl_2020_17_bg.zip) sha256=058e9013e178 rows=None
+[s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/tl_2020_17_place.zip
+[s02_fetch] output data/raw/tl_2020_17_place.zip (TIGER/Line 2020 tl_2020_17_place.zip) sha256=2ebeb9eeb180 rows=None
+[s02_fetch] unzipped tl_2020_17_place.zip -> /Users/joshv/git/op-block-typology/data/raw/place: ['tl_2020_17_place.cpg', 'tl_2020_17_place.dbf', 'tl_2020_17_place.prj', 'tl_2020_17_place.shp', 'tl_2020_17_place.shp.ea.iso.xml', 'tl_2020_17_place.shp.iso.xml', 'tl_2020_17_place.shx']
+[s02_fetch] output data/raw/place/tl_2020_17_place.cpg (member of tl_2020_17_place.zip) sha256=3ad3031f5503 rows=None
+[s02_fetch] output data/raw/place/tl_2020_17_place.dbf (member of tl_2020_17_place.zip) sha256=0e1f037c9ad0 rows=None
+[s02_fetch] output data/raw/place/tl_2020_17_place.prj (member of tl_2020_17_place.zip) sha256=0b9041e921d9 rows=None
+[s02_fetch] output data/raw/place/tl_2020_17_place.shp (member of tl_2020_17_place.zip) sha256=f18a8f5c7d03 rows=None
+[s02_fetch] output data/raw/place/tl_2020_17_place.shp.ea.iso.xml (member of tl_2020_17_place.zip) sha256=f97d1eebb2ae rows=None
+[s02_fetch] output data/raw/place/tl_2020_17_place.shp.iso.xml (member of tl_2020_17_place.zip) sha256=d8c2717ec903 rows=None
+[s02_fetch] output data/raw/place/tl_2020_17_place.shx (member of tl_2020_17_place.zip) sha256=c387b4e37ddf rows=None
+[s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/il2020.pl.zip
+[s02_fetch] output data/raw/il2020.pl.zip (2020 P.L. 94-171 summary file, Illinois) sha256=e73f82d6aea0 rows=None
+[s02_fetch] unzipped il2020.pl.zip -> /Users/joshv/git/op-block-typology/data/raw/pl: ['il000012020.pl', 'il000022020.pl', 'il000032020.pl', 'ilgeo2020.pl']
+[s02_fetch] output data/raw/pl/il000012020.pl (member of il2020.pl.zip) sha256=c3b6d40015d9 rows=None
+[s02_fetch] output data/raw/pl/il000022020.pl (member of il2020.pl.zip) sha256=925f667072cb rows=None
+[s02_fetch] output data/raw/pl/il000032020.pl (member of il2020.pl.zip) sha256=5c2f61cc356b rows=None
+[s02_fetch] output data/raw/pl/ilgeo2020.pl (member of il2020.pl.zip) sha256=0629a31079ac rows=None
+[s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/censusreporter_acs_bg.json
+[s02_fetch] output data/raw/censusreporter_acs_bg.json (ACS 5-year block-group tables via Census Reporter) sha256=da35edfce163 rows=53
+[s02_fetch] end (1.3s) -> outputs/provenance/s02_fetch.json
+[s03_locate] start s03_locate.py (sha256 eca8561d8898)
+[s03_locate] input  data/interim/s01_parcels.csv (parcels) sha256=2de4e10e6e82 bytes=1973880
+[s03_locate] input  data/interim/s01_address_points.csv (address points) sha256=7331558c1065 bytes=698307
+[s03_locate] input  data/raw/arcgis_parcels_oak_park.geojson (parcel polygons) sha256=bf25146aa0fa bytes=7852019
+[s03_locate] polygons: 13849 features, 0 without usable geometry, 13610 distinct 14-digit names, 13610 distinct pin10
+[s03_locate] coordinate source counts: arcgis_pin14=13333, arcgis_pin10=5348, unlocated=48, address_match=4
+[s03_locate] unlocated by class: 299=38, 315=3, 391=2, 517=2, EX=1, 592=1, 212=1
+[s03_locate] output data/interim/s03_parcels_located.csv (parcels with point location and locating rule) sha256=263e53ce4926 rows=18733
+[s03_locate] end (0.4s) -> outputs/provenance/s03_locate.json
+[s04_units] start s04_units.py (sha256 2a038b445d19)
+[s04_units] param SF_DETACHED_CLASSES=('202', '203', '204', '205', '206', '207', '208', '209', '234', '278', '218')
+[s04_units] param SF_ATTACHED_CLASSES=('210', '295')
+[s04_units] param SMALL_MF_CLASSES=('211', '212')
+[s04_units] param CONDO_CLASSES=('299',)
+[s04_units] param LARGE_MF_CLASSES=('313', '314', '315', '318', '390', '391', '397', '213')
+[s04_units] param SMALL_MF_DEFAULT_UNITS=2
+[s04_units] param SMALL_MF_MAX_UNITS=6
+[s04_units] param LARGE_MF_MIN_UNITS=7
+[s04_units] input  data/interim/s03_parcels_located.csv (located parcels) sha256=263e53ce4926 bytes=3391438
+[s04_units] input  data/raw/socrata_csik-bsws_oak_park.json (Commercial Valuation Data (unit counts)) sha256=9da68c86b26f bytes=410641
+[s04_units] commval: 229 apartment rows with tot_units
+[s04_units] commval keypin 16074000250000 (715 S BLVD OAK PARK) has no PIN in the 2026 parcel list; skipped
+[s04_units] commval: 229 properties, 40 span several PINs, 288 PINs received an allocation
+[s04_units] commval override: PIN 16071080380000 (1035 SUPERIOR ST REAR) is class 301 in 2026 assessed values but an apartment property with 0.0 units in the 2023 Commercial Valuation data; counted as large_mf (was none with 0 units)
+[s04_units] commval override: PIN 16071200650000 (1005 LAKE ST) is class 517 in 2026 assessed values but an apartment property with 267.0 units in the 2023 Commercial Valuation data; counted as large_mf (was none with 0 units)
+[s04_units] commval override: PIN 16071210460000 (150 FOREST AVE) is class EX in 2026 assessed values but an apartment property with 277.0 units in the 2023 Commercial Valuation data; counted as large_mf (was none with 0 units)
+[s04_units] commval override: PIN 16081050230000 (728 AUSTIN AVE 2) is class 212 in 2026 assessed values but an apartment property with 8.0 units in the 2023 Commercial Valuation data; counted as large_mf (was small_mf with 4 units)
+[s04_units] commval overrides applied: 4
+[s04_units] large_mf AV-per-unit calibration: overall median 8,508; by class 212=19,478 (n=1), 301=8,969 (n=1), 313=8,991 (n=2), 314=8,145 (n=35), 315=7,873 (n=157), 318=8,718 (n=41), 390=8,572 (n=13), 391=16,023 (n=24), 397=27,153 (n=12), 517=26,409 (n=1)
+[s04_units] large_mf: 336 PINs, 287 with commval units, 48 estimated from AV (sum est. units 1909)
+[s04_units] unit_type: condo: 5356 PINs / 5356 units, exempt_res: 5 PINs / 8 units, large_mf: 336 PINs / 9331 units, none: 1692 PINs / 0 units, sf_attached: 667 PINs / 667 units, sf_detached: 9649 PINs / 9649 units, small_mf: 1028 PINs / 2665 units
+[s04_units] bucket: large_mf: 5435 PINs / 14430 units, none: 1692 PINs / 0 units, sf: 10320 PINs / 10320 units, small_mf: 1286 PINs / 2926 units
+[s04_units] units_source: char_apts: 1019 PINs / 2647 units, class_rule: 17364 PINs / 15672 units, commval_2023: 284 PINs / 6870 units, commval_2023_override: 4 PINs / 552 units, default_missing_char_apts: 9 PINs / 18 units, estimate_av/all: 4 PINs / 715 units, estimate_av/class: 44 PINs / 1194 units, exempt_char_apts: 1 PINs / 4 units, exempt_single_family: 4 PINs / 4 units
+[s04_units] TOTAL housing units on parcels: 27676
+[s04_units] output data/interim/s04_parcel_units.csv (parcels with unit counts, type, bucket and source) sha256=63c38375a8cf rows=18733
+[s04_units] buildings: 13601 (with housing: 11909)
+[s04_units] output data/interim/s04_buildings.csv (one row per building) sha256=c922748e3b8b rows=13601
+[s04_units] end (0.4s) -> outputs/provenance/s04_units.json
+[s05_blocks] start s05_blocks.py (sha256 b8ef0360686b)
+[s05_blocks] param SF_ONLY_MIN_SHARE=0.95
+[s05_blocks] param DOMINANT_SHARE=0.5
+[s05_blocks] param SF_ONLY_SENSITIVITY=(1.0, 0.9)
+[s05_blocks] param CENSUS_GAP_MIN_UNITS=7
+[s05_blocks] param CENSUS_GAP_MIN_SHARE=0.3
+[s05_blocks] param PLACE_GEOID='1754885'
+[s05_blocks] input  data/interim/s04_parcel_units.csv (parcel units) sha256=63c38375a8cf bytes=4290246
+[s05_blocks] input  data/raw/place/tl_2020_17_place.shp (TIGER/Line 2020 shapefile) sha256=f18a8f5c7d03 bytes=9608328
+[s05_blocks] input  data/raw/place/tl_2020_17_place.dbf (TIGER/Line 2020 attribute table) sha256=0e1f037c9ad0 bytes=419822
+[s05_blocks] input  data/raw/blocks/tl_2020_17_tabblock20.shp (TIGER/Line 2020 shapefile) sha256=99dabb89da61 bytes=252883164
+[s05_blocks] input  data/raw/blocks/tl_2020_17_tabblock20.dbf (TIGER/Line 2020 attribute table) sha256=790a8b712b1f bytes=50687564
+[s05_blocks] input  data/raw/bg/tl_2020_17_bg.shp (TIGER/Line 2020 shapefile) sha256=de6454462514 bytes=30797392
+[s05_blocks] input  data/raw/bg/tl_2020_17_bg.dbf (TIGER/Line 2020 attribute table) sha256=383bed586944 bytes=940728
+[s05_blocks] place 1754885 Oak Park village: area 0.001320 sq deg
+[s05_blocks] blocks intersecting place bbox/mask: 1187; inside: 1058
+[s05_blocks] inside blocks: POP20 sum 54583, HOUSING20 sum 25953, tracts ['812100', '812200', '812301', '812302', '812400', '812500', '812600', '812700', '812801', '812802', '812900', '813000', '813100', '813200']
+[s05_blocks] parcels: 18733; located: 18685; unlocated (excluded): 48 carrying 190 units
+[s05_blocks] parcels in no block: 0 (0 units); in a block outside the place: 0 (0 units)
+[s05_blocks] parcels assigned to Oak Park blocks: 18685 with 27486 units
+[s05_blocks] blocks with no parcels: 36 (HOUSING20 in them: 43)
+[s05_blocks] unit reconciliation: parcels 27486 vs census HOUSING20 25953 (ratio 1.059); blocks flagged census_gap: 9 carrying 625 unaccounted units
+[s05_blocks] largest census gaps (block, HOUSING20, parcel units, category): 170318128011004 327 129 large_mf_7plus; 170318123012003 253 59 large_mf_7plus; 170318126001000 248 140 large_mf_7plus; 170318128021001 42 0 no_housing; 170318127001016 105 78 large_mf_7plus; 170318126004000 86 59 large_mf_7plus; 170318126002008 106 82 large_mf_7plus; 170318132002008 85 62 large_mf_7plus; 170318128011002 62 42 large_mf_7plus; 170318129004024 78 59 large_mf_7plus; 170318128011000 80 63 large_mf_7plus; 170318125004006 70 54 large_mf_7plus
+[s05_blocks] blocks whose category changes when estimated large-MF units are set to the minimum (7): 2
+[s05_blocks] category: single_family=462, small_mf_2_6=67, large_mf_7plus=213, mixed=218, no_housing=98
+[s05_blocks] category_estmin: single_family=462, small_mf_2_6=68, large_mf_7plus=211, mixed=219, no_housing=98
+[s05_blocks] category_sf100: single_family=460, small_mf_2_6=67, large_mf_7plus=213, mixed=220, no_housing=98
+[s05_blocks] category_sf90: single_family=476, small_mf_2_6=67, large_mf_7plus=213, mixed=204, no_housing=98
+[s05_blocks]   single_family: 462 blocks, 5973 units, HOUSING20 6018, POP20 18464
+[s05_blocks]   small_mf_2_6: 67 blocks, 1254 units, HOUSING20 1207, POP20 2784
+[s05_blocks]   large_mf_7plus: 213 blocks, 15881 units, HOUSING20 14183, POP20 21440
+[s05_blocks]   mixed: 218 blocks, 4378 units, HOUSING20 4489, POP20 11797
+[s05_blocks]   no_housing: 98 blocks, 0 units, HOUSING20 56, POP20 98
+[s05_blocks] output data/interim/s05_blocks.csv (one row per Oak Park block with unit mix and category) sha256=8d252e3d8aa2 rows=1058
+[s05_blocks] output data/interim/s05_blocks.geojson (block polygons with category (for the map)) sha256=52826097e462 rows=1058
+[s05_blocks] block groups: 53; category: single_family=3, small_mf_2_6=0, large_mf_7plus=20, mixed=30, no_housing=0
+[s05_blocks] output data/interim/s05_blockgroups.csv (one row per Oak Park block group with unit mix and category) sha256=e04a7928491d rows=53
+[s05_blocks] end (1.4s) -> outputs/provenance/s05_blocks.json
+[s06_census] start s06_census.py (sha256 c3452e67a0a1)
+[s06_census] input  data/interim/s05_blocks.csv (Oak Park block list with TIGER POP20/HOUSING20) sha256=8d252e3d8aa2 bytes=192216
+[s06_census] input  data/raw/pl/ilgeo2020.pl (2020 P.L. 94-171 Illinois) sha256=0629a31079ac bytes=229047517
+[s06_census] input  data/raw/pl/il000012020.pl (2020 P.L. 94-171 Illinois) sha256=c3b6d40015d9 bytes=199590170
+[s06_census] input  data/raw/pl/il000022020.pl (2020 P.L. 94-171 Illinois) sha256=925f667072cb bytes=203562829
+[s06_census] input  data/raw/pl/il000032020.pl (2020 P.L. 94-171 Illinois) sha256=5c2f61cc356b bytes=26641561
+[s06_census] geo header: matched 1058 of 1058 wanted blocks; state LOGRECNO 0000001
+[s06_census] layout check: state P2_001 = 12812508 = published Illinois 2020 population
+[s06_census] cross-check vs TIGER attributes: POP20 mismatches 0, HOUSING20 mismatches 0
+[s06_census] Oak Park 2020: population 54583, housing units 25953 (23915 occupied), group quarters population 277 in 17 blocks
+[s06_census] village race shares 2020: nh_white 60.2%, nh_black 18.7%, hispanic 9.3%, nh_asian 5.4%, nh_two_plus 5.8%
+[s06_census] output data/interim/s06_blocks_census2020.csv (2020 Census P2/H1/P5 per Oak Park block) sha256=a92687777f72 rows=1058
+[s06_census] input  data/raw/censusreporter_acs_bg.json (ACS block-group tables (Census Reporter snapshot)) sha256=da35edfce163 bytes=57659
+[s06_census] ACS release: acs2024_5yr (ACS 2024 5-year, 2020-2024)
+[s06_census] ACS block groups: 53; population estimate 53292
+[s06_census] output data/interim/s06_blockgroups_acs.csv (ACS B03002 per Oak Park block group, with MOE) sha256=192c3f39dccf rows=53
+[s06_census] end (2.7s) -> outputs/provenance/s06_census.json
+[s07_analyze] start s07_analyze.py (sha256 6749f439cbb8)
+[s07_analyze] param SF_ONLY_MIN_SHARE=0.95
+[s07_analyze] param SF_ONLY_SENSITIVITY=(1.0, 0.9)
+[s07_analyze] param GQ_MAX_SHARE=0.25
+[s07_analyze] input  data/interim/s05_blocks.csv (block typology) sha256=8d252e3d8aa2 bytes=192216
+[s07_analyze] input  data/interim/s06_blocks_census2020.csv (2020 block counts) sha256=a92687777f72 bytes=53062
+[s07_analyze] input  data/interim/s05_blockgroups.csv (block-group typology) sha256=e04a7928491d bytes=7620
+[s07_analyze] input  data/interim/s06_blockgroups_acs.csv (ACS block-group race) sha256=192c3f39dccf bytes=6503
+[s07_analyze] blocks: 1058; population 54583; group-quarters-heavy blocks (> 25% GQ): 4 with 248 people
+[s07_analyze] blocks reclassified when estimated large-MF units are set to the minimum: 2
+[s07_analyze] block-group categories: single_family=3, small_mf_2_6=0, large_mf_7plus=20, mixed=30, no_housing=0
+[s07_analyze] output outputs/tables/A_race_by_block_type_2020.csv (table A_race_by_block_type_2020) sha256=bea081e64052 rows=6
+[s07_analyze] output outputs/tables/A2_race_by_block_type_2020_excl_gq.csv (table A2_race_by_block_type_2020_excl_gq) sha256=b0cf2d15cbc5 rows=6
+[s07_analyze] output outputs/tables/B_where_each_group_lives_2020.csv (table B_where_each_group_lives_2020) sha256=b6914678d729 rows=5
+[s07_analyze] output outputs/tables/C_sensitivity_sf100.csv (table C_sensitivity_sf100) sha256=6211fe4f2421 rows=6
+[s07_analyze] output outputs/tables/C_sensitivity_sf90.csv (table C_sensitivity_sf90) sha256=e620086da0a3 rows=6
+[s07_analyze] output outputs/tables/C_sensitivity_estimated_units_min.csv (table C_sensitivity_estimated_units_min) sha256=1a5afb57c6a5 rows=6
+[s07_analyze] output outputs/tables/D1_block_groups_2020.csv (table D1_block_groups_2020) sha256=4057a5d43ba2 rows=4
+[s07_analyze] output outputs/tables/D2_block_groups_acs_2020_2024.csv (table D2_block_groups_acs_2020_2024) sha256=b7db9b37dc32 rows=3
+[s07_analyze] output outputs/tables/E_within_block_group_contrast_2020.csv (table E_within_block_group_contrast_2020) sha256=8435f56afeb6 rows=5
+[s07_analyze] output outputs/tables/E2_paired_difference_vs_single_family_2020.csv (table E2_paired_difference_vs_single_family_2020) sha256=7fcc89d7549f rows=3
+[s07_analyze] output outputs/tables/F_housing_mix_by_block_type.csv (table F_housing_mix_by_block_type) sha256=f2101e14167a rows=5
+[s07_analyze] output outputs/fig_race_by_block_type.png (figure: race composition by block type) sha256=518fd1992131 rows=None
+[s07_analyze] output outputs/fig_where_groups_live.png (figure: distribution of each group across block types) sha256=5c39eb324540 rows=None
+[s07_analyze] output outputs/results.md (results narrative with all tables) sha256=5b9b09a0786c rows=None
+[s07_analyze] output outputs/results.json (all tables as JSON) sha256=a492c3c6096a rows=None
+[s07_analyze] headline (2020, all blocks): Single-family only: white 68.7%, black 10.4%, hispanic 8.6%, asian 4.4% (pop 18,464); 2-6 unit buildings dominate: white 46.2%, black 28.7%, hispanic 12.1%, asian 6.0% (pop 2,784); 7+ unit buildings dominate: white 51.7%, black 27.7%, hispanic 9.2%, asian 6.5% (pop 21,440); Mixed (houses + apartments): white 66.0%, black 12.9%, hispanic 9.7%, asian 4.8% (pop 11,797)
+[s07_analyze] end (0.3s) -> outputs/provenance/s07_analyze.json
+[s08_map] start s08_map.py (sha256 ea9cfe61704b)
+[s08_map] input  data/interim/s05_blocks.geojson (block polygons with category) sha256=52826097e462 bytes=1132389
+[s08_map] map: 1058 blocks; counts {'single_family': 462, 'small_mf_2_6': 67, 'large_mf_7plus': 213, 'mixed': 218, 'no_housing': 98}
+[s08_map] output outputs/map.html (interactive block-type map) sha256=671e89a8ad3e rows=None
+[s08_map] end (0.0s) -> outputs/provenance/s08_map.json
+[s09_provenance] start s09_provenance.py (sha256 3c277ddac4f9)
+[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=b8066778b4a2 bytes=2361
+[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=883b5cd46e92 bytes=15070
+[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=88e651352cc9 bytes=2016
+[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=6406f0205d5a bytes=5056
+[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=7087af3967c7 bytes=6418
+[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=97a283c1f274 bytes=3677
+[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=55c8f136f4a7 bytes=7773
+[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=fabc971a8fe0 bytes=1233
+[s09_provenance] verification passed: 58 produced files checked
+[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=616bf87813fd rows=None
+[s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json

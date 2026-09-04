@@ -1,0 +1,182 @@
+{
+ "config_sha256": "93ff1fdc862b57ac427eb77f9ec1d1229a3c7ed34efc9e528133469c3f87a915",
+ "finished_utc": "2026-09-04T18:52:11Z",
+ "inputs": [
+  {
+   "bytes": 192216,
+   "path": "data/interim/s05_blocks.csv",
+   "role": "block typology",
+   "sha256": "8d252e3d8aa2b36047e104ec2e89199f887edd7e2e950a3239879e1ac43c3aab"
+  },
+  {
+   "bytes": 53062,
+   "path": "data/interim/s06_blocks_census2020.csv",
+   "role": "2020 block counts",
+   "sha256": "a92687777f7286a3b881aef763da550ecc8002ac9494f41134d52b4d56a5d2a5"
+  },
+  {
+   "bytes": 7620,
+   "path": "data/interim/s05_blockgroups.csv",
+   "role": "block-group typology",
+   "sha256": "e04a7928491dc2a230c57c4002d1541e1f9383b41df73f70184dceb2e0ba2880"
+  },
+  {
+   "bytes": 6503,
+   "path": "data/interim/s06_blockgroups_acs.csv",
+   "role": "ACS block-group race",
+   "sha256": "192c3f39dccf6f938668f19635a54649c78ff3423822d2509060c3cadbe2b103"
+  }
+ ],
+ "notes": [
+  "start s07_analyze.py (sha256 6749f439cbb8)",
+  "param SF_ONLY_MIN_SHARE=0.95",
+  "param SF_ONLY_SENSITIVITY=(1.0, 0.9)",
+  "param GQ_MAX_SHARE=0.25",
+  "input  data/interim/s05_blocks.csv (block typology) sha256=8d252e3d8aa2 bytes=192216",
+  "input  data/interim/s06_blocks_census2020.csv (2020 block counts) sha256=a92687777f72 bytes=53062",
+  "input  data/interim/s05_blockgroups.csv (block-group typology) sha256=e04a7928491d bytes=7620",
+  "input  data/interim/s06_blockgroups_acs.csv (ACS block-group race) sha256=192c3f39dccf bytes=6503",
+  "blocks: 1058; population 54583; group-quarters-heavy blocks (> 25% GQ): 4 with 248 people",
+  "blocks reclassified when estimated large-MF units are set to the minimum: 2",
+  "block-group categories: single_family=3, small_mf_2_6=0, large_mf_7plus=20, mixed=30, no_housing=0",
+  "output outputs/tables/A_race_by_block_type_2020.csv (table A_race_by_block_type_2020) sha256=bea081e64052 rows=6",
+  "output outputs/tables/A2_race_by_block_type_2020_excl_gq.csv (table A2_race_by_block_type_2020_excl_gq) sha256=b0cf2d15cbc5 rows=6",
+  "output outputs/tables/B_where_each_group_lives_2020.csv (table B_where_each_group_lives_2020) sha256=b6914678d729 rows=5",
+  "output outputs/tables/C_sensitivity_sf100.csv (table C_sensitivity_sf100) sha256=6211fe4f2421 rows=6",
+  "output outputs/tables/C_sensitivity_sf90.csv (table C_sensitivity_sf90) sha256=e620086da0a3 rows=6",
+  "output outputs/tables/C_sensitivity_estimated_units_min.csv (table C_sensitivity_estimated_units_min) sha256=1a5afb57c6a5 rows=6",
+  "output outputs/tables/D1_block_groups_2020.csv (table D1_block_groups_2020) sha256=4057a5d43ba2 rows=4",
+  "output outputs/tables/D2_block_groups_acs_2020_2024.csv (table D2_block_groups_acs_2020_2024) sha256=b7db9b37dc32 rows=3",
+  "output outputs/tables/E_within_block_group_contrast_2020.csv (table E_within_block_group_contrast_2020) sha256=8435f56afeb6 rows=5",
+  "output outputs/tables/E2_paired_difference_vs_single_family_2020.csv (table E2_paired_difference_vs_single_family_2020) sha256=7fcc89d7549f rows=3",
+  "output outputs/tables/F_housing_mix_by_block_type.csv (table F_housing_mix_by_block_type) sha256=f2101e14167a rows=5",
+  "output outputs/fig_race_by_block_type.png (figure: race composition by block type) sha256=518fd1992131 rows=None",
+  "output outputs/fig_where_groups_live.png (figure: distribution of each group across block types) sha256=5c39eb324540 rows=None",
+  "output outputs/results.md (results narrative with all tables) sha256=5b9b09a0786c rows=None",
+  "output outputs/results.json (all tables as JSON) sha256=a492c3c6096a rows=None",
+  "headline (2020, all blocks): Single-family only: white 68.7%, black 10.4%, hispanic 8.6%, asian 4.4% (pop 18,464); 2-6 unit buildings dominate: white 46.2%, black 28.7%, hispanic 12.1%, asian 6.0% (pop 2,784); 7+ unit buildings dominate: white 51.7%, black 27.7%, hispanic 9.2%, asian 6.5% (pop 21,440); Mixed (houses + apartments): white 66.0%, black 12.9%, hispanic 9.7%, asian 4.8% (pop 11,797)"
+ ],
+ "ok": true,
+ "outputs": [
+  {
+   "bytes": 850,
+   "path": "outputs/tables/A_race_by_block_type_2020.csv",
+   "role": "table A_race_by_block_type_2020",
+   "rows": 6,
+   "sha256": "bea081e64052b55de06af3654c017c1791ec5815e6eabf58c17f1559d565c463"
+  },
+  {
+   "bytes": 749,
+   "path": "outputs/tables/A2_race_by_block_type_2020_excl_gq.csv",
+   "role": "table A2_race_by_block_type_2020_excl_gq",
+   "rows": 6,
+   "sha256": "b0cf2d15cbc5dba79329c80594a3284d80012418bfead1102eb502b15c715ed5"
+  },
+  {
+   "bytes": 374,
+   "path": "outputs/tables/B_where_each_group_lives_2020.csv",
+   "role": "table B_where_each_group_lives_2020",
+   "rows": 5,
+   "sha256": "b6914678d7299d22f0a6fab38309b709ef3ea86214b6e447ffbe01a7c2933246"
+  },
+  {
+   "bytes": 749,
+   "path": "outputs/tables/C_sensitivity_sf100.csv",
+   "role": "table C_sensitivity_sf100",
+   "rows": 6,
+   "sha256": "6211fe4f242103f4346d9d025211fc224475fdb3118cddd694e6e979238c1bf1"
+  },
+  {
+   "bytes": 749,
+   "path": "outputs/tables/C_sensitivity_sf90.csv",
+   "role": "table C_sensitivity_sf90",
+   "rows": 6,
+   "sha256": "e620086da0a3cd0ce6997e0161c75a10afcc297af7b36c4e000116030238ec20"
+  },
+  {
+   "bytes": 749,
+   "path": "outputs/tables/C_sensitivity_estimated_units_min.csv",
+   "role": "table C_sensitivity_estimated_units_min",
+   "rows": 6,
+   "sha256": "1a5afb57c6a5b9f7055ff7e7511ad9c4f6d5eeb985c7b939b35991ccb7c7d632"
+  },
+  {
+   "bytes": 609,
+   "path": "outputs/tables/D1_block_groups_2020.csv",
+   "role": "table D1_block_groups_2020",
+   "rows": 4,
+   "sha256": "4057a5d43ba230432c14609b79b48cb4a05a4e68c07483f412d73de37f322d71"
+  },
+  {
+   "bytes": 1088,
+   "path": "outputs/tables/D2_block_groups_acs_2020_2024.csv",
+   "role": "table D2_block_groups_acs_2020_2024",
+   "rows": 3,
+   "sha256": "b7db9b37dc32a2c30e7ea1ebba3a31c8afa3ee23a3821994dd141b194b3003d0"
+  },
+  {
+   "bytes": 707,
+   "path": "outputs/tables/E_within_block_group_contrast_2020.csv",
+   "role": "table E_within_block_group_contrast_2020",
+   "rows": 5,
+   "sha256": "8435f56afeb694f2bb6b61b32840689a345fb871accbef7246462f0d0cb71fd3"
+  },
+  {
+   "bytes": 278,
+   "path": "outputs/tables/E2_paired_difference_vs_single_family_2020.csv",
+   "role": "table E2_paired_difference_vs_single_family_2020",
+   "rows": 3,
+   "sha256": "7fcc89d7549fea28bb22188c3a1a2e44260eff8de012935a90f01cc17c594511"
+  },
+  {
+   "bytes": 612,
+   "path": "outputs/tables/F_housing_mix_by_block_type.csv",
+   "role": "table F_housing_mix_by_block_type",
+   "rows": 5,
+   "sha256": "f2101e14167a81a0165f0c46f3dcf29996d5a5574382c722a961095d43783eda"
+  },
+  {
+   "bytes": 90623,
+   "path": "outputs/fig_race_by_block_type.png",
+   "role": "figure: race composition by block type",
+   "rows": null,
+   "sha256": "518fd19921315444df99eddaea9823acc47867d1c5b4e566b1fc3b5803cccb83"
+  },
+  {
+   "bytes": 91851,
+   "path": "outputs/fig_where_groups_live.png",
+   "role": "figure: distribution of each group across block types",
+   "rows": null,
+   "sha256": "5c39eb3245404572b2e8131a04debea1a386a0d2d3047b71cbe3eeff43fff1fa"
+  },
+  {
+   "bytes": 9047,
+   "path": "outputs/results.md",
+   "role": "results narrative with all tables",
+   "rows": null,
+   "sha256": "5b9b09a0786c94144b447d311224bdbfb6908aead46d90433b60217ecafda2f5"
+  },
+  {
+   "bytes": 21833,
+   "path": "outputs/results.json",
+   "role": "all tables as JSON",
+   "rows": null,
+   "sha256": "a492c3c6096aa2e6cd2744f0e5a3889344aa01257b61342163e0ebbc457374f1"
+  }
+ ],
+ "params": {
+  "GQ_MAX_SHARE": 0.25,
+  "SF_ONLY_MIN_SHARE": 0.95,
+  "SF_ONLY_SENSITIVITY": [
+   1.0,
+   0.9
+  ]
+ },
+ "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
+ "python": "3.14.7",
+ "script": "s07_analyze.py",
+ "script_sha256": "6749f439cbb87c4a608c6792898bb94d21cea53e82006a035d26c6a82bdadbfb",
+ "seconds": 0.3,
+ "stage": "s07_analyze",
+ "started_utc": "2026-09-04T18:52:11Z"
+}
