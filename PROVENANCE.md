@@ -419,20 +419,21 @@ Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs
 
 ## s12_explorer_data
 
-Script `s12_explorer_data.py` (sha256 85d6dee4ab530ebf), config.py d132051599f4aed2, python 3.14.7, started 2026-09-18T20:01:12Z, 0.2 s.
+Script `s12_explorer_data.py` (sha256 ccd60ae73bcfc157), config.py d132051599f4aed2, python 3.14.7, started 2026-09-18T20:07:49Z, 0.5 s.
 
 Parameters: `EXPLORER_DISTRICTS=['Frank Lloyd Wright', 'Ridgeland - Oak Park']`, `SIZE_CLASSES=['2', '3', '4', '5', '6', '7+']`
 
 Inputs:
 
 - `data/interim/s10_mf_buildings.csv` from s10_districts, sha256 06a031695b5e18c6, 231666 bytes
+- `data/interim/s04_parcel_units.csv` from s04_units, sha256 69ef35157c647c2e, 4290133 bytes
 - `data/raw/vop_historic_districts.geojson` from s02_fetch, sha256 4d22869c4b45671f, 108951 bytes
 - `data/raw/place/tl_2020_17_place.shp` from s02_fetch, sha256 f18a8f5c7d03f2a9, 9608328 bytes
 - `data/raw/place/tl_2020_17_place.dbf` from s02_fetch, sha256 0e1f037c9ad084dd, 419822 bytes
 
 Outputs:
 
-- `outputs/explorer_data/mf_buildings.json` sha256 906c2ea649757437, 304238 bytes
+- `outputs/explorer_data/mf_buildings.json` sha256 d6799beb69487973, 349623 bytes
 
 Log:
 

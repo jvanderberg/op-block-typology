@@ -8,7 +8,10 @@ districts; Gunderson's buildings are exported under their own slug) as a compact
 JSON file the Vite app loads at runtime, plus the designation metadata from
 config so the app has no hand-typed dates. Every building carries its year
 built, unit count, size class (2, 3, 4, 5, 6, 7+), type, zone, year source
-and the assessor building id, so a viewer can trace any bar back to parcels. Each area (district or rest
+and the assessor building id, so a viewer can trace any bar back to parcels. `linkPin` is a 14-digit PIN
+with an Assessor web page: the PIN itself for ordinary buildings, and the
+lowest-numbered unit PIN for condominium buildings (whose id is the 10-digit
+parent, which has no page). Each area (district or rest
 of village) carries its land area in square miles, measured from the Village
 district polygons and the TIGER place polygon in EPSG:26971 (NAD83 Illinois
 East), so the explorer can show units per square mile.
@@ -65,6 +68,10 @@ def main():
         st.param(EXPLORER_DISTRICTS=EXPLORER_DISTRICTS, SIZE_CLASSES=SIZE_CLASSES)
         src = os.path.join(INTERIM_DIR, "s10_mf_buildings.csv")
         st.input(src, role="multi-family buildings")
+        p_units = os.path.join(INTERIM_DIR, "s04_parcel_units.csv")
+        st.input(p_units, role="parcel units (unit PINs per building)")
+        units = pd.read_csv(p_units, dtype={"pin": str, "building_id": str}, usecols=["pin", "building_id"])
+        first_pin = units.groupby("building_id").pin.min().to_dict()
         b = pd.read_csv(src, dtype={"building_id": str, "address": str, "zone": str, "yr_source": str})
         b = b.copy()
         b["slug"] = [HISTORIC_DISTRICTS[d]["slug"] if d in HISTORIC_DISTRICTS else REST_SLUG for d in b.district]
@@ -90,6 +97,7 @@ def main():
                 "units": int(round(r.units)), "size": size_class(r.units),
                 "type": r.unit_type, "zone": r.zone if isinstance(r.zone, str) else "",
                 "yearSource": r.yr_source, "pins": int(r.n_pins),
+                "linkPin": r.building_id if len(r.building_id) == 14 else first_pin.get(r.building_id, ""),
             })
         out_obj = {
             "generated": {"stage": "s12_explorer_data", "source": "data/interim/s10_mf_buildings.csv",
