@@ -111,7 +111,9 @@ def main():
         b_all = pd.read_csv(p_b, dtype={"building_id": str, "zone": str, "address": str})
         excluded = b_all[b_all.excluded].copy()
         b = b_all[~b_all.excluded].copy()
-        st.note(f"buildings: {len(b_all)}; excluded condo conversions: {len(excluded)} ({excluded.units.sum():.0f} units); analysed: {len(b)}")
+        st.note(f"buildings: {len(b_all)}; excluded: {len(excluded)} ({excluded.units.sum():.0f} units); analysed: {len(b)}; "
+                f"condo conversions redated: {int(b.yr_source.eq('predecessor_chars').sum())}, "
+                f"conversion year unknown: {int(b.yr_source.eq('conversion_year_unknown').sum())}")
         ctx = pd.read_csv(p_ctx)
         dz = pd.read_csv(p_z)
         os.makedirs(TABLE_DIR, exist_ok=True)
@@ -168,9 +170,13 @@ def main():
         for c in ("sf", "small_mf", "large_mf"):
             K["pct_" + c] = (100 * K[c] / K.total).round(1)
         tables["K_district_housing_units_by_type_2026"] = K
-        L = excluded.sort_values(["district", "address"])[["district", "address", "units", "yrblt", "yr_predecessor", "zone"]].rename(
-            columns={"yrblt": "recorded_condo_year", "yr_predecessor": "predecessor_year_built"})
-        tables["L_excluded_condo_conversions"] = L.set_index("district") if len(L) else L
+        conv_src = ("predecessor_chars", "conversion_year_unknown")
+        redated = b[b.yr_source.isin(conv_src)].sort_values(["district", "address"])
+        L = pd.concat([
+            redated[["district", "address", "units", "yrblt", "yr_source", "zone"]].assign(disposition="redated"),
+            excluded[["district", "address", "units", "yrblt", "yr_source", "zone"]].assign(disposition="excluded"),
+        ]).rename(columns={"yrblt": "year_used"})
+        tables["L_condo_conversions"] = L.set_index("district") if len(L) else L
 
         for name, t in tables.items():
             p = os.path.join(TABLE_DIR, name + ".csv")
@@ -301,22 +307,26 @@ def main():
             "",
             md(J, {c: c for c in J.columns}),
             "",
-            "## Excluded condominium conversions",
+            "## Condominium conversions",
             "",
             "The Assessor's condominium file records the year the units were declared, not the year",
             "the structure was built, for buildings converted to condominiums. These buildings were",
             "identified by finding the predecessor parcel (same assessor block, present the year before",
-            "the units appear, absent after) with a residential or apartment class, and are excluded",
-            "from every table above. The predecessor's own year built is shown where the Assessor",
-            "recorded one.",
+            "the units appear, absent after) with a residential or apartment class and no large jump",
+            "in assessed value. They are kept as the same building, with today's address and unit",
+            "count, dated by the predecessor parcel's recorded year built; where the predecessor was a",
+            "7+ unit building with no characteristics record the year is unknown and the building",
+            "appears under Undated below.",
             "",
         ]
         if len(L):
-            lines.append("| District | Address | Units | Recorded condo year | Predecessor built | Zone |")
+            lines.append("| District | Address | Units | Year used | Source | Zone |")
             lines.append("|---|---|---|---|---|---|")
             for d, r in L.iterrows():
-                py = "" if pd.isna(r.predecessor_year_built) else str(int(r.predecessor_year_built))
-                lines.append(f"| {d} | {r.address} | {r.units:.0f} | {int(r.recorded_condo_year)} | {py} | {r.zone} |")
+                y = "unknown" if pd.isna(r.year_used) else str(int(r.year_used))
+                src = {"predecessor_chars": "predecessor parcel characteristics",
+                       "conversion_year_unknown": "predecessor was a 7+ unit building; no year recorded"}.get(r.yr_source, r.yr_source)
+                lines.append(f"| {d} | {r.address} | {r.units:.0f} | {y} | {src} | {r.zone} |")
         else:
             lines.append("None.")
         lines += [
@@ -339,8 +349,8 @@ def main():
                   "  2020 or later) it is the year before the PIN first carried a residential class.",
                   "- The Frank Lloyd Wright polygon is the boundary as expanded in 2009/2012; the 1972 boundary is",
                   "  smaller (1,491 of about 1,935 parcels). The sensitivity row with 2012 bounds this.",
-                  "- Condominium buildings converted from existing buildings are excluded (see above); the",
-                  "  remaining condominium buildings are dated by the Assessor's condominium file.",
+                  "- Condominium buildings converted from existing buildings are dated by the predecessor",
+                  "  parcel's year built (see above); other condominium buildings by the Assessor's condominium file.",
                   ""]
         p_md = os.path.join(OUT_DIR, "results_districts.md")
         with open(p_md, "w") as f:

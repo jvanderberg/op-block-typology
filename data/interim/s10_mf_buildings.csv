@@ -332,7 +332,7 @@ building_id,address,district,zone,unit_type,bucket,units,n_pins,classes,units_so
 16053220160000,525 N HARVEY AVE 2,Rest of Oak Park,R-3-50,small_mf,small_mf,2.0,1,211,char_apts,1912.0,char_yrblt,False,,,41.89551702207058,-87.78212070349542
 16053220170000,521 N HARVEY AVE,Rest of Oak Park,R-3-50,small_mf,small_mf,2.0,1,211,char_apts,1893.0,char_yrblt,False,,,41.895379842120434,-87.7821159675837
 16053220190000,508 N CUYLER AVE,Rest of Oak Park,NC,large_mf,large_mf,11.0,1,314,commval_2023,1919.0,commval,False,,,41.89499798688752,-87.78292390479825
-1605322030,254 CHICAGO AVE,Rest of Oak Park,NC,condo,small_mf,5.0,5,299,class_rule,2006.0,condo_chars,True,condo_conversion,1898.0,41.89500070344862,-87.7826374124945
+1605322030,254 CHICAGO AVE,Rest of Oak Park,NC,condo,small_mf,5.0,5,299,class_rule,1898.0,predecessor_chars,False,,1898.0,41.89500070344862,-87.7826374124945
 16053230030000,540 N HARVEY AVE,Rest of Oak Park,R-3-50,small_mf,small_mf,2.0,1,211,char_apts,1911.0,char_yrblt,False,,,41.896080658786715,-87.78121734464786
 16053230140000,531 N LOMBARD AVE,Rest of Oak Park,R-3-50,small_mf,small_mf,2.0,1,211,char_apts,1952.0,char_yrblt,False,,,41.89581883764872,-87.78050577169455
 16053230180000,515 N LOMBARD AVE,Rest of Oak Park,R-3-50,small_mf,small_mf,2.0,1,211,char_apts,1890.0,char_yrblt,False,,,41.895265369976194,-87.78048703740961
@@ -512,7 +512,7 @@ building_id,address,district,zone,unit_type,bucket,units,n_pins,classes,units_so
 16073250200000,900 MADISON ST,Rest of Oak Park,MS,large_mf,large_mf,38.0,1,318,commval_2023,1928.0,commval,False,,,41.87998260974957,-87.79730586904432
 1607325023,417 S KENILWORTH AVE,Rest of Oak Park,R-7,condo,large_mf,9.0,9,299,class_rule,1969.0,condo_chars,False,,,41.880834153694614,-87.7973712418952
 1607325024,423 S KENILWORTH AVE,Rest of Oak Park,R-7,condo,large_mf,10.0,10,299,class_rule,1923.0,condo_chars,False,,,41.88069648128673,-87.79736681095036
-1607325025,431 S KENILWORTH AVE,Rest of Oak Park,R-7,condo,small_mf,4.0,4,299,class_rule,2001.0,condo_chars,True,condo_conversion,1923.0,41.88028231181937,-87.79735356012509
+1607325025,431 S KENILWORTH AVE,Rest of Oak Park,R-7,condo,small_mf,4.0,4,299,class_rule,1923.0,predecessor_chars,False,,1923.0,41.88028231181937,-87.79735356012509
 16073260020000,414 S KENILWORTH AVE,Rest of Oak Park,R-7,small_mf,small_mf,6.0,1,211,char_apts,1922.0,char_yrblt,False,,,41.880867181705,-87.79658117306002
 16073260170000,850 MADISON ST,Rest of Oak Park,MS,small_mf,small_mf,2.0,1,212,char_apts,1901.0,char_yrblt,False,,,41.88000927499957,-87.79658741051429
 16073260200000,844 MADISON ST,Rest of Oak Park,MS,small_mf,small_mf,2.0,1,212,char_apts,1933.0,char_yrblt,False,,,41.880015112276766,-87.79626878517877
@@ -546,7 +546,7 @@ building_id,address,district,zone,unit_type,bucket,units,n_pins,classes,units_so
 16074230150000,419 S RIDGELAND AVE,Rest of Oak Park,R-7,small_mf,small_mf,2.0,1,211,char_apts,1914.0,char_yrblt,False,,,41.88094284859309,-87.78495991500453
 16074230240000,408 MADISON ST,Rest of Oak Park,MS,small_mf,small_mf,2.0,1,212,char_apts,1912.0,char_yrblt,False,,,41.88025899135705,-87.78496199647532
 1607423041,415 S RIDGELAND AVE,Rest of Oak Park,R-7,condo,small_mf,4.0,4,299,class_rule,1921.0,condo_chars,False,,,41.881079804591565,-87.78496353825155
-1607423043,421 S RIDGELAND AVE,Rest of Oak Park,R-7,condo,large_mf,7.0,7,299,class_rule,2005.0,condo_chars,True,condo_conversion,1910.0,41.88080592112655,-87.78495629481797
+1607423043,421 S RIDGELAND AVE,Rest of Oak Park,R-7,condo,large_mf,7.0,7,299,class_rule,1910.0,predecessor_chars,False,,1910.0,41.88080592112655,-87.78495629481797
 1608100021,301 W CHICAGO AVE,Rest of Oak Park,R-6,condo,large_mf,18.0,18,299,class_rule,1966.0,condo_chars,False,,,41.89427521498511,-87.78357883546803
 16081010190000,411 N HARVEY AVE,Rest of Oak Park,R-2,small_mf,small_mf,2.0,1,211,char_apts,1893.0,char_yrblt,False,,,41.893570779757155,-87.78205863554568
 16081020120000,423 N LOMBARD AVE,Rest of Oak Park,R-2,small_mf,small_mf,2.0,1,211,char_apts,1915.0,char_yrblt,False,,,41.89400490926329,-87.7804467987529
@@ -784,7 +784,7 @@ building_id,address,district,zone,unit_type,bucket,units,n_pins,classes,units_so
 16173230290000,924 S AUSTIN BLVD,Rest of Oak Park,R-7,small_mf,small_mf,4.0,1,211,char_apts,1923.0,char_yrblt,False,,,41.86820275925748,-87.77460407220624
 16173230320000,1000 S AUSTIN BLVD,Rest of Oak Park,R-7,large_mf,large_mf,25.0,1,315,commval_2023,1925.0,commval,False,,,41.867791265938706,-87.77458893127972
 16173230330000,1008 S AUSTIN BLVD,Rest of Oak Park,R-7,large_mf,large_mf,8.0,2,314,commval_2023,1964.0,commval,False,,,41.867619829138974,-87.77458265916869
-1617323036,916 AUSTIN AVE,Rest of Oak Park,R-7,condo,large_mf,10.0,10,299,class_rule,2001.0,condo_chars,True,condo_conversion,1923.0,41.86847706925269,-87.7746141668311
+1617323036,916 AUSTIN AVE,Rest of Oak Park,R-7,condo,large_mf,10.0,10,299,class_rule,1923.0,predecessor_chars,False,,1923.0,41.86847706925269,-87.7746141668311
 16173240350000,6340 ROOSEVELT RD,Rest of Oak Park,RR,small_mf,small_mf,4.0,1,212,char_apts,1927.0,char_yrblt,False,,,41.86560132157037,-87.78352786201563
 16173240370000,6332 ROOSEVELT RD,Rest of Oak Park,RR,small_mf,small_mf,2.0,1,212,char_apts,1926.0,char_yrblt,False,,,41.86560673588176,-87.78316265387775
 16173250440000,1178 S CUYLER AVE,Rest of Oak Park,R-4,small_mf,small_mf,2.0,1,211,char_apts,1906.0,char_yrblt,False,,,41.86607298006224,-87.78240614740324
@@ -994,7 +994,7 @@ building_id,address,district,zone,unit_type,bucket,units,n_pins,classes,units_so
 16183220260000,1117 S OAK PARK AVE,Rest of Oak Park,R-5,small_mf,small_mf,2.0,1,211,char_apts,1923.0,char_yrblt,False,,,41.86806654173088,-87.79422579700125
 16183220340000,1133 S OAK PARK AVE,Rest of Oak Park,R-5,small_mf,small_mf,5.0,1,211,char_apts,1959.0,char_yrblt,False,,,41.86756495097591,-87.7942084918117
 16183220350000,1135 S OAK PARK AVE,Rest of Oak Park,R-5,small_mf,small_mf,5.0,1,211,char_apts,1959.0,char_yrblt,False,,,41.867513487912845,-87.79420672187055
-1618322043,1121 S OAK PARK AVE,Rest of Oak Park,R-5,condo,large_mf,7.0,7,299,class_rule,2004.0,condo_chars,True,condo_conversion,1909.0,41.86798914851265,-87.79422311437901
+1618322043,1121 S OAK PARK AVE,Rest of Oak Park,R-5,condo,large_mf,7.0,7,299,class_rule,1909.0,predecessor_chars,False,,1909.0,41.86798914851265,-87.79422311437901
 16183230230000,1181 WISCONSIN AVE,Rest of Oak Park,R-3-50,small_mf,small_mf,2.0,1,211,char_apts,1915.0,char_yrblt,False,,,41.86567996027362,-87.80223931201681
 16183270170000,1151 S KENILWORTH AVE,Rest of Oak Park,R-4,small_mf,small_mf,2.0,1,211,char_apts,1911.0,char_yrblt,False,,,41.8667735597473,-87.7967982208738
 16183270300000,6900 ROOSEVELT RD,Rest of Oak Park,RR,large_mf,large_mf,31.0,1,318,commval_2023,1924.0,commval,False,,,41.86526973435575,-87.79674494476015
@@ -1094,7 +1094,7 @@ building_id,address,district,zone,unit_type,bucket,units,n_pins,classes,units_so
 1607223027,135 N RIDGELAND AVE,Ridgeland - Oak Park,R-7,condo,large_mf,9.0,9,299,class_rule,1913.0,condo_chars,False,,,41.88884716418286,-87.78505117559632
 1607223028,147 N RIDGELAND AVE,Ridgeland - Oak Park,R-2,condo,large_mf,10.0,10,299,class_rule,1909.0,condo_chars,False,,,41.88924449448827,-87.78518715692857
 16072240010000,136 N OAK PARK AVE,Ridgeland - Oak Park,DT-2,large_mf,large_mf,59.0,1,318,commval_2023,1905.0,commval,False,,,41.888368014453505,-87.79421525478574
-1607224028,125 N EUCLID AVE,Ridgeland - Oak Park,DT-2,condo,large_mf,25.0,25,299,class_rule,2000.0,condo_chars,True,condo_conversion,,41.88835834998956,-87.79310809921833
+1607224028,125 N EUCLID AVE,Ridgeland - Oak Park,DT-2,condo,large_mf,25.0,25,299,class_rule,,conversion_year_unknown,False,,,41.88835834998956,-87.79310809921833
 16072250920000,675 LAKE ST,Ridgeland - Oak Park,R-7,large_mf,large_mf,125.0,1,391,commval_2023,1986.0,commval,False,,,41.88828713314936,-87.79203674694423
 16073000040000,1133 SOUTH BLVD,Ridgeland - Oak Park,R-7,small_mf,small_mf,3.0,1,211,char_apts,1906.0,char_yrblt,False,,,41.88626249705942,-87.80441380438818
 16073000050000,111 S MAPLE AVE 1,Ridgeland - Oak Park,R-7,small_mf,small_mf,4.0,1,211,char_apts,1888.0,char_yrblt,False,,,41.886144341428064,-87.80452962108366
@@ -1314,7 +1314,7 @@ building_id,address,district,zone,unit_type,bucket,units,n_pins,classes,units_so
 1607401031,651 SOUTH BLVD,Ridgeland - Oak Park,R-7,condo,large_mf,9.0,9,299,class_rule,1950.0,condo_chars,False,,,41.88656341361023,-87.79198381672794
 16074020010000,102 WESLEY AVE,Ridgeland - Oak Park,R-7,small_mf,small_mf,2.0,1,211,char_apts,1887.0,char_yrblt,False,,,41.88673117267836,-87.7908504309187
 16074020040000,110 WESLEY AVE,Ridgeland - Oak Park,R-7,small_mf,small_mf,2.0,1,211,char_apts,1901.0,char_yrblt,False,,,41.88641542018574,-87.7908563900751
-1607402047,615 SOUTH BLVD,Ridgeland - Oak Park,R-7,condo,large_mf,12.0,12,299,class_rule,2000.0,condo_chars,True,condo_conversion,1890.0,41.88658408140721,-87.79046343478922
+1607402047,615 SOUTH BLVD,Ridgeland - Oak Park,R-7,condo,large_mf,12.0,12,299,class_rule,1893.0,predecessor_chars,False,,1893.0,41.88658408140721,-87.79046343478922
 16074030150000,127 S SCOVILLE AVE,Ridgeland - Oak Park,R-3-50,small_mf,small_mf,2.0,1,211,char_apts,1888.0,char_yrblt,False,,,41.88601267435567,-87.78836419154203
 16074030410000,515 SOUTH BLVD,Ridgeland - Oak Park,R-7,small_mf,small_mf,4.0,1,211,char_apts,1909.0,char_yrblt,False,,,41.88660139276584,-87.78883155061791
 1607403043,108 S EAST AVE,Ridgeland - Oak Park,R-3-50,condo,large_mf,53.0,53,299,class_rule,1903.0,condo_chars,False,,,41.886273806657975,-87.7890723576482
@@ -1447,7 +1447,7 @@ building_id,address,district,zone,unit_type,bucket,units,n_pins,classes,units_so
 16081230170000,432 N AUSTIN BLVD,Ridgeland - Oak Park,R-7,large_mf,large_mf,26.0,1,315,commval_2023,1921.0,commval,False,,,41.88882247465186,-87.77540666767797
 16081230280000,146 N HUMPHREY AVE,Ridgeland - Oak Park,R-7,large_mf,large_mf,31.0,1,315,commval_2023,1917.0,commval,False,,,41.889367593675146,-87.77613044687142
 16081230290000,466 N AUSTIN BLVD,Ridgeland - Oak Park,R-7,large_mf,large_mf,22.0,1,315,commval_2023,1964.0,commval,False,,,41.889791122257506,-87.77543739028042
-1608123030,166 N HUMPHREY AVE,Ridgeland - Oak Park,R-7,condo,large_mf,16.0,16,299,class_rule,2000.0,condo_chars,True,condo_conversion,1922.0,41.88991386496423,-87.77614787882618
+1608123030,166 N HUMPHREY AVE,Ridgeland - Oak Park,R-7,condo,large_mf,16.0,16,299,class_rule,1922.0,predecessor_chars,False,,1922.0,41.88991386496423,-87.77614787882618
 16083000060000,309 SOUTH BLVD,Ridgeland - Oak Park,NC,small_mf,small_mf,2.0,1,211,char_apts,1921.0,char_yrblt,False,,,41.88669406564935,-87.78358403752728
 1608300030,106 S RIDGELAND AVE,Ridgeland - Oak Park,NC,condo,large_mf,116.0,116,299,class_rule,2005.0,condo_chars_unverified,False,,,41.88674699695278,-87.78412476031261
 16083010020000,101 S HARVEY AVE,Ridgeland - Oak Park,NC,large_mf,large_mf,57.0,1,318,commval_2023,1928.0,commval,False,,,41.88671094135063,-87.78187271035807
@@ -1536,8 +1536,8 @@ building_id,address,district,zone,unit_type,bucket,units,n_pins,classes,units_so
 16083190010000,261 WASHINGTON BLVD,Ridgeland - Oak Park,R-7,large_mf,large_mf,32.0,1,391,estimate_av/class,2023.0,class_history,False,,,41.88145822925824,-87.78257624838761
 16083190120000,415 S HARVEY AVE,Ridgeland - Oak Park,R-7,large_mf,large_mf,20.0,1,315,commval_2023,1919.0,commval,False,,,41.8811581586847,-87.78169300393006
 16083190270000,421 S HARVEY AVE,Ridgeland - Oak Park,R-7,large_mf,large_mf,23.0,1,315,commval_2023,1964.0,commval,False,,,41.880889085243865,-87.78168523573797
-1608319044,431 S HARVEY AVE,Ridgeland - Oak Park,R-7,condo,large_mf,8.0,8,299,class_rule,2001.0,condo_chars,True,condo_conversion,1894.0,41.88058048687768,-87.78167629137707
-1608319045,257 W WASHINGTON BLVD,Ridgeland - Oak Park,R-7,condo,large_mf,20.0,20,299,class_rule,2001.0,condo_chars,True,condo_conversion,1894.0,41.88151460009304,-87.78231642543705
+1608319044,431 S HARVEY AVE,Ridgeland - Oak Park,R-7,condo,large_mf,8.0,8,299,class_rule,1894.0,predecessor_chars,False,,1894.0,41.88058048687768,-87.78167629137707
+1608319045,257 W WASHINGTON BLVD,Ridgeland - Oak Park,R-7,condo,large_mf,20.0,20,299,class_rule,,conversion_year_unknown,False,,,41.88151460009304,-87.78231642543705
 1608319046,237 WASHINGTON BLVD,Ridgeland - Oak Park,R-7,condo,large_mf,58.0,58,299,class_rule,1924.0,condo_chars,False,,,41.88146499756389,-87.78172095286294
 16083200010000,221 WASHINGTON BLVD,Ridgeland - Oak Park,R-7,large_mf,large_mf,34.0,1,315,commval_2023,1926.0,commval,False,,,41.881486921125905,-87.78087112270538
 16083200020000,213 WASHINGTON BLVD,Ridgeland - Oak Park,R-7,large_mf,large_mf,34.0,1,315,commval_2023,1926.0,commval,False,,,41.88149458430718,-87.78042200448282

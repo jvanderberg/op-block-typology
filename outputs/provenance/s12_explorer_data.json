@@ -1,12 +1,12 @@
 {
- "config_sha256": "0a87a8464ff0f2fe5b7e714f7e3fc1e863ed5c4ab0c4fcec57fd1a3ffd26b16d",
- "finished_utc": "2026-09-18T21:01:32Z",
+ "config_sha256": "126e52528e9d26aab25ea5d62adec8841bffc8e0b5a12a0439b686882c5cf519",
+ "finished_utc": "2026-09-18T21:07:43Z",
  "inputs": [
   {
-   "bytes": 244624,
+   "bytes": 244528,
    "path": "data/interim/s10_mf_buildings.csv",
    "role": "multi-family buildings",
-   "sha256": "3fe7ba849b3f386c367626aa559890b8e6d8f0f3b42c9f37d9f3230a1587002a"
+   "sha256": "d45e088be1dbf07f8ffa50c5bd06bdea1e4b6785b03685faafe5d4c8b51ebac1"
   },
   {
    "bytes": 4290133,
@@ -37,27 +37,27 @@
   "start s12_explorer_data.py (sha256 59dc52adcae1)",
   "param EXPLORER_DISTRICTS=('Frank Lloyd Wright', 'Ridgeland - Oak Park')",
   "param SIZE_CLASSES=('2', '3', '4', '5', '6', '7+')",
-  "input  data/interim/s10_mf_buildings.csv (multi-family buildings) sha256=3fe7ba849b3f bytes=244624",
+  "input  data/interim/s10_mf_buildings.csv (multi-family buildings) sha256=d45e088be1db bytes=244528",
   "input  data/interim/s04_parcel_units.csv (parcel units (unit PINs per building)) sha256=69ef35157c64 bytes=4290133",
-  "buildings: 1565; excluded condo conversions dropped: 10",
+  "buildings: 1565; excluded condo conversions dropped: 0",
   "input  data/raw/vop_historic_districts.geojson (historic district polygons) sha256=4d22869c4b45 bytes=108951",
   "input  data/raw/place/tl_2020_17_place.shp (TIGER place polygons) sha256=f18a8f5c7d03 bytes=9608328",
   "input  data/raw/place/tl_2020_17_place.dbf (TIGER place attributes) sha256=0e1f037c9ad0 bytes=419822",
   "areas (sq mi): Frank Lloyd Wright=0.907, Gunderson=0.082, Ridgeland - Oak Park=0.840, __rest__=2.871, __village__=4.700",
   "Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50",
-  "Ridgeland - Oak Park: 481 buildings, 6194 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=176",
+  "Ridgeland - Oak Park: 486 buildings, 6275 units, undated 2; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181",
   "Gunderson: 22 buildings, 48 units, undated 0; by size: 2=20, 3=1, 5=1",
-  "Rest of Oak Park: 830 buildings, 8755 units, undated 2; by size: 2=364, 3=80, 4=88, 5=17, 6=42, 7+=239",
-  "output outputs/explorer_data/mf_buildings.json (explorer data (FLW + Ridgeland multi-family buildings)) sha256=2675b5eaedf9 rows=None"
+  "Rest of Oak Park: 835 buildings, 8788 units, undated 2; by size: 2=364, 3=80, 4=89, 5=18, 6=42, 7+=242",
+  "output outputs/explorer_data/mf_buildings.json (explorer data (FLW + Ridgeland multi-family buildings)) sha256=adcc0d292cf7 rows=None"
  ],
  "ok": true,
  "outputs": [
   {
-   "bytes": 404781,
+   "bytes": 407427,
    "path": "outputs/explorer_data/mf_buildings.json",
    "role": "explorer data (FLW + Ridgeland multi-family buildings)",
    "rows": null,
-   "sha256": "2675b5eaedf9c7d5e93e82e4504202df2773c7db023b449f11e0dea8a4741922"
+   "sha256": "adcc0d292cf7798973e6da2775e9c94d17233cfe34fc27bbb4e1b3d6f85019ed"
   }
  ],
  "params": {
@@ -80,5 +80,5 @@
  "script_sha256": "59dc52adcae1c5f7b91360ee86d1b5357efd6b9d4a8e5f6bdb9ec0858e665d9e",
  "seconds": 0.3,
  "stage": "s12_explorer_data",
- "started_utc": "2026-09-18T21:01:32Z"
+ "started_utc": "2026-09-18T21:07:43Z"
 }

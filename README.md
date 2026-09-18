@@ -128,14 +128,15 @@ the 1920s. Village-wide, apartment construction collapsed after 1930 everywhere,
 the decade tables in the results are the fairer reading; the districts' pre-designation
 multi-family stock is overwhelmingly 1900-1930.
 
-Condominium conversions are excluded from this analysis. The Assessor's condominium
+Condominium conversions are dated by the original building. The Assessor's condominium
 file records the year the units were declared, not the year the structure was built, for
 buildings converted to condominiums (166 N Humphrey, a 1922 apartment building, carries
 2000). Stage 10 detects these by finding the predecessor parcel in the same assessor
 block, present the year before the units appear and absent after, with a residential or
-apartment class and no large jump in assessed value; ten buildings (114 units) are
-excluded and listed in the results. Set `CONDO_CONVERSION_POLICY = "redate"` in
-`config.py` to use the predecessor's year built instead.
+apartment class and no large jump in assessed value, and uses that parcel's recorded year
+built; ten buildings (114 units) are redated and listed in the results, two of them with
+no recorded year (their predecessors were 7+ unit buildings, which carry no
+characteristics record). `CONDO_CONVERSION_POLICY` in `config.py` can exclude them instead.
 
 The Frank Lloyd Wright polygon is the boundary as expanded in 2009 (National Register)
 and 2012 (local); the 1972 boundary is not available as GIS data. A sensitivity run

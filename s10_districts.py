@@ -180,7 +180,15 @@ def main():
                     return MANUAL_YEAR_BUILT[p][0], "manual"
             return None, "unknown"
 
-        def conversion_verdict(pin10):
+        def addr_key(a):
+            """'257 W WASHINGTON BLVD 1A' -> '257 WASHINGTON'; None when unparsable."""
+            b = base_addr(a)
+            if not b:
+                return None
+            parts = [w for w in b.split(" ") if w not in ("N", "S", "E", "W", "AVE", "ST", "BLVD", "RD", "PL", "CT", "LN", "PKY", "TER", "DR")]
+            return " ".join(parts[:2]) if len(parts) >= 2 else None
+
+        def conversion_verdict(pin10, address):
             """(verdict, predecessor_year) for a condo building: 'conversion',
             'newbuild', 'unverified', or None when not a candidate."""
             c = conv.get(pin10)
@@ -196,7 +204,13 @@ def main():
             ratio = (c.get("condo_av_first_year", 0) / pred_av) if pred_av > 0 else float("inf")
             if ratio >= CONDO_CONVERSION_MAX_AV_RATIO:
                 return "newbuild", None       # value jump: the old building was replaced
-            yrs = sorted({y for p in existing for y in p["char_yrblt"]})
+            # Two condo buildings declared in the same block in the same year share
+            # a predecessor set; attribute by address (house number + street) when
+            # a predecessor matches this building's address, else use them all.
+            key = addr_key(address)
+            matched = [p for p in existing if addr_key(p["address"]) == key]
+            use = matched or existing
+            yrs = sorted({y for p in use for y in p["char_yrblt"]})
             return "conversion", (yrs[0] if yrs else None)
 
         # --- buildings -------------------------------------------------------
@@ -248,7 +262,7 @@ def main():
             yr, src = year_built(f, pins)
             excluded, reason, yr_pred = False, "", None
             if f.unit_type == "condo":
-                verdict, yr_pred = conversion_verdict(bid)
+                verdict, yr_pred = conversion_verdict(bid, f.address)
                 if verdict == "conversion":
                     if CONDO_CONVERSION_POLICY == "redate" and yr_pred is not None:
                         yr, src = yr_pred, "predecessor_chars"
@@ -271,7 +285,10 @@ def main():
         st.note(f"multi-family buildings (>= {MF_MIN_UNITS} units): {len(b)} with {b.units.sum():.0f} units")
         st.note("year source: " + ", ".join(f"{k}={v}" for k, v in b.yr_source.value_counts().items()))
         ex = b[b.excluded]
-        st.note(f"condo conversions ({CONDO_CONVERSION_POLICY}): {len(ex)} buildings, {ex.units.sum():.0f} units: " + "; ".join(
+        rd = b[b.yr_source.isin(("predecessor_chars", "conversion_year_unknown"))]
+        st.note(f"condo conversions redated: {len(rd)} buildings, {rd.units.sum():.0f} units: " + "; ".join(
+            f"{r.address} ({r.district}, {r.units:.0f} u, year used {int(r.yrblt) if pd.notna(r.yrblt) else 'unknown'})" for _, r in rd.iterrows()))
+        st.note(f"condo conversions excluded: {len(ex)} buildings, {ex.units.sum():.0f} units: " + "; ".join(
             f"{r.address} ({r.district}, {r.units:.0f} u, recorded {int(r.yrblt) if pd.notna(r.yrblt) else '?'}, "
             f"predecessor built {int(r.yr_predecessor) if pd.notna(r.yr_predecessor) else 'unknown'})" for _, r in ex.iterrows()))
         unk = b[b.yr_source == "unknown"]
@@ -285,7 +302,7 @@ def main():
         for d in list(HISTORIC_DISTRICTS) + ["Rest of Oak Park"]:
             s = b[(b.district == d) & ~b.excluded]
             st.note(f"  {d}: {len(s)} MF buildings kept, {s.units.sum():.0f} units, "
-                    f"{int((s.yr_source == 'unknown').sum())} undated; excluded {int(((b.district == d) & b.excluded).sum())}")
+                    f"{int(s.yrblt.isna().sum())} undated; excluded {int(((b.district == d) & b.excluded).sum())}")
         out = os.path.join(INTERIM_DIR, "s10_mf_buildings.csv")
         b.to_csv(out, index=False)
         st.output(out, role="multi-family buildings with district, zone, year built")

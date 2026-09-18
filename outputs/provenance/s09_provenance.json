@@ -1,98 +1,98 @@
 {
- "config_sha256": "0a87a8464ff0f2fe5b7e714f7e3fc1e863ed5c4ab0c4fcec57fd1a3ffd26b16d",
- "finished_utc": "2026-09-18T21:01:33Z",
+ "config_sha256": "126e52528e9d26aab25ea5d62adec8841bffc8e0b5a12a0439b686882c5cf519",
+ "finished_utc": "2026-09-18T21:07:44Z",
  "inputs": [
   {
    "bytes": 2888,
    "path": "outputs/provenance/s01_extract.json",
    "role": "stage record",
-   "sha256": "c0d54580457d35aabf9ed9280784f206bd82eb320e3148a80052da465b766b16"
+   "sha256": "17ce804645f2cf469bff17c6bf60bc269d76c4425d8de848e33abfdbbab774a3"
   },
   {
    "bytes": 17654,
    "path": "outputs/provenance/s02_fetch.json",
    "role": "stage record",
-   "sha256": "87dbcf1f12c732e0f9220bbb7684a2b749dbd0cb07c012cbeb6f371a1d2f715d"
+   "sha256": "4131febcfe42a107e48c74d6c2c487cfc71745eacbff64fd5767c7829ff5e98f"
   },
   {
    "bytes": 2016,
    "path": "outputs/provenance/s03_locate.json",
    "role": "stage record",
-   "sha256": "20cf21dd1bce65a2497297d4a170d1efa82b0a1307cd48728499edf230f161f5"
+   "sha256": "f5dae84c0f80edaf4252a8408f914d9db8d26a40f0a7c85bb32e6a74389287af"
   },
   {
    "bytes": 5258,
    "path": "outputs/provenance/s04_units.json",
    "role": "stage record",
-   "sha256": "44e824226e5f55d510a17cd2ca0cd48e31b588b884b84de851a0bc1ec9e7c1aa"
+   "sha256": "b9e88b133230ff03f28556281e199bb6f22b644c62c0c18ff70c8569f7c834f5"
   },
   {
    "bytes": 6420,
    "path": "outputs/provenance/s05_blocks.json",
    "role": "stage record",
-   "sha256": "bad78af57dd13faaa74848d2c66222a49b1daec66db9c1c7b280a0d79738e37d"
+   "sha256": "23a543f41ddae484b5e5dbc84fde3d21c7d3595232da13ff6f96068a9e749b7b"
   },
   {
    "bytes": 3677,
    "path": "outputs/provenance/s06_census.json",
    "role": "stage record",
-   "sha256": "1981378fb8b21a1ab95f6e0231bac93dd62d6e336098716031cffe894aaea194"
+   "sha256": "1d0f90d21afa0c9c55d277a926a1e5f0c4e340fb07c9d02bc064d0b346760b0a"
   },
   {
    "bytes": 7773,
    "path": "outputs/provenance/s07_analyze.json",
    "role": "stage record",
-   "sha256": "db50ae5f4c31986d2d7e415f998994fb6253ca46b47a64f6057a296963dc3a21"
+   "sha256": "5ef310a3f9e1ef71778a0d589fc64fa116dc7685731a7362531fbd7d1c6e060f"
   },
   {
    "bytes": 1233,
    "path": "outputs/provenance/s08_map.json",
    "role": "stage record",
-   "sha256": "98d40a760f21c950cce07f9268956ba7c24d7407f1e6bf57bc26f1cd02928c27"
+   "sha256": "a1cda7d3f1889f7b156f1f203bf6ac84e58f35bc1e3f9c9f52aac38706c6712a"
   },
   {
-   "bytes": 7331,
+   "bytes": 7204,
    "path": "outputs/provenance/s10_districts.json",
    "role": "stage record",
-   "sha256": "8ba22764a79c4b8dc951017787eee4ec671fbe9d288631bff1c1d1d12d1bdd36"
+   "sha256": "2ca9b6225e9b208431f7e40b6b4f09600ae8800b332eeccb3fbca30753e04e0e"
   },
   {
-   "bytes": 6368,
+   "bytes": 6370,
    "path": "outputs/provenance/s11_district_analysis.json",
    "role": "stage record",
-   "sha256": "92fc1d3b497dd8e7e9f108e69258dab6ae30930fdd4d01338559c7c51aff19e8"
+   "sha256": "821beac99bc4157afe3e443dca3f14e29dbc2aa8f661fd6e1090d27e62a79538"
   },
   {
-   "bytes": 3352,
+   "bytes": 3351,
    "path": "outputs/provenance/s12_explorer_data.json",
    "role": "stage record",
-   "sha256": "1c5994fb41649b8a2653942c7f9beb9e06fa606105261068c7d4a9c71bce02a4"
+   "sha256": "0426b960bde16626ec21de04f1e445f5761c6df17e1c3b0fbacdc108e2d4f79d"
   }
  ],
  "notes": [
   "start s09_provenance.py (sha256 520d3c3efdbb)",
-  "input  outputs/provenance/s01_extract.json (stage record) sha256=c0d54580457d bytes=2888",
-  "input  outputs/provenance/s02_fetch.json (stage record) sha256=87dbcf1f12c7 bytes=17654",
-  "input  outputs/provenance/s03_locate.json (stage record) sha256=20cf21dd1bce bytes=2016",
-  "input  outputs/provenance/s04_units.json (stage record) sha256=44e824226e5f bytes=5258",
-  "input  outputs/provenance/s05_blocks.json (stage record) sha256=bad78af57dd1 bytes=6420",
-  "input  outputs/provenance/s06_census.json (stage record) sha256=1981378fb8b2 bytes=3677",
-  "input  outputs/provenance/s07_analyze.json (stage record) sha256=db50ae5f4c31 bytes=7773",
-  "input  outputs/provenance/s08_map.json (stage record) sha256=98d40a760f21 bytes=1233",
-  "input  outputs/provenance/s10_districts.json (stage record) sha256=8ba22764a79c bytes=7331",
-  "input  outputs/provenance/s11_district_analysis.json (stage record) sha256=92fc1d3b497d bytes=6368",
-  "input  outputs/provenance/s12_explorer_data.json (stage record) sha256=1c5994fb4164 bytes=3352",
+  "input  outputs/provenance/s01_extract.json (stage record) sha256=17ce804645f2 bytes=2888",
+  "input  outputs/provenance/s02_fetch.json (stage record) sha256=4131febcfe42 bytes=17654",
+  "input  outputs/provenance/s03_locate.json (stage record) sha256=f5dae84c0f80 bytes=2016",
+  "input  outputs/provenance/s04_units.json (stage record) sha256=b9e88b133230 bytes=5258",
+  "input  outputs/provenance/s05_blocks.json (stage record) sha256=23a543f41dda bytes=6420",
+  "input  outputs/provenance/s06_census.json (stage record) sha256=1d0f90d21afa bytes=3677",
+  "input  outputs/provenance/s07_analyze.json (stage record) sha256=5ef310a3f9e1 bytes=7773",
+  "input  outputs/provenance/s08_map.json (stage record) sha256=a1cda7d3f188 bytes=1233",
+  "input  outputs/provenance/s10_districts.json (stage record) sha256=2ca9b6225e9b bytes=7204",
+  "input  outputs/provenance/s11_district_analysis.json (stage record) sha256=821beac99bc4 bytes=6370",
+  "input  outputs/provenance/s12_explorer_data.json (stage record) sha256=0426b960bde1 bytes=3351",
   "verification passed: 78 produced files checked",
-  "output PROVENANCE.md (human-readable provenance report) sha256=56c8dccc94de rows=None"
+  "output PROVENANCE.md (human-readable provenance report) sha256=4abe0ddaec5f rows=None"
  ],
  "ok": true,
  "outputs": [
   {
-   "bytes": 32852,
+   "bytes": 32749,
    "path": "PROVENANCE.md",
    "role": "human-readable provenance report",
    "rows": null,
-   "sha256": "56c8dccc94de7d628679b632006e353bdc4dcf9497d53e2a62a71392395908a4"
+   "sha256": "4abe0ddaec5fa3d6a4bf8cee1fc2c99400c549e47b49b65d0d7f6540e2688131"
   }
  ],
  "params": {},
@@ -102,5 +102,5 @@
  "script_sha256": "520d3c3efdbbc26a7666eef7127ed91733de566fe9426889e2950f780e981813",
  "seconds": 0.0,
  "stage": "s09_provenance",
- "started_utc": "2026-09-18T21:01:33Z"
+ "started_utc": "2026-09-18T21:07:44Z"
 }

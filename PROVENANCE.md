@@ -55,7 +55,7 @@ outputs are unchanged on disk; every file in outputs/ was produced by a stage.
 
 ## s01_extract
 
-Script `s01_extract.py` (sha256 34fd21f814391578), config.py 0a87a8464ff0f2fe, python 3.14.7, started 2026-09-18T21:01:17Z, 4.0 s.
+Script `s01_extract.py` (sha256 34fd21f814391578), config.py 126e52528e9d26aa, python 3.14.7, started 2026-09-18T21:07:28Z, 3.8 s.
 
 Parameters: `db_path=/Users/joshv/git/tax_appeal_app/data/properties.db`, `township_code=27`, `year=2026`
 
@@ -81,7 +81,7 @@ class history rows: 131718 over years [np.int64(2020), np.int64(2021), np.int64(
 
 ## s02_fetch
 
-Script `s02_fetch.py` (sha256 fca8fd49c6247cae), config.py 0a87a8464ff0f2fe, python 3.14.7, started 2026-09-18T21:01:21Z, 1.3 s.
+Script `s02_fetch.py` (sha256 fca8fd49c6247cae), config.py 126e52528e9d26aa, python 3.14.7, started 2026-09-18T21:07:32Z, 1.7 s.
 
 Inputs:
 
@@ -148,7 +148,7 @@ exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/condo_con
 
 ## s03_locate
 
-Script `s03_locate.py` (sha256 eca8561d88983940), config.py 0a87a8464ff0f2fe, python 3.14.7, started 2026-09-18T21:01:22Z, 0.3 s.
+Script `s03_locate.py` (sha256 eca8561d88983940), config.py 126e52528e9d26aa, python 3.14.7, started 2026-09-18T21:07:34Z, 0.3 s.
 
 Inputs:
 
@@ -170,7 +170,7 @@ unlocated by class: 299=38, 315=3, 391=2, 517=2, EX=1, 592=1, 212=1
 
 ## s04_units
 
-Script `s04_units.py` (sha256 5e3a2f1d3d14e613), config.py 0a87a8464ff0f2fe, python 3.14.7, started 2026-09-18T21:01:23Z, 0.4 s.
+Script `s04_units.py` (sha256 5e3a2f1d3d14e613), config.py 126e52528e9d26aa, python 3.14.7, started 2026-09-18T21:07:34Z, 0.4 s.
 
 Parameters: `CONDO_CLASSES=['299']`, `LARGE_MF_CLASSES=['313', '314', '315', '318', '390', '391', '397', '213']`, `LARGE_MF_MIN_UNITS=7`, `SF_ATTACHED_CLASSES=['210', '295']`, `SF_DETACHED_CLASSES=['202', '203', '204', '205', '206', '207', '208', '209', '234', '278', '218']`, `SMALL_MF_CLASSES=['211', '212']`, `SMALL_MF_DEFAULT_UNITS=2`, `SMALL_MF_MAX_UNITS=6`
 
@@ -207,7 +207,7 @@ buildings: 13600 (with housing: 11904)
 
 ## s05_blocks
 
-Script `s05_blocks.py` (sha256 b8ef0360686b37f3), config.py 0a87a8464ff0f2fe, python 3.14.7, started 2026-09-18T21:01:24Z, 1.5 s.
+Script `s05_blocks.py` (sha256 b8ef0360686b37f3), config.py 126e52528e9d26aa, python 3.14.7, started 2026-09-18T21:07:35Z, 1.4 s.
 
 Parameters: `CENSUS_GAP_MIN_SHARE=0.3`, `CENSUS_GAP_MIN_UNITS=7`, `DOMINANT_SHARE=0.5`, `PLACE_GEOID=1754885`, `SF_ONLY_MIN_SHARE=0.95`, `SF_ONLY_SENSITIVITY=[1.0, 0.9]`
 
@@ -254,7 +254,7 @@ block groups: 53; category: single_family=3, small_mf_2_6=0, large_mf_7plus=19, 
 
 ## s06_census
 
-Script `s06_census.py` (sha256 c3452e67a0a1b17c), config.py 0a87a8464ff0f2fe, python 3.14.7, started 2026-09-18T21:01:25Z, 2.6 s.
+Script `s06_census.py` (sha256 c3452e67a0a1b17c), config.py 126e52528e9d26aa, python 3.14.7, started 2026-09-18T21:07:36Z, 2.7 s.
 
 Inputs:
 
@@ -284,7 +284,7 @@ ACS block groups: 53; population estimate 53292
 
 ## s07_analyze
 
-Script `s07_analyze.py` (sha256 6749f439cbb87c4a), config.py 0a87a8464ff0f2fe, python 3.14.7, started 2026-09-18T21:01:28Z, 0.3 s.
+Script `s07_analyze.py` (sha256 6749f439cbb87c4a), config.py 126e52528e9d26aa, python 3.14.7, started 2026-09-18T21:07:39Z, 0.3 s.
 
 Parameters: `GQ_MAX_SHARE=0.25`, `SF_ONLY_MIN_SHARE=0.95`, `SF_ONLY_SENSITIVITY=[1.0, 0.9]`
 
@@ -324,7 +324,7 @@ headline (2020, all blocks): Single-family only: white 68.7%, black 10.4%, hispa
 
 ## s08_map
 
-Script `s08_map.py` (sha256 ea9cfe61704ba89b), config.py 0a87a8464ff0f2fe, python 3.14.7, started 2026-09-18T21:01:29Z, 0.0 s.
+Script `s08_map.py` (sha256 ea9cfe61704ba89b), config.py 126e52528e9d26aa, python 3.14.7, started 2026-09-18T21:07:40Z, 0.0 s.
 
 Inputs:
 
@@ -342,9 +342,9 @@ map: 1058 blocks; counts {'single_family': 462, 'small_mf_2_6': 70, 'large_mf_7p
 
 ## s10_districts
 
-Script `s10_districts.py` (sha256 6b2e7cb0a339f194), config.py 0a87a8464ff0f2fe, python 3.14.7, started 2026-09-18T21:01:29Z, 2.5 s.
+Script `s10_districts.py` (sha256 73492d3a0b3d1bda), config.py 126e52528e9d26aa, python 3.14.7, started 2026-09-18T21:07:40Z, 2.5 s.
 
-Parameters: `CONDO_CONVERSION_POLICY=exclude`, `MF_MIN_UNITS=2`, `MF_UNIT_TYPES=['small_mf', 'large_mf', 'condo']`, `districts={'Frank Lloyd Wright': 1972, 'Gunderson': 2002, 'Ridgeland - Oak Park': 1994}`
+Parameters: `CONDO_CONVERSION_POLICY=redate`, `MF_MIN_UNITS=2`, `MF_UNIT_TYPES=['small_mf', 'large_mf', 'condo']`, `districts={'Frank Lloyd Wright': 1972, 'Gunderson': 2002, 'Ridgeland - Oak Park': 1994}`
 
 Inputs:
 
@@ -358,7 +358,7 @@ Inputs:
 
 Outputs:
 
-- `data/interim/s10_mf_buildings.csv` sha256 3fe7ba849b3f386c, 244624 bytes, 1565 rows
+- `data/interim/s10_mf_buildings.csv` sha256 d45e088be1dbf07f, 244528 bytes, 1565 rows
 - `data/interim/s10_district_parcels.csv` sha256 d37df8422ee76a32, 471 bytes, 11 rows
 - `data/interim/s10_district_zoning.csv` sha256 ad3b022d4a242d97, 1519 bytes, 31 rows
 
@@ -378,61 +378,62 @@ merge by class/AV/year within 100 m: ['16173000080000', '16173010010000'] -> 161
 merge by class/AV/year within 100 m: ['16071290130000', '16071290140000'] -> 16071290130000 (835 LAKE ST; class 391, AV 1376235, built 2023.0)
 multi-PIN merges applied: 7
 multi-family buildings (>= 2 units): 1565 with 16842 units
-year source: char_yrblt=1027, condo_chars=260, commval=245, condo_chars_newbuild=18, class_history=5, char_yrblt_anyyear=3, condo_chars_unverified=3, manual=2, unknown=2
-condo conversions (exclude): 10 buildings, 114 units: 254 CHICAGO AVE (Rest of Oak Park, 5 u, recorded 2006, predecessor built 1898); 431 S KENILWORTH AVE (Rest of Oak Park, 4 u, recorded 2001, predecessor built 1923); 421 S RIDGELAND AVE (Rest of Oak Park, 7 u, recorded 2005, predecessor built 1910); 916 AUSTIN AVE (Rest of Oak Park, 10 u, recorded 2001, predecessor built 1923); 1121 S OAK PARK AVE (Rest of Oak Park, 7 u, recorded 2004, predecessor built 1909); 125 N EUCLID AVE (Ridgeland - Oak Park, 25 u, recorded 2000, predecessor built unknown); 615 SOUTH BLVD (Ridgeland - Oak Park, 12 u, recorded 2000, predecessor built 1890); 166 N HUMPHREY AVE (Ridgeland - Oak Park, 16 u, recorded 2000, predecessor built 1922); 431 S HARVEY AVE (Ridgeland - Oak Park, 8 u, recorded 2001, predecessor built 1894); 257 W WASHINGTON BLVD (Ridgeland - Oak Park, 20 u, recorded 2001, predecessor built 1894)
+year source: char_yrblt=1027, condo_chars=250, commval=245, condo_chars_newbuild=18, predecessor_chars=8, class_history=5, char_yrblt_anyyear=3, condo_chars_unverified=3, manual=2, unknown=2, conversion_year_unknown=2
+condo conversions redated: 10 buildings, 114 units: 254 CHICAGO AVE (Rest of Oak Park, 5 u, year used 1898); 431 S KENILWORTH AVE (Rest of Oak Park, 4 u, year used 1923); 421 S RIDGELAND AVE (Rest of Oak Park, 7 u, year used 1910); 916 AUSTIN AVE (Rest of Oak Park, 10 u, year used 1923); 1121 S OAK PARK AVE (Rest of Oak Park, 7 u, year used 1909); 125 N EUCLID AVE (Ridgeland - Oak Park, 25 u, year used unknown); 615 SOUTH BLVD (Ridgeland - Oak Park, 12 u, year used 1893); 166 N HUMPHREY AVE (Ridgeland - Oak Park, 16 u, year used 1922); 431 S HARVEY AVE (Ridgeland - Oak Park, 8 u, year used 1894); 257 W WASHINGTON BLVD (Ridgeland - Oak Park, 20 u, year used unknown)
+condo conversions excluded: 0 buildings, 0 units: 
 unknown year: 2 buildings, 101 units: 1034 LAKE ST (Rest of Oak Park, 12 u, 318); 1035 MADISON ST (Rest of Oak Park, 89 u, 397)
 manually dated (config MANUAL_YEAR_BUILT, with source): 1111 ONTARIO ST 1992.0 (358 u) <https://www.oakpark.com/2017/03/28/the-high-rise-wars/>; 408 S OAK PARK AVE 1921.0 (352 u) <https://en.wikipedia.org/wiki/Oak_Park_Arms>
 class-history dated: 822 NORTH BLVD 2024.0 (7 u); 409 S MAPLE AVE 2024.0 (16 u); 801 VAN BUREN ST 2023.0 (31 u); 835 LAKE ST 2023.0 (172 u); 261 WASHINGTON BLVD 2023.0 (32 u)
   Frank Lloyd Wright: 222 MF buildings kept, 1731 units, 0 undated; excluded 0
-  Ridgeland - Oak Park: 481 MF buildings kept, 6194 units, 0 undated; excluded 5
+  Ridgeland - Oak Park: 486 MF buildings kept, 6275 units, 2 undated; excluded 0
   Gunderson: 22 MF buildings kept, 48 units, 0 undated; excluded 0
-  Rest of Oak Park: 830 MF buildings kept, 8755 units, 2 undated; excluded 5
+  Rest of Oak Park: 835 MF buildings kept, 8788 units, 2 undated; excluded 0
 ```
 
 ## s11_district_analysis
 
-Script `s11_district_analysis.py` (sha256 2d822429618aa51e), config.py 0a87a8464ff0f2fe, python 3.14.7, started 2026-09-18T21:01:32Z, 0.2 s.
+Script `s11_district_analysis.py` (sha256 a470b5e51cea8d54), config.py 126e52528e9d26aa, python 3.14.7, started 2026-09-18T21:07:43Z, 0.2 s.
 
 Parameters: `END_YEAR=2025`, `designation_years={'Frank Lloyd Wright': 1972, 'Gunderson': 2002, 'Ridgeland - Oak Park': 1994}`, `sensitivity_years={'Frank Lloyd Wright': 2012, 'Gunderson': 2003, 'Ridgeland - Oak Park': 1983}`
 
 Inputs:
 
-- `data/interim/s10_mf_buildings.csv` from s10_districts, sha256 3fe7ba849b3f386c, 244624 bytes
+- `data/interim/s10_mf_buildings.csv` from s10_districts, sha256 d45e088be1dbf07f, 244528 bytes
 - `data/interim/s10_district_parcels.csv` from s10_districts, sha256 d37df8422ee76a32, 471 bytes
 - `data/interim/s10_district_zoning.csv` from s10_districts, sha256 ad3b022d4a242d97, 1519 bytes
 
 Outputs:
 
-- `outputs/tables/G1_mf_units_by_decade_built.csv` sha256 a7808ad44878a20a, 559 bytes, 4 rows
-- `outputs/tables/G2_mf_buildings_by_decade_built.csv` sha256 f6947e42459235f4, 504 bytes, 4 rows
-- `outputs/tables/H1_before_after_local_designation.csv` sha256 3ae42218ced9cec1, 666 bytes, 3 rows
-- `outputs/tables/H2_before_after_sensitivity_dates.csv` sha256 a6656572f589a8ec, 657 bytes, 3 rows
+- `outputs/tables/G1_mf_units_by_decade_built.csv` sha256 1cb032133d065604, 560 bytes, 4 rows
+- `outputs/tables/G2_mf_buildings_by_decade_built.csv` sha256 88b2bfb591ffe6b5, 504 bytes, 4 rows
+- `outputs/tables/H1_before_after_local_designation.csv` sha256 a4182b7ca0b19bd4, 667 bytes, 3 rows
+- `outputs/tables/H2_before_after_sensitivity_dates.csv` sha256 f556f9dc900fd9d3, 658 bytes, 3 rows
 - `outputs/tables/I_mf_built_after_designation.csv` sha256 3d53d10c9af01a61, 1337 bytes, 14 rows
 - `outputs/tables/J_district_area_by_zoning.csv` sha256 5f8cc313244182e7, 353 bytes, 3 rows
 - `outputs/tables/K_district_housing_units_by_type_2026.csv` sha256 65359ec53620c7de, 299 bytes, 4 rows
-- `outputs/tables/L_excluded_condo_conversions.csv` sha256 48e9cc52fce0bba1, 662 bytes, 10 rows
-- `outputs/fig_mf_by_decade.png` sha256 2d95284dd8e141b6, 133061 bytes
-- `outputs/results_districts.md` sha256 41198bf55a5eab7a, 9217 bytes
-- `outputs/results_districts.json` sha256 d6fadc54b5c9689f, 13789 bytes
+- `outputs/tables/L_condo_conversions.csv` sha256 54b919a0163559b4, 847 bytes, 10 rows
+- `outputs/fig_mf_by_decade.png` sha256 94d094d375a8bbea, 132997 bytes
+- `outputs/results_districts.md` sha256 fd90826a79d03d51, 9874 bytes
+- `outputs/results_districts.json` sha256 eb573f3bebf09445, 13983 bytes
 
 Log:
 
 ```
-buildings: 1565; excluded condo conversions: 10 (114 units); analysed: 1555
-Frank Lloyd Wright: designated 1972; 54-yr windows: before 85 bldgs/1170 units, after 7 bldgs/128 units; rest of village before 4607, after 3029; undated 0 bldgs/0 units
-Ridgeland - Oak Park: designated 1994; 32-yr windows: before 51 bldgs/987 units, after 7 bldgs/338 units; rest of village before 2195, after 2090; undated 0 bldgs/0 units
+buildings: 1565; excluded: 0 (0 units); analysed: 1565; condo conversions redated: 8, conversion year unknown: 2
+Frank Lloyd Wright: designated 1972; 54-yr windows: before 85 bldgs/1170 units, after 7 bldgs/128 units; rest of village before 4621, after 3029; undated 0 bldgs/0 units
+Ridgeland - Oak Park: designated 1994; 32-yr windows: before 51 bldgs/987 units, after 7 bldgs/338 units; rest of village before 2195, after 2090; undated 2 bldgs/45 units
 Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs/0 units; rest of village before 980, after 1934; undated 0 bldgs/0 units
 ```
 
 ## s12_explorer_data
 
-Script `s12_explorer_data.py` (sha256 59dc52adcae1c5f7), config.py 0a87a8464ff0f2fe, python 3.14.7, started 2026-09-18T21:01:32Z, 0.3 s.
+Script `s12_explorer_data.py` (sha256 59dc52adcae1c5f7), config.py 126e52528e9d26aa, python 3.14.7, started 2026-09-18T21:07:43Z, 0.3 s.
 
 Parameters: `EXPLORER_DISTRICTS=['Frank Lloyd Wright', 'Ridgeland - Oak Park']`, `SIZE_CLASSES=['2', '3', '4', '5', '6', '7+']`
 
 Inputs:
 
-- `data/interim/s10_mf_buildings.csv` from s10_districts, sha256 3fe7ba849b3f386c, 244624 bytes
+- `data/interim/s10_mf_buildings.csv` from s10_districts, sha256 d45e088be1dbf07f, 244528 bytes
 - `data/interim/s04_parcel_units.csv` from s04_units, sha256 69ef35157c647c2e, 4290133 bytes
 - `data/raw/vop_historic_districts.geojson` from s02_fetch, sha256 4d22869c4b45671f, 108951 bytes
 - `data/raw/place/tl_2020_17_place.shp` from s02_fetch, sha256 f18a8f5c7d03f2a9, 9608328 bytes
@@ -440,15 +441,15 @@ Inputs:
 
 Outputs:
 
-- `outputs/explorer_data/mf_buildings.json` sha256 2675b5eaedf9c7d5, 404781 bytes
+- `outputs/explorer_data/mf_buildings.json` sha256 adcc0d292cf77989, 407427 bytes
 
 Log:
 
 ```
-buildings: 1565; excluded condo conversions dropped: 10
+buildings: 1565; excluded condo conversions dropped: 0
 areas (sq mi): Frank Lloyd Wright=0.907, Gunderson=0.082, Ridgeland - Oak Park=0.840, __rest__=2.871, __village__=4.700
 Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50
-Ridgeland - Oak Park: 481 buildings, 6194 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=176
+Ridgeland - Oak Park: 486 buildings, 6275 units, undated 2; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181
 Gunderson: 22 buildings, 48 units, undated 0; by size: 2=20, 3=1, 5=1
-Rest of Oak Park: 830 buildings, 8755 units, undated 2; by size: 2=364, 3=80, 4=88, 5=17, 6=42, 7+=239
+Rest of Oak Park: 835 buildings, 8788 units, undated 2; by size: 2=364, 3=80, 4=89, 5=18, 6=42, 7+=242
 ```

@@ -1,0 +1,11 @@
+district,address,units,year_used,yr_source,zone,disposition
+Rest of Oak Park,1121 S OAK PARK AVE,7.0,1909.0,predecessor_chars,R-5,redated
+Rest of Oak Park,254 CHICAGO AVE,5.0,1898.0,predecessor_chars,NC,redated
+Rest of Oak Park,421 S RIDGELAND AVE,7.0,1910.0,predecessor_chars,R-7,redated
+Rest of Oak Park,431 S KENILWORTH AVE,4.0,1923.0,predecessor_chars,R-7,redated
+Rest of Oak Park,916 AUSTIN AVE,10.0,1923.0,predecessor_chars,R-7,redated
+Ridgeland - Oak Park,125 N EUCLID AVE,25.0,,conversion_year_unknown,DT-2,redated
+Ridgeland - Oak Park,166 N HUMPHREY AVE,16.0,1922.0,predecessor_chars,R-7,redated
+Ridgeland - Oak Park,257 W WASHINGTON BLVD,20.0,,conversion_year_unknown,R-7,redated
+Ridgeland - Oak Park,431 S HARVEY AVE,8.0,1894.0,predecessor_chars,R-7,redated
+Ridgeland - Oak Park,615 SOUTH BLVD,12.0,1893.0,predecessor_chars,R-7,redated

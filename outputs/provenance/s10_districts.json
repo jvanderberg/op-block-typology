@@ -1,6 +1,6 @@
 {
- "config_sha256": "0a87a8464ff0f2fe5b7e714f7e3fc1e863ed5c4ab0c4fcec57fd1a3ffd26b16d",
- "finished_utc": "2026-09-18T21:01:31Z",
+ "config_sha256": "126e52528e9d26aab25ea5d62adec8841bffc8e0b5a12a0439b686882c5cf519",
+ "finished_utc": "2026-09-18T21:07:42Z",
  "inputs": [
   {
    "bytes": 22673,
@@ -46,10 +46,10 @@
   }
  ],
  "notes": [
-  "start s10_districts.py (sha256 6b2e7cb0a339)",
+  "start s10_districts.py (sha256 73492d3a0b3d)",
   "param MF_UNIT_TYPES=('small_mf', 'large_mf', 'condo')",
   "param MF_MIN_UNITS=2",
-  "param CONDO_CONVERSION_POLICY='exclude'",
+  "param CONDO_CONVERSION_POLICY='redate'",
   "param districts={'Frank Lloyd Wright': 1972, 'Ridgeland - Oak Park': 1994, 'Gunderson': 2002}",
   "input  data/raw/condo_conversion_check.json (condo conversion check) sha256=ca4d8b6c4a24 bytes=22673",
   "input  data/interim/s04_parcel_units.csv (parcel units) sha256=69ef35157c64 bytes=4290133",
@@ -71,27 +71,28 @@
   "merge by class/AV/year within 100 m: ['16071290130000', '16071290140000'] -> 16071290130000 (835 LAKE ST; class 391, AV 1376235, built 2023.0)",
   "multi-PIN merges applied: 7",
   "multi-family buildings (>= 2 units): 1565 with 16842 units",
-  "year source: char_yrblt=1027, condo_chars=260, commval=245, condo_chars_newbuild=18, class_history=5, char_yrblt_anyyear=3, condo_chars_unverified=3, manual=2, unknown=2",
-  "condo conversions (exclude): 10 buildings, 114 units: 254 CHICAGO AVE (Rest of Oak Park, 5 u, recorded 2006, predecessor built 1898); 431 S KENILWORTH AVE (Rest of Oak Park, 4 u, recorded 2001, predecessor built 1923); 421 S RIDGELAND AVE (Rest of Oak Park, 7 u, recorded 2005, predecessor built 1910); 916 AUSTIN AVE (Rest of Oak Park, 10 u, recorded 2001, predecessor built 1923); 1121 S OAK PARK AVE (Rest of Oak Park, 7 u, recorded 2004, predecessor built 1909); 125 N EUCLID AVE (Ridgeland - Oak Park, 25 u, recorded 2000, predecessor built unknown); 615 SOUTH BLVD (Ridgeland - Oak Park, 12 u, recorded 2000, predecessor built 1890); 166 N HUMPHREY AVE (Ridgeland - Oak Park, 16 u, recorded 2000, predecessor built 1922); 431 S HARVEY AVE (Ridgeland - Oak Park, 8 u, recorded 2001, predecessor built 1894); 257 W WASHINGTON BLVD (Ridgeland - Oak Park, 20 u, recorded 2001, predecessor built 1894)",
+  "year source: char_yrblt=1027, condo_chars=250, commval=245, condo_chars_newbuild=18, predecessor_chars=8, class_history=5, char_yrblt_anyyear=3, condo_chars_unverified=3, manual=2, unknown=2, conversion_year_unknown=2",
+  "condo conversions redated: 10 buildings, 114 units: 254 CHICAGO AVE (Rest of Oak Park, 5 u, year used 1898); 431 S KENILWORTH AVE (Rest of Oak Park, 4 u, year used 1923); 421 S RIDGELAND AVE (Rest of Oak Park, 7 u, year used 1910); 916 AUSTIN AVE (Rest of Oak Park, 10 u, year used 1923); 1121 S OAK PARK AVE (Rest of Oak Park, 7 u, year used 1909); 125 N EUCLID AVE (Ridgeland - Oak Park, 25 u, year used unknown); 615 SOUTH BLVD (Ridgeland - Oak Park, 12 u, year used 1893); 166 N HUMPHREY AVE (Ridgeland - Oak Park, 16 u, year used 1922); 431 S HARVEY AVE (Ridgeland - Oak Park, 8 u, year used 1894); 257 W WASHINGTON BLVD (Ridgeland - Oak Park, 20 u, year used unknown)",
+  "condo conversions excluded: 0 buildings, 0 units: ",
   "unknown year: 2 buildings, 101 units: 1034 LAKE ST (Rest of Oak Park, 12 u, 318); 1035 MADISON ST (Rest of Oak Park, 89 u, 397)",
   "manually dated (config MANUAL_YEAR_BUILT, with source): 1111 ONTARIO ST 1992.0 (358 u) <https://www.oakpark.com/2017/03/28/the-high-rise-wars/>; 408 S OAK PARK AVE 1921.0 (352 u) <https://en.wikipedia.org/wiki/Oak_Park_Arms>",
   "class-history dated: 822 NORTH BLVD 2024.0 (7 u); 409 S MAPLE AVE 2024.0 (16 u); 801 VAN BUREN ST 2023.0 (31 u); 835 LAKE ST 2023.0 (172 u); 261 WASHINGTON BLVD 2023.0 (32 u)",
   "  Frank Lloyd Wright: 222 MF buildings kept, 1731 units, 0 undated; excluded 0",
-  "  Ridgeland - Oak Park: 481 MF buildings kept, 6194 units, 0 undated; excluded 5",
+  "  Ridgeland - Oak Park: 486 MF buildings kept, 6275 units, 2 undated; excluded 0",
   "  Gunderson: 22 MF buildings kept, 48 units, 0 undated; excluded 0",
-  "  Rest of Oak Park: 830 MF buildings kept, 8755 units, 2 undated; excluded 5",
-  "output data/interim/s10_mf_buildings.csv (multi-family buildings with district, zone, year built) sha256=3fe7ba849b3f rows=1565",
+  "  Rest of Oak Park: 835 MF buildings kept, 8788 units, 2 undated; excluded 0",
+  "output data/interim/s10_mf_buildings.csv (multi-family buildings with district, zone, year built) sha256=d45e088be1db rows=1565",
   "output data/interim/s10_district_parcels.csv (housing units by district and bucket) sha256=d37df8422ee7 rows=11",
   "output data/interim/s10_district_zoning.csv (district area by zoning district) sha256=ad3b022d4a24 rows=31"
  ],
  "ok": true,
  "outputs": [
   {
-   "bytes": 244624,
+   "bytes": 244528,
    "path": "data/interim/s10_mf_buildings.csv",
    "role": "multi-family buildings with district, zone, year built",
    "rows": 1565,
-   "sha256": "3fe7ba849b3f386c367626aa559890b8e6d8f0f3b42c9f37d9f3230a1587002a"
+   "sha256": "d45e088be1dbf07f8ffa50c5bd06bdea1e4b6785b03685faafe5d4c8b51ebac1"
   },
   {
    "bytes": 471,
@@ -109,7 +110,7 @@
   }
  ],
  "params": {
-  "CONDO_CONVERSION_POLICY": "exclude",
+  "CONDO_CONVERSION_POLICY": "redate",
   "MF_MIN_UNITS": 2,
   "MF_UNIT_TYPES": [
    "small_mf",
@@ -125,8 +126,8 @@
  "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
  "python": "3.14.7",
  "script": "s10_districts.py",
- "script_sha256": "6b2e7cb0a339f194d268e90627ea1e60e5c9065079e495ed4e7e171ee47f5c4c",
+ "script_sha256": "73492d3a0b3d1bda7cfab584c8c755450a5bffaeacbb52fd565efde63eda0c90",
  "seconds": 2.5,
  "stage": "s10_districts",
- "started_utc": "2026-09-18T21:01:29Z"
+ "started_utc": "2026-09-18T21:07:40Z"
 }

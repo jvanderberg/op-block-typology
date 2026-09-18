@@ -24,10 +24,10 @@
   {
    "1870s": 7.0,
    "1880s": 53.0,
-   "1890s": 206.0,
+   "1890s": 226.0,
    "1900s": 531.0,
    "1910s": 694.0,
-   "1920s": 2515.0,
+   "1920s": 2531.0,
    "1930s": 572.0,
    "1940s": 23.0,
    "1950s": 233.0,
@@ -39,8 +39,8 @@
    "2010s": 2.0,
    "2020s": 204.0,
    "district": "Ridgeland - Oak Park",
-   "total": 6194.0,
-   "undated": 0.0
+   "total": 6275.0,
+   "undated": 45.0
   },
   {
    "1870s": 0.0,
@@ -66,10 +66,10 @@
   {
    "1870s": 2.0,
    "1880s": 14.0,
-   "1890s": 89.0,
-   "1900s": 265.0,
-   "1910s": 786.0,
-   "1920s": 2320.0,
+   "1890s": 94.0,
+   "1900s": 272.0,
+   "1910s": 793.0,
+   "1920s": 2334.0,
    "1930s": 380.0,
    "1940s": 14.0,
    "1950s": 441.0,
@@ -81,7 +81,7 @@
    "2010s": 1177.0,
    "2020s": 319.0,
    "district": "Rest of Oak Park",
-   "total": 8755.0,
+   "total": 8788.0,
    "undated": 101.0
   }
  ],
@@ -110,10 +110,10 @@
   {
    "1870s": 3.0,
    "1880s": 22.0,
-   "1890s": 52.0,
+   "1890s": 54.0,
    "1900s": 105.0,
    "1910s": 99.0,
-   "1920s": 98.0,
+   "1920s": 99.0,
    "1930s": 14.0,
    "1940s": 2.0,
    "1950s": 21.0,
@@ -125,8 +125,8 @@
    "2010s": 1.0,
    "2020s": 2.0,
    "district": "Ridgeland - Oak Park",
-   "total": 481,
-   "undated": 0.0
+   "total": 486,
+   "undated": 2.0
   },
   {
    "1870s": 0.0,
@@ -152,10 +152,10 @@
   {
    "1870s": 1.0,
    "1880s": 6.0,
-   "1890s": 36.0,
-   "1900s": 107.0,
-   "1910s": 227.0,
-   "1920s": 218.0,
+   "1890s": 37.0,
+   "1900s": 108.0,
+   "1910s": 228.0,
+   "1920s": 220.0,
    "1930s": 31.0,
    "1940s": 4.0,
    "1950s": 62.0,
@@ -167,7 +167,7 @@
    "2010s": 11.0,
    "2020s": 10.0,
    "district": "Rest of Oak Park",
-   "total": 830,
+   "total": 835,
    "undated": 2.0
   }
  ],
@@ -181,11 +181,11 @@
    "designated": 1972,
    "district": "Frank Lloyd Wright",
    "district_share_of_village_units_after": 3.5,
-   "district_share_of_village_units_before": 11.6,
+   "district_share_of_village_units_before": 11.5,
    "rest_units_after": 3029.0,
-   "rest_units_before": 4607.0,
+   "rest_units_before": 4621.0,
    "rest_units_per_year_after": 56.09,
-   "rest_units_per_year_before": 85.31,
+   "rest_units_per_year_before": 85.57,
    "units_after": 128.0,
    "units_before": 1170.0,
    "units_per_year_after": 2.37,
@@ -198,7 +198,7 @@
    "before": "1962-1993",
    "bldgs_after": 7,
    "bldgs_before": 51,
-   "bldgs_undated": 0,
+   "bldgs_undated": 2,
    "designated": 1994,
    "district": "Ridgeland - Oak Park",
    "district_share_of_village_units_after": 13.9,
@@ -211,7 +211,7 @@
    "units_before": 987.0,
    "units_per_year_after": 10.56,
    "units_per_year_before": 30.84,
-   "units_undated": 0.0,
+   "units_undated": 45.0,
    "window_years": 32
   },
   {
@@ -263,7 +263,7 @@
    "before": "1940-1982",
    "bldgs_after": 9,
    "bldgs_before": 77,
-   "bldgs_undated": 0,
+   "bldgs_undated": 2,
    "designated": 1983,
    "district": "Ridgeland - Oak Park",
    "district_share_of_village_units_after": 14.7,
@@ -276,7 +276,7 @@
    "units_before": 1145.0,
    "units_per_year_after": 10.86,
    "units_per_year_before": 26.63,
-   "units_undated": 0.0,
+   "units_undated": 45.0,
    "window_years": 43
   },
   {
@@ -561,85 +561,95 @@
    "total": 15899.0
   }
  ],
- "L_excluded_condo_conversions": [
+ "L_condo_conversions": [
   {
    "address": "1121 S OAK PARK AVE",
+   "disposition": "redated",
    "district": "Rest of Oak Park",
-   "predecessor_year_built": 1909.0,
-   "recorded_condo_year": 2004.0,
    "units": 7.0,
+   "year_used": 1909.0,
+   "yr_source": "predecessor_chars",
    "zone": "R-5"
   },
   {
    "address": "254 CHICAGO AVE",
+   "disposition": "redated",
    "district": "Rest of Oak Park",
-   "predecessor_year_built": 1898.0,
-   "recorded_condo_year": 2006.0,
    "units": 5.0,
+   "year_used": 1898.0,
+   "yr_source": "predecessor_chars",
    "zone": "NC"
   },
   {
    "address": "421 S RIDGELAND AVE",
+   "disposition": "redated",
    "district": "Rest of Oak Park",
-   "predecessor_year_built": 1910.0,
-   "recorded_condo_year": 2005.0,
    "units": 7.0,
+   "year_used": 1910.0,
+   "yr_source": "predecessor_chars",
    "zone": "R-7"
   },
   {
    "address": "431 S KENILWORTH AVE",
+   "disposition": "redated",
    "district": "Rest of Oak Park",
-   "predecessor_year_built": 1923.0,
-   "recorded_condo_year": 2001.0,
    "units": 4.0,
+   "year_used": 1923.0,
+   "yr_source": "predecessor_chars",
    "zone": "R-7"
   },
   {
    "address": "916 AUSTIN AVE",
+   "disposition": "redated",
    "district": "Rest of Oak Park",
-   "predecessor_year_built": 1923.0,
-   "recorded_condo_year": 2001.0,
    "units": 10.0,
+   "year_used": 1923.0,
+   "yr_source": "predecessor_chars",
    "zone": "R-7"
   },
   {
    "address": "125 N EUCLID AVE",
+   "disposition": "redated",
    "district": "Ridgeland - Oak Park",
-   "predecessor_year_built": null,
-   "recorded_condo_year": 2000.0,
    "units": 25.0,
+   "year_used": null,
+   "yr_source": "conversion_year_unknown",
    "zone": "DT-2"
   },
   {
    "address": "166 N HUMPHREY AVE",
+   "disposition": "redated",
    "district": "Ridgeland - Oak Park",
-   "predecessor_year_built": 1922.0,
-   "recorded_condo_year": 2000.0,
    "units": 16.0,
+   "year_used": 1922.0,
+   "yr_source": "predecessor_chars",
    "zone": "R-7"
   },
   {
    "address": "257 W WASHINGTON BLVD",
+   "disposition": "redated",
    "district": "Ridgeland - Oak Park",
-   "predecessor_year_built": 1894.0,
-   "recorded_condo_year": 2001.0,
    "units": 20.0,
+   "year_used": null,
+   "yr_source": "conversion_year_unknown",
    "zone": "R-7"
   },
   {
    "address": "431 S HARVEY AVE",
+   "disposition": "redated",
    "district": "Ridgeland - Oak Park",
-   "predecessor_year_built": 1894.0,
-   "recorded_condo_year": 2001.0,
    "units": 8.0,
+   "year_used": 1894.0,
+   "yr_source": "predecessor_chars",
    "zone": "R-7"
   },
   {
    "address": "615 SOUTH BLVD",
+   "disposition": "redated",
    "district": "Ridgeland - Oak Park",
-   "predecessor_year_built": 1890.0,
-   "recorded_condo_year": 2000.0,
    "units": 12.0,
+   "year_used": 1893.0,
+   "yr_source": "predecessor_chars",
    "zone": "R-7"
   }
  ]

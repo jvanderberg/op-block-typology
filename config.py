@@ -274,12 +274,13 @@ MANUAL_YEAR_BUILT = {
 # an existing building that was converted; a vacant, commercial or condominium
 # predecessor, or a large value jump, means new construction or a
 # re-declaration.
-# Policy "exclude" drops confirmed conversions from the year-built analyses
-# (their predecessor year is kept in the data); "redate" uses the
-# predecessor's year built instead.
+# Policy "redate" (default) keeps the building, with its present address and
+# unit count, dated by the predecessor parcel's recorded year built (undated
+# when the predecessor was a class-3 building with no characteristics
+# record); "exclude" drops confirmed conversions instead.
 # ---------------------------------------------------------------------------
 CONDO_CONVERSION_WINDOW = 10
-CONDO_CONVERSION_POLICY = "exclude"          # "exclude" | "redate"
+CONDO_CONVERSION_POLICY = "redate"           # "redate" | "exclude"
 # A conversion roughly preserves assessed value (condo units' first-year AV
 # over the predecessors' last-year AV: 0.6-2.7 in the 2026-09-18 audit); a
 # building replaced by new construction multiplies it. Ratios at or above
