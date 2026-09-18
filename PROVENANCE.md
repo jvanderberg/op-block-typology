@@ -392,7 +392,7 @@ class-history dated: 822 NORTH BLVD 2024.0 (7 u); 409 S MAPLE AVE 2024.0 (16 u);
 
 ## s11_district_analysis
 
-Script `s11_district_analysis.py` (sha256 a470b5e51cea8d54), config.py 126e52528e9d26aa, python 3.14.7, started 2026-09-18T21:07:43Z, 0.2 s.
+Script `s11_district_analysis.py` (sha256 1ded5cc384fa13ca), config.py 126e52528e9d26aa, python 3.14.7, started 2026-09-18T21:09:30Z, 0.3 s.
 
 Parameters: `END_YEAR=2025`, `designation_years={'Frank Lloyd Wright': 1972, 'Gunderson': 2002, 'Ridgeland - Oak Park': 1994}`, `sensitivity_years={'Frank Lloyd Wright': 2012, 'Gunderson': 2003, 'Ridgeland - Oak Park': 1983}`
 
@@ -413,7 +413,7 @@ Outputs:
 - `outputs/tables/K_district_housing_units_by_type_2026.csv` sha256 65359ec53620c7de, 299 bytes, 4 rows
 - `outputs/tables/L_condo_conversions.csv` sha256 54b919a0163559b4, 847 bytes, 10 rows
 - `outputs/fig_mf_by_decade.png` sha256 94d094d375a8bbea, 132997 bytes
-- `outputs/results_districts.md` sha256 fd90826a79d03d51, 9874 bytes
+- `outputs/results_districts.md` sha256 736bf0d7ae361c99, 10019 bytes
 - `outputs/results_districts.json` sha256 eb573f3bebf09445, 13983 bytes
 
 Log:

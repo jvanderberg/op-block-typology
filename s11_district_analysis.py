@@ -176,7 +176,9 @@ def main():
             redated[["district", "address", "units", "yrblt", "yr_source", "zone"]].assign(disposition="redated"),
             excluded[["district", "address", "units", "yrblt", "yr_source", "zone"]].assign(disposition="excluded"),
         ]).rename(columns={"yrblt": "year_used"})
-        tables["L_condo_conversions"] = L.set_index("district") if len(L) else L
+        if len(L):
+            L = L.set_index("district")
+        tables["L_condo_conversions"] = L
 
         for name, t in tables.items():
             p = os.path.join(TABLE_DIR, name + ".csv")

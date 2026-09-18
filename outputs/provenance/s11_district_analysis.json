@@ -1,6 +1,6 @@
 {
  "config_sha256": "126e52528e9d26aab25ea5d62adec8841bffc8e0b5a12a0439b686882c5cf519",
- "finished_utc": "2026-09-18T21:07:43Z",
+ "finished_utc": "2026-09-18T21:09:30Z",
  "inputs": [
   {
    "bytes": 244528,
@@ -22,7 +22,7 @@
   }
  ],
  "notes": [
-  "start s11_district_analysis.py (sha256 a470b5e51cea)",
+  "start s11_district_analysis.py (sha256 1ded5cc384fa)",
   "param END_YEAR=2025",
   "param designation_years={'Frank Lloyd Wright': 1972, 'Ridgeland - Oak Park': 1994, 'Gunderson': 2002}",
   "param sensitivity_years={'Frank Lloyd Wright': 2012, 'Ridgeland - Oak Park': 1983, 'Gunderson': 2003}",
@@ -42,7 +42,7 @@
   "Ridgeland - Oak Park: designated 1994; 32-yr windows: before 51 bldgs/987 units, after 7 bldgs/338 units; rest of village before 2195, after 2090; undated 2 bldgs/45 units",
   "Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs/0 units; rest of village before 980, after 1934; undated 0 bldgs/0 units",
   "output outputs/fig_mf_by_decade.png (figure: MF units by decade built per district) sha256=94d094d375a8 rows=None",
-  "output outputs/results_districts.md (district results narrative) sha256=fd90826a79d0 rows=None",
+  "output outputs/results_districts.md (district results narrative) sha256=736bf0d7ae36 rows=None",
   "output outputs/results_districts.json (district tables as JSON) sha256=eb573f3bebf0 rows=None"
  ],
  "ok": true,
@@ -111,11 +111,11 @@
    "sha256": "94d094d375a8bbea21bb2e08e7cf26c3e9e566c4da1c038426257ca36b3eb400"
   },
   {
-   "bytes": 9874,
+   "bytes": 10019,
    "path": "outputs/results_districts.md",
    "role": "district results narrative",
    "rows": null,
-   "sha256": "fd90826a79d03d51a05e361b1ce1699f74cdfc4925ef4db061f964322af55e4d"
+   "sha256": "736bf0d7ae361c99aad9f789f560ac77e15ec468ca557c95bdfa7fbe65611cb7"
   },
   {
    "bytes": 13983,
@@ -141,8 +141,8 @@
  "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
  "python": "3.14.7",
  "script": "s11_district_analysis.py",
- "script_sha256": "a470b5e51cea8d54c96e778aae81206afdfce41c0f530921734896c5a11cdfc4",
- "seconds": 0.2,
+ "script_sha256": "1ded5cc384fa13ca2ce771867397f282707c407a385ad07342a66c361df8434d",
+ "seconds": 0.3,
  "stage": "s11_district_analysis",
- "started_utc": "2026-09-18T21:07:43Z"
+ "started_utc": "2026-09-18T21:09:30Z"
 }

@@ -114,16 +114,16 @@ appears under Undated below.
 
 | District | Address | Units | Year used | Source | Zone |
 |---|---|---|---|---|---|
-| 995 | 1121 S OAK PARK AVE | 7 | 1909 | predecessor parcel characteristics | R-5 |
-| 333 | 254 CHICAGO AVE | 5 | 1898 | predecessor parcel characteristics | NC |
-| 547 | 421 S RIDGELAND AVE | 7 | 1910 | predecessor parcel characteristics | R-7 |
-| 513 | 431 S KENILWORTH AVE | 4 | 1923 | predecessor parcel characteristics | R-7 |
-| 785 | 916 AUSTIN AVE | 10 | 1923 | predecessor parcel characteristics | R-7 |
-| 1095 | 125 N EUCLID AVE | 25 | unknown | predecessor was a 7+ unit building; no year recorded | DT-2 |
-| 1448 | 166 N HUMPHREY AVE | 16 | 1922 | predecessor parcel characteristics | R-7 |
-| 1538 | 257 W WASHINGTON BLVD | 20 | unknown | predecessor was a 7+ unit building; no year recorded | R-7 |
-| 1537 | 431 S HARVEY AVE | 8 | 1894 | predecessor parcel characteristics | R-7 |
-| 1315 | 615 SOUTH BLVD | 12 | 1893 | predecessor parcel characteristics | R-7 |
+| Rest of Oak Park | 1121 S OAK PARK AVE | 7 | 1909 | predecessor parcel characteristics | R-5 |
+| Rest of Oak Park | 254 CHICAGO AVE | 5 | 1898 | predecessor parcel characteristics | NC |
+| Rest of Oak Park | 421 S RIDGELAND AVE | 7 | 1910 | predecessor parcel characteristics | R-7 |
+| Rest of Oak Park | 431 S KENILWORTH AVE | 4 | 1923 | predecessor parcel characteristics | R-7 |
+| Rest of Oak Park | 916 AUSTIN AVE | 10 | 1923 | predecessor parcel characteristics | R-7 |
+| Ridgeland - Oak Park | 125 N EUCLID AVE | 25 | unknown | predecessor was a 7+ unit building; no year recorded | DT-2 |
+| Ridgeland - Oak Park | 166 N HUMPHREY AVE | 16 | 1922 | predecessor parcel characteristics | R-7 |
+| Ridgeland - Oak Park | 257 W WASHINGTON BLVD | 20 | unknown | predecessor was a 7+ unit building; no year recorded | R-7 |
+| Ridgeland - Oak Park | 431 S HARVEY AVE | 8 | 1894 | predecessor parcel characteristics | R-7 |
+| Ridgeland - Oak Park | 615 SOUTH BLVD | 12 | 1893 | predecessor parcel characteristics | R-7 |
 
 ## Undated buildings
 

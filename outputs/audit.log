@@ -286,3 +286,41 @@
 [s09_provenance] verification passed: 78 produced files checked
 [s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=4abe0ddaec5f rows=None
 [s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json
+[s11_district_analysis] start s11_district_analysis.py (sha256 1ded5cc384fa)
+[s11_district_analysis] param END_YEAR=2025
+[s11_district_analysis] param designation_years={'Frank Lloyd Wright': 1972, 'Ridgeland - Oak Park': 1994, 'Gunderson': 2002}
+[s11_district_analysis] param sensitivity_years={'Frank Lloyd Wright': 2012, 'Ridgeland - Oak Park': 1983, 'Gunderson': 2003}
+[s11_district_analysis] input  data/interim/s10_mf_buildings.csv (MF buildings) sha256=d45e088be1db bytes=244528
+[s11_district_analysis] input  data/interim/s10_district_parcels.csv (units by district) sha256=d37df8422ee7 bytes=471
+[s11_district_analysis] input  data/interim/s10_district_zoning.csv (district zoning) sha256=ad3b022d4a24 bytes=1519
+[s11_district_analysis] buildings: 1565; excluded: 0 (0 units); analysed: 1565; condo conversions redated: 8, conversion year unknown: 2
+[s11_district_analysis] output outputs/tables/G1_mf_units_by_decade_built.csv (table G1_mf_units_by_decade_built) sha256=1cb032133d06 rows=4
+[s11_district_analysis] output outputs/tables/G2_mf_buildings_by_decade_built.csv (table G2_mf_buildings_by_decade_built) sha256=88b2bfb591ff rows=4
+[s11_district_analysis] output outputs/tables/H1_before_after_local_designation.csv (table H1_before_after_local_designation) sha256=a4182b7ca0b1 rows=3
+[s11_district_analysis] output outputs/tables/H2_before_after_sensitivity_dates.csv (table H2_before_after_sensitivity_dates) sha256=f556f9dc900f rows=3
+[s11_district_analysis] output outputs/tables/I_mf_built_after_designation.csv (table I_mf_built_after_designation) sha256=3d53d10c9af0 rows=14
+[s11_district_analysis] output outputs/tables/J_district_area_by_zoning.csv (table J_district_area_by_zoning) sha256=5f8cc3132441 rows=3
+[s11_district_analysis] output outputs/tables/K_district_housing_units_by_type_2026.csv (table K_district_housing_units_by_type_2026) sha256=65359ec53620 rows=4
+[s11_district_analysis] output outputs/tables/L_condo_conversions.csv (table L_condo_conversions) sha256=54b919a01635 rows=10
+[s11_district_analysis] Frank Lloyd Wright: designated 1972; 54-yr windows: before 85 bldgs/1170 units, after 7 bldgs/128 units; rest of village before 4621, after 3029; undated 0 bldgs/0 units
+[s11_district_analysis] Ridgeland - Oak Park: designated 1994; 32-yr windows: before 51 bldgs/987 units, after 7 bldgs/338 units; rest of village before 2195, after 2090; undated 2 bldgs/45 units
+[s11_district_analysis] Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs/0 units; rest of village before 980, after 1934; undated 0 bldgs/0 units
+[s11_district_analysis] output outputs/fig_mf_by_decade.png (figure: MF units by decade built per district) sha256=94d094d375a8 rows=None
+[s11_district_analysis] output outputs/results_districts.md (district results narrative) sha256=736bf0d7ae36 rows=None
+[s11_district_analysis] output outputs/results_districts.json (district tables as JSON) sha256=eb573f3bebf0 rows=None
+[s11_district_analysis] end (0.3s) -> outputs/provenance/s11_district_analysis.json
+[s09_provenance] start s09_provenance.py (sha256 520d3c3efdbb)
+[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=17ce804645f2 bytes=2888
+[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=4131febcfe42 bytes=17654
+[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=f5dae84c0f80 bytes=2016
+[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=b9e88b133230 bytes=5258
+[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=23a543f41dda bytes=6420
+[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=1d0f90d21afa bytes=3677
+[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=5ef310a3f9e1 bytes=7773
+[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=a1cda7d3f188 bytes=1233
+[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=2ca9b6225e9b bytes=7204
+[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=f017d16c84a1 bytes=6371
+[s09_provenance] input  outputs/provenance/s12_explorer_data.json (stage record) sha256=0426b960bde1 bytes=3351
+[s09_provenance] verification passed: 78 produced files checked
+[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=9ae819dfb044 rows=None
+[s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json

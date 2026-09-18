@@ -1,6 +1,6 @@
 {
  "config_sha256": "126e52528e9d26aab25ea5d62adec8841bffc8e0b5a12a0439b686882c5cf519",
- "finished_utc": "2026-09-18T21:07:44Z",
+ "finished_utc": "2026-09-18T21:09:31Z",
  "inputs": [
   {
    "bytes": 2888,
@@ -57,10 +57,10 @@
    "sha256": "2ca9b6225e9b208431f7e40b6b4f09600ae8800b332eeccb3fbca30753e04e0e"
   },
   {
-   "bytes": 6370,
+   "bytes": 6371,
    "path": "outputs/provenance/s11_district_analysis.json",
    "role": "stage record",
-   "sha256": "821beac99bc4157afe3e443dca3f14e29dbc2aa8f661fd6e1090d27e62a79538"
+   "sha256": "f017d16c84a16395ed5596395246bc1921df49835dc71b240e5a33a859447b98"
   },
   {
    "bytes": 3351,
@@ -80,19 +80,19 @@
   "input  outputs/provenance/s07_analyze.json (stage record) sha256=5ef310a3f9e1 bytes=7773",
   "input  outputs/provenance/s08_map.json (stage record) sha256=a1cda7d3f188 bytes=1233",
   "input  outputs/provenance/s10_districts.json (stage record) sha256=2ca9b6225e9b bytes=7204",
-  "input  outputs/provenance/s11_district_analysis.json (stage record) sha256=821beac99bc4 bytes=6370",
+  "input  outputs/provenance/s11_district_analysis.json (stage record) sha256=f017d16c84a1 bytes=6371",
   "input  outputs/provenance/s12_explorer_data.json (stage record) sha256=0426b960bde1 bytes=3351",
   "verification passed: 78 produced files checked",
-  "output PROVENANCE.md (human-readable provenance report) sha256=4abe0ddaec5f rows=None"
+  "output PROVENANCE.md (human-readable provenance report) sha256=9ae819dfb044 rows=None"
  ],
  "ok": true,
  "outputs": [
   {
-   "bytes": 32749,
+   "bytes": 32750,
    "path": "PROVENANCE.md",
    "role": "human-readable provenance report",
    "rows": null,
-   "sha256": "4abe0ddaec5fa3d6a4bf8cee1fc2c99400c549e47b49b65d0d7f6540e2688131"
+   "sha256": "9ae819dfb0440b08a589d7ebaed7129cccc09c3feace06088fd8950cdf732d20"
   }
  ],
  "params": {},
@@ -102,5 +102,5 @@
  "script_sha256": "520d3c3efdbbc26a7666eef7127ed91733de566fe9426889e2950f780e981813",
  "seconds": 0.0,
  "stage": "s09_provenance",
- "started_utc": "2026-09-18T21:07:44Z"
+ "started_utc": "2026-09-18T21:09:31Z"
 }
