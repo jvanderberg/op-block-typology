@@ -38,18 +38,18 @@ buildings standing on the 2026 assessment roll are visible: anything demolished 
 | district | pre-1890 | 1890s | 1900s | 1910s | 1920s | 1930s | 1940s | 1950s | 1960s | 1970s | 1980s | 1990s | 2000s | 2010s | 2020s | undated | total |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Frank Lloyd Wright | 58 | 92 | 132 | 178 | 544 | 59 | 18 | 140 | 308 | 165 | 31 | 2 | 2 | 0 | 0 | 0 | 1,731 |
-| Ridgeland - Oak Park | 60 | 206 | 531 | 694 | 2,515 | 572 | 23 | 233 | 754 | 135 | 129 | 0 | 213 | 2 | 204 | 0 | 6,275 |
+| Ridgeland - Oak Park | 60 | 206 | 531 | 694 | 2,515 | 572 | 23 | 233 | 754 | 135 | 129 | 0 | 132 | 2 | 204 | 0 | 6,194 |
 | Gunderson | 0 | 0 | 4 | 42 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 48 |
-| Rest of Oak Park | 16 | 89 | 265 | 786 | 2,320 | 380 | 14 | 441 | 1,080 | 549 | 264 | 449 | 536 | 1,177 | 319 | 101 | 8,788 |
+| Rest of Oak Park | 16 | 89 | 265 | 786 | 2,320 | 380 | 14 | 441 | 1,080 | 549 | 264 | 449 | 503 | 1,177 | 319 | 101 | 8,755 |
 
 Buildings:
 
 | district | pre-1890 | 1890s | 1900s | 1910s | 1920s | 1930s | 1940s | 1950s | 1960s | 1970s | 1980s | 1990s | 2000s | 2010s | 2020s | undated | total |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Frank Lloyd Wright | 26 | 36 | 30 | 40 | 26 | 5 | 3 | 24 | 21 | 5 | 3 | 1 | 1 | 0 | 0 | 0 | 222 |
-| Ridgeland - Oak Park | 25 | 52 | 105 | 99 | 98 | 14 | 2 | 21 | 46 | 8 | 2 | 0 | 9 | 1 | 2 | 0 | 486 |
+| Ridgeland - Oak Park | 25 | 52 | 105 | 99 | 98 | 14 | 2 | 21 | 46 | 8 | 2 | 0 | 4 | 1 | 2 | 0 | 481 |
 | Gunderson | 0 | 0 | 2 | 19 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 22 |
-| Rest of Oak Park | 7 | 36 | 107 | 227 | 218 | 31 | 4 | 62 | 83 | 14 | 1 | 5 | 16 | 11 | 10 | 2 | 835 |
+| Rest of Oak Park | 7 | 36 | 107 | 227 | 218 | 31 | 4 | 62 | 83 | 14 | 1 | 5 | 11 | 11 | 10 | 2 | 830 |
 
 ![MF units by decade](fig_mf_by_decade.png)
 
@@ -62,17 +62,17 @@ village-wide in that window.
 
 | district | Designated | Before | After | Bldgs before | Units before | Bldgs after | Units after | Units/yr before | Units/yr after | Rest of OP units/yr before | Rest of OP units/yr after | Share before (%) | Share after (%) | Units undated |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Frank Lloyd Wright | 1972 | 1918-1971 | 1972-2025 | 85 | 1,170 | 7 | 128 | 21.7 | 2.4 | 85.3 | 56.7 | 11.6 | 3.4 | 0 |
-| Ridgeland - Oak Park | 1994 | 1962-1993 | 1994-2025 | 51 | 987 | 12 | 419 | 30.8 | 13.1 | 68.6 | 66.3 | 27 | 16.5 | 0 |
-| Gunderson | 2002 | 1978-2001 | 2002-2025 | 0 | 0 | 0 | 0 | 0 | 0 | 41.4 | 81.4 | 0 | 0 | 0 |
+| Frank Lloyd Wright | 1972 | 1918-1971 | 1972-2025 | 85 | 1,170 | 7 | 128 | 21.7 | 2.4 | 85.3 | 56.1 | 11.6 | 3.5 | 0 |
+| Ridgeland - Oak Park | 1994 | 1962-1993 | 1994-2025 | 51 | 987 | 7 | 338 | 30.8 | 10.6 | 68.6 | 65.3 | 27 | 13.9 | 0 |
+| Gunderson | 2002 | 1978-2001 | 2002-2025 | 0 | 0 | 0 | 0 | 0 | 0 | 40.8 | 80.6 | 0 | 0 | 0 |
 
 Sensitivity, alternative dates (FLW 2012 local boundary expansion; Ridgeland 1983 National Register; Gunderson 2003 expansion):
 
 | district | Cut year | Before | After | Units before | Units after | Units/yr before | Units/yr after | Rest of OP units/yr before | Rest of OP units/yr after | Share before (%) | Share after (%) |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Frank Lloyd Wright | 2012 | 1998-2011 | 2012-2025 | 4 | 0 | 0.3 | 0 | 46.1 | 105.5 | 0.5 | 0 |
-| Ridgeland - Oak Park | 1983 | 1940-1982 | 1983-2025 | 1,145 | 548 | 26.6 | 12.7 | 48.5 | 63.8 | 29.4 | 16.6 |
-| Gunderson | 2003 | 1980-2002 | 2003-2025 | 0 | 0 | 0 | 0 | 34.4 | 84.9 | 0 | 0 |
+| Frank Lloyd Wright | 2012 | 1998-2011 | 2012-2025 | 4 | 0 | 0.3 | 0 | 43.8 | 105.5 | 0.5 | 0 |
+| Ridgeland - Oak Park | 1983 | 1940-1982 | 1983-2025 | 1,145 | 467 | 26.6 | 10.9 | 48.5 | 63.1 | 29.4 | 14.7 |
+| Gunderson | 2003 | 1980-2002 | 2003-2025 | 0 | 0 | 0 | 0 | 33.8 | 84.1 | 0 | 0 |
 
 ## I. Every multi-family building built after local designation
 
@@ -84,16 +84,11 @@ Sensitivity, alternative dates (FLW 2012 local boundary expansion; Ridgeland 198
 | Frank Lloyd Wright | 1981 | 219 N GROVE AVE | 6 | condo | R-7 | condo_chars |
 | Frank Lloyd Wright | 1981 | 300 N MAPLE AVE | 16 | condo | R-7 | condo_chars |
 | Frank Lloyd Wright | 1999 | 319 CHICAGO AVE | 2 | small_mf | R-6 | char_yrblt |
-| Frank Lloyd Wright | 2001 | 611 FOREST AVE | 2 | condo | R-2 | condo_chars |
-| Ridgeland - Oak Park | 2000 | 125 N EUCLID AVE | 25 | condo | DT-2 | condo_chars |
-| Ridgeland - Oak Park | 2000 | 166 N HUMPHREY AVE | 16 | condo | R-7 | condo_chars |
-| Ridgeland - Oak Park | 2000 | 615 SOUTH BLVD | 12 | condo | R-7 | condo_chars |
-| Ridgeland - Oak Park | 2001 | 257 W WASHINGTON BLVD | 20 | condo | R-7 | condo_chars |
-| Ridgeland - Oak Park | 2001 | 324 WISCONSIN AVE | 4 | condo | R-7 | condo_chars |
-| Ridgeland - Oak Park | 2001 | 407 S OAK PARK AVE | 9 | condo | R-7 | condo_chars |
-| Ridgeland - Oak Park | 2001 | 431 S HARVEY AVE | 8 | condo | R-7 | condo_chars |
-| Ridgeland - Oak Park | 2005 | 106 S RIDGELAND AVE | 116 | condo | NC | condo_chars |
-| Ridgeland - Oak Park | 2006 | 328 S OAK PARK AVE | 3 | condo | R-7 | condo_chars |
+| Frank Lloyd Wright | 2001 | 611 FOREST AVE | 2 | condo | R-2 | condo_chars_newbuild |
+| Ridgeland - Oak Park | 2001 | 324 WISCONSIN AVE | 4 | condo | R-7 | condo_chars_newbuild |
+| Ridgeland - Oak Park | 2001 | 407 S OAK PARK AVE | 9 | condo | R-7 | condo_chars_newbuild |
+| Ridgeland - Oak Park | 2005 | 106 S RIDGELAND AVE | 116 | condo | NC | condo_chars_unverified |
+| Ridgeland - Oak Park | 2006 | 328 S OAK PARK AVE | 3 | condo | R-7 | condo_chars_newbuild |
 | Ridgeland - Oak Park | 2014 | 134 S GROVE AVE | 2 | small_mf | R-5 | char_yrblt |
 | Ridgeland - Oak Park | 2023 | 261 WASHINGTON BLVD | 32 | large_mf | R-7 | class_history |
 | Ridgeland - Oak Park | 2023 | 835 LAKE ST | 172 | large_mf | R-7 | class_history |
@@ -105,6 +100,28 @@ Sensitivity, alternative dates (FLW 2012 local boundary expansion; Ridgeland 198
 | Frank Lloyd Wright | 0.1 | 0 | 0 | 0 | 4.8 | 0 | 1.7 | 1.5 | 0.1 | 23.4 | 52 | 1.5 | 0.4 | 7.6 | 0.5 | 6.5 | 14.7 |
 | Gunderson | 0 | 0 | 0 | 0 | 0 | 1.1 | 0 | 0 | 0 | 0 | 0 | 89.8 | 0 | 6 | 0 | 3.1 | 9.1 |
 | Ridgeland - Oak Park | 0 | 2.1 | 1.4 | 2 | 2.6 | 0.1 | 4.2 | 1.7 | 3.4 | 0 | 12.9 | 30.9 | 0 | 11.6 | 0.3 | 26.9 | 38.8 |
+
+## Excluded condominium conversions
+
+The Assessor's condominium file records the year the units were declared, not the year
+the structure was built, for buildings converted to condominiums. These buildings were
+identified by finding the predecessor parcel (same assessor block, present the year before
+the units appear, absent after) with a residential or apartment class, and are excluded
+from every table above. The predecessor's own year built is shown where the Assessor
+recorded one.
+
+| District | Address | Units | Recorded condo year | Predecessor built | Zone |
+|---|---|---|---|---|---|
+| 995 | 1121 S OAK PARK AVE | 7 | 2004 | 1909 | R-5 |
+| 333 | 254 CHICAGO AVE | 5 | 2006 | 1898 | NC |
+| 547 | 421 S RIDGELAND AVE | 7 | 2005 | 1910 | R-7 |
+| 513 | 431 S KENILWORTH AVE | 4 | 2001 | 1923 | R-7 |
+| 785 | 916 AUSTIN AVE | 10 | 2001 | 1923 | R-7 |
+| 1095 | 125 N EUCLID AVE | 25 | 2000 |  | DT-2 |
+| 1448 | 166 N HUMPHREY AVE | 16 | 2000 | 1922 | R-7 |
+| 1538 | 257 W WASHINGTON BLVD | 20 | 2001 | 1894 | R-7 |
+| 1537 | 431 S HARVEY AVE | 8 | 2001 | 1894 | R-7 |
+| 1315 | 615 SOUTH BLVD | 12 | 2000 | 1890 | R-7 |
 
 ## Undated buildings
 
@@ -121,5 +138,5 @@ Sensitivity, alternative dates (FLW 2012 local boundary expansion; Ridgeland 198
   2020 or later) it is the year before the PIN first carried a residential class.
 - The Frank Lloyd Wright polygon is the boundary as expanded in 2009/2012; the 1972 boundary is
   smaller (1,491 of about 1,935 parcels). The sensitivity row with 2012 bounds this.
-- Condominium buildings are dated by the structure, not the conversion; a 1920s apartment
-  building converted in 1980 counts as 1920s.
+- Condominium buildings converted from existing buildings are excluded (see above); the
+  remaining condominium buildings are dated by the Assessor's condominium file.

@@ -1,12 +1,12 @@
 {
- "config_sha256": "d132051599f4aed279f12819226b3aa8ae144170c9cb76eef90e38f6d3cf63ce",
- "finished_utc": "2026-09-18T19:19:55Z",
+ "config_sha256": "0a87a8464ff0f2fe5b7e714f7e3fc1e863ed5c4ab0c4fcec57fd1a3ffd26b16d",
+ "finished_utc": "2026-09-18T21:01:32Z",
  "inputs": [
   {
-   "bytes": 231666,
+   "bytes": 244624,
    "path": "data/interim/s10_mf_buildings.csv",
    "role": "MF buildings",
-   "sha256": "06a031695b5e18c6d929a3881fab15e1e30f8ddd17dd234ee50d9565c845a575"
+   "sha256": "3fe7ba849b3f386c367626aa559890b8e6d8f0f3b42c9f37d9f3230a1587002a"
   },
   {
    "bytes": 471,
@@ -22,26 +22,28 @@
   }
  ],
  "notes": [
-  "start s11_district_analysis.py (sha256 47ba91ce1d13)",
+  "start s11_district_analysis.py (sha256 2d822429618a)",
   "param END_YEAR=2025",
   "param designation_years={'Frank Lloyd Wright': 1972, 'Ridgeland - Oak Park': 1994, 'Gunderson': 2002}",
   "param sensitivity_years={'Frank Lloyd Wright': 2012, 'Ridgeland - Oak Park': 1983, 'Gunderson': 2003}",
-  "input  data/interim/s10_mf_buildings.csv (MF buildings) sha256=06a031695b5e bytes=231666",
+  "input  data/interim/s10_mf_buildings.csv (MF buildings) sha256=3fe7ba849b3f bytes=244624",
   "input  data/interim/s10_district_parcels.csv (units by district) sha256=d37df8422ee7 bytes=471",
   "input  data/interim/s10_district_zoning.csv (district zoning) sha256=ad3b022d4a24 bytes=1519",
-  "output outputs/tables/G1_mf_units_by_decade_built.csv (table G1_mf_units_by_decade_built) sha256=4c6bd1d32a6b rows=4",
-  "output outputs/tables/G2_mf_buildings_by_decade_built.csv (table G2_mf_buildings_by_decade_built) sha256=9624c5c50bb5 rows=4",
-  "output outputs/tables/H1_before_after_local_designation.csv (table H1_before_after_local_designation) sha256=a1afa5f32320 rows=3",
-  "output outputs/tables/H2_before_after_sensitivity_dates.csv (table H2_before_after_sensitivity_dates) sha256=5d61c55a84bc rows=3",
-  "output outputs/tables/I_mf_built_after_designation.csv (table I_mf_built_after_designation) sha256=8e5a6a4a64a0 rows=19",
+  "buildings: 1565; excluded condo conversions: 10 (114 units); analysed: 1555",
+  "output outputs/tables/G1_mf_units_by_decade_built.csv (table G1_mf_units_by_decade_built) sha256=a7808ad44878 rows=4",
+  "output outputs/tables/G2_mf_buildings_by_decade_built.csv (table G2_mf_buildings_by_decade_built) sha256=f6947e424592 rows=4",
+  "output outputs/tables/H1_before_after_local_designation.csv (table H1_before_after_local_designation) sha256=3ae42218ced9 rows=3",
+  "output outputs/tables/H2_before_after_sensitivity_dates.csv (table H2_before_after_sensitivity_dates) sha256=a6656572f589 rows=3",
+  "output outputs/tables/I_mf_built_after_designation.csv (table I_mf_built_after_designation) sha256=3d53d10c9af0 rows=14",
   "output outputs/tables/J_district_area_by_zoning.csv (table J_district_area_by_zoning) sha256=5f8cc3132441 rows=3",
   "output outputs/tables/K_district_housing_units_by_type_2026.csv (table K_district_housing_units_by_type_2026) sha256=65359ec53620 rows=4",
-  "Frank Lloyd Wright: designated 1972; 54-yr windows: before 85 bldgs/1170 units, after 7 bldgs/128 units; rest of village before 4607, after 3062; undated 0 bldgs/0 units",
-  "Ridgeland - Oak Park: designated 1994; 32-yr windows: before 51 bldgs/987 units, after 12 bldgs/419 units; rest of village before 2195, after 2123; undated 0 bldgs/0 units",
-  "Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs/0 units; rest of village before 994, after 1953; undated 0 bldgs/0 units",
-  "output outputs/fig_mf_by_decade.png (figure: MF units by decade built per district) sha256=955edd0d2ca2 rows=None",
-  "output outputs/results_districts.md (district results narrative) sha256=555b3af14ae5 rows=None",
-  "output outputs/results_districts.json (district tables as JSON) sha256=15c8d026452f rows=None"
+  "output outputs/tables/L_excluded_condo_conversions.csv (table L_excluded_condo_conversions) sha256=48e9cc52fce0 rows=10",
+  "Frank Lloyd Wright: designated 1972; 54-yr windows: before 85 bldgs/1170 units, after 7 bldgs/128 units; rest of village before 4607, after 3029; undated 0 bldgs/0 units",
+  "Ridgeland - Oak Park: designated 1994; 32-yr windows: before 51 bldgs/987 units, after 7 bldgs/338 units; rest of village before 2195, after 2090; undated 0 bldgs/0 units",
+  "Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs/0 units; rest of village before 980, after 1934; undated 0 bldgs/0 units",
+  "output outputs/fig_mf_by_decade.png (figure: MF units by decade built per district) sha256=2d95284dd8e1 rows=None",
+  "output outputs/results_districts.md (district results narrative) sha256=41198bf55a5e rows=None",
+  "output outputs/results_districts.json (district tables as JSON) sha256=d6fadc54b5c9 rows=None"
  ],
  "ok": true,
  "outputs": [
@@ -50,35 +52,35 @@
    "path": "outputs/tables/G1_mf_units_by_decade_built.csv",
    "role": "table G1_mf_units_by_decade_built",
    "rows": 4,
-   "sha256": "4c6bd1d32a6b807663156f4bc6f3491ba6b8f2ca20b17c5c19a457cc8e2d1722"
+   "sha256": "a7808ad44878a20adb372a359ebe1bb3d23f932fdc7126cd7c448dffaadec8d7"
   },
   {
    "bytes": 504,
    "path": "outputs/tables/G2_mf_buildings_by_decade_built.csv",
    "role": "table G2_mf_buildings_by_decade_built",
    "rows": 4,
-   "sha256": "9624c5c50bb55b68d853842ef247fb1e6bc7eb5ba5b115547767d10ece939404"
+   "sha256": "f6947e42459235f44baf993bc3af4527013e469726c3a0ba14ac6936c80566e8"
   },
   {
    "bytes": 666,
    "path": "outputs/tables/H1_before_after_local_designation.csv",
    "role": "table H1_before_after_local_designation",
    "rows": 3,
-   "sha256": "a1afa5f32320590bb0c74676e051a6d15eb8e3437a4da884185e419c832f7585"
+   "sha256": "3ae42218ced9cec1f9734db9b2e375942cf99e9e37d61d2870e0ac72e60a93c8"
   },
   {
-   "bytes": 658,
+   "bytes": 657,
    "path": "outputs/tables/H2_before_after_sensitivity_dates.csv",
    "role": "table H2_before_after_sensitivity_dates",
    "rows": 3,
-   "sha256": "5d61c55a84bc842fdbba4a32d8c5985ac245ce51d14af49d4d0fe8709adb726d"
+   "sha256": "a6656572f589a8eca0520e144e87bbcfddda1be7f1aec1b6e93d52c240f542f6"
   },
   {
-   "bytes": 1725,
+   "bytes": 1337,
    "path": "outputs/tables/I_mf_built_after_designation.csv",
    "role": "table I_mf_built_after_designation",
-   "rows": 19,
-   "sha256": "8e5a6a4a64a031ae9ed31f76cd2aa8656739e1b57b19b661331114f9f778f971"
+   "rows": 14,
+   "sha256": "3d53d10c9af01a6194c0ef990b198f4bdbed4926453f5b6e58d36c7be0eaad60"
   },
   {
    "bytes": 353,
@@ -95,25 +97,32 @@
    "sha256": "65359ec53620c7de0f9b03f1da7405fd8a2fef8e8e6f96fb5d37e41ed98d3ca4"
   },
   {
-   "bytes": 133043,
+   "bytes": 662,
+   "path": "outputs/tables/L_excluded_condo_conversions.csv",
+   "role": "table L_excluded_condo_conversions",
+   "rows": 10,
+   "sha256": "48e9cc52fce0bba153198e16a81ce391478ad4b3ac1293b7a953679a4aac53ec"
+  },
+  {
+   "bytes": 133061,
    "path": "outputs/fig_mf_by_decade.png",
    "role": "figure: MF units by decade built per district",
    "rows": null,
-   "sha256": "955edd0d2ca2ccfbf6a04333301b19af5ec628f6c44166e7e15e294d72af9d96"
+   "sha256": "2d95284dd8e141b67a5a634d0dca9706fc46eeeb756d1f9c6f3ac2505c5deaa6"
   },
   {
-   "bytes": 8439,
+   "bytes": 9217,
    "path": "outputs/results_districts.md",
    "role": "district results narrative",
    "rows": null,
-   "sha256": "555b3af14ae589a3fbfd3a53e11f5e9935e276b33d0c0169d6add6f5c86eb8ee"
+   "sha256": "41198bf55a5eab7a96e32c948d105112cf92e4cce8bf6a5e461b619de772ce28"
   },
   {
-   "bytes": 13050,
+   "bytes": 13789,
    "path": "outputs/results_districts.json",
    "role": "district tables as JSON",
    "rows": null,
-   "sha256": "15c8d026452fb35a122da4573381d20612116a75d99afd40338bd712d8695b5d"
+   "sha256": "d6fadc54b5c9689f4811789690a619b235c743da7b4d3d48799b0a67ec19af82"
   }
  ],
  "params": {
@@ -132,8 +141,8 @@
  "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
  "python": "3.14.7",
  "script": "s11_district_analysis.py",
- "script_sha256": "47ba91ce1d13e280c42d8aea16f8d9278e8f3e1107b3a43446bc6798636e15c6",
- "seconds": 0.3,
+ "script_sha256": "2d822429618aa51e4f64b7ff8a42e3f04a68c217c737c2090224d5321ee3e49d",
+ "seconds": 0.2,
  "stage": "s11_district_analysis",
- "started_utc": "2026-09-18T19:19:55Z"
+ "started_utc": "2026-09-18T21:01:32Z"
 }

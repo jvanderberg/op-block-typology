@@ -11,8 +11,8 @@
 [s01_extract] output data/interim/s01_address_points.csv (Oak Park address points (address, lat, lon)) sha256=7331558c1065 rows=12158
 [s01_extract] class history rows: 131718 over years [np.int64(2020), np.int64(2021), np.int64(2022), np.int64(2023), np.int64(2024), np.int64(2025), np.int64(2026)]
 [s01_extract] output data/interim/s01_class_history.csv (assessment class and year built per PIN per year) sha256=508ab4be991d rows=131718
-[s01_extract] end (5.4s) -> outputs/provenance/s01_extract.json
-[s02_fetch] start s02_fetch.py (sha256 a53e9df8ffba)
+[s01_extract] end (4.0s) -> outputs/provenance/s01_extract.json
+[s02_fetch] start s02_fetch.py (sha256 fca8fd49c624)
 [s02_fetch] input  data/interim/s01_parcels.csv (parcel list (for supplemental PIN fetch)) sha256=2de4e10e6e82 bytes=1973880
 [s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/arcgis_parcels_oak_park.geojson
 [s02_fetch] output data/raw/arcgis_parcels_oak_park.geojson (Cook County parcel polygons (ArcGIS snapshot)) sha256=bf25146aa0fa rows=13849
@@ -63,7 +63,9 @@
 [s02_fetch] output data/raw/socrata_3r7i-mrz4_oak_park_2023.json (Assessor Condominium Unit Characteristics, Oak Park) sha256=42630c54bf1e rows=5472
 [s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/vop_zoning.geojson
 [s02_fetch] output data/raw/vop_zoning.geojson (Village of Oak Park zoning district polygons) sha256=ea2423f9094f rows=23
-[s02_fetch] end (2.4s) -> outputs/provenance/s02_fetch.json
+[s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/condo_conversion_check.json
+[s02_fetch] output data/raw/condo_conversion_check.json (condo conversion check (first roll year, predecessor parcels)) sha256=ca4d8b6c4a24 rows=None
+[s02_fetch] end (1.3s) -> outputs/provenance/s02_fetch.json
 [s03_locate] start s03_locate.py (sha256 eca8561d8898)
 [s03_locate] input  data/interim/s01_parcels.csv (parcels) sha256=2de4e10e6e82 bytes=1973880
 [s03_locate] input  data/interim/s01_address_points.csv (address points) sha256=7331558c1065 bytes=698307
@@ -72,7 +74,7 @@
 [s03_locate] coordinate source counts: arcgis_pin14=13333, arcgis_pin10=5348, unlocated=48, address_match=4
 [s03_locate] unlocated by class: 299=38, 315=3, 391=2, 517=2, EX=1, 592=1, 212=1
 [s03_locate] output data/interim/s03_parcels_located.csv (parcels with point location and locating rule) sha256=263e53ce4926 rows=18733
-[s03_locate] end (0.4s) -> outputs/provenance/s03_locate.json
+[s03_locate] end (0.3s) -> outputs/provenance/s03_locate.json
 [s04_units] start s04_units.py (sha256 5e3a2f1d3d14)
 [s04_units] param SF_DETACHED_CLASSES=('202', '203', '204', '205', '206', '207', '208', '209', '234', '278', '218')
 [s04_units] param SF_ATTACHED_CLASSES=('210', '295')
@@ -102,7 +104,7 @@
 [s04_units] output data/interim/s04_parcel_units.csv (parcels with unit counts, type, bucket and source) sha256=69ef35157c64 rows=18733
 [s04_units] buildings: 13600 (with housing: 11904)
 [s04_units] output data/interim/s04_buildings.csv (one row per building) sha256=74813c75cb3b rows=13600
-[s04_units] end (1.0s) -> outputs/provenance/s04_units.json
+[s04_units] end (0.4s) -> outputs/provenance/s04_units.json
 [s05_blocks] start s05_blocks.py (sha256 b8ef0360686b)
 [s05_blocks] param SF_ONLY_MIN_SHARE=0.95
 [s05_blocks] param DOMINANT_SHARE=0.5
@@ -140,7 +142,7 @@
 [s05_blocks] output data/interim/s05_blocks.geojson (block polygons with category (for the map)) sha256=23782599068a rows=1058
 [s05_blocks] block groups: 53; category: single_family=3, small_mf_2_6=0, large_mf_7plus=19, mixed=31, no_housing=0
 [s05_blocks] output data/interim/s05_blockgroups.csv (one row per Oak Park block group with unit mix and category) sha256=a58c61e3a0cf rows=53
-[s05_blocks] end (4.3s) -> outputs/provenance/s05_blocks.json
+[s05_blocks] end (1.5s) -> outputs/provenance/s05_blocks.json
 [s06_census] start s06_census.py (sha256 c3452e67a0a1)
 [s06_census] input  data/interim/s05_blocks.csv (Oak Park block list with TIGER POP20/HOUSING20) sha256=a21310185a31 bytes=192060
 [s06_census] input  data/raw/pl/ilgeo2020.pl (2020 P.L. 94-171 Illinois) sha256=0629a31079ac bytes=229047517
@@ -157,7 +159,7 @@
 [s06_census] ACS release: acs2024_5yr (ACS 2024 5-year, 2020-2024)
 [s06_census] ACS block groups: 53; population estimate 53292
 [s06_census] output data/interim/s06_blockgroups_acs.csv (ACS B03002 per Oak Park block group, with MOE) sha256=192c3f39dccf rows=53
-[s06_census] end (2.9s) -> outputs/provenance/s06_census.json
+[s06_census] end (2.6s) -> outputs/provenance/s06_census.json
 [s07_analyze] start s07_analyze.py (sha256 6749f439cbb8)
 [s07_analyze] param SF_ONLY_MIN_SHARE=0.95
 [s07_analyze] param SF_ONLY_SENSITIVITY=(1.0, 0.9)
@@ -191,72 +193,12 @@
 [s08_map] map: 1058 blocks; counts {'single_family': 462, 'small_mf_2_6': 70, 'large_mf_7plus': 208, 'mixed': 220, 'no_housing': 98}
 [s08_map] output outputs/map.html (interactive block-type map) sha256=52afbb523ec9 rows=None
 [s08_map] end (0.0s) -> outputs/provenance/s08_map.json
-[s10_districts] start s10_districts.py (sha256 960691bba81a)
+[s10_districts] start s10_districts.py (sha256 6b2e7cb0a339)
 [s10_districts] param MF_UNIT_TYPES=('small_mf', 'large_mf', 'condo')
 [s10_districts] param MF_MIN_UNITS=2
+[s10_districts] param CONDO_CONVERSION_POLICY='exclude'
 [s10_districts] param districts={'Frank Lloyd Wright': 1972, 'Ridgeland - Oak Park': 1994, 'Gunderson': 2002}
-[s10_districts] input  data/interim/s04_parcel_units.csv (parcel units) sha256=69ef35157c64 bytes=4290133
-[s10_districts] input  data/interim/s01_class_history.csv (class history) sha256=508ab4be991d bytes=3765499
-[s10_districts] input  data/raw/vop_historic_districts.geojson (historic districts) sha256=4d22869c4b45 bytes=108951
-[s10_districts] input  data/raw/vop_zoning.geojson (zoning) sha256=ea2423f9094f bytes=1713606
-[s10_districts] input  data/raw/socrata_3r7i-mrz4_oak_park_2023.json (condo characteristics) sha256=42630c54bf1e bytes=3146737
-[s10_districts] input  data/raw/socrata_csik-bsws_oak_park.json (commercial valuation) sha256=9da68c86b26f bytes=410641
-[s10_districts] districts: ['Frank Lloyd Wright', 'Gunderson', 'Ridgeland - Oak Park']; zoning polygons: 23
-[s10_districts] located parcels by district: Rest of Oak Park=11317, Ridgeland - Oak Park=4044, Frank Lloyd Wright=3033, Gunderson=291
-[s10_districts] parcels without a zoning polygon: 15
-[s10_districts] year lookups: condo buildings 289, commval PINs 810, any-year characteristics 11397, class history 19086 PINs from 2020
-[s10_districts] multi-family buildings (>= 2 units): 1572 with 16842 units
-[s10_districts] year source: char_yrblt=1027, condo_chars=281, commval=247, class_history=8, manual=4, char_yrblt_anyyear=3, unknown=2
-[s10_districts] unknown year: 2 buildings, 101 units: 1034 LAKE ST (Rest of Oak Park, 12 u, 318); 1035 MADISON ST (Rest of Oak Park, 89 u, 397)
-[s10_districts] manually dated (config MANUAL_YEAR_BUILT, with source): 1111 ONTARIO ST 812 1992.0 (72 u) <https://www.oakpark.com/2017/03/28/the-high-rise-wars/>; 1111 ONTARIO ST 1992.0 (286 u) <https://www.oakpark.com/2017/03/28/the-high-rise-wars/>; 408 S OAK PARK AVE 1921.0 (211 u) <https://en.wikipedia.org/wiki/Oak_Park_Arms>; 408 S OAK PARK AVE 1921.0 (141 u) <https://en.wikipedia.org/wiki/Oak_Park_Arms>
-[s10_districts] class-history dated: 822 NORTH BLVD 2024.0 (7 u); 409 S MAPLE AVE 2024.0 (16 u); 801 VAN BUREN ST 2023.0 (31 u); 835 LAKE ST 2023.0 (86 u); 833 LAKE ST 2023.0 (86 u); 1105 PLEASANT ST 2023.0 (64 u); 1105 PLEASANT ST 2023.0 (64 u); 261 WASHINGTON BLVD 2023.0 (32 u)
-[s10_districts]   Frank Lloyd Wright: 222 MF buildings, 1731 units, 0 undated
-[s10_districts]   Ridgeland - Oak Park: 490 MF buildings, 6275 units, 0 undated
-[s10_districts]   Gunderson: 22 MF buildings, 48 units, 0 undated
-[s10_districts]   Rest of Oak Park: 838 MF buildings, 8788 units, 2 undated
-[s10_districts] output data/interim/s10_mf_buildings.csv (multi-family buildings with district, zone, year built) sha256=eca730d88ddb rows=1572
-[s10_districts] output data/interim/s10_district_parcels.csv (housing units by district and bucket) sha256=d37df8422ee7 rows=11
-[s10_districts] output data/interim/s10_district_zoning.csv (district area by zoning district) sha256=ad3b022d4a24 rows=31
-[s10_districts] end (2.8s) -> outputs/provenance/s10_districts.json
-[s11_district_analysis] start s11_district_analysis.py (sha256 4d676c855cb4)
-[s11_district_analysis] param END_YEAR=2025
-[s11_district_analysis] param designation_years={'Frank Lloyd Wright': 1972, 'Ridgeland - Oak Park': 1994, 'Gunderson': 2002}
-[s11_district_analysis] param sensitivity_years={'Frank Lloyd Wright': 2012, 'Ridgeland - Oak Park': 1983, 'Gunderson': 2003}
-[s11_district_analysis] input  data/interim/s10_mf_buildings.csv (MF buildings) sha256=eca730d88ddb bytes=233479
-[s11_district_analysis] input  data/interim/s10_district_parcels.csv (units by district) sha256=d37df8422ee7 bytes=471
-[s11_district_analysis] input  data/interim/s10_district_zoning.csv (district zoning) sha256=ad3b022d4a24 bytes=1519
-[s11_district_analysis] output outputs/tables/G1_mf_units_by_decade_built.csv (table G1_mf_units_by_decade_built) sha256=6368bdedc198 rows=4
-[s11_district_analysis] output outputs/tables/G2_mf_buildings_by_decade_built.csv (table G2_mf_buildings_by_decade_built) sha256=5a6d882a13f8 rows=4
-[s11_district_analysis] output outputs/tables/H1_before_after_local_designation.csv (table H1_before_after_local_designation) sha256=4570b339034f rows=3
-[s11_district_analysis] output outputs/tables/H2_before_after_sensitivity_dates.csv (table H2_before_after_sensitivity_dates) sha256=dccdfdddad99 rows=3
-[s11_district_analysis] output outputs/tables/I_mf_built_after_designation.csv (table I_mf_built_after_designation) sha256=0dc416ab93bf rows=22
-[s11_district_analysis] output outputs/tables/J_district_area_by_zoning.csv (table J_district_area_by_zoning) sha256=5f8cc3132441 rows=3
-[s11_district_analysis] output outputs/tables/K_district_housing_units_by_type_2026.csv (table K_district_housing_units_by_type_2026) sha256=65359ec53620 rows=4
-[s11_district_analysis] Frank Lloyd Wright: designated 1972; 54-yr windows: before 85 bldgs/1170 units, after 7 bldgs/128 units; rest of village before 4607, after 3062; undated 0 bldgs/0 units
-[s11_district_analysis] Ridgeland - Oak Park: designated 1994; 32-yr windows: before 51 bldgs/987 units, after 15 bldgs/547 units; rest of village before 2206, after 2123; undated 0 bldgs/0 units
-[s11_district_analysis] Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs/0 units; rest of village before 994, after 1953; undated 0 bldgs/0 units
-[s11_district_analysis] output outputs/fig_mf_by_decade.png (figure: MF units by decade built per district) sha256=7f9166012140 rows=None
-[s11_district_analysis] output outputs/results_districts.md (district results narrative) sha256=c7e1be7f992d rows=None
-[s11_district_analysis] output outputs/results_districts.json (district tables as JSON) sha256=5c83cd12a279 rows=None
-[s11_district_analysis] end (0.3s) -> outputs/provenance/s11_district_analysis.json
-[s09_provenance] start s09_provenance.py (sha256 ee3a6dfdf8f2)
-[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=12629ebe11fb bytes=2888
-[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=7a4aa9359cf6 bytes=16865
-[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=2b47c879ec03 bytes=2016
-[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=bbd6efd168c9 bytes=5258
-[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=f6f8c8d17add bytes=6420
-[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=ad60f8c59cc5 bytes=3677
-[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=ab4fbb9e42fb bytes=7773
-[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233
-[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=5f25e2ec2392 bytes=5348
-[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=2419165b6cf5 bytes=5931
-[s09_provenance] verification passed: 75 produced files checked
-[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=a122bd63d382 rows=None
-[s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json
-[s10_districts] start s10_districts.py (sha256 e4de765b07d5)
-[s10_districts] param MF_UNIT_TYPES=('small_mf', 'large_mf', 'condo')
-[s10_districts] param MF_MIN_UNITS=2
-[s10_districts] param districts={'Frank Lloyd Wright': 1972, 'Ridgeland - Oak Park': 1994, 'Gunderson': 2002}
+[s10_districts] input  data/raw/condo_conversion_check.json (condo conversion check) sha256=ca4d8b6c4a24 bytes=22673
 [s10_districts] input  data/interim/s04_parcel_units.csv (parcel units) sha256=69ef35157c64 bytes=4290133
 [s10_districts] input  data/interim/s01_class_history.csv (class history) sha256=508ab4be991d bytes=3765499
 [s10_districts] input  data/raw/vop_historic_districts.geojson (historic districts) sha256=4d22869c4b45 bytes=108951
@@ -276,263 +218,70 @@
 [s10_districts] merge by class/AV/year within 100 m: ['16071290130000', '16071290140000'] -> 16071290130000 (835 LAKE ST; class 391, AV 1376235, built 2023.0)
 [s10_districts] multi-PIN merges applied: 7
 [s10_districts] multi-family buildings (>= 2 units): 1565 with 16842 units
-[s10_districts] year source: char_yrblt=1027, condo_chars=281, commval=245, class_history=5, char_yrblt_anyyear=3, manual=2, unknown=2
+[s10_districts] year source: char_yrblt=1027, condo_chars=260, commval=245, condo_chars_newbuild=18, class_history=5, char_yrblt_anyyear=3, condo_chars_unverified=3, manual=2, unknown=2
+[s10_districts] condo conversions (exclude): 10 buildings, 114 units: 254 CHICAGO AVE (Rest of Oak Park, 5 u, recorded 2006, predecessor built 1898); 431 S KENILWORTH AVE (Rest of Oak Park, 4 u, recorded 2001, predecessor built 1923); 421 S RIDGELAND AVE (Rest of Oak Park, 7 u, recorded 2005, predecessor built 1910); 916 AUSTIN AVE (Rest of Oak Park, 10 u, recorded 2001, predecessor built 1923); 1121 S OAK PARK AVE (Rest of Oak Park, 7 u, recorded 2004, predecessor built 1909); 125 N EUCLID AVE (Ridgeland - Oak Park, 25 u, recorded 2000, predecessor built unknown); 615 SOUTH BLVD (Ridgeland - Oak Park, 12 u, recorded 2000, predecessor built 1890); 166 N HUMPHREY AVE (Ridgeland - Oak Park, 16 u, recorded 2000, predecessor built 1922); 431 S HARVEY AVE (Ridgeland - Oak Park, 8 u, recorded 2001, predecessor built 1894); 257 W WASHINGTON BLVD (Ridgeland - Oak Park, 20 u, recorded 2001, predecessor built 1894)
 [s10_districts] unknown year: 2 buildings, 101 units: 1034 LAKE ST (Rest of Oak Park, 12 u, 318); 1035 MADISON ST (Rest of Oak Park, 89 u, 397)
 [s10_districts] manually dated (config MANUAL_YEAR_BUILT, with source): 1111 ONTARIO ST 1992.0 (358 u) <https://www.oakpark.com/2017/03/28/the-high-rise-wars/>; 408 S OAK PARK AVE 1921.0 (352 u) <https://en.wikipedia.org/wiki/Oak_Park_Arms>
 [s10_districts] class-history dated: 822 NORTH BLVD 2024.0 (7 u); 409 S MAPLE AVE 2024.0 (16 u); 801 VAN BUREN ST 2023.0 (31 u); 835 LAKE ST 2023.0 (172 u); 261 WASHINGTON BLVD 2023.0 (32 u)
-[s10_districts]   Frank Lloyd Wright: 222 MF buildings, 1731 units, 0 undated
-[s10_districts]   Ridgeland - Oak Park: 486 MF buildings, 6275 units, 0 undated
-[s10_districts]   Gunderson: 22 MF buildings, 48 units, 0 undated
-[s10_districts]   Rest of Oak Park: 835 MF buildings, 8788 units, 2 undated
-[s10_districts] output data/interim/s10_mf_buildings.csv (multi-family buildings with district, zone, year built) sha256=06a031695b5e rows=1565
+[s10_districts]   Frank Lloyd Wright: 222 MF buildings kept, 1731 units, 0 undated; excluded 0
+[s10_districts]   Ridgeland - Oak Park: 481 MF buildings kept, 6194 units, 0 undated; excluded 5
+[s10_districts]   Gunderson: 22 MF buildings kept, 48 units, 0 undated; excluded 0
+[s10_districts]   Rest of Oak Park: 830 MF buildings kept, 8755 units, 2 undated; excluded 5
+[s10_districts] output data/interim/s10_mf_buildings.csv (multi-family buildings with district, zone, year built) sha256=3fe7ba849b3f rows=1565
 [s10_districts] output data/interim/s10_district_parcels.csv (housing units by district and bucket) sha256=d37df8422ee7 rows=11
 [s10_districts] output data/interim/s10_district_zoning.csv (district area by zoning district) sha256=ad3b022d4a24 rows=31
-[s10_districts] end (3.0s) -> outputs/provenance/s10_districts.json
-[s11_district_analysis] start s11_district_analysis.py (sha256 47ba91ce1d13)
+[s10_districts] end (2.5s) -> outputs/provenance/s10_districts.json
+[s11_district_analysis] start s11_district_analysis.py (sha256 2d822429618a)
 [s11_district_analysis] param END_YEAR=2025
 [s11_district_analysis] param designation_years={'Frank Lloyd Wright': 1972, 'Ridgeland - Oak Park': 1994, 'Gunderson': 2002}
 [s11_district_analysis] param sensitivity_years={'Frank Lloyd Wright': 2012, 'Ridgeland - Oak Park': 1983, 'Gunderson': 2003}
-[s11_district_analysis] input  data/interim/s10_mf_buildings.csv (MF buildings) sha256=06a031695b5e bytes=231666
+[s11_district_analysis] input  data/interim/s10_mf_buildings.csv (MF buildings) sha256=3fe7ba849b3f bytes=244624
 [s11_district_analysis] input  data/interim/s10_district_parcels.csv (units by district) sha256=d37df8422ee7 bytes=471
 [s11_district_analysis] input  data/interim/s10_district_zoning.csv (district zoning) sha256=ad3b022d4a24 bytes=1519
-[s11_district_analysis] output outputs/tables/G1_mf_units_by_decade_built.csv (table G1_mf_units_by_decade_built) sha256=4c6bd1d32a6b rows=4
-[s11_district_analysis] output outputs/tables/G2_mf_buildings_by_decade_built.csv (table G2_mf_buildings_by_decade_built) sha256=9624c5c50bb5 rows=4
-[s11_district_analysis] output outputs/tables/H1_before_after_local_designation.csv (table H1_before_after_local_designation) sha256=a1afa5f32320 rows=3
-[s11_district_analysis] output outputs/tables/H2_before_after_sensitivity_dates.csv (table H2_before_after_sensitivity_dates) sha256=5d61c55a84bc rows=3
-[s11_district_analysis] output outputs/tables/I_mf_built_after_designation.csv (table I_mf_built_after_designation) sha256=8e5a6a4a64a0 rows=19
+[s11_district_analysis] buildings: 1565; excluded condo conversions: 10 (114 units); analysed: 1555
+[s11_district_analysis] output outputs/tables/G1_mf_units_by_decade_built.csv (table G1_mf_units_by_decade_built) sha256=a7808ad44878 rows=4
+[s11_district_analysis] output outputs/tables/G2_mf_buildings_by_decade_built.csv (table G2_mf_buildings_by_decade_built) sha256=f6947e424592 rows=4
+[s11_district_analysis] output outputs/tables/H1_before_after_local_designation.csv (table H1_before_after_local_designation) sha256=3ae42218ced9 rows=3
+[s11_district_analysis] output outputs/tables/H2_before_after_sensitivity_dates.csv (table H2_before_after_sensitivity_dates) sha256=a6656572f589 rows=3
+[s11_district_analysis] output outputs/tables/I_mf_built_after_designation.csv (table I_mf_built_after_designation) sha256=3d53d10c9af0 rows=14
 [s11_district_analysis] output outputs/tables/J_district_area_by_zoning.csv (table J_district_area_by_zoning) sha256=5f8cc3132441 rows=3
 [s11_district_analysis] output outputs/tables/K_district_housing_units_by_type_2026.csv (table K_district_housing_units_by_type_2026) sha256=65359ec53620 rows=4
-[s11_district_analysis] Frank Lloyd Wright: designated 1972; 54-yr windows: before 85 bldgs/1170 units, after 7 bldgs/128 units; rest of village before 4607, after 3062; undated 0 bldgs/0 units
-[s11_district_analysis] Ridgeland - Oak Park: designated 1994; 32-yr windows: before 51 bldgs/987 units, after 12 bldgs/419 units; rest of village before 2195, after 2123; undated 0 bldgs/0 units
-[s11_district_analysis] Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs/0 units; rest of village before 994, after 1953; undated 0 bldgs/0 units
-[s11_district_analysis] output outputs/fig_mf_by_decade.png (figure: MF units by decade built per district) sha256=955edd0d2ca2 rows=None
-[s11_district_analysis] output outputs/results_districts.md (district results narrative) sha256=555b3af14ae5 rows=None
-[s11_district_analysis] output outputs/results_districts.json (district tables as JSON) sha256=15c8d026452f rows=None
-[s11_district_analysis] end (0.3s) -> outputs/provenance/s11_district_analysis.json
-[s09_provenance] start s09_provenance.py (sha256 ee3a6dfdf8f2)
-[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=12629ebe11fb bytes=2888
-[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=7a4aa9359cf6 bytes=16865
-[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=2b47c879ec03 bytes=2016
-[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=bbd6efd168c9 bytes=5258
-[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=f6f8c8d17add bytes=6420
-[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=ad60f8c59cc5 bytes=3677
-[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=ab4fbb9e42fb bytes=7773
-[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233
-[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=6c08685da173 bytes=5917
-[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=097a48f80716 bytes=5931
-[s09_provenance] verification passed: 75 produced files checked
-[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=e82458622ecb rows=None
-[s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json
-[s12_explorer_data] start s12_explorer_data.py (sha256 d427d826a0a7)
+[s11_district_analysis] output outputs/tables/L_excluded_condo_conversions.csv (table L_excluded_condo_conversions) sha256=48e9cc52fce0 rows=10
+[s11_district_analysis] Frank Lloyd Wright: designated 1972; 54-yr windows: before 85 bldgs/1170 units, after 7 bldgs/128 units; rest of village before 4607, after 3029; undated 0 bldgs/0 units
+[s11_district_analysis] Ridgeland - Oak Park: designated 1994; 32-yr windows: before 51 bldgs/987 units, after 7 bldgs/338 units; rest of village before 2195, after 2090; undated 0 bldgs/0 units
+[s11_district_analysis] Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs/0 units; rest of village before 980, after 1934; undated 0 bldgs/0 units
+[s11_district_analysis] output outputs/fig_mf_by_decade.png (figure: MF units by decade built per district) sha256=2d95284dd8e1 rows=None
+[s11_district_analysis] output outputs/results_districts.md (district results narrative) sha256=41198bf55a5e rows=None
+[s11_district_analysis] output outputs/results_districts.json (district tables as JSON) sha256=d6fadc54b5c9 rows=None
+[s11_district_analysis] end (0.2s) -> outputs/provenance/s11_district_analysis.json
+[s12_explorer_data] start s12_explorer_data.py (sha256 59dc52adcae1)
 [s12_explorer_data] param EXPLORER_DISTRICTS=('Frank Lloyd Wright', 'Ridgeland - Oak Park')
 [s12_explorer_data] param SIZE_CLASSES=('2', '3', '4', '5', '6', '7+')
-[s12_explorer_data] input  data/interim/s10_mf_buildings.csv (multi-family buildings) sha256=06a031695b5e bytes=231666
-[s12_explorer_data] Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50
-[s12_explorer_data] Ridgeland - Oak Park: 486 buildings, 6275 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181
-[s12_explorer_data] output explorer/public/data/mf_buildings.json (explorer data (FLW + Ridgeland multi-family buildings)) sha256=512e28a6ef9e rows=None
-[s12_explorer_data] end (0.1s) -> outputs/provenance/s12_explorer_data.json
-[s09_provenance] start s09_provenance.py (sha256 520d3c3efdbb)
-[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=12629ebe11fb bytes=2888
-[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=7a4aa9359cf6 bytes=16865
-[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=2b47c879ec03 bytes=2016
-[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=bbd6efd168c9 bytes=5258
-[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=f6f8c8d17add bytes=6420
-[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=ad60f8c59cc5 bytes=3677
-[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=ab4fbb9e42fb bytes=7773
-[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233
-[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=6c08685da173 bytes=5917
-[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=097a48f80716 bytes=5931
-[s09_provenance] input  outputs/provenance/s12_explorer_data.json (stage record) sha256=519cfba1f5e3 bytes=1731
-[s09_provenance] verification passed: 76 produced files checked
-[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=e66b01c899c9 rows=None
-[s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json
-[s12_explorer_data] start s12_explorer_data.py (sha256 b37902afb2d3)
-[s12_explorer_data] param EXPLORER_DISTRICTS=('Frank Lloyd Wright', 'Ridgeland - Oak Park')
-[s12_explorer_data] param SIZE_CLASSES=('2', '3', '4', '5', '6', '7+')
-[s12_explorer_data] input  data/interim/s10_mf_buildings.csv (multi-family buildings) sha256=06a031695b5e bytes=231666
-[s12_explorer_data] Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50
-[s12_explorer_data] Ridgeland - Oak Park: 486 buildings, 6275 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181
-[s12_explorer_data] output outputs/explorer_data/mf_buildings.json (explorer data (FLW + Ridgeland multi-family buildings)) sha256=512e28a6ef9e rows=None
-[s12_explorer_data] end (0.1s) -> outputs/provenance/s12_explorer_data.json
-[s09_provenance] start s09_provenance.py (sha256 520d3c3efdbb)
-[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=12629ebe11fb bytes=2888
-[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=7a4aa9359cf6 bytes=16865
-[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=2b47c879ec03 bytes=2016
-[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=bbd6efd168c9 bytes=5258
-[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=f6f8c8d17add bytes=6420
-[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=ad60f8c59cc5 bytes=3677
-[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=ab4fbb9e42fb bytes=7773
-[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233
-[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=6c08685da173 bytes=5917
-[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=097a48f80716 bytes=5931
-[s09_provenance] input  outputs/provenance/s12_explorer_data.json (stage record) sha256=80ff3dd49978 bytes=1733
-[s09_provenance] verification passed: 76 produced files checked
-[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=6bbfccddf2e8 rows=None
-[s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json
-[s12_explorer_data] start s12_explorer_data.py (sha256 c0518f63722c)
-[s12_explorer_data] param EXPLORER_DISTRICTS=('Frank Lloyd Wright', 'Ridgeland - Oak Park')
-[s12_explorer_data] param SIZE_CLASSES=('2', '3', '4', '5', '6', '7+')
-[s12_explorer_data] input  data/interim/s10_mf_buildings.csv (multi-family buildings) sha256=06a031695b5e bytes=231666
-[s12_explorer_data] Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50
-[s12_explorer_data] Ridgeland - Oak Park: 486 buildings, 6275 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181
-[s12_explorer_data] Rest of Oak Park: 857 buildings, 8836 units, undated 2; by size: 2=384, 3=81, 4=89, 5=19, 6=42, 7+=242
-[s12_explorer_data] output outputs/explorer_data/mf_buildings.json (explorer data (FLW + Ridgeland multi-family buildings)) sha256=2ddc5c161a0c rows=None
-[s12_explorer_data] end (0.1s) -> outputs/provenance/s12_explorer_data.json
-[s09_provenance] start s09_provenance.py (sha256 520d3c3efdbb)
-[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=12629ebe11fb bytes=2888
-[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=7a4aa9359cf6 bytes=16865
-[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=2b47c879ec03 bytes=2016
-[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=bbd6efd168c9 bytes=5258
-[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=f6f8c8d17add bytes=6420
-[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=ad60f8c59cc5 bytes=3677
-[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=ab4fbb9e42fb bytes=7773
-[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233
-[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=6c08685da173 bytes=5917
-[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=097a48f80716 bytes=5931
-[s09_provenance] input  outputs/provenance/s12_explorer_data.json (stage record) sha256=600616fec878 bytes=1841
-[s09_provenance] verification passed: 76 produced files checked
-[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=551d54d127d2 rows=None
-[s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json
-[s12_explorer_data] start s12_explorer_data.py (sha256 8207144cedfa)
-[s12_explorer_data] param EXPLORER_DISTRICTS=('Frank Lloyd Wright', 'Ridgeland - Oak Park')
-[s12_explorer_data] param SIZE_CLASSES=('2', '3', '4', '5', '6', '7+')
-[s12_explorer_data] input  data/interim/s10_mf_buildings.csv (multi-family buildings) sha256=06a031695b5e bytes=231666
-[s12_explorer_data] Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50
-[s12_explorer_data] Ridgeland - Oak Park: 486 buildings, 6275 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181
-[s12_explorer_data] Gunderson: 22 buildings, 48 units, undated 0; by size: 2=20, 3=1, 5=1
-[s12_explorer_data] Rest of Oak Park: 835 buildings, 8788 units, undated 2; by size: 2=364, 3=80, 4=89, 5=18, 6=42, 7+=242
-[s12_explorer_data] output outputs/explorer_data/mf_buildings.json (explorer data (FLW + Ridgeland multi-family buildings)) sha256=96ef03bc93f2 rows=None
-[s12_explorer_data] end (0.1s) -> outputs/provenance/s12_explorer_data.json
-[s09_provenance] start s09_provenance.py (sha256 520d3c3efdbb)
-[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=12629ebe11fb bytes=2888
-[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=7a4aa9359cf6 bytes=16865
-[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=2b47c879ec03 bytes=2016
-[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=bbd6efd168c9 bytes=5258
-[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=f6f8c8d17add bytes=6420
-[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=ad60f8c59cc5 bytes=3677
-[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=ab4fbb9e42fb bytes=7773
-[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233
-[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=6c08685da173 bytes=5917
-[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=097a48f80716 bytes=5931
-[s09_provenance] input  outputs/provenance/s12_explorer_data.json (stage record) sha256=6a4eb233ca82 bytes=1916
-[s09_provenance] verification passed: 76 produced files checked
-[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=0c62f2830e9c rows=None
-[s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json
-[s12_explorer_data] start s12_explorer_data.py (sha256 64ab836ec585)
-[s12_explorer_data] param EXPLORER_DISTRICTS=('Frank Lloyd Wright', 'Ridgeland - Oak Park')
-[s12_explorer_data] param SIZE_CLASSES=('2', '3', '4', '5', '6', '7+')
-[s12_explorer_data] input  data/interim/s10_mf_buildings.csv (multi-family buildings) sha256=06a031695b5e bytes=231666
-[s12_explorer_data] input  data/raw/vop_historic_districts.geojson (historic district polygons) sha256=4d22869c4b45 bytes=108951
-[s12_explorer_data] input  data/raw/place/tl_2020_17_place.shp (TIGER place polygons) sha256=f18a8f5c7d03 bytes=9608328
-[s12_explorer_data] input  data/raw/place/tl_2020_17_place.dbf (TIGER place attributes) sha256=0e1f037c9ad0 bytes=419822
-[s12_explorer_data] areas (sq mi): Frank Lloyd Wright=0.907, Gunderson=0.082, Ridgeland - Oak Park=0.840, __rest__=2.871, __village__=4.700
-[s12_explorer_data] Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50
-[s12_explorer_data] Ridgeland - Oak Park: 486 buildings, 6275 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181
-[s12_explorer_data] Gunderson: 22 buildings, 48 units, undated 0; by size: 2=20, 3=1, 5=1
-[s12_explorer_data] Rest of Oak Park: 835 buildings, 8788 units, undated 2; by size: 2=364, 3=80, 4=89, 5=18, 6=42, 7+=242
-[s12_explorer_data] output outputs/explorer_data/mf_buildings.json (explorer data (FLW + Ridgeland multi-family buildings)) sha256=0642251dce6b rows=None
-[s12_explorer_data] end (0.4s) -> outputs/provenance/s12_explorer_data.json
-[s09_provenance] start s09_provenance.py (sha256 520d3c3efdbb)
-[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=12629ebe11fb bytes=2888
-[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=7a4aa9359cf6 bytes=16865
-[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=2b47c879ec03 bytes=2016
-[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=bbd6efd168c9 bytes=5258
-[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=f6f8c8d17add bytes=6420
-[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=ad60f8c59cc5 bytes=3677
-[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=ab4fbb9e42fb bytes=7773
-[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233
-[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=6c08685da173 bytes=5917
-[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=097a48f80716 bytes=5931
-[s09_provenance] input  outputs/provenance/s12_explorer_data.json (stage record) sha256=79a910b74239 bytes=2961
-[s09_provenance] verification passed: 76 produced files checked
-[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=8863ff9d73db rows=None
-[s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json
-[s12_explorer_data] start s12_explorer_data.py (sha256 85d6dee4ab53)
-[s12_explorer_data] param EXPLORER_DISTRICTS=('Frank Lloyd Wright', 'Ridgeland - Oak Park')
-[s12_explorer_data] param SIZE_CLASSES=('2', '3', '4', '5', '6', '7+')
-[s12_explorer_data] input  data/interim/s10_mf_buildings.csv (multi-family buildings) sha256=06a031695b5e bytes=231666
-[s12_explorer_data] input  data/raw/vop_historic_districts.geojson (historic district polygons) sha256=4d22869c4b45 bytes=108951
-[s12_explorer_data] input  data/raw/place/tl_2020_17_place.shp (TIGER place polygons) sha256=f18a8f5c7d03 bytes=9608328
-[s12_explorer_data] input  data/raw/place/tl_2020_17_place.dbf (TIGER place attributes) sha256=0e1f037c9ad0 bytes=419822
-[s12_explorer_data] areas (sq mi): Frank Lloyd Wright=0.907, Gunderson=0.082, Ridgeland - Oak Park=0.840, __rest__=2.871, __village__=4.700
-[s12_explorer_data] Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50
-[s12_explorer_data] Ridgeland - Oak Park: 486 buildings, 6275 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181
-[s12_explorer_data] Gunderson: 22 buildings, 48 units, undated 0; by size: 2=20, 3=1, 5=1
-[s12_explorer_data] Rest of Oak Park: 835 buildings, 8788 units, undated 2; by size: 2=364, 3=80, 4=89, 5=18, 6=42, 7+=242
-[s12_explorer_data] output outputs/explorer_data/mf_buildings.json (explorer data (FLW + Ridgeland multi-family buildings)) sha256=906c2ea64975 rows=None
-[s12_explorer_data] end (0.2s) -> outputs/provenance/s12_explorer_data.json
-[s09_provenance] start s09_provenance.py (sha256 520d3c3efdbb)
-[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=12629ebe11fb bytes=2888
-[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=7a4aa9359cf6 bytes=16865
-[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=2b47c879ec03 bytes=2016
-[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=bbd6efd168c9 bytes=5258
-[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=f6f8c8d17add bytes=6420
-[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=ad60f8c59cc5 bytes=3677
-[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=ab4fbb9e42fb bytes=7773
-[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233
-[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=6c08685da173 bytes=5917
-[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=097a48f80716 bytes=5931
-[s09_provenance] input  outputs/provenance/s12_explorer_data.json (stage record) sha256=e6876c0e317f bytes=2961
-[s09_provenance] verification passed: 76 produced files checked
-[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=283f890ad2d5 rows=None
-[s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json
-[s12_explorer_data] start s12_explorer_data.py (sha256 ccd60ae73bcf)
-[s12_explorer_data] param EXPLORER_DISTRICTS=('Frank Lloyd Wright', 'Ridgeland - Oak Park')
-[s12_explorer_data] param SIZE_CLASSES=('2', '3', '4', '5', '6', '7+')
-[s12_explorer_data] input  data/interim/s10_mf_buildings.csv (multi-family buildings) sha256=06a031695b5e bytes=231666
+[s12_explorer_data] input  data/interim/s10_mf_buildings.csv (multi-family buildings) sha256=3fe7ba849b3f bytes=244624
 [s12_explorer_data] input  data/interim/s04_parcel_units.csv (parcel units (unit PINs per building)) sha256=69ef35157c64 bytes=4290133
+[s12_explorer_data] buildings: 1565; excluded condo conversions dropped: 10
 [s12_explorer_data] input  data/raw/vop_historic_districts.geojson (historic district polygons) sha256=4d22869c4b45 bytes=108951
 [s12_explorer_data] input  data/raw/place/tl_2020_17_place.shp (TIGER place polygons) sha256=f18a8f5c7d03 bytes=9608328
 [s12_explorer_data] input  data/raw/place/tl_2020_17_place.dbf (TIGER place attributes) sha256=0e1f037c9ad0 bytes=419822
 [s12_explorer_data] areas (sq mi): Frank Lloyd Wright=0.907, Gunderson=0.082, Ridgeland - Oak Park=0.840, __rest__=2.871, __village__=4.700
 [s12_explorer_data] Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50
-[s12_explorer_data] Ridgeland - Oak Park: 486 buildings, 6275 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181
+[s12_explorer_data] Ridgeland - Oak Park: 481 buildings, 6194 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=176
 [s12_explorer_data] Gunderson: 22 buildings, 48 units, undated 0; by size: 2=20, 3=1, 5=1
-[s12_explorer_data] Rest of Oak Park: 835 buildings, 8788 units, undated 2; by size: 2=364, 3=80, 4=89, 5=18, 6=42, 7+=242
-[s12_explorer_data] output outputs/explorer_data/mf_buildings.json (explorer data (FLW + Ridgeland multi-family buildings)) sha256=d6799beb6948 rows=None
-[s12_explorer_data] end (0.5s) -> outputs/provenance/s12_explorer_data.json
+[s12_explorer_data] Rest of Oak Park: 830 buildings, 8755 units, undated 2; by size: 2=364, 3=80, 4=88, 5=17, 6=42, 7+=239
+[s12_explorer_data] output outputs/explorer_data/mf_buildings.json (explorer data (FLW + Ridgeland multi-family buildings)) sha256=2675b5eaedf9 rows=None
+[s12_explorer_data] end (0.3s) -> outputs/provenance/s12_explorer_data.json
 [s09_provenance] start s09_provenance.py (sha256 520d3c3efdbb)
-[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=12629ebe11fb bytes=2888
-[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=7a4aa9359cf6 bytes=16865
-[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=2b47c879ec03 bytes=2016
-[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=bbd6efd168c9 bytes=5258
-[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=f6f8c8d17add bytes=6420
-[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=ad60f8c59cc5 bytes=3677
-[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=ab4fbb9e42fb bytes=7773
-[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233
-[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=6c08685da173 bytes=5917
-[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=097a48f80716 bytes=5931
-[s09_provenance] input  outputs/provenance/s12_explorer_data.json (stage record) sha256=71058d457075 bytes=3291
-[s09_provenance] verification passed: 76 produced files checked
-[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=56cf4072d728 rows=None
-[s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json
-[s12_explorer_data] start s12_explorer_data.py (sha256 dea4da3e7ba3)
-[s12_explorer_data] param EXPLORER_DISTRICTS=('Frank Lloyd Wright', 'Ridgeland - Oak Park')
-[s12_explorer_data] param SIZE_CLASSES=('2', '3', '4', '5', '6', '7+')
-[s12_explorer_data] input  data/interim/s10_mf_buildings.csv (multi-family buildings) sha256=06a031695b5e bytes=231666
-[s12_explorer_data] input  data/interim/s04_parcel_units.csv (parcel units (unit PINs per building)) sha256=69ef35157c64 bytes=4290133
-[s12_explorer_data] input  data/raw/vop_historic_districts.geojson (historic district polygons) sha256=4d22869c4b45 bytes=108951
-[s12_explorer_data] input  data/raw/place/tl_2020_17_place.shp (TIGER place polygons) sha256=f18a8f5c7d03 bytes=9608328
-[s12_explorer_data] input  data/raw/place/tl_2020_17_place.dbf (TIGER place attributes) sha256=0e1f037c9ad0 bytes=419822
-[s12_explorer_data] areas (sq mi): Frank Lloyd Wright=0.907, Gunderson=0.082, Ridgeland - Oak Park=0.840, __rest__=2.871, __village__=4.700
-[s12_explorer_data] Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50
-[s12_explorer_data] Ridgeland - Oak Park: 486 buildings, 6275 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181
-[s12_explorer_data] Gunderson: 22 buildings, 48 units, undated 0; by size: 2=20, 3=1, 5=1
-[s12_explorer_data] Rest of Oak Park: 835 buildings, 8788 units, undated 2; by size: 2=364, 3=80, 4=89, 5=18, 6=42, 7+=242
-[s12_explorer_data] output outputs/explorer_data/mf_buildings.json (explorer data (FLW + Ridgeland multi-family buildings)) sha256=4979bc075e61 rows=None
-[s12_explorer_data] end (0.4s) -> outputs/provenance/s12_explorer_data.json
-[s09_provenance] start s09_provenance.py (sha256 520d3c3efdbb)
-[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=12629ebe11fb bytes=2888
-[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=7a4aa9359cf6 bytes=16865
-[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=2b47c879ec03 bytes=2016
-[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=bbd6efd168c9 bytes=5258
-[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=f6f8c8d17add bytes=6420
-[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=ad60f8c59cc5 bytes=3677
-[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=ab4fbb9e42fb bytes=7773
-[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233
-[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=6c08685da173 bytes=5917
-[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=097a48f80716 bytes=5931
-[s09_provenance] input  outputs/provenance/s12_explorer_data.json (stage record) sha256=742baee8c9f6 bytes=3291
-[s09_provenance] verification passed: 76 produced files checked
-[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=6ada89c4c447 rows=None
+[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=c0d54580457d bytes=2888
+[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=87dbcf1f12c7 bytes=17654
+[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=20cf21dd1bce bytes=2016
+[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=44e824226e5f bytes=5258
+[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=bad78af57dd1 bytes=6420
+[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=1981378fb8b2 bytes=3677
+[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=db50ae5f4c31 bytes=7773
+[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=98d40a760f21 bytes=1233
+[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=8ba22764a79c bytes=7331
+[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=92fc1d3b497d bytes=6368
+[s09_provenance] input  outputs/provenance/s12_explorer_data.json (stage record) sha256=1c5994fb4164 bytes=3352
+[s09_provenance] verification passed: 78 produced files checked
+[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=56c8dccc94de rows=None
 [s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json

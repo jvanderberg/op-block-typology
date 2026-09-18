@@ -108,7 +108,10 @@ def main():
         p_z = os.path.join(INTERIM_DIR, "s10_district_zoning.csv")
         for p, r in ((p_b, "MF buildings"), (p_ctx, "units by district"), (p_z, "district zoning")):
             st.input(p, role=r)
-        b = pd.read_csv(p_b, dtype={"building_id": str, "zone": str, "address": str})
+        b_all = pd.read_csv(p_b, dtype={"building_id": str, "zone": str, "address": str})
+        excluded = b_all[b_all.excluded].copy()
+        b = b_all[~b_all.excluded].copy()
+        st.note(f"buildings: {len(b_all)}; excluded condo conversions: {len(excluded)} ({excluded.units.sum():.0f} units); analysed: {len(b)}")
         ctx = pd.read_csv(p_ctx)
         dz = pd.read_csv(p_z)
         os.makedirs(TABLE_DIR, exist_ok=True)
@@ -165,6 +168,9 @@ def main():
         for c in ("sf", "small_mf", "large_mf"):
             K["pct_" + c] = (100 * K[c] / K.total).round(1)
         tables["K_district_housing_units_by_type_2026"] = K
+        L = excluded.sort_values(["district", "address"])[["district", "address", "units", "yrblt", "yr_predecessor", "zone"]].rename(
+            columns={"yrblt": "recorded_condo_year", "yr_predecessor": "predecessor_year_built"})
+        tables["L_excluded_condo_conversions"] = L.set_index("district") if len(L) else L
 
         for name, t in tables.items():
             p = os.path.join(TABLE_DIR, name + ".csv")
@@ -295,6 +301,26 @@ def main():
             "",
             md(J, {c: c for c in J.columns}),
             "",
+            "## Excluded condominium conversions",
+            "",
+            "The Assessor's condominium file records the year the units were declared, not the year",
+            "the structure was built, for buildings converted to condominiums. These buildings were",
+            "identified by finding the predecessor parcel (same assessor block, present the year before",
+            "the units appear, absent after) with a residential or apartment class, and are excluded",
+            "from every table above. The predecessor's own year built is shown where the Assessor",
+            "recorded one.",
+            "",
+        ]
+        if len(L):
+            lines.append("| District | Address | Units | Recorded condo year | Predecessor built | Zone |")
+            lines.append("|---|---|---|---|---|---|")
+            for d, r in L.iterrows():
+                py = "" if pd.isna(r.predecessor_year_built) else str(int(r.predecessor_year_built))
+                lines.append(f"| {d} | {r.address} | {r.units:.0f} | {int(r.recorded_condo_year)} | {py} | {r.zone} |")
+        else:
+            lines.append("None.")
+        lines += [
+            "",
             "## Undated buildings",
             "",
         ]
@@ -313,8 +339,8 @@ def main():
                   "  2020 or later) it is the year before the PIN first carried a residential class.",
                   "- The Frank Lloyd Wright polygon is the boundary as expanded in 2009/2012; the 1972 boundary is",
                   "  smaller (1,491 of about 1,935 parcels). The sensitivity row with 2012 bounds this.",
-                  "- Condominium buildings are dated by the structure, not the conversion; a 1920s apartment",
-                  "  building converted in 1980 counts as 1920s.",
+                  "- Condominium buildings converted from existing buildings are excluded (see above); the",
+                  "  remaining condominium buildings are dated by the Assessor's condominium file.",
                   ""]
         p_md = os.path.join(OUT_DIR, "results_districts.md")
         with open(p_md, "w") as f:

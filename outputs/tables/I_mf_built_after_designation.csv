@@ -5,16 +5,11 @@ Frank Lloyd Wright,1972,1980,331 N MARION ST,9.0,condo,R-7,condo_chars,160710702
 Frank Lloyd Wright,1972,1981,219 N GROVE AVE,6.0,condo,R-7,condo_chars,1607116016
 Frank Lloyd Wright,1972,1981,300 N MAPLE AVE,16.0,condo,R-7,condo_chars,1607107023
 Frank Lloyd Wright,1972,1999,319 CHICAGO AVE,2.0,small_mf,R-6,char_yrblt,16081000030000
-Frank Lloyd Wright,1972,2001,611 FOREST AVE,2.0,condo,R-2,condo_chars,1606319062
-Ridgeland - Oak Park,1994,2000,125 N EUCLID AVE,25.0,condo,DT-2,condo_chars,1607224028
-Ridgeland - Oak Park,1994,2000,166 N HUMPHREY AVE,16.0,condo,R-7,condo_chars,1608123030
-Ridgeland - Oak Park,1994,2000,615 SOUTH BLVD,12.0,condo,R-7,condo_chars,1607402047
-Ridgeland - Oak Park,1994,2001,257 W WASHINGTON BLVD,20.0,condo,R-7,condo_chars,1608319045
-Ridgeland - Oak Park,1994,2001,324 WISCONSIN AVE,4.0,condo,R-7,condo_chars,1607316055
-Ridgeland - Oak Park,1994,2001,407 S OAK PARK AVE,9.0,condo,R-7,condo_chars,1607327039
-Ridgeland - Oak Park,1994,2001,431 S HARVEY AVE,8.0,condo,R-7,condo_chars,1608319044
-Ridgeland - Oak Park,1994,2005,106 S RIDGELAND AVE,116.0,condo,NC,condo_chars,1608300030
-Ridgeland - Oak Park,1994,2006,328 S OAK PARK AVE,3.0,condo,R-7,condo_chars,1607412036
+Frank Lloyd Wright,1972,2001,611 FOREST AVE,2.0,condo,R-2,condo_chars_newbuild,1606319062
+Ridgeland - Oak Park,1994,2001,324 WISCONSIN AVE,4.0,condo,R-7,condo_chars_newbuild,1607316055
+Ridgeland - Oak Park,1994,2001,407 S OAK PARK AVE,9.0,condo,R-7,condo_chars_newbuild,1607327039
+Ridgeland - Oak Park,1994,2005,106 S RIDGELAND AVE,116.0,condo,NC,condo_chars_unverified,1608300030
+Ridgeland - Oak Park,1994,2006,328 S OAK PARK AVE,3.0,condo,R-7,condo_chars_newbuild,1607412036
 Ridgeland - Oak Park,1994,2014,134 S GROVE AVE,2.0,small_mf,R-5,char_yrblt,16073060110000
 Ridgeland - Oak Park,1994,2023,261 WASHINGTON BLVD,32.0,large_mf,R-7,class_history,16083190010000
 Ridgeland - Oak Park,1994,2023,835 LAKE ST,172.0,large_mf,R-7,class_history,16071290130000

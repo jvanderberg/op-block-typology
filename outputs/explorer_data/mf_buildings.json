@@ -3327,7 +3327,7 @@
 "type": "condo",
 "units": 2,
 "year": 2001,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "R-2"
 },
 {
@@ -15552,7 +15552,7 @@
 "type": "condo",
 "units": 39,
 "year": 1998,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "R-2"
 },
 {
@@ -15567,7 +15567,7 @@
 "type": "condo",
 "units": 25,
 "year": 1998,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_unverified",
 "zone": "R-6"
 },
 {
@@ -15582,7 +15582,7 @@
 "type": "condo",
 "units": 10,
 "year": 1998,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_unverified",
 "zone": "R-7"
 },
 {
@@ -15597,7 +15597,7 @@
 "type": "condo",
 "units": 17,
 "year": 1999,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "MS"
 },
 {
@@ -15612,7 +15612,7 @@
 "type": "condo",
 "units": 34,
 "year": 2000,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "DT-2"
 },
 {
@@ -15627,37 +15627,7 @@
 "type": "condo",
 "units": 31,
 "year": 2001,
-"yearSource": "condo_chars",
-"zone": "R-7"
-},
-{
-"address": "431 S KENILWORTH AVE",
-"district": "rest",
-"id": "1607325025",
-"lat": 41.880282,
-"linkPin": "16073250251001",
-"lon": -87.797354,
-"pins": 4,
-"size": "4",
-"type": "condo",
-"units": 4,
-"year": 2001,
-"yearSource": "condo_chars",
-"zone": "R-7"
-},
-{
-"address": "916 AUSTIN AVE",
-"district": "rest",
-"id": "1617323036",
-"lat": 41.868477,
-"linkPin": "16173230361001",
-"lon": -87.774614,
-"pins": 10,
-"size": "7+",
-"type": "condo",
-"units": 10,
-"year": 2001,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "R-7"
 },
 {
@@ -15672,7 +15642,7 @@
 "type": "condo",
 "units": 9,
 "year": 2003,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "NC"
 },
 {
@@ -15687,7 +15657,7 @@
 "type": "condo",
 "units": 29,
 "year": 2004,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "NC"
 },
 {
@@ -15702,23 +15672,8 @@
 "type": "condo",
 "units": 12,
 "year": 2004,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "R-4"
-},
-{
-"address": "1121 S OAK PARK AVE",
-"district": "rest",
-"id": "1618322043",
-"lat": 41.867989,
-"linkPin": "16183220431001",
-"lon": -87.794223,
-"pins": 7,
-"size": "7+",
-"type": "condo",
-"units": 7,
-"year": 2004,
-"yearSource": "condo_chars",
-"zone": "R-5"
 },
 {
 "address": "6436 ROOSEVELT RD",
@@ -15732,7 +15687,7 @@
 "type": "condo",
 "units": 126,
 "year": 2004,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "RR"
 },
 {
@@ -15747,38 +15702,8 @@
 "type": "condo",
 "units": 12,
 "year": 2005,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "DT-1"
-},
-{
-"address": "421 S RIDGELAND AVE",
-"district": "rest",
-"id": "1607423043",
-"lat": 41.880806,
-"linkPin": "16074230431001",
-"lon": -87.784956,
-"pins": 7,
-"size": "7+",
-"type": "condo",
-"units": 7,
-"year": 2005,
-"yearSource": "condo_chars",
-"zone": "R-7"
-},
-{
-"address": "254 CHICAGO AVE",
-"district": "rest",
-"id": "1605322030",
-"lat": 41.895001,
-"linkPin": "16053220301001",
-"lon": -87.782637,
-"pins": 5,
-"size": "5",
-"type": "condo",
-"units": 5,
-"year": 2006,
-"yearSource": "condo_chars",
-"zone": "NC"
 },
 {
 "address": "110 S MARION ST",
@@ -15792,7 +15717,7 @@
 "type": "condo",
 "units": 38,
 "year": 2006,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "DT-3"
 },
 {
@@ -15852,7 +15777,7 @@
 "type": "condo",
 "units": 19,
 "year": 2010,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "DT-3"
 },
 {
@@ -15882,7 +15807,7 @@
 "type": "condo",
 "units": 33,
 "year": 2016,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "NC"
 },
 {
@@ -15942,7 +15867,7 @@
 "type": "condo",
 "units": 28,
 "year": 2018,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "DT-2"
 },
 {
@@ -16032,7 +15957,7 @@
 "type": "condo",
 "units": 9,
 "year": 2021,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "R-7"
 },
 {
@@ -23296,51 +23221,6 @@
 "zone": "R-5"
 },
 {
-"address": "125 N EUCLID AVE",
-"district": "ridgeland",
-"id": "1607224028",
-"lat": 41.888358,
-"linkPin": "16072240281001",
-"lon": -87.793108,
-"pins": 25,
-"size": "7+",
-"type": "condo",
-"units": 25,
-"year": 2000,
-"yearSource": "condo_chars",
-"zone": "DT-2"
-},
-{
-"address": "615 SOUTH BLVD",
-"district": "ridgeland",
-"id": "1607402047",
-"lat": 41.886584,
-"linkPin": "16074020471001",
-"lon": -87.790463,
-"pins": 12,
-"size": "7+",
-"type": "condo",
-"units": 12,
-"year": 2000,
-"yearSource": "condo_chars",
-"zone": "R-7"
-},
-{
-"address": "166 N HUMPHREY AVE",
-"district": "ridgeland",
-"id": "1608123030",
-"lat": 41.889914,
-"linkPin": "16081230301001",
-"lon": -87.776148,
-"pins": 16,
-"size": "7+",
-"type": "condo",
-"units": 16,
-"year": 2000,
-"yearSource": "condo_chars",
-"zone": "R-7"
-},
-{
 "address": "324 WISCONSIN AVE",
 "district": "ridgeland",
 "id": "1607316055",
@@ -23352,7 +23232,7 @@
 "type": "condo",
 "units": 4,
 "year": 2001,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "R-7"
 },
 {
@@ -23367,37 +23247,7 @@
 "type": "condo",
 "units": 9,
 "year": 2001,
-"yearSource": "condo_chars",
-"zone": "R-7"
-},
-{
-"address": "431 S HARVEY AVE",
-"district": "ridgeland",
-"id": "1608319044",
-"lat": 41.88058,
-"linkPin": "16083190441001",
-"lon": -87.781676,
-"pins": 8,
-"size": "7+",
-"type": "condo",
-"units": 8,
-"year": 2001,
-"yearSource": "condo_chars",
-"zone": "R-7"
-},
-{
-"address": "257 W WASHINGTON BLVD",
-"district": "ridgeland",
-"id": "1608319045",
-"lat": 41.881515,
-"linkPin": "16083190451001",
-"lon": -87.782316,
-"pins": 20,
-"size": "7+",
-"type": "condo",
-"units": 20,
-"year": 2001,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "R-7"
 },
 {
@@ -23412,7 +23262,7 @@
 "type": "condo",
 "units": 116,
 "year": 2005,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_unverified",
 "zone": "NC"
 },
 {
@@ -23427,7 +23277,7 @@
 "type": "condo",
 "units": 3,
 "year": 2006,
-"yearSource": "condo_chars",
+"yearSource": "condo_chars_newbuild",
 "zone": "R-7"
 },
 {
@@ -23528,7 +23378,7 @@
 ],
 "generated": {
 "source": "data/interim/s10_mf_buildings.csv",
-"sourceSha256": "06a031695b5e18c6d929a3881fab15e1e30f8ddd17dd234ee50d9565c845a575",
+"sourceSha256": "3fe7ba849b3f386c367626aa559890b8e6d8f0f3b42c9f37d9f3230a1587002a",
 "stage": "s12_explorer_data"
 },
 "sizeClasses": [

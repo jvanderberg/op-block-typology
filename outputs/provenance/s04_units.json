@@ -1,6 +1,6 @@
 {
- "config_sha256": "d132051599f4aed279f12819226b3aa8ae144170c9cb76eef90e38f6d3cf63ce",
- "finished_utc": "2026-09-18T19:18:47Z",
+ "config_sha256": "0a87a8464ff0f2fe5b7e714f7e3fc1e863ed5c4ab0c4fcec57fd1a3ffd26b16d",
+ "finished_utc": "2026-09-18T21:01:23Z",
  "inputs": [
   {
    "bytes": 3391438,
@@ -106,7 +106,7 @@
  "python": "3.14.7",
  "script": "s04_units.py",
  "script_sha256": "5e3a2f1d3d14e6131067d9a0abc7275949ba18c1eb16994fc7707caed0dedd5e",
- "seconds": 1.0,
+ "seconds": 0.4,
  "stage": "s04_units",
- "started_utc": "2026-09-18T19:18:46Z"
+ "started_utc": "2026-09-18T21:01:23Z"
 }

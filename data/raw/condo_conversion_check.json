@@ -1,0 +1,1268 @@
+{
+"checks": {
+"1605322030": {
+"condo_av_first_year": 217594.0,
+"condo_units_first_year": 5,
+"condo_yrblt": 2006,
+"first_year": 2007,
+"predecessor_av": 114231.0,
+"predecessors": [
+{
+"address": "254 CHICAGO AVE 2",
+"assessed_total": "114231",
+"char_yrblt": [
+1898
+],
+"class": "211",
+"pin": "16053220220000"
+}
+]
+},
+"1606300049": {
+"condo_av_first_year": 366435.0,
+"condo_units_first_year": 39,
+"condo_yrblt": 1998,
+"first_year": 2001,
+"predecessor_av": 120393.0,
+"predecessors": [
+{
+"address": "1107 N HARLEM AVE",
+"assessed_total": "6727",
+"char_yrblt": [
+1935
+],
+"class": "100",
+"pin": "16063000110000"
+},
+{
+"address": "1105 N HARLEM AVE",
+"assessed_total": "6727",
+"char_yrblt": [
+1922
+],
+"class": "100",
+"pin": "16063000120000"
+},
+{
+"address": "1101 N HARLEM AVE",
+"assessed_total": "6723",
+"char_yrblt": [
+1923
+],
+"class": "100",
+"pin": "16063000130000"
+},
+{
+"address": "1115 N HARLEM AVE",
+"assessed_total": "50474",
+"char_yrblt": [
+1959
+],
+"class": "212",
+"pin": "16063000340000"
+},
+{
+"address": "1111 N HARLEM AVE 1",
+"assessed_total": "49742",
+"char_yrblt": [
+1959
+],
+"class": "212",
+"pin": "16063000350000"
+}
+]
+},
+"1606316030": {
+"condo_av_first_year": 179259.0,
+"condo_units_first_year": 25,
+"condo_yrblt": 1998,
+"first_year": 1999,
+"predecessor_av": 0,
+"predecessors": []
+},
+"1606319062": {
+"condo_av_first_year": 80997.0,
+"condo_units_first_year": 2,
+"condo_yrblt": 2001,
+"first_year": 2003,
+"predecessor_av": 13405.0,
+"predecessors": [
+{
+"address": "611 FOREST AVE",
+"assessed_total": "13405",
+"char_yrblt": [
+1905
+],
+"class": "211",
+"pin": "16063190370000"
+}
+]
+},
+"1607100028": {
+"condo_av_first_year": 877647.0,
+"condo_units_first_year": 33,
+"condo_yrblt": 2016,
+"first_year": 2018,
+"predecessor_av": 433930.0,
+"predecessors": [
+{
+"address": "1133 CHICAGO AVE",
+"assessed_total": "433930",
+"char_yrblt": [],
+"class": "297",
+"pin": "16071000090000"
+}
+]
+},
+"1607109016": {
+"condo_av_first_year": 509951.0,
+"condo_units_first_year": 29,
+"condo_yrblt": 2004,
+"first_year": 2005,
+"predecessor_av": 82241.0,
+"predecessors": [
+{
+"address": "517 N HARLEM AVE",
+"assessed_total": "46512",
+"char_yrblt": [],
+"class": "517",
+"pin": "16071090060000"
+},
+{
+"address": "513 N HARLEM AVE",
+"assessed_total": "35729",
+"char_yrblt": [],
+"class": "522",
+"pin": "16071090070000"
+}
+]
+},
+"1607120056": {
+"condo_av_first_year": 440318.0,
+"condo_units_first_year": 12,
+"condo_yrblt": 2005,
+"first_year": 2009,
+"predecessor_av": 1314484.0,
+"predecessors": [
+{
+"address": "170 N MARION ST",
+"assessed_total": "1314484",
+"char_yrblt": [
+2005
+],
+"class": "295",
+"pin": "16071200340000"
+}
+]
+},
+"1607120058": {
+"condo_av_first_year": 433917.0,
+"condo_units_first_year": 12,
+"condo_yrblt": 2005,
+"first_year": 2010,
+"predecessor_av": 2317.0,
+"predecessors": [
+{
+"address": "172 N MARION ST",
+"assessed_total": "2317",
+"char_yrblt": [],
+"class": "100",
+"pin": "16071200550000"
+}
+]
+},
+"1607218032": {
+"condo_av_first_year": 2132842.0,
+"condo_units_first_year": 28,
+"condo_yrblt": 2016,
+"first_year": 2019,
+"predecessor_av": 938709.0,
+"predecessors": [
+{
+"address": "717 LAKE ST",
+"assessed_total": "938709",
+"char_yrblt": [],
+"class": "597",
+"pin": "16072180300000"
+}
+]
+},
+"1607219009": {
+"condo_av_first_year": 43120.0,
+"condo_units_first_year": 1,
+"condo_yrblt": 2001,
+"first_year": 2002,
+"predecessor_av": 0,
+"predecessors": []
+},
+"1607219010": {
+"condo_av_first_year": 86242.0,
+"condo_units_first_year": 1,
+"condo_yrblt": 2001,
+"first_year": 2002,
+"predecessor_av": 0,
+"predecessors": []
+},
+"1607219026": {
+"condo_av_first_year": 140135.0,
+"condo_units_first_year": 1,
+"condo_yrblt": 2001,
+"first_year": 2002,
+"predecessor_av": 0,
+"predecessors": []
+},
+"1607219029": {
+"condo_av_first_year": 916863.0,
+"condo_units_first_year": 31,
+"condo_yrblt": 2001,
+"first_year": 2003,
+"predecessor_av": 269497.0,
+"predecessors": [
+{
+"address": "140 N EUCLID AVE",
+"assessed_total": "43120",
+"char_yrblt": [],
+"class": "299",
+"pin": "16072190090000"
+},
+{
+"address": "140 N EUCLID AVE",
+"assessed_total": "86242",
+"char_yrblt": [],
+"class": "299",
+"pin": "16072190100000"
+},
+{
+"address": "140 N EUCLID AVE",
+"assessed_total": "140135",
+"char_yrblt": [],
+"class": "299",
+"pin": "16072190260000"
+}
+]
+},
+"1607224026": {
+"condo_av_first_year": 1478407.0,
+"condo_units_first_year": 34,
+"condo_yrblt": 2000,
+"first_year": 2004,
+"predecessor_av": 394756.0,
+"predecessors": [
+{
+"address": "101 N EUCLID AVE",
+"assessed_total": "394756",
+"char_yrblt": [
+2002
+],
+"class": "295",
+"pin": "16072240180000"
+}
+]
+},
+"1607224028": {
+"condo_av_first_year": 681306.0,
+"condo_units_first_year": 27,
+"condo_yrblt": 2000,
+"first_year": 2007,
+"predecessor_av": 589658.0,
+"predecessors": [
+{
+"address": "125 N EUCLID AVE 208",
+"assessed_total": "21718",
+"char_yrblt": [],
+"class": "318",
+"pin": "16072240050000"
+},
+{
+"address": "701 W LAKE ST",
+"assessed_total": "220534",
+"char_yrblt": [],
+"class": "318",
+"pin": "16072240060000"
+},
+{
+"address": "701 W LAKE ST",
+"assessed_total": "347406",
+"char_yrblt": [],
+"class": "318",
+"pin": "16072240070000"
+}
+]
+},
+"1607302022": {
+"condo_av_first_year": 1811405.0,
+"condo_units_first_year": 39,
+"condo_yrblt": 2006,
+"first_year": 2007,
+"predecessor_av": 37994.0,
+"predecessors": [
+{
+"address": "104 S MARION AVE 502",
+"assessed_total": "37994",
+"char_yrblt": [],
+"class": "100",
+"pin": "16073020010000"
+}
+]
+},
+"1607302023": {
+"condo_av_first_year": 2045064.0,
+"condo_units_first_year": 41,
+"condo_yrblt": 2006,
+"first_year": 2008,
+"predecessor_av": 72979.0,
+"predecessors": [
+{
+"address": "110 N MARION ST",
+"assessed_total": "72979",
+"char_yrblt": [],
+"class": "297",
+"pin": "16073020210000"
+}
+]
+},
+"1607302025": {
+"condo_av_first_year": 168682.0,
+"condo_units_first_year": 8,
+"condo_yrblt": 2010,
+"first_year": 2011,
+"predecessor_av": 312699.0,
+"predecessors": [
+{
+"address": "1013 SOUTH BLVD",
+"assessed_total": "312699",
+"char_yrblt": [],
+"class": "597",
+"pin": "16073020070000"
+}
+]
+},
+"1607302040": {
+"condo_av_first_year": 294511.0,
+"condo_units_first_year": 19,
+"condo_yrblt": 2010,
+"first_year": 2014,
+"predecessor_av": 94571.0,
+"predecessors": [
+{
+"address": "1001 SOUTH BLVD",
+"assessed_total": "11286",
+"char_yrblt": [],
+"class": "100",
+"pin": "16073020080000"
+},
+{
+"address": "1013 SOUTH BLVD",
+"assessed_total": "83285",
+"char_yrblt": [],
+"class": "597",
+"pin": "16073020240000"
+}
+]
+},
+"1607316055": {
+"condo_av_first_year": 137896.0,
+"condo_units_first_year": 4,
+"condo_yrblt": 2001,
+"first_year": 2002,
+"predecessor_av": 83071.0,
+"predecessors": [
+{
+"address": "324 WISCONSIN AVE",
+"assessed_total": "83071",
+"char_yrblt": [
+2000
+],
+"class": "295",
+"pin": "16073160060000"
+}
+]
+},
+"1607316086": {
+"condo_av_first_year": 597017.0,
+"condo_units_first_year": 9,
+"condo_yrblt": 2021,
+"first_year": 2022,
+"predecessor_av": 9011.0,
+"predecessors": [
+{
+"address": "1024 WASHINGTON BLVD",
+"assessed_total": "9011",
+"char_yrblt": [
+1890,
+1898
+],
+"class": "100",
+"pin": "16073160470000"
+}
+]
+},
+"1607323053": {
+"condo_av_first_year": 143887.0,
+"condo_units_first_year": 10,
+"condo_yrblt": 1998,
+"first_year": 1999,
+"predecessor_av": 0,
+"predecessors": []
+},
+"1607323055": {
+"condo_av_first_year": 279607.0,
+"condo_units_first_year": 20,
+"condo_yrblt": 1999,
+"first_year": 2000,
+"predecessor_av": 229918.0,
+"predecessors": [
+{
+"address": "1040 MADISON ST",
+"assessed_total": "185525",
+"char_yrblt": [],
+"class": "297",
+"pin": "16073230110000"
+},
+{
+"address": "436 WISCONSIN AVE",
+"assessed_total": "44393",
+"char_yrblt": [],
+"class": "297",
+"pin": "16073230390000"
+}
+]
+},
+"1607325025": {
+"condo_av_first_year": 74496.0,
+"condo_units_first_year": 4,
+"condo_yrblt": 2001,
+"first_year": 2002,
+"predecessor_av": 37570.0,
+"predecessors": [
+{
+"address": "431 S KENILWORTH AVE",
+"assessed_total": "37570",
+"char_yrblt": [
+1923
+],
+"class": "211",
+"pin": "16073250160000"
+}
+]
+},
+"1607327039": {
+"condo_av_first_year": 275040.0,
+"condo_units_first_year": 9,
+"condo_yrblt": 2001,
+"first_year": 2004,
+"predecessor_av": 15070.0,
+"predecessors": [
+{
+"address": "409 S OAK PARK AVE",
+"assessed_total": "15070",
+"char_yrblt": [],
+"class": "100",
+"pin": "16073270120000"
+}
+]
+},
+"1607400046": {
+"condo_av_first_year": 666001.0,
+"condo_units_first_year": 10,
+"condo_yrblt": 2023,
+"first_year": 2025,
+"predecessor_av": 521976.0,
+"predecessors": [
+{
+"address": "715 SOUTH BLVD",
+"assessed_total": "104597",
+"char_yrblt": [],
+"class": "318",
+"pin": "16074000250000"
+},
+{
+"address": "717 SOUTH BLVD",
+"assessed_total": "417379",
+"char_yrblt": [
+1897
+],
+"class": "318",
+"pin": "16074000260000"
+}
+]
+},
+"1607400048": {
+"condo_av_first_year": 897143.0,
+"condo_units_first_year": 14,
+"condo_yrblt": 2023,
+"first_year": 2026,
+"predecessor_av": 30536.0,
+"predecessors": [
+{
+"address": "715 SOUTH BLVD",
+"assessed_total": "30536.0",
+"char_yrblt": [],
+"class": "517",
+"pin": "16074000450000"
+}
+]
+},
+"1607402047": {
+"condo_av_first_year": 322999.0,
+"condo_units_first_year": 12,
+"condo_yrblt": 2000,
+"first_year": 2003,
+"predecessor_av": 181790.0,
+"predecessors": [
+{
+"address": "617 SOUTH BLVD",
+"assessed_total": "53542",
+"char_yrblt": [
+1890
+],
+"class": "211",
+"pin": "16074020080000"
+},
+{
+"address": "615 SOUTH BLVD",
+"assessed_total": "42014",
+"char_yrblt": [
+1893
+],
+"class": "211",
+"pin": "16074020090000"
+},
+{
+"address": "609 SOUTH BLVD",
+"assessed_total": "43117",
+"char_yrblt": [],
+"class": "314",
+"pin": "16074020100000"
+},
+{
+"address": "605 SOUTH BLVD",
+"assessed_total": "43117",
+"char_yrblt": [],
+"class": "314",
+"pin": "16074020110000"
+}
+]
+},
+"1607412036": {
+"condo_av_first_year": 169393.0,
+"condo_units_first_year": 3,
+"condo_yrblt": 2006,
+"first_year": 2008,
+"predecessor_av": 93357.0,
+"predecessors": [
+{
+"address": "328 S OAK PARK AVE",
+"assessed_total": "93357",
+"char_yrblt": [],
+"class": "297",
+"pin": "16074120350000"
+}
+]
+},
+"1607423043": {
+"condo_av_first_year": 254991.0,
+"condo_units_first_year": 7,
+"condo_yrblt": 2005,
+"first_year": 2006,
+"predecessor_av": 241991.0,
+"predecessors": [
+{
+"address": "409 WASHINGTON BLVD",
+"assessed_total": "75977",
+"char_yrblt": [
+1910
+],
+"class": "211",
+"pin": "16074230060000"
+},
+{
+"address": "421 S RIDGELAND AVE",
+"assessed_total": "166014",
+"char_yrblt": [
+1878
+],
+"class": "297",
+"pin": "16074230160000"
+}
+]
+},
+"1608123030": {
+"condo_av_first_year": 144792.0,
+"condo_units_first_year": 16,
+"condo_yrblt": 2000,
+"first_year": 2003,
+"predecessor_av": 55721.0,
+"predecessors": [
+{
+"address": "164 N HUMPHREY AVE",
+"assessed_total": "55721",
+"char_yrblt": [
+1922
+],
+"class": "211",
+"pin": "16081230050000"
+}
+]
+},
+"1608300029": {
+"condo_av_first_year": 919889.0,
+"condo_units_first_year": 97,
+"condo_yrblt": 2004,
+"first_year": 2005,
+"predecessor_av": 51148.0,
+"predecessors": [
+{
+"address": "100 S RIDGELAND AVE",
+"assessed_total": "19447",
+"char_yrblt": [
+1903,
+1904
+],
+"class": "100",
+"pin": "16083000010000"
+},
+{
+"address": "108 S RIDGELAND AVE",
+"assessed_total": "4679",
+"char_yrblt": [],
+"class": "100",
+"pin": "16083000020000"
+},
+{
+"address": "319 SOUTH BLVD",
+"assessed_total": "12064",
+"char_yrblt": [],
+"class": "100",
+"pin": "16083000030000"
+},
+{
+"address": "315 SOUTH BLVD",
+"assessed_total": "12064",
+"char_yrblt": [],
+"class": "100",
+"pin": "16083000040000"
+},
+{
+"address": "112 S RIDGELAND AVE",
+"assessed_total": "2894",
+"char_yrblt": [],
+"class": "100",
+"pin": "16083000100000"
+}
+]
+},
+"1608300030": {
+"condo_av_first_year": 1479672.0,
+"condo_units_first_year": 119,
+"condo_yrblt": 2005,
+"first_year": 2006,
+"predecessor_av": 0,
+"predecessors": []
+},
+"1608319044": {
+"condo_av_first_year": 202110.0,
+"condo_units_first_year": 8,
+"condo_yrblt": 2001,
+"first_year": 2003,
+"predecessor_av": 193170.0,
+"predecessors": [
+{
+"address": "257 WASHINGTON BLVD",
+"assessed_total": "151801",
+"char_yrblt": [],
+"class": "314",
+"pin": "16083190020000"
+},
+{
+"address": "431 S HARVEY AVE",
+"assessed_total": "41369",
+"char_yrblt": [
+1894
+],
+"class": "211",
+"pin": "16083190170000"
+}
+]
+},
+"1608319045": {
+"condo_av_first_year": 117326.0,
+"condo_units_first_year": 20,
+"condo_yrblt": 2001,
+"first_year": 2003,
+"predecessor_av": 193170.0,
+"predecessors": [
+{
+"address": "257 WASHINGTON BLVD",
+"assessed_total": "151801",
+"char_yrblt": [],
+"class": "314",
+"pin": "16083190020000"
+},
+{
+"address": "431 S HARVEY AVE",
+"assessed_total": "41369",
+"char_yrblt": [
+1894
+],
+"class": "211",
+"pin": "16083190170000"
+}
+]
+},
+"1617323036": {
+"condo_av_first_year": 77032.0,
+"condo_units_first_year": 10,
+"condo_yrblt": 2001,
+"first_year": 2002,
+"predecessor_av": 28512.0,
+"predecessors": [
+{
+"address": "916 S AUSTIN BLVD",
+"assessed_total": "28512",
+"char_yrblt": [
+1923
+],
+"class": "211",
+"pin": "16173230270000"
+}
+]
+},
+"1618107021": {
+"condo_av_first_year": 828134.0,
+"condo_units_first_year": 24,
+"condo_yrblt": 2025,
+"first_year": 2026,
+"predecessor_av": 142027.0,
+"predecessors": [
+{
+"address": "839 MADISON ST",
+"assessed_total": "27918.0",
+"char_yrblt": [
+2025
+],
+"class": "297",
+"pin": "16181070010000"
+},
+{
+"address": "502 MADISON ST",
+"assessed_total": "114109.0",
+"char_yrblt": [
+2025
+],
+"class": "297",
+"pin": "16181070020000"
+}
+]
+},
+"1618307035": {
+"condo_av_first_year": 379879.0,
+"condo_units_first_year": 11,
+"condo_yrblt": 2003,
+"first_year": 2005,
+"predecessor_av": 53618.0,
+"predecessors": [
+{
+"address": "915 S OAK PARK AVE",
+"assessed_total": "18828",
+"char_yrblt": [
+1900
+],
+"class": "597",
+"pin": "16183070300000"
+},
+{
+"address": "917 S OAK PARK AVE",
+"assessed_total": "34790",
+"char_yrblt": [],
+"class": "597",
+"pin": "16183070310000"
+}
+]
+},
+"1618314035": {
+"condo_av_first_year": 104667.0,
+"condo_units_first_year": 12,
+"condo_yrblt": 2004,
+"first_year": 2005,
+"predecessor_av": 47016.0,
+"predecessors": [
+{
+"address": "1046 S KENILWORTH AVE",
+"assessed_total": "47016",
+"char_yrblt": [
+1911
+],
+"class": "297",
+"pin": "16183140180000"
+}
+]
+},
+"1618315052": {
+"condo_av_first_year": 15506.0,
+"condo_units_first_year": 1,
+"condo_yrblt": 1998,
+"first_year": 1999,
+"predecessor_av": 0,
+"predecessors": []
+},
+"1618322043": {
+"condo_av_first_year": 62933.0,
+"condo_units_first_year": 7,
+"condo_yrblt": 2004,
+"first_year": 2005,
+"predecessor_av": 38214.0,
+"predecessors": [
+{
+"address": "1121 S OAK PARK AVE 1",
+"assessed_total": "34557",
+"char_yrblt": [
+1909
+],
+"class": "211",
+"pin": "16183220270000"
+},
+{
+"address": "1123 S OAK PARK AVE",
+"assessed_total": "3657",
+"char_yrblt": [],
+"class": "201",
+"pin": "16183220280000"
+}
+]
+},
+"1618428040": {
+"condo_av_first_year": 901053.0,
+"condo_units_first_year": 106,
+"condo_yrblt": 2006,
+"first_year": 2007,
+"predecessor_av": 94321.0,
+"predecessors": [
+{
+"address": "6444 W ROOSEVELT RD",
+"assessed_total": "19052",
+"char_yrblt": [],
+"class": "100",
+"pin": "16184280290000"
+},
+{
+"address": "6442 W ROOSEVELT RD",
+"assessed_total": "7046",
+"char_yrblt": [],
+"class": "100",
+"pin": "16184280300000"
+},
+{
+"address": "6440 W ROOSEVELT RD",
+"assessed_total": "7046",
+"char_yrblt": [],
+"class": "100",
+"pin": "16184280310000"
+},
+{
+"address": "6438 W ROOSEVELT RD",
+"assessed_total": "7046",
+"char_yrblt": [],
+"class": "100",
+"pin": "16184280320000"
+},
+{
+"address": "6436 W ROOSEVELT RD",
+"assessed_total": "7046",
+"char_yrblt": [],
+"class": "100",
+"pin": "16184280330000"
+},
+{
+"address": "6434 W ROOSEVELT RD",
+"assessed_total": "7046",
+"char_yrblt": [],
+"class": "100",
+"pin": "16184280340000"
+},
+{
+"address": "6432 W ROOSEVELT RD",
+"assessed_total": "7046",
+"char_yrblt": [],
+"class": "100",
+"pin": "16184280350000"
+},
+{
+"address": "6430 W ROOSEVELT RD",
+"assessed_total": "7046",
+"char_yrblt": [],
+"class": "100",
+"pin": "16184280360000"
+},
+{
+"address": "6428 W ROOSEVELT RD",
+"assessed_total": "7046",
+"char_yrblt": [],
+"class": "100",
+"pin": "16184280370000"
+},
+{
+"address": "6426 W ROOSEVELT RD",
+"assessed_total": "18901",
+"char_yrblt": [],
+"class": "100",
+"pin": "16184280380000"
+}
+]
+},
+"1618428042": {
+"condo_av_first_year": 1170126.0,
+"condo_units_first_year": 121,
+"condo_yrblt": 2004,
+"first_year": 2008,
+"predecessor_av": 338720.0,
+"predecessors": [
+{
+"address": "6436 W ROOSEVELT RD",
+"assessed_total": "338720",
+"char_yrblt": [],
+"class": "297",
+"pin": "16184280390000"
+}
+]
+},
+"1618428043": {
+"condo_av_first_year": 1318615.0,
+"condo_units_first_year": 126,
+"condo_yrblt": 2004,
+"first_year": 2009,
+"predecessor_av": 115888.0,
+"predecessors": [
+{
+"address": "6436 W ROOSEVELT RD",
+"assessed_total": "115888",
+"char_yrblt": [],
+"class": "297",
+"pin": "16184280410000"
+}
+]
+}
+},
+"first_year": {
+"1605106034": 1999,
+"1605113029": 2004,
+"1605307035": 1999,
+"1605314031": 1999,
+"1605314032": 2008,
+"1605320040": 2003,
+"1605321034": 1999,
+"1605321035": 1999,
+"1605322030": 2007,
+"1605324036": 2003,
+"1605325030": 2001,
+"1605326034": 1999,
+"1605326035": 1999,
+"1605326036": 1999,
+"1606113035": 1999,
+"1606113036": 1999,
+"1606113037": 1999,
+"1606113038": 1999,
+"1606113039": 1999,
+"1606120044": 1999,
+"1606120045": 1999,
+"1606300049": 2001,
+"1606300050": 2001,
+"1606300051": 2001,
+"1606307034": 1999,
+"1606307047": 1999,
+"1606307048": 1999,
+"1606316027": 1999,
+"1606316030": 1999,
+"1606319062": 2003,
+"1607100028": 2018,
+"1607101017": 1999,
+"1607102035": 1999,
+"1607102036": 2005,
+"1607105038": 1999,
+"1607105039": 1999,
+"1607107023": 1999,
+"1607107024": 1999,
+"1607107025": 1999,
+"1607107026": 2006,
+"1607108041": 1999,
+"1607108043": 1999,
+"1607109014": 1999,
+"1607109015": 2002,
+"1607109016": 2005,
+"1607110012": 1999,
+"1607110013": 1999,
+"1607111012": 1999,
+"1607112014": 1999,
+"1607112015": 1999,
+"1607112016": 1999,
+"1607113010": 1999,
+"1607115041": 1999,
+"1607115043": 1999,
+"1607115047": 1999,
+"1607115048": 1999,
+"1607115051": 2007,
+"1607115052": 2012,
+"1607116014": 1999,
+"1607116015": 1999,
+"1607116016": 1999,
+"1607116017": 1999,
+"1607116018": 2001,
+"1607117009": 1999,
+"1607117010": 2006,
+"1607117011": 2008,
+"1607118049": 1999,
+"1607118050": 2000,
+"1607119025": 1999,
+"1607119026": 1999,
+"1607119033": 2008,
+"1607120032": 1999,
+"1607120056": 2009,
+"1607120058": 2010,
+"1607121036": 1999,
+"1607121038": 1999,
+"1607121039": 1999,
+"1607121041": 1999,
+"1607121045": 2011,
+"1607122018": 1999,
+"1607125031": 2003,
+"1607128032": 1999,
+"1607128033": 1999,
+"1607128034": 1999,
+"1607129034": 1999,
+"1607129035": 2008,
+"1607129036": 2009,
+"1607200041": 1999,
+"1607206019": 2000,
+"1607212010": 1999,
+"1607218027": 1999,
+"1607218028": 1999,
+"1607218032": 2019,
+"1607219009": 2002,
+"1607219010": 2002,
+"1607219026": 2002,
+"1607219027": 1999,
+"1607219028": 1999,
+"1607219029": 2003,
+"1607222021": 1999,
+"1607223027": 1999,
+"1607223028": 2001,
+"1607224026": 2004,
+"1607224028": 2007,
+"1607301021": 2005,
+"1607302020": 1999,
+"1607302022": 2007,
+"1607302023": 2008,
+"1607302025": 2011,
+"1607302040": 2014,
+"1607303016": 2004,
+"1607303017": 2009,
+"1607304031": 1999,
+"1607304039": 2004,
+"1607305023": 2006,
+"1607306022": 2009,
+"1607307035": 1999,
+"1607307036": 1999,
+"1607307046": 1999,
+"1607308028": 1999,
+"1607308055": 2003,
+"1607309042": 1999,
+"1607309045": 1999,
+"1607309047": 1999,
+"1607309048": 2003,
+"1607310027": 1999,
+"1607310028": 1999,
+"1607310029": 1999,
+"1607310030": 1999,
+"1607311036": 2006,
+"1607312026": 1999,
+"1607313028": 2000,
+"1607314023": 1999,
+"1607314024": 1999,
+"1607315023": 1999,
+"1607315026": 1999,
+"1607315027": 2006,
+"1607315028": 2006,
+"1607315029": 2008,
+"1607316045": 1999,
+"1607316049": 1999,
+"1607316050": 1999,
+"1607316052": 1999,
+"1607316053": 1999,
+"1607316054": 1999,
+"1607316055": 2002,
+"1607316056": 2003,
+"1607316086": 2022,
+"1607317026": 1999,
+"1607317027": 1999,
+"1607317028": 1999,
+"1607319023": 1999,
+"1607319026": 2002,
+"1607320023": 1999,
+"1607320024": 1999,
+"1607320025": 1999,
+"1607320026": 2005,
+"1607321020": 1999,
+"1607321021": 1999,
+"1607321022": 2006,
+"1607322038": 1999,
+"1607322039": 1999,
+"1607322040": 1999,
+"1607322042": 1999,
+"1607322043": 1999,
+"1607322061": 2003,
+"1607322062": 2011,
+"1607323043": 1999,
+"1607323045": 1999,
+"1607323046": 1999,
+"1607323047": 1999,
+"1607323048": 1999,
+"1607323049": 1999,
+"1607323050": 1999,
+"1607323051": 1999,
+"1607323052": 1999,
+"1607323053": 1999,
+"1607323055": 2000,
+"1607324033": 1999,
+"1607325023": 1999,
+"1607325024": 1999,
+"1607325025": 2002,
+"1607326024": 1999,
+"1607326025": 1999,
+"1607326026": 2008,
+"1607327020": 1999,
+"1607327021": 1999,
+"1607327039": 2004,
+"1607400027": 1999,
+"1607400044": 2013,
+"1607400046": 2025,
+"1607400048": 2026,
+"1607401030": 1999,
+"1607401031": 1999,
+"1607402047": 2003,
+"1607403043": 1999,
+"1607403045": 1999,
+"1607403046": 1999,
+"1607404032": 1999,
+"1607404035": 1999,
+"1607406022": 1999,
+"1607406023": 1999,
+"1607406024": 2005,
+"1607408026": 1999,
+"1607412036": 2008,
+"1607413045": 1999,
+"1607413046": 1999,
+"1607414027": 1999,
+"1607414028": 1999,
+"1607415027": 1999,
+"1607415034": 1999,
+"1607416022": 1999,
+"1607416023": 1999,
+"1607417031": 2001,
+"1607417032": 2004,
+"1607418021": 1999,
+"1607418022": 2001,
+"1607418023": 2003,
+"1607418024": 2004,
+"1607419028": 1999,
+"1607419029": 2007,
+"1607420017": 1999,
+"1607420018": 1999,
+"1607420025": 2005,
+"1607420026": 2005,
+"1607420027": 2007,
+"1607421017": 1999,
+"1607421018": 1999,
+"1607421019": 1999,
+"1607422029": 1999,
+"1607422030": 1999,
+"1607422032": 2004,
+"1607423039": 1999,
+"1607423040": 1999,
+"1607423041": 2004,
+"1607423042": 2006,
+"1607423043": 2006,
+"1607423044": 2014,
+"1608100021": 2001,
+"1608102020": 1999,
+"1608102021": 2003,
+"1608102022": 2005,
+"1608105021": 1999,
+"1608105022": 1999,
+"1608118027": 1999,
+"1608118032": 2001,
+"1608121058": 2007,
+"1608122038": 2006,
+"1608122039": 2022,
+"1608123030": 2003,
+"1608300029": 2005,
+"1608300030": 2006,
+"1608301049": 2007,
+"1608305024": 1999,
+"1608305025": 1999,
+"1608309017": 2007,
+"1608312023": 2000,
+"1608314043": 1999,
+"1608315033": 1999,
+"1608315034": 2010,
+"1608316030": 1999,
+"1608317024": 1999,
+"1608317025": 1999,
+"1608317027": 2004,
+"1608319044": 2003,
+"1608319045": 2003,
+"1608319046": 2005,
+"1608320026": 1999,
+"1608320027": 1999,
+"1608320028": 2008,
+"1608321030": 1999,
+"1608321031": 1999,
+"1608321032": 1999,
+"1608321033": 1999,
+"1608321034": 1999,
+"1608321035": 2002,
+"1608322042": 2004,
+"1617100033": 2008,
+"1617107036": 1999,
+"1617107037": 2007,
+"1617110044": 2006,
+"1617130030": 2005,
+"1617131024": 1999,
+"1617131025": 1999,
+"1617131026": 2006,
+"1617305032": 2008,
+"1617307035": 1999,
+"1617313058": 2002,
+"1617323036": 2002,
+"1617331037": 2002,
+"1618103021": 1999,
+"1618107021": 2026,
+"1618109022": 1999,
+"1618112025": 2008,
+"1618126021": 1999,
+"1618127026": 2004,
+"1618127027": 2005,
+"1618200032": 1999,
+"1618202034": 2006,
+"1618218033": 2000,
+"1618224031": 2004,
+"1618224032": 2008,
+"1618226035": 2003,
+"1618226036": 2005,
+"1618227025": 2003,
+"1618229036": 2007,
+"1618230029": 2006,
+"1618307034": 1999,
+"1618307035": 2005,
+"1618314035": 2005,
+"1618315052": 1999,
+"1618315060": 2003,
+"1618322043": 2005,
+"1618328036": 2008,
+"1618402016": 2007,
+"1618405014": 2002,
+"1618414033": 2006,
+"1618428040": 2007,
+"1618428042": 2008,
+"1618428043": 2009
+}
+}

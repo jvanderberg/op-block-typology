@@ -1,6 +1,6 @@
 {
- "config_sha256": "d132051599f4aed279f12819226b3aa8ae144170c9cb76eef90e38f6d3cf63ce",
- "finished_utc": "2026-09-18T19:18:45Z",
+ "config_sha256": "0a87a8464ff0f2fe5b7e714f7e3fc1e863ed5c4ab0c4fcec57fd1a3ffd26b16d",
+ "finished_utc": "2026-09-18T21:01:22Z",
  "inputs": [
   {
    "bytes": 1973880,
@@ -10,7 +10,7 @@
   }
  ],
  "notes": [
-  "start s02_fetch.py (sha256 a53e9df8ffba)",
+  "start s02_fetch.py (sha256 fca8fd49c624)",
   "input  data/interim/s01_parcels.csv (parcel list (for supplemental PIN fetch)) sha256=2de4e10e6e82 bytes=1973880",
   "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/arcgis_parcels_oak_park.geojson",
   "output data/raw/arcgis_parcels_oak_park.geojson (Cook County parcel polygons (ArcGIS snapshot)) sha256=bf25146aa0fa rows=13849",
@@ -60,7 +60,9 @@
   "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/socrata_3r7i-mrz4_oak_park_2023.json",
   "output data/raw/socrata_3r7i-mrz4_oak_park_2023.json (Assessor Condominium Unit Characteristics, Oak Park) sha256=42630c54bf1e rows=5472",
   "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/vop_zoning.geojson",
-  "output data/raw/vop_zoning.geojson (Village of Oak Park zoning district polygons) sha256=ea2423f9094f rows=23"
+  "output data/raw/vop_zoning.geojson (Village of Oak Park zoning district polygons) sha256=ea2423f9094f rows=23",
+  "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/condo_conversion_check.json",
+  "output data/raw/condo_conversion_check.json (condo conversion check (first roll year, predecessor parcels)) sha256=ca4d8b6c4a24 rows=None"
  ],
  "ok": true,
  "outputs": [
@@ -354,14 +356,27 @@
    "rows": 23,
    "sha256": "ea2423f9094f4afd3e7d45492d54100a017892e0b837eee9da9bc6ef99480d2e",
    "url": "https://utility.arcgis.com/usrsvcs/servers/4cff1aaefa364b57b8c70d5c606f2088/rest/services/VOP/AGOL_VOP_Project/MapServer/8/query"
+  },
+  {
+   "bytes": 22673,
+   "path": "data/raw/condo_conversion_check.json",
+   "role": "condo conversion check (first roll year, predecessor parcels)",
+   "rows": null,
+   "sha256": "ca4d8b6c4a2498b748e5245c0af096241b1126eb64260c08f935a629bdd7ee38",
+   "urls": [
+    "https://datacatalog.cookcountyil.gov/resource/3r7i-mrz4.json",
+    "https://datacatalog.cookcountyil.gov/resource/uzyt-m557.json",
+    "https://datacatalog.cookcountyil.gov/resource/x54s-btds.json",
+    "https://datacatalog.cookcountyil.gov/resource/3723-97qp.json"
+   ]
   }
  ],
  "params": {},
  "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
  "python": "3.14.7",
  "script": "s02_fetch.py",
- "script_sha256": "a53e9df8ffbae101edc753d08cf1819c5a8cf7bd7fcc1f0d0a97ccb41ab6a9aa",
- "seconds": 2.4,
+ "script_sha256": "fca8fd49c6247cae03dcee26e9211d4c4001a7718b4904e8bbeac5bef787f658",
+ "seconds": 1.3,
  "stage": "s02_fetch",
- "started_utc": "2026-09-18T19:18:43Z"
+ "started_utc": "2026-09-18T21:01:21Z"
 }

@@ -28,8 +28,22 @@ Year built, first rule that yields a value (recorded in yr_source):
                       residential year - 1 (buildings completed 2020 or later)
   unknown             none of the above
 
+Condominium conversions (config CONDO_CONVERSION_*): a condo building whose
+recorded year is close to the year its units first appear on the roll is
+checked against the predecessor parcels captured in stage 2. If a predecessor
+had a residential or apartment class and the units' first-year assessed value
+is below CONDO_CONVERSION_MAX_AV_RATIO times the predecessors' value, the
+building existed before the condominium declaration and the recorded year is
+the conversion year, not the construction year. Under policy "exclude" such buildings are kept in the
+output with excluded=True (and yr_predecessor holding the predecessor's year
+built where the assessor recorded one) and dropped by stages 11 and 12; under
+"redate" they take the predecessor's year. Vacant, commercial or condominium
+predecessors mean new construction or a re-declaration and the recorded year
+stands (yr_source condo_chars_newbuild). Candidates with no predecessor found
+keep their year with yr_source condo_chars_unverified.
+
 Outputs: data/interim/s10_mf_buildings.csv (one row per multi-family
-building), data/interim/s10_district_parcels.csv (all residential units by
+building, with excluded / exclude_reason / yr_predecessor columns), data/interim/s10_district_parcels.csv (all residential units by
 district and bucket, for context), data/interim/s10_district_zoning.csv
 (area of each district by zoning district).
 """
@@ -41,8 +55,8 @@ import geopandas as gpd
 import pandas as pd
 from shapely.geometry import shape
 
-from config import (HISTORIC_DISTRICTS, INTERIM_DIR, MANUAL_YEAR_BUILT, MF_MIN_UNITS, MF_UNIT_TYPES,
-                    RAW_DIR, SOCRATA_CONDO_YEAR)
+from config import (CONDO_CONVERSION_MAX_AV_RATIO, CONDO_CONVERSION_POLICY, HISTORIC_DISTRICTS, INTERIM_DIR, MANUAL_YEAR_BUILT, MF_MIN_UNITS,
+                    MF_UNIT_TYPES, PREDECESSOR_EXISTING_CLASSES, RAW_DIR, SOCRATA_CONDO_YEAR)
 from provenance import Stage
 
 VACANT_CLASSES = {"100", "190", "200", "241", "290"}
@@ -58,7 +72,7 @@ def is_residential_class(c):
 
 def main():
     with Stage("s10_districts", __file__) as st:
-        st.param(MF_UNIT_TYPES=MF_UNIT_TYPES, MF_MIN_UNITS=MF_MIN_UNITS,
+        st.param(MF_UNIT_TYPES=MF_UNIT_TYPES, MF_MIN_UNITS=MF_MIN_UNITS, CONDO_CONVERSION_POLICY=CONDO_CONVERSION_POLICY,
                  districts={k: v["local_year"] for k, v in HISTORIC_DISTRICTS.items()})
         p_units = os.path.join(INTERIM_DIR, "s04_parcel_units.csv")
         p_hist = os.path.join(INTERIM_DIR, "s01_class_history.csv")
@@ -66,6 +80,10 @@ def main():
         p_zone = os.path.join(RAW_DIR, "vop_zoning.geojson")
         p_condo = os.path.join(RAW_DIR, f"socrata_3r7i-mrz4_oak_park_{SOCRATA_CONDO_YEAR}.json")
         p_cv = os.path.join(RAW_DIR, "socrata_csik-bsws_oak_park.json")
+        p_conv = os.path.join(RAW_DIR, "condo_conversion_check.json")
+        st.input(p_conv, role="condo conversion check")
+        with open(p_conv) as f:
+            conv = json.load(f)["checks"]
         for p, r in ((p_units, "parcel units"), (p_hist, "class history"), (p_dist, "historic districts"),
                      (p_zone, "zoning"), (p_condo, "condo characteristics"), (p_cv, "commercial valuation")):
             st.input(p, role=r)
@@ -162,6 +180,25 @@ def main():
                     return MANUAL_YEAR_BUILT[p][0], "manual"
             return None, "unknown"
 
+        def conversion_verdict(pin10):
+            """(verdict, predecessor_year) for a condo building: 'conversion',
+            'newbuild', 'unverified', or None when not a candidate."""
+            c = conv.get(pin10)
+            if c is None:
+                return None, None
+            preds = c["predecessors"]
+            if not preds:
+                return "unverified", None
+            existing = [p for p in preds if p["class"] in PREDECESSOR_EXISTING_CLASSES]
+            if not existing:
+                return "newbuild", None
+            pred_av = c.get("predecessor_av", 0) or 0
+            ratio = (c.get("condo_av_first_year", 0) / pred_av) if pred_av > 0 else float("inf")
+            if ratio >= CONDO_CONVERSION_MAX_AV_RATIO:
+                return "newbuild", None       # value jump: the old building was replaced
+            yrs = sorted({y for p in existing for y in p["char_yrblt"]})
+            return "conversion", (yrs[0] if yrs else None)
+
         # --- buildings -------------------------------------------------------
         mf = j[j.unit_type.isin(MF_UNIT_TYPES)].copy()
         # Large buildings absent from the Commercial Valuation data keep one
@@ -209,14 +246,34 @@ def main():
             pins = list(g.pin)
             units = float(g.units.sum())
             yr, src = year_built(f, pins)
-            rows.append({"building_id": bid, "address": base_addr(f.address) if len(g) > 1 else f.address, "district": f.district, "zone": f.zone,
+            excluded, reason, yr_pred = False, "", None
+            if f.unit_type == "condo":
+                verdict, yr_pred = conversion_verdict(bid)
+                if verdict == "conversion":
+                    if CONDO_CONVERSION_POLICY == "redate" and yr_pred is not None:
+                        yr, src = yr_pred, "predecessor_chars"
+                    elif CONDO_CONVERSION_POLICY == "redate":
+                        yr, src = None, "conversion_year_unknown"
+                    else:
+                        excluded, reason = True, "condo_conversion"
+                elif verdict == "newbuild":
+                    src = "condo_chars_newbuild"
+                elif verdict == "unverified":
+                    src = "condo_chars_unverified"
+            rows.append({"building_id": bid, "address": base_addr(f.address) if len(g) > 1 else f.address,
+                         "district": f.district, "zone": f.zone,
                          "unit_type": f.unit_type, "bucket": f.bucket, "units": units, "n_pins": len(g),
                          "classes": "|".join(sorted(set(g["class"]))), "units_source": f.units_source,
-                         "yrblt": yr, "yr_source": src, "lat": f.lat, "lon": f.lon})
+                         "yrblt": yr, "yr_source": src, "excluded": excluded, "exclude_reason": reason,
+                         "yr_predecessor": yr_pred, "lat": f.lat, "lon": f.lon})
         b = pd.DataFrame(rows)
         b = b[b.units >= MF_MIN_UNITS].sort_values(["district", "building_id"]).reset_index(drop=True)
         st.note(f"multi-family buildings (>= {MF_MIN_UNITS} units): {len(b)} with {b.units.sum():.0f} units")
         st.note("year source: " + ", ".join(f"{k}={v}" for k, v in b.yr_source.value_counts().items()))
+        ex = b[b.excluded]
+        st.note(f"condo conversions ({CONDO_CONVERSION_POLICY}): {len(ex)} buildings, {ex.units.sum():.0f} units: " + "; ".join(
+            f"{r.address} ({r.district}, {r.units:.0f} u, recorded {int(r.yrblt) if pd.notna(r.yrblt) else '?'}, "
+            f"predecessor built {int(r.yr_predecessor) if pd.notna(r.yr_predecessor) else 'unknown'})" for _, r in ex.iterrows()))
         unk = b[b.yr_source == "unknown"]
         st.note(f"unknown year: {len(unk)} buildings, {unk.units.sum():.0f} units: " + "; ".join(
             f"{r.address} ({r.district}, {r.units:.0f} u, {r.classes})" for _, r in unk.iterrows()))
@@ -226,9 +283,9 @@ def main():
             f"{r.address} {r.yrblt} ({r.units:.0f} u) <{MANUAL_YEAR_BUILT.get(r.building_id, ('', ''))[1]}>" for _, r in man.iterrows()))
         st.note("class-history dated: " + "; ".join(f"{r.address} {r.yrblt} ({r.units:.0f} u)" for _, r in ch.iterrows()))
         for d in list(HISTORIC_DISTRICTS) + ["Rest of Oak Park"]:
-            s = b[b.district == d]
-            st.note(f"  {d}: {len(s)} MF buildings, {s.units.sum():.0f} units, "
-                    f"{int((s.yr_source == 'unknown').sum())} undated")
+            s = b[(b.district == d) & ~b.excluded]
+            st.note(f"  {d}: {len(s)} MF buildings kept, {s.units.sum():.0f} units, "
+                    f"{int((s.yr_source == 'unknown').sum())} undated; excluded {int(((b.district == d) & b.excluded).sum())}")
         out = os.path.join(INTERIM_DIR, "s10_mf_buildings.csv")
         b.to_csv(out, index=False)
         st.output(out, role="multi-family buildings with district, zone, year built")

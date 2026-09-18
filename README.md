@@ -114,19 +114,28 @@ Equal-length windows around the designation year, units in multi-family building
 
 | District | Designated | Window | Units before | Units after | Units/yr before | Units/yr after | Rest of Oak Park units/yr before | Rest of Oak Park units/yr after |
 |---|---|---|---|---|---|---|---|---|
-| Frank Lloyd Wright | 1972 | 54 yrs | 1,170 | 128 | 21.67 | 2.37 | 85.31 | 56.7 |
-| Ridgeland-Oak Park | 1994 | 32 yrs | 987 | 419 | 30.84 | 13.09 | 68.59 | 66.34 |
+| Frank Lloyd Wright | 1972 | 54 yrs | 1,170 | 128 | 21.67 | 2.37 | 85.31 | 56.09 |
+| Ridgeland-Oak Park | 1994 | 32 yrs | 987 | 338 | 30.84 | 10.56 | 68.59 | 65.31 |
 
 The Frank Lloyd Wright district's share of village-wide multi-family construction fell from
 11.6% in the 54 years before 1972 to 3.4% in the 54 years since; only seven
 multi-family buildings (128 units) have been built inside it since designation, five of
-them in 1973-1981. Ridgeland-Oak Park's share fell from 27.0% to 16.5%; its post-1994
-multi-family construction is a dozen buildings, most of them condominiums around
-2000-2006 and three large rental buildings completed in 2023 on Lake Street, Pleasant
-Street and Washington Boulevard. Gunderson has had no multi-family construction since
+them in 1973-1981. Ridgeland-Oak Park's share fell from 27.0% to 13.9%; its post-1994
+multi-family construction is seven buildings: condominiums built 2000-2006 and three
+large rental buildings completed in 2023 on Lake Street, Pleasant Street and Washington
+Boulevard. Gunderson has had no multi-family construction since
 the 1920s. Village-wide, apartment construction collapsed after 1930 everywhere, so
 the decade tables in the results are the fairer reading; the districts' pre-designation
 multi-family stock is overwhelmingly 1900-1930.
+
+Condominium conversions are excluded from this analysis. The Assessor's condominium
+file records the year the units were declared, not the year the structure was built, for
+buildings converted to condominiums (166 N Humphrey, a 1922 apartment building, carries
+2000). Stage 10 detects these by finding the predecessor parcel in the same assessor
+block, present the year before the units appear and absent after, with a residential or
+apartment class and no large jump in assessed value; ten buildings (114 units) are
+excluded and listed in the results. Set `CONDO_CONVERSION_POLICY = "redate"` in
+`config.py` to use the predecessor's year built instead.
 
 The Frank Lloyd Wright polygon is the boundary as expanded in 2009 (National Register)
 and 2012 (local); the 1972 boundary is not available as GIS data. A sensitivity run

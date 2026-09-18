@@ -74,7 +74,9 @@ def main():
         units = pd.read_csv(p_units, dtype={"pin": str, "building_id": str}, usecols=["pin", "building_id"])
         first_pin = units.groupby("building_id").pin.min().to_dict()
         b = pd.read_csv(src, dtype={"building_id": str, "address": str, "zone": str, "yr_source": str})
-        b = b.copy()
+        n_all = len(b)
+        b = b[~b.excluded].copy()
+        st.note(f"buildings: {n_all}; excluded condo conversions dropped: {n_all - len(b)}")
         b["slug"] = [HISTORIC_DISTRICTS[d]["slug"] if d in HISTORIC_DISTRICTS else REST_SLUG for d in b.district]
         b = b.sort_values(["slug", "yrblt", "building_id"])
         areas = areas_sqmi(st)

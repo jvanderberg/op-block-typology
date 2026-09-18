@@ -20,6 +20,10 @@ Downloads:
   7. Assessor Condominium Unit Characteristics for Oak Park (year built
      per condo building).
   8. Village of Oak Park zoning district polygons (ArcGIS layer 8).
+  9. Condominium conversion check: first roll year per condo building, and for
+     buildings whose recorded year built is close to that year, the block's
+     predecessor parcels (class, assessed value, address, year built) and the
+     condo units' first-year assessed value.
 """
 import json
 import os
@@ -29,7 +33,8 @@ import zipfile
 import pandas as pd
 import requests
 
-from config import (ACS_GEO_QUERY, HTTP_USER_AGENT, SOCRATA_CONDO_URL, SOCRATA_CONDO_YEAR,
+from config import (ACS_GEO_QUERY, CONDO_CONVERSION_WINDOW, HTTP_USER_AGENT, SOCRATA_ADDRESSES_URL,
+                    SOCRATA_ASSESSED_URL, SOCRATA_CHARS_URL, SOCRATA_CONDO_URL, SOCRATA_CONDO_YEAR,
                     VOP_HISTORIC_DISTRICTS_URL, VOP_ZONING_FIELDS, VOP_ZONING_URL, ACS_TABLES, ARCGIS_FIELDS, ARCGIS_MUNICIPALITY,
                     ARCGIS_PAGE, ARCGIS_PARCELS_URL, CENSUSREPORTER_URL, HTTP_RETRIES,
                     HTTP_TIMEOUT, INTERIM_DIR, PL_URL, RAW_DIR, SOCRATA_COMMVAL_TOWNSHIP,
@@ -188,6 +193,71 @@ def fetch_districts(st):
               extra={"url": VOP_HISTORIC_DISTRICTS_URL})
 
 
+def soql(url, params):
+    r = get(url, params=params)
+    obj = r.json()
+    if isinstance(obj, dict) and "error" in obj:
+        raise RuntimeError(obj)
+    return obj
+
+
+def fetch_condo_conversions(st):
+    """Snapshot of everything the conversion check needs (see config)."""
+    dest = os.path.join(RAW_DIR, "condo_conversion_check.json")
+    if os.path.exists(dest):
+        st.note(f"exists, not re-downloaded: {dest}")
+        st.output(dest, role="condo conversion check (first roll year, predecessor parcels)",
+                  extra={"urls": [SOCRATA_CONDO_URL, SOCRATA_ASSESSED_URL, SOCRATA_CHARS_URL, SOCRATA_ADDRESSES_URL]})
+        return
+    first = soql(SOCRATA_CONDO_URL, {
+        "$select": "pin10,min(year) as first_year,min(char_yrblt) as yb_min",
+        "$where": "township_code='27'", "$group": "pin10", "$limit": 5000})
+    first_year = {r["pin10"]: int(float(r["first_year"])) for r in first}
+    yb = {r["pin10"]: int(float(r["yb_min"])) for r in first if r.get("yb_min") not in (None, "", "0", "0.0")}
+    candidates = sorted(p for p in first_year if p in yb and yb[p] >= first_year[p] - CONDO_CONVERSION_WINDOW)
+    st.note(f"condo buildings on the roll: {len(first_year)}; candidates for the conversion check "
+            f"(year built within {CONDO_CONVERSION_WINDOW} yrs of first roll year): {len(candidates)}")
+    checks = {}
+    for p in candidates:
+        f = first_year[p]
+        blk = p[:7]
+        prev = soql(SOCRATA_ASSESSED_URL, {"$select": "pin,class,certified_tot,mailed_tot",
+                                           "$where": f"starts_with(pin,'{blk}') AND pin like '%0000' AND year='{f - 1}'",
+                                           "$order": "pin", "$limit": 2000})
+        nxt = soql(SOCRATA_ASSESSED_URL, {"$select": "pin",
+                                          "$where": f"starts_with(pin,'{blk}') AND pin like '%0000' AND (year='{f}' OR year='{f + 1}')",
+                                          "$limit": 4000})
+        nxt_pins = {x["pin"] for x in nxt}
+        gone = [x for x in prev if x["pin"] not in nxt_pins]
+        preds = []
+        if gone:
+            inlist = "pin in (" + ",".join(f"'{x['pin']}'" for x in gone) + ")"
+            ch = soql(SOCRATA_CHARS_URL, {"$select": "pin,year,class,char_yrblt,char_apts", "$where": inlist,
+                                          "$order": "pin,year", "$limit": 5000})
+            pa = soql(SOCRATA_ADDRESSES_URL, {"$select": "pin,prop_address_full",
+                                              "$where": inlist + f" AND year='{f - 1}'", "$limit": 500})
+            addr = {x["pin"]: x["prop_address_full"] for x in pa}
+            for x in gone:
+                yrs = sorted({int(float(c["char_yrblt"])) for c in ch
+                              if c["pin"] == x["pin"] and c.get("char_yrblt") not in (None, "", "0", "0.0")})
+                preds.append({"pin": x["pin"], "class": str(x.get("class")), "address": addr.get(x["pin"], ""),
+                              "assessed_total": x.get("certified_tot") or x.get("mailed_tot"),
+                              "char_yrblt": yrs})
+        av_units = soql(SOCRATA_ASSESSED_URL, {"$select": "sum(certified_tot) as s,sum(mailed_tot) as m,count(*) as n",
+                                               "$where": f"starts_with(pin,'{p}') AND year='{f}'"})
+        u = av_units[0] if av_units else {}
+        checks[p] = {"first_year": f, "condo_yrblt": yb[p], "predecessors": preds,
+                     "condo_av_first_year": float(u.get("s") or u.get("m") or 0), "condo_units_first_year": int(u.get("n") or 0),
+                     "predecessor_av": sum(float(x["assessed_total"] or 0) for x in preds)}
+        st.note(f"  {p}: first roll year {f}, condo year built {yb[p]}, predecessors "
+                + ("; ".join(f"{q['address']} [{q['class']}{' yb ' + '/'.join(map(str, q['char_yrblt'])) if q['char_yrblt'] else ''}]"
+                             for q in preds) or "none"))
+    with open(dest, "w") as fh:
+        json.dump({"first_year": first_year, "checks": checks}, fh, sort_keys=True, indent=0)
+    st.output(dest, role="condo conversion check (first roll year, predecessor parcels)",
+              extra={"urls": [SOCRATA_CONDO_URL, SOCRATA_ASSESSED_URL, SOCRATA_CHARS_URL, SOCRATA_ADDRESSES_URL]})
+
+
 def fetch_zoning(st):
     dest = os.path.join(RAW_DIR, "vop_zoning.geojson")
     if os.path.exists(dest):
@@ -248,6 +318,7 @@ def main():
         fetch_districts(st)
         fetch_condo_chars(st)
         fetch_zoning(st)
+        fetch_condo_conversions(st)
 
 
 if __name__ == "__main__":

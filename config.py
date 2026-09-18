@@ -261,6 +261,37 @@ MANUAL_YEAR_BUILT = {
 }
 
 
+# ---------------------------------------------------------------------------
+# Condominium conversions. The Assessor's condo characteristics record the
+# year the units were declared, not the year the structure was built, for
+# buildings converted to condominiums (2026-09-18 audit: 166 N Humphrey, a
+# 1922 class-211 building, carries 2000). Detection: a condo building whose
+# recorded year is within CONDO_CONVERSION_WINDOW years of the first year its
+# units appear on the roll is checked for a predecessor parcel: a base PIN in
+# the same assessor block (first 7 digits) present the year before the units
+# appear and absent after. A predecessor with a residential or apartment
+# class, and an assessed-value ratio below CONDO_CONVERSION_MAX_AV_RATIO, is
+# an existing building that was converted; a vacant, commercial or condominium
+# predecessor, or a large value jump, means new construction or a
+# re-declaration.
+# Policy "exclude" drops confirmed conversions from the year-built analyses
+# (their predecessor year is kept in the data); "redate" uses the
+# predecessor's year built instead.
+# ---------------------------------------------------------------------------
+CONDO_CONVERSION_WINDOW = 10
+CONDO_CONVERSION_POLICY = "exclude"          # "exclude" | "redate"
+# A conversion roughly preserves assessed value (condo units' first-year AV
+# over the predecessors' last-year AV: 0.6-2.7 in the 2026-09-18 audit); a
+# building replaced by new construction multiplies it. Ratios at or above
+# this threshold are treated as new construction even when the predecessor
+# was an existing building.
+CONDO_CONVERSION_MAX_AV_RATIO = 3.0
+PREDECESSOR_EXISTING_CLASSES = ("202", "203", "204", "205", "206", "207", "208", "209", "210", "211",
+                                "212", "234", "236", "278", "313", "314", "315", "318", "390", "391", "397")
+SOCRATA_ASSESSED_URL = "https://datacatalog.cookcountyil.gov/resource/uzyt-m557.json"
+SOCRATA_CHARS_URL = "https://datacatalog.cookcountyil.gov/resource/x54s-btds.json"
+SOCRATA_ADDRESSES_URL = "https://datacatalog.cookcountyil.gov/resource/3723-97qp.json"
+
 # Deterministic HTTP behaviour.
 HTTP_TIMEOUT = 120
 HTTP_RETRIES = 3
