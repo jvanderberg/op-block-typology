@@ -18783,6 +18783,7 @@
 ],
 "districts": [
 {
+"areaSqMi": 0.9066,
 "boundaryNote": "Current polygon is the boundary as expanded on the National Register in 2009 and locally in 2012 (about 444 parcels added to the 1,491 of 1972); the 1972 boundary is not available as GIS data, so a sensitivity run treats 2012 as the designation year for the whole polygon.",
 "localDate": "1972-02-07",
 "localOrdinance": "1972-O-8",
@@ -18794,6 +18795,7 @@
 "slug": "flw"
 },
 {
+"areaSqMi": 0.8405,
 "boundaryNote": "Local district, designated 1994; National Register listing 1983.",
 "localDate": "1994",
 "localOrdinance": "",
@@ -18805,6 +18807,7 @@
 "slug": "ridgeland"
 },
 {
+"areaSqMi": 0.0821,
 "boundaryNote": "Local district designated 2002 (north), expanded 2003 (south).",
 "localDate": "2002-06-17",
 "localOrdinance": "2003-O-28 (expansion)",

@@ -419,21 +419,25 @@ Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs
 
 ## s12_explorer_data
 
-Script `s12_explorer_data.py` (sha256 8207144cedfa7cfe), config.py d132051599f4aed2, python 3.14.7, started 2026-09-18T19:56:24Z, 0.1 s.
+Script `s12_explorer_data.py` (sha256 64ab836ec5854894), config.py d132051599f4aed2, python 3.14.7, started 2026-09-18T19:57:35Z, 0.4 s.
 
 Parameters: `EXPLORER_DISTRICTS=['Frank Lloyd Wright', 'Ridgeland - Oak Park']`, `SIZE_CLASSES=['2', '3', '4', '5', '6', '7+']`
 
 Inputs:
 
 - `data/interim/s10_mf_buildings.csv` from s10_districts, sha256 06a031695b5e18c6, 231666 bytes
+- `data/raw/vop_historic_districts.geojson` from s02_fetch, sha256 4d22869c4b45671f, 108951 bytes
+- `data/raw/place/tl_2020_17_place.shp` from s02_fetch, sha256 f18a8f5c7d03f2a9, 9608328 bytes
+- `data/raw/place/tl_2020_17_place.dbf` from s02_fetch, sha256 0e1f037c9ad084dd, 419822 bytes
 
 Outputs:
 
-- `outputs/explorer_data/mf_buildings.json` sha256 96ef03bc93f211e9, 304158 bytes
+- `outputs/explorer_data/mf_buildings.json` sha256 0642251dce6b3a8b, 304218 bytes
 
 Log:
 
 ```
+areas (sq mi): Frank Lloyd Wright=0.907, Gunderson=0.082, Ridgeland - Oak Park=0.840, __rest__=2.871, __village__=4.700
 Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50
 Ridgeland - Oak Park: 486 buildings, 6275 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181
 Gunderson: 22 buildings, 48 units, undated 0; by size: 2=20, 3=1, 5=1
