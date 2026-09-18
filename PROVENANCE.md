@@ -419,7 +419,7 @@ Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs
 
 ## s12_explorer_data
 
-Script `s12_explorer_data.py` (sha256 c0518f63722c6858), config.py d132051599f4aed2, python 3.14.7, started 2026-09-18T19:40:46Z, 0.1 s.
+Script `s12_explorer_data.py` (sha256 8207144cedfa7cfe), config.py d132051599f4aed2, python 3.14.7, started 2026-09-18T19:56:24Z, 0.1 s.
 
 Parameters: `EXPLORER_DISTRICTS=['Frank Lloyd Wright', 'Ridgeland - Oak Park']`, `SIZE_CLASSES=['2', '3', '4', '5', '6', '7+']`
 
@@ -429,12 +429,13 @@ Inputs:
 
 Outputs:
 
-- `outputs/explorer_data/mf_buildings.json` sha256 2ddc5c161a0c4a1a, 303807 bytes
+- `outputs/explorer_data/mf_buildings.json` sha256 96ef03bc93f211e9, 304158 bytes
 
 Log:
 
 ```
 Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50
 Ridgeland - Oak Park: 486 buildings, 6275 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181
-Rest of Oak Park: 857 buildings, 8836 units, undated 2; by size: 2=384, 3=81, 4=89, 5=19, 6=42, 7+=242
+Gunderson: 22 buildings, 48 units, undated 0; by size: 2=20, 3=1, 5=1
+Rest of Oak Park: 835 buildings, 8788 units, undated 2; by size: 2=364, 3=80, 4=89, 5=18, 6=42, 7+=242
 ```
