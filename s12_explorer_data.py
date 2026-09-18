@@ -2,7 +2,8 @@
 ~/git/op-historic-mf, github.com/jvanderberg/op-historic-mf).
 
 Takes the multi-family building table from s10 and writes the two historic
-districts of interest (Frank Lloyd Wright, Ridgeland - Oak Park) as a compact
+districts of interest (Frank Lloyd Wright, Ridgeland - Oak Park) plus the rest
+of the village (every multi-family building outside those two) as a compact
 JSON file the Vite app loads at runtime, plus the designation metadata from
 config so the app has no hand-typed dates. Every building carries its year
 built, unit count, size class (2, 3, 4, 5, 6, 7+), type, zone, year source
@@ -20,6 +21,7 @@ from config import HISTORIC_DISTRICTS, INTERIM_DIR, OUT_DIR
 from provenance import Stage, sha256_file
 
 EXPLORER_DISTRICTS = ("Frank Lloyd Wright", "Ridgeland - Oak Park")
+REST_NAME, REST_SLUG = "Rest of Oak Park", "rest"   # everything outside the two districts
 SIZE_CLASSES = ("2", "3", "4", "5", "6", "7+")
 
 
@@ -34,7 +36,9 @@ def main():
         src = os.path.join(INTERIM_DIR, "s10_mf_buildings.csv")
         st.input(src, role="multi-family buildings")
         b = pd.read_csv(src, dtype={"building_id": str, "address": str, "zone": str, "yr_source": str})
-        b = b[b.district.isin(EXPLORER_DISTRICTS)].sort_values(["district", "yrblt", "building_id"])
+        b = b.copy()
+        b["slug"] = [HISTORIC_DISTRICTS[d]["slug"] if d in EXPLORER_DISTRICTS else REST_SLUG for d in b.district]
+        b = b.sort_values(["slug", "yrblt", "building_id"])
         districts = []
         for name in EXPLORER_DISTRICTS:
             cfg = HISTORIC_DISTRICTS[name]
@@ -42,11 +46,14 @@ def main():
                               "localDate": cfg["local_date"], "localOrdinance": cfg["local_ordinance"],
                               "nrYear": cfg["nr_year"], "nrDate": cfg["nr_date"],
                               "boundaryNote": cfg["boundary_note"], "sensitivityYear": cfg["sensitivity_year"]})
+        districts.append({"name": REST_NAME, "slug": REST_SLUG, "localYear": None, "localDate": "", "localOrdinance": "",
+                          "nrYear": None, "nrDate": "", "boundaryNote": "All of Oak Park outside the two districts above "
+                          "(includes the small Gunderson district).", "sensitivityYear": None})
         buildings = []
         for r in b.itertuples(index=False):
             buildings.append({
                 "id": r.building_id, "address": r.address if isinstance(r.address, str) else "",
-                "district": HISTORIC_DISTRICTS[r.district]["slug"],
+                "district": r.slug,
                 "year": int(r.yrblt) if pd.notna(r.yrblt) else None,
                 "units": int(round(r.units)), "size": size_class(r.units),
                 "type": r.unit_type, "zone": r.zone if isinstance(r.zone, str) else "",
@@ -59,8 +66,8 @@ def main():
             "districts": districts,
             "buildings": buildings,
         }
-        for d in EXPLORER_DISTRICTS:
-            s = b[b.district == d]
+        for d in list(EXPLORER_DISTRICTS) + [REST_NAME]:
+            s = b[b.district == d] if d != REST_NAME else b[b.slug == REST_SLUG]
             st.note(f"{d}: {len(s)} buildings, {s.units.sum():.0f} units, undated {int(s.yrblt.isna().sum())}; "
                     "by size: " + ", ".join(f"{k}={v}" for k, v in
                                             pd.Series([size_class(u) for u in s.units]).value_counts().sort_index().items()))

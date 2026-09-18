@@ -369,3 +369,27 @@
 [s09_provenance] verification passed: 76 produced files checked
 [s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=6bbfccddf2e8 rows=None
 [s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json
+[s12_explorer_data] start s12_explorer_data.py (sha256 c0518f63722c)
+[s12_explorer_data] param EXPLORER_DISTRICTS=('Frank Lloyd Wright', 'Ridgeland - Oak Park')
+[s12_explorer_data] param SIZE_CLASSES=('2', '3', '4', '5', '6', '7+')
+[s12_explorer_data] input  data/interim/s10_mf_buildings.csv (multi-family buildings) sha256=06a031695b5e bytes=231666
+[s12_explorer_data] Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50
+[s12_explorer_data] Ridgeland - Oak Park: 486 buildings, 6275 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181
+[s12_explorer_data] Rest of Oak Park: 857 buildings, 8836 units, undated 2; by size: 2=384, 3=81, 4=89, 5=19, 6=42, 7+=242
+[s12_explorer_data] output outputs/explorer_data/mf_buildings.json (explorer data (FLW + Ridgeland multi-family buildings)) sha256=2ddc5c161a0c rows=None
+[s12_explorer_data] end (0.1s) -> outputs/provenance/s12_explorer_data.json
+[s09_provenance] start s09_provenance.py (sha256 520d3c3efdbb)
+[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=12629ebe11fb bytes=2888
+[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=7a4aa9359cf6 bytes=16865
+[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=2b47c879ec03 bytes=2016
+[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=bbd6efd168c9 bytes=5258
+[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=f6f8c8d17add bytes=6420
+[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=ad60f8c59cc5 bytes=3677
+[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=ab4fbb9e42fb bytes=7773
+[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233
+[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=6c08685da173 bytes=5917
+[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=097a48f80716 bytes=5931
+[s09_provenance] input  outputs/provenance/s12_explorer_data.json (stage record) sha256=600616fec878 bytes=1841
+[s09_provenance] verification passed: 76 produced files checked
+[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=551d54d127d2 rows=None
+[s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json

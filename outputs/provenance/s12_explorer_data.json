@@ -1,6 +1,6 @@
 {
  "config_sha256": "d132051599f4aed279f12819226b3aa8ae144170c9cb76eef90e38f6d3cf63ce",
- "finished_utc": "2026-09-18T19:29:18Z",
+ "finished_utc": "2026-09-18T19:40:46Z",
  "inputs": [
   {
    "bytes": 231666,
@@ -10,22 +10,23 @@
   }
  ],
  "notes": [
-  "start s12_explorer_data.py (sha256 b37902afb2d3)",
+  "start s12_explorer_data.py (sha256 c0518f63722c)",
   "param EXPLORER_DISTRICTS=('Frank Lloyd Wright', 'Ridgeland - Oak Park')",
   "param SIZE_CLASSES=('2', '3', '4', '5', '6', '7+')",
   "input  data/interim/s10_mf_buildings.csv (multi-family buildings) sha256=06a031695b5e bytes=231666",
   "Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50",
   "Ridgeland - Oak Park: 486 buildings, 6275 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181",
-  "output outputs/explorer_data/mf_buildings.json (explorer data (FLW + Ridgeland multi-family buildings)) sha256=512e28a6ef9e rows=None"
+  "Rest of Oak Park: 857 buildings, 8836 units, undated 2; by size: 2=384, 3=81, 4=89, 5=19, 6=42, 7+=242",
+  "output outputs/explorer_data/mf_buildings.json (explorer data (FLW + Ridgeland multi-family buildings)) sha256=2ddc5c161a0c rows=None"
  ],
  "ok": true,
  "outputs": [
   {
-   "bytes": 138939,
+   "bytes": 303807,
    "path": "outputs/explorer_data/mf_buildings.json",
    "role": "explorer data (FLW + Ridgeland multi-family buildings)",
    "rows": null,
-   "sha256": "512e28a6ef9ebe0005cf288bbc9e281011e52e7ba1ee4dc79084dee28ff06093"
+   "sha256": "2ddc5c161a0c4a1a2296c7a9afe1f1a7bbd2a7d919e35f9b659f68e4ebea0e17"
   }
  ],
  "params": {
@@ -45,8 +46,8 @@
  "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
  "python": "3.14.7",
  "script": "s12_explorer_data.py",
- "script_sha256": "b37902afb2d3ad77c8e851d9b26c95354256bd8dff8c668b385ae71974a85cea",
+ "script_sha256": "c0518f63722c68589511fbad38b3b0081f04513c6ffa915553cec41c4d9e0399",
  "seconds": 0.1,
  "stage": "s12_explorer_data",
- "started_utc": "2026-09-18T19:29:18Z"
+ "started_utc": "2026-09-18T19:40:46Z"
 }
