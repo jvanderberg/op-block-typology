@@ -1,4 +1,4 @@
-[s01_extract] start s01_extract.py (sha256 cc9ab761eef1)
+[s01_extract] start s01_extract.py (sha256 34fd21f81439)
 [s01_extract] param db_path='/Users/joshv/git/tax_appeal_app/data/properties.db'
 [s01_extract] param year=2026
 [s01_extract] param township_code='27'
@@ -9,8 +9,10 @@
 [s01_extract] output data/interim/s01_parcels.csv (all Oak Park parcels, one row per PIN) sha256=2de4e10e6e82 rows=18733
 [s01_extract] address points with city like Oak Park and coordinates: 12158
 [s01_extract] output data/interim/s01_address_points.csv (Oak Park address points (address, lat, lon)) sha256=7331558c1065 rows=12158
-[s01_extract] end (2.7s) -> outputs/provenance/s01_extract.json
-[s02_fetch] start s02_fetch.py (sha256 4a0d8e7a63cd)
+[s01_extract] class history rows: 131718 over years [np.int64(2020), np.int64(2021), np.int64(2022), np.int64(2023), np.int64(2024), np.int64(2025), np.int64(2026)]
+[s01_extract] output data/interim/s01_class_history.csv (assessment class and year built per PIN per year) sha256=508ab4be991d rows=131718
+[s01_extract] end (5.4s) -> outputs/provenance/s01_extract.json
+[s02_fetch] start s02_fetch.py (sha256 a53e9df8ffba)
 [s02_fetch] input  data/interim/s01_parcels.csv (parcel list (for supplemental PIN fetch)) sha256=2de4e10e6e82 bytes=1973880
 [s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/arcgis_parcels_oak_park.geojson
 [s02_fetch] output data/raw/arcgis_parcels_oak_park.geojson (Cook County parcel polygons (ArcGIS snapshot)) sha256=bf25146aa0fa rows=13849
@@ -55,7 +57,13 @@
 [s02_fetch] output data/raw/pl/ilgeo2020.pl (member of il2020.pl.zip) sha256=0629a31079ac rows=None
 [s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/censusreporter_acs_bg.json
 [s02_fetch] output data/raw/censusreporter_acs_bg.json (ACS 5-year block-group tables via Census Reporter) sha256=da35edfce163 rows=53
-[s02_fetch] end (2.1s) -> outputs/provenance/s02_fetch.json
+[s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/vop_historic_districts.geojson
+[s02_fetch] output data/raw/vop_historic_districts.geojson (Village of Oak Park historic district polygons) sha256=4d22869c4b45 rows=3
+[s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/socrata_3r7i-mrz4_oak_park_2023.json
+[s02_fetch] output data/raw/socrata_3r7i-mrz4_oak_park_2023.json (Assessor Condominium Unit Characteristics, Oak Park) sha256=42630c54bf1e rows=5472
+[s02_fetch] exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/vop_zoning.geojson
+[s02_fetch] output data/raw/vop_zoning.geojson (Village of Oak Park zoning district polygons) sha256=ea2423f9094f rows=23
+[s02_fetch] end (2.4s) -> outputs/provenance/s02_fetch.json
 [s03_locate] start s03_locate.py (sha256 eca8561d8898)
 [s03_locate] input  data/interim/s01_parcels.csv (parcels) sha256=2de4e10e6e82 bytes=1973880
 [s03_locate] input  data/interim/s01_address_points.csv (address points) sha256=7331558c1065 bytes=698307
@@ -65,7 +73,7 @@
 [s03_locate] unlocated by class: 299=38, 315=3, 391=2, 517=2, EX=1, 592=1, 212=1
 [s03_locate] output data/interim/s03_parcels_located.csv (parcels with point location and locating rule) sha256=263e53ce4926 rows=18733
 [s03_locate] end (0.4s) -> outputs/provenance/s03_locate.json
-[s04_units] start s04_units.py (sha256 2a038b445d19)
+[s04_units] start s04_units.py (sha256 5e3a2f1d3d14)
 [s04_units] param SF_DETACHED_CLASSES=('202', '203', '204', '205', '206', '207', '208', '209', '234', '278', '218')
 [s04_units] param SF_ATTACHED_CLASSES=('210', '295')
 [s04_units] param SMALL_MF_CLASSES=('211', '212')
@@ -76,24 +84,25 @@
 [s04_units] param LARGE_MF_MIN_UNITS=7
 [s04_units] input  data/interim/s03_parcels_located.csv (located parcels) sha256=263e53ce4926 bytes=3391438
 [s04_units] input  data/raw/socrata_csik-bsws_oak_park.json (Commercial Valuation Data (unit counts)) sha256=9da68c86b26f bytes=410641
-[s04_units] commval: 229 apartment rows with tot_units
+[s04_units] commval: 255 rows with tot_units (229 apartment-class 3-xx, 26 other classes, mostly 2-36 mixed-use)
 [s04_units] commval keypin 16074000250000 (715 S BLVD OAK PARK) has no PIN in the 2026 parcel list; skipped
-[s04_units] commval: 229 properties, 40 span several PINs, 288 PINs received an allocation
+[s04_units] commval keypin 16081230270000 (416 N AUSTIN OAK PARK) has no PIN in the 2026 parcel list; skipped
+[s04_units] commval: 255 properties, 43 span several PINs, 323 PINs received an allocation
 [s04_units] commval override: PIN 16071080380000 (1035 SUPERIOR ST REAR) is class 301 in 2026 assessed values but an apartment property with 0.0 units in the 2023 Commercial Valuation data; counted as large_mf (was none with 0 units)
 [s04_units] commval override: PIN 16071200650000 (1005 LAKE ST) is class 517 in 2026 assessed values but an apartment property with 267.0 units in the 2023 Commercial Valuation data; counted as large_mf (was none with 0 units)
 [s04_units] commval override: PIN 16071210460000 (150 FOREST AVE) is class EX in 2026 assessed values but an apartment property with 277.0 units in the 2023 Commercial Valuation data; counted as large_mf (was none with 0 units)
 [s04_units] commval override: PIN 16081050230000 (728 AUSTIN AVE 2) is class 212 in 2026 assessed values but an apartment property with 8.0 units in the 2023 Commercial Valuation data; counted as large_mf (was small_mf with 4 units)
 [s04_units] commval overrides applied: 4
-[s04_units] large_mf AV-per-unit calibration: overall median 8,508; by class 212=19,478 (n=1), 301=8,969 (n=1), 313=8,991 (n=2), 314=8,145 (n=35), 315=7,873 (n=157), 318=8,718 (n=41), 390=8,572 (n=13), 391=16,023 (n=24), 397=27,153 (n=12), 517=26,409 (n=1)
-[s04_units] large_mf: 336 PINs, 287 with commval units, 48 estimated from AV (sum est. units 1909)
-[s04_units] unit_type: condo: 5356 PINs / 5356 units, exempt_res: 5 PINs / 8 units, large_mf: 336 PINs / 9331 units, none: 1692 PINs / 0 units, sf_attached: 667 PINs / 667 units, sf_detached: 9649 PINs / 9649 units, small_mf: 1028 PINs / 2665 units
-[s04_units] bucket: large_mf: 5435 PINs / 14430 units, none: 1692 PINs / 0 units, sf: 10320 PINs / 10320 units, small_mf: 1286 PINs / 2926 units
-[s04_units] units_source: char_apts: 1019 PINs / 2647 units, class_rule: 17364 PINs / 15672 units, commval_2023: 284 PINs / 6870 units, commval_2023_override: 4 PINs / 552 units, default_missing_char_apts: 9 PINs / 18 units, estimate_av/all: 4 PINs / 715 units, estimate_av/class: 44 PINs / 1194 units, exempt_char_apts: 1 PINs / 4 units, exempt_single_family: 4 PINs / 4 units
-[s04_units] TOTAL housing units on parcels: 27676
-[s04_units] output data/interim/s04_parcel_units.csv (parcels with unit counts, type, bucket and source) sha256=63c38375a8cf rows=18733
-[s04_units] buildings: 13601 (with housing: 11909)
-[s04_units] output data/interim/s04_buildings.csv (one row per building) sha256=c922748e3b8b rows=13601
-[s04_units] end (0.4s) -> outputs/provenance/s04_units.json
+[s04_units] large_mf AV-per-unit calibration: overall median 8,572; by class 212=19,478 (n=1), 301=8,969 (n=1), 313=8,991 (n=2), 314=8,145 (n=35), 315=7,924 (n=158), 318=10,732 (n=61), 390=8,572 (n=13), 391=16,023 (n=24), 397=27,153 (n=12), 517=26,409 (n=1)
+[s04_units] large_mf: 336 PINs, 308 with commval units, 27 estimated from AV (sum est. units 1437)
+[s04_units] unit_type: condo: 5356 PINs / 5356 units, exempt_res: 5 PINs / 8 units, large_mf: 336 PINs / 9014 units, none: 1692 PINs / 0 units, sf_attached: 667 PINs / 667 units, sf_detached: 9649 PINs / 9649 units, small_mf: 1028 PINs / 2665 units
+[s04_units] bucket: large_mf: 5435 PINs / 14113 units, none: 1692 PINs / 0 units, sf: 10320 PINs / 10320 units, small_mf: 1286 PINs / 2926 units
+[s04_units] units_source: char_apts: 1019 PINs / 2647 units, class_rule: 17364 PINs / 15672 units, commval_2023: 305 PINs / 7025 units, commval_2023_override: 4 PINs / 552 units, default_missing_char_apts: 9 PINs / 18 units, estimate_av/all: 4 PINs / 710 units, estimate_av/ancillary: 4 PINs / 0 units, estimate_av/class: 19 PINs / 727 units, exempt_char_apts: 1 PINs / 4 units, exempt_single_family: 4 PINs / 4 units
+[s04_units] TOTAL housing units on parcels: 27359
+[s04_units] output data/interim/s04_parcel_units.csv (parcels with unit counts, type, bucket and source) sha256=69ef35157c64 rows=18733
+[s04_units] buildings: 13600 (with housing: 11904)
+[s04_units] output data/interim/s04_buildings.csv (one row per building) sha256=74813c75cb3b rows=13600
+[s04_units] end (1.0s) -> outputs/provenance/s04_units.json
 [s05_blocks] start s05_blocks.py (sha256 b8ef0360686b)
 [s05_blocks] param SF_ONLY_MIN_SHARE=0.95
 [s05_blocks] param DOMINANT_SHARE=0.5
@@ -101,7 +110,7 @@
 [s05_blocks] param CENSUS_GAP_MIN_UNITS=7
 [s05_blocks] param CENSUS_GAP_MIN_SHARE=0.3
 [s05_blocks] param PLACE_GEOID='1754885'
-[s05_blocks] input  data/interim/s04_parcel_units.csv (parcel units) sha256=63c38375a8cf bytes=4290246
+[s05_blocks] input  data/interim/s04_parcel_units.csv (parcel units) sha256=69ef35157c64 bytes=4290133
 [s05_blocks] input  data/raw/place/tl_2020_17_place.shp (TIGER/Line 2020 shapefile) sha256=f18a8f5c7d03 bytes=9608328
 [s05_blocks] input  data/raw/place/tl_2020_17_place.dbf (TIGER/Line 2020 attribute table) sha256=0e1f037c9ad0 bytes=419822
 [s05_blocks] input  data/raw/blocks/tl_2020_17_tabblock20.shp (TIGER/Line 2020 shapefile) sha256=99dabb89da61 bytes=252883164
@@ -113,27 +122,27 @@
 [s05_blocks] inside blocks: POP20 sum 54583, HOUSING20 sum 25953, tracts ['812100', '812200', '812301', '812302', '812400', '812500', '812600', '812700', '812801', '812802', '812900', '813000', '813100', '813200']
 [s05_blocks] parcels: 18733; located: 18685; unlocated (excluded): 48 carrying 190 units
 [s05_blocks] parcels in no block: 0 (0 units); in a block outside the place: 0 (0 units)
-[s05_blocks] parcels assigned to Oak Park blocks: 18685 with 27486 units
+[s05_blocks] parcels assigned to Oak Park blocks: 18685 with 27169 units
 [s05_blocks] blocks with no parcels: 36 (HOUSING20 in them: 43)
-[s05_blocks] unit reconciliation: parcels 27486 vs census HOUSING20 25953 (ratio 1.059); blocks flagged census_gap: 9 carrying 625 unaccounted units
-[s05_blocks] largest census gaps (block, HOUSING20, parcel units, category): 170318128011004 327 129 large_mf_7plus; 170318123012003 253 59 large_mf_7plus; 170318126001000 248 140 large_mf_7plus; 170318128021001 42 0 no_housing; 170318127001016 105 78 large_mf_7plus; 170318126004000 86 59 large_mf_7plus; 170318126002008 106 82 large_mf_7plus; 170318132002008 85 62 large_mf_7plus; 170318128011002 62 42 large_mf_7plus; 170318129004024 78 59 large_mf_7plus; 170318128011000 80 63 large_mf_7plus; 170318125004006 70 54 large_mf_7plus
-[s05_blocks] blocks whose category changes when estimated large-MF units are set to the minimum (7): 2
-[s05_blocks] category: single_family=462, small_mf_2_6=67, large_mf_7plus=213, mixed=218, no_housing=98
-[s05_blocks] category_estmin: single_family=462, small_mf_2_6=68, large_mf_7plus=211, mixed=219, no_housing=98
-[s05_blocks] category_sf100: single_family=460, small_mf_2_6=67, large_mf_7plus=213, mixed=220, no_housing=98
-[s05_blocks] category_sf90: single_family=476, small_mf_2_6=67, large_mf_7plus=213, mixed=204, no_housing=98
+[s05_blocks] unit reconciliation: parcels 27169 vs census HOUSING20 25953 (ratio 1.047); blocks flagged census_gap: 11 carrying 658 unaccounted units
+[s05_blocks] largest census gaps (block, HOUSING20, parcel units, category): 170318128011004 327 129 large_mf_7plus; 170318123012003 253 59 large_mf_7plus; 170318126001000 248 140 large_mf_7plus; 170318128021001 42 0 no_housing; 170318126004000 86 59 large_mf_7plus; 170318127001016 105 78 large_mf_7plus; 170318126002008 106 82 large_mf_7plus; 170318132002008 85 62 large_mf_7plus; 170318125004006 70 47 large_mf_7plus; 170318128011002 62 42 large_mf_7plus; 170318128012001 107 87 large_mf_7plus; 170318129004024 78 59 large_mf_7plus
+[s05_blocks] blocks whose category changes when estimated large-MF units are set to the minimum (7): 0
+[s05_blocks] category: single_family=462, small_mf_2_6=70, large_mf_7plus=208, mixed=220, no_housing=98
+[s05_blocks] category_estmin: single_family=462, small_mf_2_6=70, large_mf_7plus=208, mixed=220, no_housing=98
+[s05_blocks] category_sf100: single_family=460, small_mf_2_6=70, large_mf_7plus=208, mixed=222, no_housing=98
+[s05_blocks] category_sf90: single_family=476, small_mf_2_6=70, large_mf_7plus=208, mixed=206, no_housing=98
 [s05_blocks]   single_family: 462 blocks, 5973 units, HOUSING20 6018, POP20 18464
-[s05_blocks]   small_mf_2_6: 67 blocks, 1254 units, HOUSING20 1207, POP20 2784
-[s05_blocks]   large_mf_7plus: 213 blocks, 15881 units, HOUSING20 14183, POP20 21440
-[s05_blocks]   mixed: 218 blocks, 4378 units, HOUSING20 4489, POP20 11797
+[s05_blocks]   small_mf_2_6: 70 blocks, 1295 units, HOUSING20 1243, POP20 2837
+[s05_blocks]   large_mf_7plus: 208 blocks, 15488 units, HOUSING20 14124, POP20 21327
+[s05_blocks]   mixed: 220 blocks, 4413 units, HOUSING20 4512, POP20 11857
 [s05_blocks]   no_housing: 98 blocks, 0 units, HOUSING20 56, POP20 98
-[s05_blocks] output data/interim/s05_blocks.csv (one row per Oak Park block with unit mix and category) sha256=8d252e3d8aa2 rows=1058
-[s05_blocks] output data/interim/s05_blocks.geojson (block polygons with category (for the map)) sha256=52826097e462 rows=1058
-[s05_blocks] block groups: 53; category: single_family=3, small_mf_2_6=0, large_mf_7plus=20, mixed=30, no_housing=0
-[s05_blocks] output data/interim/s05_blockgroups.csv (one row per Oak Park block group with unit mix and category) sha256=e04a7928491d rows=53
-[s05_blocks] end (1.4s) -> outputs/provenance/s05_blocks.json
+[s05_blocks] output data/interim/s05_blocks.csv (one row per Oak Park block with unit mix and category) sha256=a21310185a31 rows=1058
+[s05_blocks] output data/interim/s05_blocks.geojson (block polygons with category (for the map)) sha256=23782599068a rows=1058
+[s05_blocks] block groups: 53; category: single_family=3, small_mf_2_6=0, large_mf_7plus=19, mixed=31, no_housing=0
+[s05_blocks] output data/interim/s05_blockgroups.csv (one row per Oak Park block group with unit mix and category) sha256=a58c61e3a0cf rows=53
+[s05_blocks] end (4.3s) -> outputs/provenance/s05_blocks.json
 [s06_census] start s06_census.py (sha256 c3452e67a0a1)
-[s06_census] input  data/interim/s05_blocks.csv (Oak Park block list with TIGER POP20/HOUSING20) sha256=8d252e3d8aa2 bytes=192216
+[s06_census] input  data/interim/s05_blocks.csv (Oak Park block list with TIGER POP20/HOUSING20) sha256=a21310185a31 bytes=192060
 [s06_census] input  data/raw/pl/ilgeo2020.pl (2020 P.L. 94-171 Illinois) sha256=0629a31079ac bytes=229047517
 [s06_census] input  data/raw/pl/il000012020.pl (2020 P.L. 94-171 Illinois) sha256=c3b6d40015d9 bytes=199590170
 [s06_census] input  data/raw/pl/il000022020.pl (2020 P.L. 94-171 Illinois) sha256=925f667072cb bytes=203562829
@@ -148,49 +157,169 @@
 [s06_census] ACS release: acs2024_5yr (ACS 2024 5-year, 2020-2024)
 [s06_census] ACS block groups: 53; population estimate 53292
 [s06_census] output data/interim/s06_blockgroups_acs.csv (ACS B03002 per Oak Park block group, with MOE) sha256=192c3f39dccf rows=53
-[s06_census] end (2.7s) -> outputs/provenance/s06_census.json
+[s06_census] end (2.9s) -> outputs/provenance/s06_census.json
 [s07_analyze] start s07_analyze.py (sha256 6749f439cbb8)
 [s07_analyze] param SF_ONLY_MIN_SHARE=0.95
 [s07_analyze] param SF_ONLY_SENSITIVITY=(1.0, 0.9)
 [s07_analyze] param GQ_MAX_SHARE=0.25
-[s07_analyze] input  data/interim/s05_blocks.csv (block typology) sha256=8d252e3d8aa2 bytes=192216
+[s07_analyze] input  data/interim/s05_blocks.csv (block typology) sha256=a21310185a31 bytes=192060
 [s07_analyze] input  data/interim/s06_blocks_census2020.csv (2020 block counts) sha256=a92687777f72 bytes=53062
-[s07_analyze] input  data/interim/s05_blockgroups.csv (block-group typology) sha256=e04a7928491d bytes=7620
+[s07_analyze] input  data/interim/s05_blockgroups.csv (block-group typology) sha256=a58c61e3a0cf bytes=7603
 [s07_analyze] input  data/interim/s06_blockgroups_acs.csv (ACS block-group race) sha256=192c3f39dccf bytes=6503
 [s07_analyze] blocks: 1058; population 54583; group-quarters-heavy blocks (> 25% GQ): 4 with 248 people
-[s07_analyze] blocks reclassified when estimated large-MF units are set to the minimum: 2
-[s07_analyze] block-group categories: single_family=3, small_mf_2_6=0, large_mf_7plus=20, mixed=30, no_housing=0
-[s07_analyze] output outputs/tables/A_race_by_block_type_2020.csv (table A_race_by_block_type_2020) sha256=bea081e64052 rows=6
-[s07_analyze] output outputs/tables/A2_race_by_block_type_2020_excl_gq.csv (table A2_race_by_block_type_2020_excl_gq) sha256=b0cf2d15cbc5 rows=6
-[s07_analyze] output outputs/tables/B_where_each_group_lives_2020.csv (table B_where_each_group_lives_2020) sha256=b6914678d729 rows=5
-[s07_analyze] output outputs/tables/C_sensitivity_sf100.csv (table C_sensitivity_sf100) sha256=6211fe4f2421 rows=6
-[s07_analyze] output outputs/tables/C_sensitivity_sf90.csv (table C_sensitivity_sf90) sha256=e620086da0a3 rows=6
-[s07_analyze] output outputs/tables/C_sensitivity_estimated_units_min.csv (table C_sensitivity_estimated_units_min) sha256=1a5afb57c6a5 rows=6
-[s07_analyze] output outputs/tables/D1_block_groups_2020.csv (table D1_block_groups_2020) sha256=4057a5d43ba2 rows=4
-[s07_analyze] output outputs/tables/D2_block_groups_acs_2020_2024.csv (table D2_block_groups_acs_2020_2024) sha256=b7db9b37dc32 rows=3
-[s07_analyze] output outputs/tables/E_within_block_group_contrast_2020.csv (table E_within_block_group_contrast_2020) sha256=8435f56afeb6 rows=5
-[s07_analyze] output outputs/tables/E2_paired_difference_vs_single_family_2020.csv (table E2_paired_difference_vs_single_family_2020) sha256=7fcc89d7549f rows=3
-[s07_analyze] output outputs/tables/F_housing_mix_by_block_type.csv (table F_housing_mix_by_block_type) sha256=f2101e14167a rows=5
-[s07_analyze] output outputs/fig_race_by_block_type.png (figure: race composition by block type) sha256=518fd1992131 rows=None
-[s07_analyze] output outputs/fig_where_groups_live.png (figure: distribution of each group across block types) sha256=5c39eb324540 rows=None
-[s07_analyze] output outputs/results.md (results narrative with all tables) sha256=5b9b09a0786c rows=None
-[s07_analyze] output outputs/results.json (all tables as JSON) sha256=a492c3c6096a rows=None
-[s07_analyze] headline (2020, all blocks): Single-family only: white 68.7%, black 10.4%, hispanic 8.6%, asian 4.4% (pop 18,464); 2-6 unit buildings dominate: white 46.2%, black 28.7%, hispanic 12.1%, asian 6.0% (pop 2,784); 7+ unit buildings dominate: white 51.7%, black 27.7%, hispanic 9.2%, asian 6.5% (pop 21,440); Mixed (houses + apartments): white 66.0%, black 12.9%, hispanic 9.7%, asian 4.8% (pop 11,797)
+[s07_analyze] blocks reclassified when estimated large-MF units are set to the minimum: 0
+[s07_analyze] block-group categories: single_family=3, small_mf_2_6=0, large_mf_7plus=19, mixed=31, no_housing=0
+[s07_analyze] output outputs/tables/A_race_by_block_type_2020.csv (table A_race_by_block_type_2020) sha256=482aee04fe87 rows=6
+[s07_analyze] output outputs/tables/A2_race_by_block_type_2020_excl_gq.csv (table A2_race_by_block_type_2020_excl_gq) sha256=c00b1851fae1 rows=6
+[s07_analyze] output outputs/tables/B_where_each_group_lives_2020.csv (table B_where_each_group_lives_2020) sha256=100a450f4ae5 rows=5
+[s07_analyze] output outputs/tables/C_sensitivity_sf100.csv (table C_sensitivity_sf100) sha256=5a3828f32a4b rows=6
+[s07_analyze] output outputs/tables/C_sensitivity_sf90.csv (table C_sensitivity_sf90) sha256=f4443f69dc34 rows=6
+[s07_analyze] output outputs/tables/C_sensitivity_estimated_units_min.csv (table C_sensitivity_estimated_units_min) sha256=d710a7112760 rows=6
+[s07_analyze] output outputs/tables/D1_block_groups_2020.csv (table D1_block_groups_2020) sha256=c4c1a961fad1 rows=4
+[s07_analyze] output outputs/tables/D2_block_groups_acs_2020_2024.csv (table D2_block_groups_acs_2020_2024) sha256=7e49cc715c3a rows=3
+[s07_analyze] output outputs/tables/E_within_block_group_contrast_2020.csv (table E_within_block_group_contrast_2020) sha256=6b459b313c39 rows=5
+[s07_analyze] output outputs/tables/E2_paired_difference_vs_single_family_2020.csv (table E2_paired_difference_vs_single_family_2020) sha256=785a43ea072f rows=3
+[s07_analyze] output outputs/tables/F_housing_mix_by_block_type.csv (table F_housing_mix_by_block_type) sha256=4dbcfb010c1e rows=5
+[s07_analyze] output outputs/fig_race_by_block_type.png (figure: race composition by block type) sha256=9071aa3b9265 rows=None
+[s07_analyze] output outputs/fig_where_groups_live.png (figure: distribution of each group across block types) sha256=d0b51d3e9711 rows=None
+[s07_analyze] output outputs/results.md (results narrative with all tables) sha256=18a22193145e rows=None
+[s07_analyze] output outputs/results.json (all tables as JSON) sha256=b2f1d15ab66b rows=None
+[s07_analyze] headline (2020, all blocks): Single-family only: white 68.7%, black 10.4%, hispanic 8.6%, asian 4.4% (pop 18,464); 2-6 unit buildings dominate: white 45.8%, black 28.9%, hispanic 12.2%, asian 5.9% (pop 2,837); 7+ unit buildings dominate: white 51.7%, black 27.7%, hispanic 9.2%, asian 6.5% (pop 21,327); Mixed (houses + apartments): white 66.0%, black 12.8%, hispanic 9.7%, asian 4.9% (pop 11,857)
 [s07_analyze] end (0.3s) -> outputs/provenance/s07_analyze.json
 [s08_map] start s08_map.py (sha256 ea9cfe61704b)
-[s08_map] input  data/interim/s05_blocks.geojson (block polygons with category) sha256=52826097e462 bytes=1132389
-[s08_map] map: 1058 blocks; counts {'single_family': 462, 'small_mf_2_6': 67, 'large_mf_7plus': 213, 'mixed': 218, 'no_housing': 98}
-[s08_map] output outputs/map.html (interactive block-type map) sha256=671e89a8ad3e rows=None
+[s08_map] input  data/interim/s05_blocks.geojson (block polygons with category) sha256=23782599068a bytes=1132233
+[s08_map] map: 1058 blocks; counts {'single_family': 462, 'small_mf_2_6': 70, 'large_mf_7plus': 208, 'mixed': 220, 'no_housing': 98}
+[s08_map] output outputs/map.html (interactive block-type map) sha256=52afbb523ec9 rows=None
 [s08_map] end (0.0s) -> outputs/provenance/s08_map.json
-[s09_provenance] start s09_provenance.py (sha256 3c277ddac4f9)
-[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=5e9c0fae4682 bytes=2361
-[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=f51ad981436a bytes=15070
-[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=1679267a71f2 bytes=2016
-[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=890e221b80e0 bytes=5056
-[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=364a55039dd6 bytes=6418
-[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=dd3b72b05b7f bytes=3677
-[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=da2ad4d78214 bytes=7773
-[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=29f165e806e1 bytes=1233
-[s09_provenance] verification passed: 58 produced files checked
-[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=8da4fe417d67 rows=None
+[s10_districts] start s10_districts.py (sha256 960691bba81a)
+[s10_districts] param MF_UNIT_TYPES=('small_mf', 'large_mf', 'condo')
+[s10_districts] param MF_MIN_UNITS=2
+[s10_districts] param districts={'Frank Lloyd Wright': 1972, 'Ridgeland - Oak Park': 1994, 'Gunderson': 2002}
+[s10_districts] input  data/interim/s04_parcel_units.csv (parcel units) sha256=69ef35157c64 bytes=4290133
+[s10_districts] input  data/interim/s01_class_history.csv (class history) sha256=508ab4be991d bytes=3765499
+[s10_districts] input  data/raw/vop_historic_districts.geojson (historic districts) sha256=4d22869c4b45 bytes=108951
+[s10_districts] input  data/raw/vop_zoning.geojson (zoning) sha256=ea2423f9094f bytes=1713606
+[s10_districts] input  data/raw/socrata_3r7i-mrz4_oak_park_2023.json (condo characteristics) sha256=42630c54bf1e bytes=3146737
+[s10_districts] input  data/raw/socrata_csik-bsws_oak_park.json (commercial valuation) sha256=9da68c86b26f bytes=410641
+[s10_districts] districts: ['Frank Lloyd Wright', 'Gunderson', 'Ridgeland - Oak Park']; zoning polygons: 23
+[s10_districts] located parcels by district: Rest of Oak Park=11317, Ridgeland - Oak Park=4044, Frank Lloyd Wright=3033, Gunderson=291
+[s10_districts] parcels without a zoning polygon: 15
+[s10_districts] year lookups: condo buildings 289, commval PINs 810, any-year characteristics 11397, class history 19086 PINs from 2020
+[s10_districts] multi-family buildings (>= 2 units): 1572 with 16842 units
+[s10_districts] year source: char_yrblt=1027, condo_chars=281, commval=247, class_history=8, manual=4, char_yrblt_anyyear=3, unknown=2
+[s10_districts] unknown year: 2 buildings, 101 units: 1034 LAKE ST (Rest of Oak Park, 12 u, 318); 1035 MADISON ST (Rest of Oak Park, 89 u, 397)
+[s10_districts] manually dated (config MANUAL_YEAR_BUILT, with source): 1111 ONTARIO ST 812 1992.0 (72 u) <https://www.oakpark.com/2017/03/28/the-high-rise-wars/>; 1111 ONTARIO ST 1992.0 (286 u) <https://www.oakpark.com/2017/03/28/the-high-rise-wars/>; 408 S OAK PARK AVE 1921.0 (211 u) <https://en.wikipedia.org/wiki/Oak_Park_Arms>; 408 S OAK PARK AVE 1921.0 (141 u) <https://en.wikipedia.org/wiki/Oak_Park_Arms>
+[s10_districts] class-history dated: 822 NORTH BLVD 2024.0 (7 u); 409 S MAPLE AVE 2024.0 (16 u); 801 VAN BUREN ST 2023.0 (31 u); 835 LAKE ST 2023.0 (86 u); 833 LAKE ST 2023.0 (86 u); 1105 PLEASANT ST 2023.0 (64 u); 1105 PLEASANT ST 2023.0 (64 u); 261 WASHINGTON BLVD 2023.0 (32 u)
+[s10_districts]   Frank Lloyd Wright: 222 MF buildings, 1731 units, 0 undated
+[s10_districts]   Ridgeland - Oak Park: 490 MF buildings, 6275 units, 0 undated
+[s10_districts]   Gunderson: 22 MF buildings, 48 units, 0 undated
+[s10_districts]   Rest of Oak Park: 838 MF buildings, 8788 units, 2 undated
+[s10_districts] output data/interim/s10_mf_buildings.csv (multi-family buildings with district, zone, year built) sha256=eca730d88ddb rows=1572
+[s10_districts] output data/interim/s10_district_parcels.csv (housing units by district and bucket) sha256=d37df8422ee7 rows=11
+[s10_districts] output data/interim/s10_district_zoning.csv (district area by zoning district) sha256=ad3b022d4a24 rows=31
+[s10_districts] end (2.8s) -> outputs/provenance/s10_districts.json
+[s11_district_analysis] start s11_district_analysis.py (sha256 4d676c855cb4)
+[s11_district_analysis] param END_YEAR=2025
+[s11_district_analysis] param designation_years={'Frank Lloyd Wright': 1972, 'Ridgeland - Oak Park': 1994, 'Gunderson': 2002}
+[s11_district_analysis] param sensitivity_years={'Frank Lloyd Wright': 2012, 'Ridgeland - Oak Park': 1983, 'Gunderson': 2003}
+[s11_district_analysis] input  data/interim/s10_mf_buildings.csv (MF buildings) sha256=eca730d88ddb bytes=233479
+[s11_district_analysis] input  data/interim/s10_district_parcels.csv (units by district) sha256=d37df8422ee7 bytes=471
+[s11_district_analysis] input  data/interim/s10_district_zoning.csv (district zoning) sha256=ad3b022d4a24 bytes=1519
+[s11_district_analysis] output outputs/tables/G1_mf_units_by_decade_built.csv (table G1_mf_units_by_decade_built) sha256=6368bdedc198 rows=4
+[s11_district_analysis] output outputs/tables/G2_mf_buildings_by_decade_built.csv (table G2_mf_buildings_by_decade_built) sha256=5a6d882a13f8 rows=4
+[s11_district_analysis] output outputs/tables/H1_before_after_local_designation.csv (table H1_before_after_local_designation) sha256=4570b339034f rows=3
+[s11_district_analysis] output outputs/tables/H2_before_after_sensitivity_dates.csv (table H2_before_after_sensitivity_dates) sha256=dccdfdddad99 rows=3
+[s11_district_analysis] output outputs/tables/I_mf_built_after_designation.csv (table I_mf_built_after_designation) sha256=0dc416ab93bf rows=22
+[s11_district_analysis] output outputs/tables/J_district_area_by_zoning.csv (table J_district_area_by_zoning) sha256=5f8cc3132441 rows=3
+[s11_district_analysis] output outputs/tables/K_district_housing_units_by_type_2026.csv (table K_district_housing_units_by_type_2026) sha256=65359ec53620 rows=4
+[s11_district_analysis] Frank Lloyd Wright: designated 1972; 54-yr windows: before 85 bldgs/1170 units, after 7 bldgs/128 units; rest of village before 4607, after 3062; undated 0 bldgs/0 units
+[s11_district_analysis] Ridgeland - Oak Park: designated 1994; 32-yr windows: before 51 bldgs/987 units, after 15 bldgs/547 units; rest of village before 2206, after 2123; undated 0 bldgs/0 units
+[s11_district_analysis] Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs/0 units; rest of village before 994, after 1953; undated 0 bldgs/0 units
+[s11_district_analysis] output outputs/fig_mf_by_decade.png (figure: MF units by decade built per district) sha256=7f9166012140 rows=None
+[s11_district_analysis] output outputs/results_districts.md (district results narrative) sha256=c7e1be7f992d rows=None
+[s11_district_analysis] output outputs/results_districts.json (district tables as JSON) sha256=5c83cd12a279 rows=None
+[s11_district_analysis] end (0.3s) -> outputs/provenance/s11_district_analysis.json
+[s09_provenance] start s09_provenance.py (sha256 ee3a6dfdf8f2)
+[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=12629ebe11fb bytes=2888
+[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=7a4aa9359cf6 bytes=16865
+[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=2b47c879ec03 bytes=2016
+[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=bbd6efd168c9 bytes=5258
+[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=f6f8c8d17add bytes=6420
+[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=ad60f8c59cc5 bytes=3677
+[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=ab4fbb9e42fb bytes=7773
+[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233
+[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=5f25e2ec2392 bytes=5348
+[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=2419165b6cf5 bytes=5931
+[s09_provenance] verification passed: 75 produced files checked
+[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=a122bd63d382 rows=None
+[s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json
+[s10_districts] start s10_districts.py (sha256 e4de765b07d5)
+[s10_districts] param MF_UNIT_TYPES=('small_mf', 'large_mf', 'condo')
+[s10_districts] param MF_MIN_UNITS=2
+[s10_districts] param districts={'Frank Lloyd Wright': 1972, 'Ridgeland - Oak Park': 1994, 'Gunderson': 2002}
+[s10_districts] input  data/interim/s04_parcel_units.csv (parcel units) sha256=69ef35157c64 bytes=4290133
+[s10_districts] input  data/interim/s01_class_history.csv (class history) sha256=508ab4be991d bytes=3765499
+[s10_districts] input  data/raw/vop_historic_districts.geojson (historic districts) sha256=4d22869c4b45 bytes=108951
+[s10_districts] input  data/raw/vop_zoning.geojson (zoning) sha256=ea2423f9094f bytes=1713606
+[s10_districts] input  data/raw/socrata_3r7i-mrz4_oak_park_2023.json (condo characteristics) sha256=42630c54bf1e bytes=3146737
+[s10_districts] input  data/raw/socrata_csik-bsws_oak_park.json (commercial valuation) sha256=9da68c86b26f bytes=410641
+[s10_districts] districts: ['Frank Lloyd Wright', 'Gunderson', 'Ridgeland - Oak Park']; zoning polygons: 23
+[s10_districts] located parcels by district: Rest of Oak Park=11317, Ridgeland - Oak Park=4044, Frank Lloyd Wright=3033, Gunderson=291
+[s10_districts] parcels without a zoning polygon: 15
+[s10_districts] year lookups: condo buildings 289, commval PINs 810, any-year characteristics 11397, class history 19086 PINs from 2020
+[s10_districts] merge by address: ['16073080090000', '16073080100000', '16073080110000'] -> 16073080090000 (1105 PLEASANT ST)
+[s10_districts] merge by address: ['16071180430000', '16071180450000'] -> 16071180430000 (1111 ONTARIO ST)
+[s10_districts] merge by address: ['16074180010000', '16074180050000'] -> 16074180010000 (408 S OAK PARK AVE)
+[s10_districts] merge by address: ['16074050050000', '16074050300000'] -> 16074050050000 (419 SOUTH BLVD)
+[s10_districts] merge by address: ['16074210160000', '16181050010000'] -> 16074210160000 (500 MADISON ST)
+[s10_districts] merge by class/AV/year within 100 m: ['16173000080000', '16173010010000'] -> 16173000080000 (327 HARRISON ST; class 318, AV 113781, built 1925.0)
+[s10_districts] merge by class/AV/year within 100 m: ['16071290130000', '16071290140000'] -> 16071290130000 (835 LAKE ST; class 391, AV 1376235, built 2023.0)
+[s10_districts] multi-PIN merges applied: 7
+[s10_districts] multi-family buildings (>= 2 units): 1565 with 16842 units
+[s10_districts] year source: char_yrblt=1027, condo_chars=281, commval=245, class_history=5, char_yrblt_anyyear=3, manual=2, unknown=2
+[s10_districts] unknown year: 2 buildings, 101 units: 1034 LAKE ST (Rest of Oak Park, 12 u, 318); 1035 MADISON ST (Rest of Oak Park, 89 u, 397)
+[s10_districts] manually dated (config MANUAL_YEAR_BUILT, with source): 1111 ONTARIO ST 1992.0 (358 u) <https://www.oakpark.com/2017/03/28/the-high-rise-wars/>; 408 S OAK PARK AVE 1921.0 (352 u) <https://en.wikipedia.org/wiki/Oak_Park_Arms>
+[s10_districts] class-history dated: 822 NORTH BLVD 2024.0 (7 u); 409 S MAPLE AVE 2024.0 (16 u); 801 VAN BUREN ST 2023.0 (31 u); 835 LAKE ST 2023.0 (172 u); 261 WASHINGTON BLVD 2023.0 (32 u)
+[s10_districts]   Frank Lloyd Wright: 222 MF buildings, 1731 units, 0 undated
+[s10_districts]   Ridgeland - Oak Park: 486 MF buildings, 6275 units, 0 undated
+[s10_districts]   Gunderson: 22 MF buildings, 48 units, 0 undated
+[s10_districts]   Rest of Oak Park: 835 MF buildings, 8788 units, 2 undated
+[s10_districts] output data/interim/s10_mf_buildings.csv (multi-family buildings with district, zone, year built) sha256=06a031695b5e rows=1565
+[s10_districts] output data/interim/s10_district_parcels.csv (housing units by district and bucket) sha256=d37df8422ee7 rows=11
+[s10_districts] output data/interim/s10_district_zoning.csv (district area by zoning district) sha256=ad3b022d4a24 rows=31
+[s10_districts] end (3.0s) -> outputs/provenance/s10_districts.json
+[s11_district_analysis] start s11_district_analysis.py (sha256 47ba91ce1d13)
+[s11_district_analysis] param END_YEAR=2025
+[s11_district_analysis] param designation_years={'Frank Lloyd Wright': 1972, 'Ridgeland - Oak Park': 1994, 'Gunderson': 2002}
+[s11_district_analysis] param sensitivity_years={'Frank Lloyd Wright': 2012, 'Ridgeland - Oak Park': 1983, 'Gunderson': 2003}
+[s11_district_analysis] input  data/interim/s10_mf_buildings.csv (MF buildings) sha256=06a031695b5e bytes=231666
+[s11_district_analysis] input  data/interim/s10_district_parcels.csv (units by district) sha256=d37df8422ee7 bytes=471
+[s11_district_analysis] input  data/interim/s10_district_zoning.csv (district zoning) sha256=ad3b022d4a24 bytes=1519
+[s11_district_analysis] output outputs/tables/G1_mf_units_by_decade_built.csv (table G1_mf_units_by_decade_built) sha256=4c6bd1d32a6b rows=4
+[s11_district_analysis] output outputs/tables/G2_mf_buildings_by_decade_built.csv (table G2_mf_buildings_by_decade_built) sha256=9624c5c50bb5 rows=4
+[s11_district_analysis] output outputs/tables/H1_before_after_local_designation.csv (table H1_before_after_local_designation) sha256=a1afa5f32320 rows=3
+[s11_district_analysis] output outputs/tables/H2_before_after_sensitivity_dates.csv (table H2_before_after_sensitivity_dates) sha256=5d61c55a84bc rows=3
+[s11_district_analysis] output outputs/tables/I_mf_built_after_designation.csv (table I_mf_built_after_designation) sha256=8e5a6a4a64a0 rows=19
+[s11_district_analysis] output outputs/tables/J_district_area_by_zoning.csv (table J_district_area_by_zoning) sha256=5f8cc3132441 rows=3
+[s11_district_analysis] output outputs/tables/K_district_housing_units_by_type_2026.csv (table K_district_housing_units_by_type_2026) sha256=65359ec53620 rows=4
+[s11_district_analysis] Frank Lloyd Wright: designated 1972; 54-yr windows: before 85 bldgs/1170 units, after 7 bldgs/128 units; rest of village before 4607, after 3062; undated 0 bldgs/0 units
+[s11_district_analysis] Ridgeland - Oak Park: designated 1994; 32-yr windows: before 51 bldgs/987 units, after 12 bldgs/419 units; rest of village before 2195, after 2123; undated 0 bldgs/0 units
+[s11_district_analysis] Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs/0 units; rest of village before 994, after 1953; undated 0 bldgs/0 units
+[s11_district_analysis] output outputs/fig_mf_by_decade.png (figure: MF units by decade built per district) sha256=955edd0d2ca2 rows=None
+[s11_district_analysis] output outputs/results_districts.md (district results narrative) sha256=555b3af14ae5 rows=None
+[s11_district_analysis] output outputs/results_districts.json (district tables as JSON) sha256=15c8d026452f rows=None
+[s11_district_analysis] end (0.3s) -> outputs/provenance/s11_district_analysis.json
+[s09_provenance] start s09_provenance.py (sha256 ee3a6dfdf8f2)
+[s09_provenance] input  outputs/provenance/s01_extract.json (stage record) sha256=12629ebe11fb bytes=2888
+[s09_provenance] input  outputs/provenance/s02_fetch.json (stage record) sha256=7a4aa9359cf6 bytes=16865
+[s09_provenance] input  outputs/provenance/s03_locate.json (stage record) sha256=2b47c879ec03 bytes=2016
+[s09_provenance] input  outputs/provenance/s04_units.json (stage record) sha256=bbd6efd168c9 bytes=5258
+[s09_provenance] input  outputs/provenance/s05_blocks.json (stage record) sha256=f6f8c8d17add bytes=6420
+[s09_provenance] input  outputs/provenance/s06_census.json (stage record) sha256=ad60f8c59cc5 bytes=3677
+[s09_provenance] input  outputs/provenance/s07_analyze.json (stage record) sha256=ab4fbb9e42fb bytes=7773
+[s09_provenance] input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233
+[s09_provenance] input  outputs/provenance/s10_districts.json (stage record) sha256=6c08685da173 bytes=5917
+[s09_provenance] input  outputs/provenance/s11_district_analysis.json (stage record) sha256=097a48f80716 bytes=5931
+[s09_provenance] verification passed: 75 produced files checked
+[s09_provenance] output PROVENANCE.md (human-readable provenance report) sha256=e82458622ecb rows=None
 [s09_provenance] end (0.0s) -> outputs/provenance/s09_provenance.json

@@ -16,6 +16,10 @@ Downloads:
   3. TIGER/Line 2020 blocks, block groups and places for Illinois.
   4. 2020 P.L. 94-171 summary file for Illinois.
   5. ACS 5-year block-group race table via Census Reporter.
+  6. Village of Oak Park historic district polygons (ArcGIS layer 13).
+  7. Assessor Condominium Unit Characteristics for Oak Park (year built
+     per condo building).
+  8. Village of Oak Park zoning district polygons (ArcGIS layer 8).
 """
 import json
 import os
@@ -25,7 +29,8 @@ import zipfile
 import pandas as pd
 import requests
 
-from config import (ACS_GEO_QUERY, HTTP_USER_AGENT, ACS_TABLES, ARCGIS_FIELDS, ARCGIS_MUNICIPALITY,
+from config import (ACS_GEO_QUERY, HTTP_USER_AGENT, SOCRATA_CONDO_URL, SOCRATA_CONDO_YEAR,
+                    VOP_HISTORIC_DISTRICTS_URL, VOP_ZONING_FIELDS, VOP_ZONING_URL, ACS_TABLES, ARCGIS_FIELDS, ARCGIS_MUNICIPALITY,
                     ARCGIS_PAGE, ARCGIS_PARCELS_URL, CENSUSREPORTER_URL, HTTP_RETRIES,
                     HTTP_TIMEOUT, INTERIM_DIR, PL_URL, RAW_DIR, SOCRATA_COMMVAL_TOWNSHIP,
                     SOCRATA_COMMVAL_URL, TIGER_BG_URL, TIGER_BLOCKS_URL, TIGER_PLACE_URL)
@@ -164,6 +169,65 @@ def fetch_acs(st):
                      "tables": list(ACS_TABLES), "release": rel})
 
 
+def fetch_districts(st):
+    dest = os.path.join(RAW_DIR, "vop_historic_districts.geojson")
+    if os.path.exists(dest):
+        st.note(f"exists, not re-downloaded: {dest}")
+    else:
+        r = get(VOP_HISTORIC_DISTRICTS_URL, params={"where": "1=1", "outFields": "*",
+                                                    "outSR": 4326, "f": "geojson"})
+        obj = r.json()
+        if "error" in obj:
+            raise RuntimeError(obj["error"])
+        obj["features"].sort(key=lambda f: f["properties"].get("OBJECTID", 0))
+        with open(dest, "w") as f:
+            json.dump(obj, f, sort_keys=True)
+        st.note("historic districts: " + ", ".join(
+            f"{f['properties']['NAME'].strip()} ({f['properties']['TYPE']})" for f in obj["features"]))
+    st.output(dest, role="Village of Oak Park historic district polygons",
+              extra={"url": VOP_HISTORIC_DISTRICTS_URL})
+
+
+def fetch_zoning(st):
+    dest = os.path.join(RAW_DIR, "vop_zoning.geojson")
+    if os.path.exists(dest):
+        st.note(f"exists, not re-downloaded: {dest}")
+    else:
+        r = get(VOP_ZONING_URL, params={"where": "1=1", "outFields": VOP_ZONING_FIELDS,
+                                        "outSR": 4326, "f": "geojson", "resultRecordCount": 2000})
+        obj = r.json()
+        if "error" in obj:
+            raise RuntimeError(obj["error"])
+        obj["features"].sort(key=lambda f: (f["properties"].get("ZONED") or "", json.dumps(f["geometry"])[:200]))
+        with open(dest, "w") as f:
+            json.dump(obj, f, sort_keys=True)
+        st.note(f"zoning: {len(obj['features'])} polygons, zones "
+                + ", ".join(sorted({f["properties"].get("ZONED") or "" for f in obj["features"]})))
+    st.output(dest, role="Village of Oak Park zoning district polygons", extra={"url": VOP_ZONING_URL})
+
+
+def fetch_condo_chars(st):
+    dest = os.path.join(RAW_DIR, f"socrata_3r7i-mrz4_oak_park_{SOCRATA_CONDO_YEAR}.json")
+    if os.path.exists(dest):
+        st.note(f"exists, not re-downloaded: {dest}")
+    else:
+        rows, offset = [], 0
+        while True:
+            r = get(SOCRATA_CONDO_URL, params={
+                "$where": f"township_code='27' AND year='{SOCRATA_CONDO_YEAR}'",
+                "$order": "pin", "$limit": 5000, "$offset": offset})
+            got = r.json()
+            rows.extend(got)
+            if len(got) < 5000:
+                break
+            offset += 5000
+        with open(dest, "w") as f:
+            json.dump(rows, f, sort_keys=True, indent=0)
+        st.note(f"socrata 3r7i-mrz4 township 27 year {SOCRATA_CONDO_YEAR}: {len(rows)} condo unit rows")
+    st.output(dest, role="Assessor Condominium Unit Characteristics, Oak Park",
+              extra={"url": SOCRATA_CONDO_URL, "year": SOCRATA_CONDO_YEAR})
+
+
 def main():
     with Stage("s02_fetch", __file__) as st:
         s01 = os.path.join(INTERIM_DIR, "s01_parcels.csv")
@@ -181,6 +245,9 @@ def main():
                      role="2020 P.L. 94-171 summary file, Illinois")
         unzip(st, p, os.path.join(RAW_DIR, "pl"))
         fetch_acs(st)
+        fetch_districts(st)
+        fetch_condo_chars(st)
+        fetch_zoning(st)
 
 
 if __name__ == "__main__":

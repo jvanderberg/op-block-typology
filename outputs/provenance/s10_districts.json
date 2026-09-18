@@ -1,0 +1,122 @@
+{
+ "config_sha256": "d132051599f4aed279f12819226b3aa8ae144170c9cb76eef90e38f6d3cf63ce",
+ "finished_utc": "2026-09-18T19:19:55Z",
+ "inputs": [
+  {
+   "bytes": 4290133,
+   "path": "data/interim/s04_parcel_units.csv",
+   "role": "parcel units",
+   "sha256": "69ef35157c647c2e47572dcf39e820c28af44ee5ab16362be99cddc7d874b809"
+  },
+  {
+   "bytes": 3765499,
+   "path": "data/interim/s01_class_history.csv",
+   "role": "class history",
+   "sha256": "508ab4be991d91d2a16cc875106cb58e1c21de37b2d9ce488f04376e42b6b8d9"
+  },
+  {
+   "bytes": 108951,
+   "path": "data/raw/vop_historic_districts.geojson",
+   "role": "historic districts",
+   "sha256": "4d22869c4b45671f1debfab8142c11787ce0194442e98953214e941f02f6257d"
+  },
+  {
+   "bytes": 1713606,
+   "path": "data/raw/vop_zoning.geojson",
+   "role": "zoning",
+   "sha256": "ea2423f9094f4afd3e7d45492d54100a017892e0b837eee9da9bc6ef99480d2e"
+  },
+  {
+   "bytes": 3146737,
+   "path": "data/raw/socrata_3r7i-mrz4_oak_park_2023.json",
+   "role": "condo characteristics",
+   "sha256": "42630c54bf1ec68f8f5eec68ca12855bd37ae7b779124f49ad33982c449f25e1"
+  },
+  {
+   "bytes": 410641,
+   "path": "data/raw/socrata_csik-bsws_oak_park.json",
+   "role": "commercial valuation",
+   "sha256": "9da68c86b26f3bbb624de45cb04f56d6aeb7af09466a2d28e3108c17796f7edb"
+  }
+ ],
+ "notes": [
+  "start s10_districts.py (sha256 e4de765b07d5)",
+  "param MF_UNIT_TYPES=('small_mf', 'large_mf', 'condo')",
+  "param MF_MIN_UNITS=2",
+  "param districts={'Frank Lloyd Wright': 1972, 'Ridgeland - Oak Park': 1994, 'Gunderson': 2002}",
+  "input  data/interim/s04_parcel_units.csv (parcel units) sha256=69ef35157c64 bytes=4290133",
+  "input  data/interim/s01_class_history.csv (class history) sha256=508ab4be991d bytes=3765499",
+  "input  data/raw/vop_historic_districts.geojson (historic districts) sha256=4d22869c4b45 bytes=108951",
+  "input  data/raw/vop_zoning.geojson (zoning) sha256=ea2423f9094f bytes=1713606",
+  "input  data/raw/socrata_3r7i-mrz4_oak_park_2023.json (condo characteristics) sha256=42630c54bf1e bytes=3146737",
+  "input  data/raw/socrata_csik-bsws_oak_park.json (commercial valuation) sha256=9da68c86b26f bytes=410641",
+  "districts: ['Frank Lloyd Wright', 'Gunderson', 'Ridgeland - Oak Park']; zoning polygons: 23",
+  "located parcels by district: Rest of Oak Park=11317, Ridgeland - Oak Park=4044, Frank Lloyd Wright=3033, Gunderson=291",
+  "parcels without a zoning polygon: 15",
+  "year lookups: condo buildings 289, commval PINs 810, any-year characteristics 11397, class history 19086 PINs from 2020",
+  "merge by address: ['16073080090000', '16073080100000', '16073080110000'] -> 16073080090000 (1105 PLEASANT ST)",
+  "merge by address: ['16071180430000', '16071180450000'] -> 16071180430000 (1111 ONTARIO ST)",
+  "merge by address: ['16074180010000', '16074180050000'] -> 16074180010000 (408 S OAK PARK AVE)",
+  "merge by address: ['16074050050000', '16074050300000'] -> 16074050050000 (419 SOUTH BLVD)",
+  "merge by address: ['16074210160000', '16181050010000'] -> 16074210160000 (500 MADISON ST)",
+  "merge by class/AV/year within 100 m: ['16173000080000', '16173010010000'] -> 16173000080000 (327 HARRISON ST; class 318, AV 113781, built 1925.0)",
+  "merge by class/AV/year within 100 m: ['16071290130000', '16071290140000'] -> 16071290130000 (835 LAKE ST; class 391, AV 1376235, built 2023.0)",
+  "multi-PIN merges applied: 7",
+  "multi-family buildings (>= 2 units): 1565 with 16842 units",
+  "year source: char_yrblt=1027, condo_chars=281, commval=245, class_history=5, char_yrblt_anyyear=3, manual=2, unknown=2",
+  "unknown year: 2 buildings, 101 units: 1034 LAKE ST (Rest of Oak Park, 12 u, 318); 1035 MADISON ST (Rest of Oak Park, 89 u, 397)",
+  "manually dated (config MANUAL_YEAR_BUILT, with source): 1111 ONTARIO ST 1992.0 (358 u) <https://www.oakpark.com/2017/03/28/the-high-rise-wars/>; 408 S OAK PARK AVE 1921.0 (352 u) <https://en.wikipedia.org/wiki/Oak_Park_Arms>",
+  "class-history dated: 822 NORTH BLVD 2024.0 (7 u); 409 S MAPLE AVE 2024.0 (16 u); 801 VAN BUREN ST 2023.0 (31 u); 835 LAKE ST 2023.0 (172 u); 261 WASHINGTON BLVD 2023.0 (32 u)",
+  "  Frank Lloyd Wright: 222 MF buildings, 1731 units, 0 undated",
+  "  Ridgeland - Oak Park: 486 MF buildings, 6275 units, 0 undated",
+  "  Gunderson: 22 MF buildings, 48 units, 0 undated",
+  "  Rest of Oak Park: 835 MF buildings, 8788 units, 2 undated",
+  "output data/interim/s10_mf_buildings.csv (multi-family buildings with district, zone, year built) sha256=06a031695b5e rows=1565",
+  "output data/interim/s10_district_parcels.csv (housing units by district and bucket) sha256=d37df8422ee7 rows=11",
+  "output data/interim/s10_district_zoning.csv (district area by zoning district) sha256=ad3b022d4a24 rows=31"
+ ],
+ "ok": true,
+ "outputs": [
+  {
+   "bytes": 231666,
+   "path": "data/interim/s10_mf_buildings.csv",
+   "role": "multi-family buildings with district, zone, year built",
+   "rows": 1565,
+   "sha256": "06a031695b5e18c6d929a3881fab15e1e30f8ddd17dd234ee50d9565c845a575"
+  },
+  {
+   "bytes": 471,
+   "path": "data/interim/s10_district_parcels.csv",
+   "role": "housing units by district and bucket",
+   "rows": 11,
+   "sha256": "d37df8422ee76a322304b78b4b93586e452c97631573b1383dae2376c39eddb0"
+  },
+  {
+   "bytes": 1519,
+   "path": "data/interim/s10_district_zoning.csv",
+   "role": "district area by zoning district",
+   "rows": 31,
+   "sha256": "ad3b022d4a242d9783c0a481e1aa74310ea29b756a06ae8209c939c7dec3ac82"
+  }
+ ],
+ "params": {
+  "MF_MIN_UNITS": 2,
+  "MF_UNIT_TYPES": [
+   "small_mf",
+   "large_mf",
+   "condo"
+  ],
+  "districts": {
+   "Frank Lloyd Wright": 1972,
+   "Gunderson": 2002,
+   "Ridgeland - Oak Park": 1994
+  }
+ },
+ "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
+ "python": "3.14.7",
+ "script": "s10_districts.py",
+ "script_sha256": "e4de765b07d589ee44b339756dc0d76c353624a181a6eafd7fc262fec0846689",
+ "seconds": 3.0,
+ "stage": "s10_districts",
+ "started_utc": "2026-09-18T19:19:51Z"
+}

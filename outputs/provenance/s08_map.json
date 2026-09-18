@@ -1,28 +1,28 @@
 {
- "config_sha256": "93ff1fdc862b57ac427eb77f9ec1d1229a3c7ed34efc9e528133469c3f87a915",
- "finished_utc": "2026-09-04T19:36:18Z",
+ "config_sha256": "d132051599f4aed279f12819226b3aa8ae144170c9cb76eef90e38f6d3cf63ce",
+ "finished_utc": "2026-09-18T19:18:57Z",
  "inputs": [
   {
-   "bytes": 1132389,
+   "bytes": 1132233,
    "path": "data/interim/s05_blocks.geojson",
    "role": "block polygons with category",
-   "sha256": "52826097e46274927199473b4a95e2735e6dce5fa3b3399ebd63521f2b60999c"
+   "sha256": "23782599068a7fa8e234d275e84f940d5786b9fd22b26d1bfcbc3e80eb9cc6e7"
   }
  ],
  "notes": [
   "start s08_map.py (sha256 ea9cfe61704b)",
-  "input  data/interim/s05_blocks.geojson (block polygons with category) sha256=52826097e462 bytes=1132389",
-  "map: 1058 blocks; counts {'single_family': 462, 'small_mf_2_6': 67, 'large_mf_7plus': 213, 'mixed': 218, 'no_housing': 98}",
-  "output outputs/map.html (interactive block-type map) sha256=671e89a8ad3e rows=None"
+  "input  data/interim/s05_blocks.geojson (block polygons with category) sha256=23782599068a bytes=1132233",
+  "map: 1058 blocks; counts {'single_family': 462, 'small_mf_2_6': 70, 'large_mf_7plus': 208, 'mixed': 220, 'no_housing': 98}",
+  "output outputs/map.html (interactive block-type map) sha256=52afbb523ec9 rows=None"
  ],
  "ok": true,
  "outputs": [
   {
-   "bytes": 680847,
+   "bytes": 680801,
    "path": "outputs/map.html",
    "role": "interactive block-type map",
    "rows": null,
-   "sha256": "671e89a8ad3e7a0540b43ea9677b5381f50bc30d1e6151ceb80e420b2a63369b"
+   "sha256": "52afbb523ec969ba022a3085b0ae34f56af86343985084dfab95d580e7fa7846"
   }
  ],
  "params": {},
@@ -32,5 +32,5 @@
  "script_sha256": "ea9cfe61704ba89bedf55f33513b2a3d386ba772fd0c3227fe96f987ddd14d81",
  "seconds": 0.0,
  "stage": "s08_map",
- "started_utc": "2026-09-04T19:36:18Z"
+ "started_utc": "2026-09-18T19:18:57Z"
 }

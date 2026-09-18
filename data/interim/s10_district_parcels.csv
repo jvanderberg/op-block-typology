@@ -1,0 +1,12 @@
+district,bucket,units,parcels,buildings
+Frank Lloyd Wright,large_mf,1314.0,983,51
+Frank Lloyd Wright,sf,1678.0,1678,1678
+Frank Lloyd Wright,small_mf,418.0,202,172
+Gunderson,sf,267.0,267,267
+Gunderson,small_mf,48.0,23,22
+Rest of Oak Park,large_mf,7158.0,2298,254
+Rest of Oak Park,sf,7105.0,7105,7105
+Rest of Oak Park,small_mf,1636.0,675,587
+Ridgeland - Oak Park,large_mf,5454.0,2107,188
+Ridgeland - Oak Park,sf,1270.0,1270,1270
+Ridgeland - Oak Park,small_mf,821.0,385,302

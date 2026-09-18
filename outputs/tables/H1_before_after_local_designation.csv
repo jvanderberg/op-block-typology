@@ -1,0 +1,4 @@
+district,designated,window_years,before,after,bldgs_before,units_before,bldgs_after,units_after,units_per_year_before,units_per_year_after,rest_units_before,rest_units_after,rest_units_per_year_before,rest_units_per_year_after,district_share_of_village_units_before,district_share_of_village_units_after,bldgs_undated,units_undated
+Frank Lloyd Wright,1972,54,1918-1971,1972-2025,85,1170.0,7,128.0,21.67,2.37,4607.0,3062.0,85.31,56.7,11.6,3.4,0,0.0
+Ridgeland - Oak Park,1994,32,1962-1993,1994-2025,51,987.0,12,419.0,30.84,13.09,2195.0,2123.0,68.59,66.34,27.0,16.5,0,0.0
+Gunderson,2002,24,1978-2001,2002-2025,0,0.0,0,0.0,0.0,0.0,994.0,1953.0,41.42,81.38,0.0,0.0,0,0.0

@@ -1,0 +1,139 @@
+{
+ "config_sha256": "d132051599f4aed279f12819226b3aa8ae144170c9cb76eef90e38f6d3cf63ce",
+ "finished_utc": "2026-09-18T19:19:55Z",
+ "inputs": [
+  {
+   "bytes": 231666,
+   "path": "data/interim/s10_mf_buildings.csv",
+   "role": "MF buildings",
+   "sha256": "06a031695b5e18c6d929a3881fab15e1e30f8ddd17dd234ee50d9565c845a575"
+  },
+  {
+   "bytes": 471,
+   "path": "data/interim/s10_district_parcels.csv",
+   "role": "units by district",
+   "sha256": "d37df8422ee76a322304b78b4b93586e452c97631573b1383dae2376c39eddb0"
+  },
+  {
+   "bytes": 1519,
+   "path": "data/interim/s10_district_zoning.csv",
+   "role": "district zoning",
+   "sha256": "ad3b022d4a242d9783c0a481e1aa74310ea29b756a06ae8209c939c7dec3ac82"
+  }
+ ],
+ "notes": [
+  "start s11_district_analysis.py (sha256 47ba91ce1d13)",
+  "param END_YEAR=2025",
+  "param designation_years={'Frank Lloyd Wright': 1972, 'Ridgeland - Oak Park': 1994, 'Gunderson': 2002}",
+  "param sensitivity_years={'Frank Lloyd Wright': 2012, 'Ridgeland - Oak Park': 1983, 'Gunderson': 2003}",
+  "input  data/interim/s10_mf_buildings.csv (MF buildings) sha256=06a031695b5e bytes=231666",
+  "input  data/interim/s10_district_parcels.csv (units by district) sha256=d37df8422ee7 bytes=471",
+  "input  data/interim/s10_district_zoning.csv (district zoning) sha256=ad3b022d4a24 bytes=1519",
+  "output outputs/tables/G1_mf_units_by_decade_built.csv (table G1_mf_units_by_decade_built) sha256=4c6bd1d32a6b rows=4",
+  "output outputs/tables/G2_mf_buildings_by_decade_built.csv (table G2_mf_buildings_by_decade_built) sha256=9624c5c50bb5 rows=4",
+  "output outputs/tables/H1_before_after_local_designation.csv (table H1_before_after_local_designation) sha256=a1afa5f32320 rows=3",
+  "output outputs/tables/H2_before_after_sensitivity_dates.csv (table H2_before_after_sensitivity_dates) sha256=5d61c55a84bc rows=3",
+  "output outputs/tables/I_mf_built_after_designation.csv (table I_mf_built_after_designation) sha256=8e5a6a4a64a0 rows=19",
+  "output outputs/tables/J_district_area_by_zoning.csv (table J_district_area_by_zoning) sha256=5f8cc3132441 rows=3",
+  "output outputs/tables/K_district_housing_units_by_type_2026.csv (table K_district_housing_units_by_type_2026) sha256=65359ec53620 rows=4",
+  "Frank Lloyd Wright: designated 1972; 54-yr windows: before 85 bldgs/1170 units, after 7 bldgs/128 units; rest of village before 4607, after 3062; undated 0 bldgs/0 units",
+  "Ridgeland - Oak Park: designated 1994; 32-yr windows: before 51 bldgs/987 units, after 12 bldgs/419 units; rest of village before 2195, after 2123; undated 0 bldgs/0 units",
+  "Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs/0 units; rest of village before 994, after 1953; undated 0 bldgs/0 units",
+  "output outputs/fig_mf_by_decade.png (figure: MF units by decade built per district) sha256=955edd0d2ca2 rows=None",
+  "output outputs/results_districts.md (district results narrative) sha256=555b3af14ae5 rows=None",
+  "output outputs/results_districts.json (district tables as JSON) sha256=15c8d026452f rows=None"
+ ],
+ "ok": true,
+ "outputs": [
+  {
+   "bytes": 559,
+   "path": "outputs/tables/G1_mf_units_by_decade_built.csv",
+   "role": "table G1_mf_units_by_decade_built",
+   "rows": 4,
+   "sha256": "4c6bd1d32a6b807663156f4bc6f3491ba6b8f2ca20b17c5c19a457cc8e2d1722"
+  },
+  {
+   "bytes": 504,
+   "path": "outputs/tables/G2_mf_buildings_by_decade_built.csv",
+   "role": "table G2_mf_buildings_by_decade_built",
+   "rows": 4,
+   "sha256": "9624c5c50bb55b68d853842ef247fb1e6bc7eb5ba5b115547767d10ece939404"
+  },
+  {
+   "bytes": 666,
+   "path": "outputs/tables/H1_before_after_local_designation.csv",
+   "role": "table H1_before_after_local_designation",
+   "rows": 3,
+   "sha256": "a1afa5f32320590bb0c74676e051a6d15eb8e3437a4da884185e419c832f7585"
+  },
+  {
+   "bytes": 658,
+   "path": "outputs/tables/H2_before_after_sensitivity_dates.csv",
+   "role": "table H2_before_after_sensitivity_dates",
+   "rows": 3,
+   "sha256": "5d61c55a84bc842fdbba4a32d8c5985ac245ce51d14af49d4d0fe8709adb726d"
+  },
+  {
+   "bytes": 1725,
+   "path": "outputs/tables/I_mf_built_after_designation.csv",
+   "role": "table I_mf_built_after_designation",
+   "rows": 19,
+   "sha256": "8e5a6a4a64a031ae9ed31f76cd2aa8656739e1b57b19b661331114f9f778f971"
+  },
+  {
+   "bytes": 353,
+   "path": "outputs/tables/J_district_area_by_zoning.csv",
+   "role": "table J_district_area_by_zoning",
+   "rows": 3,
+   "sha256": "5f8cc313244182e74cbcd1acf1898a07e5c7fa5ac1721fed5dc15f92c5ef3d3b"
+  },
+  {
+   "bytes": 299,
+   "path": "outputs/tables/K_district_housing_units_by_type_2026.csv",
+   "role": "table K_district_housing_units_by_type_2026",
+   "rows": 4,
+   "sha256": "65359ec53620c7de0f9b03f1da7405fd8a2fef8e8e6f96fb5d37e41ed98d3ca4"
+  },
+  {
+   "bytes": 133043,
+   "path": "outputs/fig_mf_by_decade.png",
+   "role": "figure: MF units by decade built per district",
+   "rows": null,
+   "sha256": "955edd0d2ca2ccfbf6a04333301b19af5ec628f6c44166e7e15e294d72af9d96"
+  },
+  {
+   "bytes": 8439,
+   "path": "outputs/results_districts.md",
+   "role": "district results narrative",
+   "rows": null,
+   "sha256": "555b3af14ae589a3fbfd3a53e11f5e9935e276b33d0c0169d6add6f5c86eb8ee"
+  },
+  {
+   "bytes": 13050,
+   "path": "outputs/results_districts.json",
+   "role": "district tables as JSON",
+   "rows": null,
+   "sha256": "15c8d026452fb35a122da4573381d20612116a75d99afd40338bd712d8695b5d"
+  }
+ ],
+ "params": {
+  "END_YEAR": 2025,
+  "designation_years": {
+   "Frank Lloyd Wright": 1972,
+   "Gunderson": 2002,
+   "Ridgeland - Oak Park": 1994
+  },
+  "sensitivity_years": {
+   "Frank Lloyd Wright": 2012,
+   "Gunderson": 2003,
+   "Ridgeland - Oak Park": 1983
+  }
+ },
+ "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
+ "python": "3.14.7",
+ "script": "s11_district_analysis.py",
+ "script_sha256": "47ba91ce1d13e280c42d8aea16f8d9278e8f3e1107b3a43446bc6798636e15c6",
+ "seconds": 0.3,
+ "stage": "s11_district_analysis",
+ "started_utc": "2026-09-18T19:19:55Z"
+}

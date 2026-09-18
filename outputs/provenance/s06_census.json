@@ -1,12 +1,12 @@
 {
- "config_sha256": "93ff1fdc862b57ac427eb77f9ec1d1229a3c7ed34efc9e528133469c3f87a915",
- "finished_utc": "2026-09-04T19:36:18Z",
+ "config_sha256": "d132051599f4aed279f12819226b3aa8ae144170c9cb76eef90e38f6d3cf63ce",
+ "finished_utc": "2026-09-18T19:18:56Z",
  "inputs": [
   {
-   "bytes": 192216,
+   "bytes": 192060,
    "path": "data/interim/s05_blocks.csv",
    "role": "Oak Park block list with TIGER POP20/HOUSING20",
-   "sha256": "8d252e3d8aa2b36047e104ec2e89199f887edd7e2e950a3239879e1ac43c3aab"
+   "sha256": "a21310185a3183ae22f6213f471dc75a2473fa95fba495b15ecce32c327e27f3"
   },
   {
    "bytes": 229047517,
@@ -41,7 +41,7 @@
  ],
  "notes": [
   "start s06_census.py (sha256 c3452e67a0a1)",
-  "input  data/interim/s05_blocks.csv (Oak Park block list with TIGER POP20/HOUSING20) sha256=8d252e3d8aa2 bytes=192216",
+  "input  data/interim/s05_blocks.csv (Oak Park block list with TIGER POP20/HOUSING20) sha256=a21310185a31 bytes=192060",
   "input  data/raw/pl/ilgeo2020.pl (2020 P.L. 94-171 Illinois) sha256=0629a31079ac bytes=229047517",
   "input  data/raw/pl/il000012020.pl (2020 P.L. 94-171 Illinois) sha256=c3b6d40015d9 bytes=199590170",
   "input  data/raw/pl/il000022020.pl (2020 P.L. 94-171 Illinois) sha256=925f667072cb bytes=203562829",
@@ -79,7 +79,7 @@
  "python": "3.14.7",
  "script": "s06_census.py",
  "script_sha256": "c3452e67a0a1b17ccfd9787f573dd543e7f28fb8b384b15442201f076689b823",
- "seconds": 2.7,
+ "seconds": 2.9,
  "stage": "s06_census",
- "started_utc": "2026-09-04T19:36:15Z"
+ "started_utc": "2026-09-18T19:18:53Z"
 }

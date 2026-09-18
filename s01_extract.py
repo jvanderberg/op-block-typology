@@ -9,7 +9,11 @@ of its first 64 MB rather than hashed in full.
 
 Outputs: data/interim/s01_parcels.csv, one row per PIN;
          data/interim/s01_address_points.csv, every Oak Park address point
-         (address, lat, lon) for the address-match locating rule in stage 3.
+         (address, lat, lon) for the address-match locating rule in stage 3;
+         data/interim/s01_class_history.csv, (pin, year, class) for every
+         Oak Park PIN in every assessment year in the database, plus the
+         PIN's year built from any year's characteristics record (used to
+         date buildings whose 2026 record carries no year built).
 """
 import os
 import sqlite3
@@ -56,6 +60,13 @@ def main():
             """SELECT pin, address, lat, lon FROM address_points
                WHERE city LIKE '%Oak Park%' AND lat IS NOT NULL AND lon IS NOT NULL
                ORDER BY pin""", db)
+        hist = pd.read_sql_query(
+            """SELECT a.pin, a.year, a.class, c.char_yrblt
+               FROM assessed_values a
+               LEFT JOIN (SELECT pin, year, MAX(char_yrblt) AS char_yrblt
+                          FROM property_characteristics WHERE township_code=? GROUP BY pin, year) c
+                 ON c.pin=a.pin AND c.year=a.year
+               WHERE a.township_code=? ORDER BY a.pin, a.year""", db, params=(TOWNSHIP_CODE, TOWNSHIP_CODE))
         db.close()
         assert len(df) == n_av, f"join changed row count: {len(df)} != {n_av}"
         assert df.pin.is_unique, "duplicate PINs in extract"
@@ -70,6 +81,10 @@ def main():
         ap.to_csv(out2, index=False)
         st.note(f"address points with city like Oak Park and coordinates: {len(ap)}")
         st.output(out2, role="Oak Park address points (address, lat, lon)")
+        out3 = os.path.join(INTERIM_DIR, "s01_class_history.csv")
+        hist.to_csv(out3, index=False)
+        st.note(f"class history rows: {len(hist)} over years {sorted(hist.year.unique())}")
+        st.output(out3, role="assessment class and year built per PIN per year")
 
 
 if __name__ == "__main__":

@@ -21,7 +21,9 @@ Unit rules (all class lists live in config.py):
 
 Override: a PIN that the Commercial Valuation Data lists as an apartment
 property (class 3-xx with tot_units) is counted as large_mf with those units
-whatever its 2026 class says. This catches new apartment towers carried as
+whatever its 2026 class says. Rows of other classes that carry tot_units
+(mostly 2-36 mixed-use rows) are used only for PINs already classed
+large_mf here, in place of the assessed-value estimate. This catches new apartment towers carried as
 exempt or commercial PINs in the assessed-values file (e.g. 150 Forest Ave,
 1005 Lake St). Each override is logged with both classes.
 
@@ -72,12 +74,19 @@ def commval_units(st, pins_in_scope, av_bldg):
     st.input(path, role="Commercial Valuation Data (unit counts)")
     with open(path) as f:
         rows = json.load(f)
-    rows = [r for r in rows if r.get("tot_units") not in (None, "") and "3-" in (r.get("class_es") or "")]
-    st.note(f"commval: {len(rows)} apartment rows with tot_units")
+    rows = [r for r in rows if r.get("tot_units") not in (None, "")]
+    n_apt = sum(1 for r in rows if "3-" in (r.get("class_es") or ""))
+    st.note(f"commval: {len(rows)} rows with tot_units ({n_apt} apartment-class 3-xx, "
+            f"{len(rows) - n_apt} other classes, mostly 2-36 mixed-use)")
     best = {}
     for r in rows:
         k = pin14(r["keypin"])
-        if k not in best or int(float(r["year"])) > int(float(best[k]["year"])):
+        is_apt = "3-" in (r.get("class_es") or "")
+        if k not in best:
+            best[k] = r
+            continue
+        b_apt = "3-" in (best[k].get("class_es") or "")
+        if (is_apt, int(float(r["year"]))) > (b_apt, int(float(best[k]["year"]))):
             best[k] = r
     out, n_multi, n_alloc_pins = {}, 0, 0
     for k, r in sorted(best.items()):
@@ -96,7 +105,7 @@ def commval_units(st, pins_in_scope, av_bldg):
             if p in out:
                 st.note(f"commval PIN {p} appears under two keypins; keeping first ({out[p][1]})")
                 continue
-            out[p] = (tot * wi, k, int(float(r["year"])), len(inscope))
+            out[p] = (tot * wi, k, int(float(r["year"])), len(inscope), r.get("yearbuilt"))
             n_alloc_pins += 1
     st.note(f"commval: {len(best)} properties, {n_multi} span several PINs, "
             f"{n_alloc_pins} PINs received an allocation")
@@ -151,9 +160,13 @@ def main():
 
         # --- Commercial Valuation override for PINs not classed residential-large
         n_over = 0
+        apt_keypins = {pin14(r["keypin"]) for r in json.load(open(os.path.join(RAW_DIR, "socrata_csik-bsws_oak_park.json")))
+                       if "3-" in (r.get("class_es") or "") and r.get("tot_units") not in (None, "")}
         for i in df.index[df.pin.isin(cv.keys()) & (df.unit_type != "large_mf")]:
             p = df.at[i, "pin"]
             if cv[p][0] <= 0:      # ancillary PIN of a multi-PIN property (0 units allocated)
+                continue
+            if cv[p][1] not in apt_keypins:   # a 2-36 row does not reclassify a small building
                 continue
             st.note(f"commval override: PIN {p} ({df.at[i, 'address']}) is class {df.at[i, 'class']} in {YEAR} "
                     f"assessed values but an apartment property with {cv[p][0]:.1f} units in the "
@@ -178,7 +191,14 @@ def main():
             c = df.at[i, "class"]
             apu = av_per_unit_cls.get(c, av_per_unit_all)
             avb = float(df.at[i, "mailed_bldg"] or 0)
-            est = max(LARGE_MF_MIN_UNITS, int(round(avb / apu))) if apu > 0 else LARGE_MF_MIN_UNITS
+            raw = avb / apu if apu > 0 else 0.0
+            if raw < 0.5:
+                # Building AV below half a unit's worth: an ancillary parcel
+                # (parking, yard) of an apartment property, not a building.
+                df.at[i, "units"] = 0.0
+                df.at[i, "units_source"] = "estimate_av/ancillary"
+                continue
+            est = max(LARGE_MF_MIN_UNITS, int(round(raw)))
             df.at[i, "units"] = float(est)
             df.at[i, "units_source"] = f"estimate_av/{'class' if c in av_per_unit_cls else 'all'}"
         st.note(f"large_mf: {len(lm)} PINs, {int(covered.shape[0])} with commval units, "

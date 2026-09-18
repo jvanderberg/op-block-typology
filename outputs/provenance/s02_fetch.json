@@ -1,6 +1,6 @@
 {
- "config_sha256": "93ff1fdc862b57ac427eb77f9ec1d1229a3c7ed34efc9e528133469c3f87a915",
- "finished_utc": "2026-09-04T19:36:12Z",
+ "config_sha256": "d132051599f4aed279f12819226b3aa8ae144170c9cb76eef90e38f6d3cf63ce",
+ "finished_utc": "2026-09-18T19:18:45Z",
  "inputs": [
   {
    "bytes": 1973880,
@@ -10,7 +10,7 @@
   }
  ],
  "notes": [
-  "start s02_fetch.py (sha256 4a0d8e7a63cd)",
+  "start s02_fetch.py (sha256 a53e9df8ffba)",
   "input  data/interim/s01_parcels.csv (parcel list (for supplemental PIN fetch)) sha256=2de4e10e6e82 bytes=1973880",
   "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/arcgis_parcels_oak_park.geojson",
   "output data/raw/arcgis_parcels_oak_park.geojson (Cook County parcel polygons (ArcGIS snapshot)) sha256=bf25146aa0fa rows=13849",
@@ -54,7 +54,13 @@
   "output data/raw/pl/il000032020.pl (member of il2020.pl.zip) sha256=5c2f61cc356b rows=None",
   "output data/raw/pl/ilgeo2020.pl (member of il2020.pl.zip) sha256=0629a31079ac rows=None",
   "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/censusreporter_acs_bg.json",
-  "output data/raw/censusreporter_acs_bg.json (ACS 5-year block-group tables via Census Reporter) sha256=da35edfce163 rows=53"
+  "output data/raw/censusreporter_acs_bg.json (ACS 5-year block-group tables via Census Reporter) sha256=da35edfce163 rows=53",
+  "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/vop_historic_districts.geojson",
+  "output data/raw/vop_historic_districts.geojson (Village of Oak Park historic district polygons) sha256=4d22869c4b45 rows=3",
+  "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/socrata_3r7i-mrz4_oak_park_2023.json",
+  "output data/raw/socrata_3r7i-mrz4_oak_park_2023.json (Assessor Condominium Unit Characteristics, Oak Park) sha256=42630c54bf1e rows=5472",
+  "exists, not re-downloaded: /Users/joshv/git/op-block-typology/data/raw/vop_zoning.geojson",
+  "output data/raw/vop_zoning.geojson (Village of Oak Park zoning district polygons) sha256=ea2423f9094f rows=23"
  ],
  "ok": true,
  "outputs": [
@@ -323,14 +329,39 @@
     "B01003"
    ],
    "url": "https://api.censusreporter.org/1.0/data/show/latest"
+  },
+  {
+   "bytes": 108951,
+   "path": "data/raw/vop_historic_districts.geojson",
+   "role": "Village of Oak Park historic district polygons",
+   "rows": 3,
+   "sha256": "4d22869c4b45671f1debfab8142c11787ce0194442e98953214e941f02f6257d",
+   "url": "https://utility.arcgis.com/usrsvcs/servers/4cff1aaefa364b57b8c70d5c606f2088/rest/services/VOP/AGOL_VOP_Project/MapServer/13/query"
+  },
+  {
+   "bytes": 3146737,
+   "path": "data/raw/socrata_3r7i-mrz4_oak_park_2023.json",
+   "role": "Assessor Condominium Unit Characteristics, Oak Park",
+   "rows": 5472,
+   "sha256": "42630c54bf1ec68f8f5eec68ca12855bd37ae7b779124f49ad33982c449f25e1",
+   "url": "https://datacatalog.cookcountyil.gov/resource/3r7i-mrz4.json",
+   "year": "2023"
+  },
+  {
+   "bytes": 1713606,
+   "path": "data/raw/vop_zoning.geojson",
+   "role": "Village of Oak Park zoning district polygons",
+   "rows": 23,
+   "sha256": "ea2423f9094f4afd3e7d45492d54100a017892e0b837eee9da9bc6ef99480d2e",
+   "url": "https://utility.arcgis.com/usrsvcs/servers/4cff1aaefa364b57b8c70d5c606f2088/rest/services/VOP/AGOL_VOP_Project/MapServer/8/query"
   }
  ],
  "params": {},
  "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
  "python": "3.14.7",
  "script": "s02_fetch.py",
- "script_sha256": "4a0d8e7a63cdd049dbb7ea0144bc0116b84dc65909450fe9943956a326457f75",
- "seconds": 2.1,
+ "script_sha256": "a53e9df8ffbae101edc753d08cf1819c5a8cf7bd7fcc1f0d0a97ccb41ab6a9aa",
+ "seconds": 2.4,
  "stage": "s02_fetch",
- "started_utc": "2026-09-04T19:36:10Z"
+ "started_utc": "2026-09-18T19:18:43Z"
 }
