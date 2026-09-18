@@ -419,7 +419,7 @@ Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs
 
 ## s12_explorer_data
 
-Script `s12_explorer_data.py` (sha256 64ab836ec5854894), config.py d132051599f4aed2, python 3.14.7, started 2026-09-18T19:57:35Z, 0.4 s.
+Script `s12_explorer_data.py` (sha256 85d6dee4ab530ebf), config.py d132051599f4aed2, python 3.14.7, started 2026-09-18T20:01:12Z, 0.2 s.
 
 Parameters: `EXPLORER_DISTRICTS=['Frank Lloyd Wright', 'Ridgeland - Oak Park']`, `SIZE_CLASSES=['2', '3', '4', '5', '6', '7+']`
 
@@ -432,7 +432,7 @@ Inputs:
 
 Outputs:
 
-- `outputs/explorer_data/mf_buildings.json` sha256 0642251dce6b3a8b, 304218 bytes
+- `outputs/explorer_data/mf_buildings.json` sha256 906c2ea649757437, 304238 bytes
 
 Log:
 

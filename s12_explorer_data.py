@@ -80,7 +80,7 @@ def main():
                               "areaSqMi": round(areas[name], 4)})
         districts.append({"name": REST_NAME, "slug": REST_SLUG, "localYear": None, "localDate": "", "localOrdinance": "",
                           "nrYear": None, "nrDate": "", "boundaryNote": "All of Oak Park outside the three historic districts.",
-                          "sensitivityYear": None})
+                          "sensitivityYear": None, "areaSqMi": round(areas["__rest__"], 4)})
         buildings = []
         for r in b.itertuples(index=False):
             buildings.append({

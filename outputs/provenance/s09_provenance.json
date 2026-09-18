@@ -1,6 +1,6 @@
 {
  "config_sha256": "d132051599f4aed279f12819226b3aa8ae144170c9cb76eef90e38f6d3cf63ce",
- "finished_utc": "2026-09-18T19:57:36Z",
+ "finished_utc": "2026-09-18T20:01:14Z",
  "inputs": [
   {
    "bytes": 2888,
@@ -66,7 +66,7 @@
    "bytes": 2961,
    "path": "outputs/provenance/s12_explorer_data.json",
    "role": "stage record",
-   "sha256": "79a910b742394ede356e42c53496837a9e9d2d871ede7e74f08c480a884eb4dc"
+   "sha256": "e6876c0e317f6d33da8d37f39dbba93256b459175ab6de955f27969353519486"
   }
  ],
  "notes": [
@@ -81,9 +81,9 @@
   "input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233",
   "input  outputs/provenance/s10_districts.json (stage record) sha256=6c08685da173 bytes=5917",
   "input  outputs/provenance/s11_district_analysis.json (stage record) sha256=097a48f80716 bytes=5931",
-  "input  outputs/provenance/s12_explorer_data.json (stage record) sha256=79a910b74239 bytes=2961",
+  "input  outputs/provenance/s12_explorer_data.json (stage record) sha256=e6876c0e317f bytes=2961",
   "verification passed: 76 produced files checked",
-  "output PROVENANCE.md (human-readable provenance report) sha256=8863ff9d73db rows=None"
+  "output PROVENANCE.md (human-readable provenance report) sha256=283f890ad2d5 rows=None"
  ],
  "ok": true,
  "outputs": [
@@ -92,7 +92,7 @@
    "path": "PROVENANCE.md",
    "role": "human-readable provenance report",
    "rows": null,
-   "sha256": "8863ff9d73dbd0a513e9665dab5246856531815e7881c978f1a489430beefd3a"
+   "sha256": "283f890ad2d598eeceee7b1c4dbaf2e597c1dac751ab5720522e01c7aade2152"
   }
  ],
  "params": {},
@@ -102,5 +102,5 @@
  "script_sha256": "520d3c3efdbbc26a7666eef7127ed91733de566fe9426889e2950f780e981813",
  "seconds": 0.0,
  "stage": "s09_provenance",
- "started_utc": "2026-09-18T19:57:36Z"
+ "started_utc": "2026-09-18T20:01:14Z"
 }
