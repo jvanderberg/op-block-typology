@@ -16,5 +16,6 @@ $PY s07_analyze.py
 $PY s08_map.py
 $PY s10_districts.py
 $PY s11_district_analysis.py
+$PY s12_explorer_data.py
 $PY s09_provenance.py
 echo "done: outputs/results.md, outputs/results_districts.md, outputs/map.html, PROVENANCE.md, outputs/audit.log"

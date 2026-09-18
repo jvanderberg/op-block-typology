@@ -1,6 +1,6 @@
 {
  "config_sha256": "d132051599f4aed279f12819226b3aa8ae144170c9cb76eef90e38f6d3cf63ce",
- "finished_utc": "2026-09-18T19:19:57Z",
+ "finished_utc": "2026-09-18T19:29:19Z",
  "inputs": [
   {
    "bytes": 2888,
@@ -61,10 +61,16 @@
    "path": "outputs/provenance/s11_district_analysis.json",
    "role": "stage record",
    "sha256": "097a48f80716991b97648767c68ef72095d71ba0b4d47b89fe18db6e00d61fc0"
+  },
+  {
+   "bytes": 1733,
+   "path": "outputs/provenance/s12_explorer_data.json",
+   "role": "stage record",
+   "sha256": "80ff3dd4997889c88dc0245a96a3d089fd4b4ff881e9e39fbd42a1669d5c5f72"
   }
  ],
  "notes": [
-  "start s09_provenance.py (sha256 ee3a6dfdf8f2)",
+  "start s09_provenance.py (sha256 520d3c3efdbb)",
   "input  outputs/provenance/s01_extract.json (stage record) sha256=12629ebe11fb bytes=2888",
   "input  outputs/provenance/s02_fetch.json (stage record) sha256=7a4aa9359cf6 bytes=16865",
   "input  outputs/provenance/s03_locate.json (stage record) sha256=2b47c879ec03 bytes=2016",
@@ -75,25 +81,26 @@
   "input  outputs/provenance/s08_map.json (stage record) sha256=d1460ebef857 bytes=1233",
   "input  outputs/provenance/s10_districts.json (stage record) sha256=6c08685da173 bytes=5917",
   "input  outputs/provenance/s11_district_analysis.json (stage record) sha256=097a48f80716 bytes=5931",
-  "verification passed: 75 produced files checked",
-  "output PROVENANCE.md (human-readable provenance report) sha256=e82458622ecb rows=None"
+  "input  outputs/provenance/s12_explorer_data.json (stage record) sha256=80ff3dd49978 bytes=1733",
+  "verification passed: 76 produced files checked",
+  "output PROVENANCE.md (human-readable provenance report) sha256=6bbfccddf2e8 rows=None"
  ],
  "ok": true,
  "outputs": [
   {
-   "bytes": 29792,
+   "bytes": 30502,
    "path": "PROVENANCE.md",
    "role": "human-readable provenance report",
    "rows": null,
-   "sha256": "e82458622ecb7ef6294942e7c1a9f5a263dec186fb9f54b3cceb38aef4532809"
+   "sha256": "6bbfccddf2e81fce187b74b5f3ad491d725c70a25ee7b90c4907ed8759ad996d"
   }
  ],
  "params": {},
  "platform": "macOS-15.4.1-arm64-arm-64bit-Mach-O",
  "python": "3.14.7",
  "script": "s09_provenance.py",
- "script_sha256": "ee3a6dfdf8f268986f6d385a622569433c4ff9b00f0bf727f849ad3e8a460e33",
+ "script_sha256": "520d3c3efdbbc26a7666eef7127ed91733de566fe9426889e2950f780e981813",
  "seconds": 0.0,
  "stage": "s09_provenance",
- "started_utc": "2026-09-18T19:19:57Z"
+ "started_utc": "2026-09-18T19:29:19Z"
 }

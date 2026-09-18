@@ -22,7 +22,8 @@ from config import OUT_DIR, PROV_DIR, ROOT
 from provenance import Stage, rel, sha256_file
 
 ORDER = ["s01_extract", "s02_fetch", "s03_locate", "s04_units", "s05_blocks",
-         "s06_census", "s07_analyze", "s08_map", "s10_districts", "s11_district_analysis"]
+         "s06_census", "s07_analyze", "s08_map", "s10_districts", "s11_district_analysis",
+         "s12_explorer_data"]
 
 
 def main():

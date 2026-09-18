@@ -416,3 +416,24 @@ Frank Lloyd Wright: designated 1972; 54-yr windows: before 85 bldgs/1170 units, 
 Ridgeland - Oak Park: designated 1994; 32-yr windows: before 51 bldgs/987 units, after 12 bldgs/419 units; rest of village before 2195, after 2123; undated 0 bldgs/0 units
 Gunderson: designated 2002; 24-yr windows: before 0 bldgs/0 units, after 0 bldgs/0 units; rest of village before 994, after 1953; undated 0 bldgs/0 units
 ```
+
+## s12_explorer_data
+
+Script `s12_explorer_data.py` (sha256 b37902afb2d3ad77), config.py d132051599f4aed2, python 3.14.7, started 2026-09-18T19:29:18Z, 0.1 s.
+
+Parameters: `EXPLORER_DISTRICTS=['Frank Lloyd Wright', 'Ridgeland - Oak Park']`, `SIZE_CLASSES=['2', '3', '4', '5', '6', '7+']`
+
+Inputs:
+
+- `data/interim/s10_mf_buildings.csv` from s10_districts, sha256 06a031695b5e18c6, 231666 bytes
+
+Outputs:
+
+- `outputs/explorer_data/mf_buildings.json` sha256 512e28a6ef9ebe00, 138939 bytes
+
+Log:
+
+```
+Frank Lloyd Wright: 222 buildings, 1731 units, undated 0; by size: 2=133, 3=21, 4=9, 5=1, 6=8, 7+=50
+Ridgeland - Oak Park: 486 buildings, 6275 units, undated 0; by size: 2=199, 3=43, 4=32, 5=8, 6=23, 7+=181
+```
