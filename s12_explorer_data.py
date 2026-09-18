@@ -11,7 +11,8 @@ built, unit count, size class (2, 3, 4, 5, 6, 7+), type, zone, year source
 and the assessor building id, so a viewer can trace any bar back to parcels. `linkPin` is a 14-digit PIN
 with an Assessor web page: the PIN itself for ordinary buildings, and the
 lowest-numbered unit PIN for condominium buildings (whose id is the 10-digit
-parent, which has no page). Each area (district or rest
+parent, which has no page). `lat`/`lon` is the parcel's representative
+point from stage 3 (WGS84), for map links. Each area (district or rest
 of village) carries its land area in square miles, measured from the Village
 district polygons and the TIGER place polygon in EPSG:26971 (NAD83 Illinois
 East), so the explorer can show units per square mile.
@@ -98,6 +99,8 @@ def main():
                 "type": r.unit_type, "zone": r.zone if isinstance(r.zone, str) else "",
                 "yearSource": r.yr_source, "pins": int(r.n_pins),
                 "linkPin": r.building_id if len(r.building_id) == 14 else first_pin.get(r.building_id, ""),
+                "lat": round(float(r.lat), 6) if pd.notna(r.lat) else None,
+                "lon": round(float(r.lon), 6) if pd.notna(r.lon) else None,
             })
         out_obj = {
             "generated": {"stage": "s12_explorer_data", "source": "data/interim/s10_mf_buildings.csv",
